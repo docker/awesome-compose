@@ -1,0 +1,29 @@
+version: "3.7"
+services:
+  backend:
+    build: backend
+    secrets:
+    - db-password
+    depends_on:
+    - db
+  db:
+    environment:
+      POSTGRES_DB: example
+      POSTGRES_PASSWORD_FILE: /run/secrets/db-password
+    image: postgres
+    restart: always
+    secrets:
+    - db-password
+    volumes:
+    - db-data:/var/lib/postgresql/data
+  proxy:
+    build: proxy
+    ports:
+    - 80:80
+    depends_on: 
+    - backend
+volumes:
+  db-data: {}
+secrets:
+  db-password:
+    file: db/password.txt
