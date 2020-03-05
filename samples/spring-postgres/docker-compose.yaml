@@ -1,0 +1,21 @@
+version: "3.7"
+services:
+  backend:
+    build: backend
+    ports:
+    - 80:8080
+  db:
+    environment:
+      POSTGRES_DB: example
+      POSTGRES_PASSWORD_FILE: /run/secrets/db-password
+    image: postgres
+    restart: always
+    secrets:
+    - db-password
+    volumes:
+    - db-data:/var/lib/postgresql/data
+volumes:
+  db-data: {}
+secrets:
+  db-password:
+    file: db/password.txt
