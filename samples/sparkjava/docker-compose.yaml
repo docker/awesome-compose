@@ -1,0 +1,6 @@
+version: "3.7"
+services:
+  sparkjava:
+    build: sparkjava
+    ports:
+    - 80:8080
