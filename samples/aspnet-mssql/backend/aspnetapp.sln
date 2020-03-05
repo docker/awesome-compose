@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2027
+MinimumVisualStudioVersion = 15.0.26124.0
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "aspnetapp", "aspnetapp\aspnetapp.csproj", "{5FDCC1ED-9F59-47ED-969D-5E463CDD8D52}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1E1C7ABA-885A-4273-811E-B66AD28F9A87}"
+	ProjectSection(SolutionItems) = preProject
+		.dockerignore = .dockerignore
+		aspnet-docker-dev-in-container.md = aspnet-docker-dev-in-container.md
+		aspnetcore-docker-arm32.md = aspnetcore-docker-arm32.md
+		deploy-container-to-aci.md = deploy-container-to-aci.md
+		Directory.Build.props = Directory.Build.props
+		Dockerfile = Dockerfile
+		Dockerfile.alpine-x64 = Dockerfile.alpine-x64
+		Dockerfile.nanoserver-sac2016 = Dockerfile.nanoserver-sac2016
+		Dockerfile.preview = Dockerfile.preview
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5FDCC1ED-9F59-47ED-969D-5E463CDD8D52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FDCC1ED-9F59-47ED-969D-5E463CDD8D52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FDCC1ED-9F59-47ED-969D-5E463CDD8D52}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{5FDCC1ED-9F59-47ED-969D-5E463CDD8D52}.Debug|x64.Build.0 = Debug|Any CPU
+		{5FDCC1ED-9F59-47ED-969D-5E463CDD8D52}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{5FDCC1ED-9F59-47ED-969D-5E463CDD8D52}.Debug|x86.Build.0 = Debug|Any CPU
+		{5FDCC1ED-9F59-47ED-969D-5E463CDD8D52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FDCC1ED-9F59-47ED-969D-5E463CDD8D52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FDCC1ED-9F59-47ED-969D-5E463CDD8D52}.Release|x64.ActiveCfg = Release|Any CPU
+		{5FDCC1ED-9F59-47ED-969D-5E463CDD8D52}.Release|x64.Build.0 = Release|Any CPU
+		{5FDCC1ED-9F59-47ED-969D-5E463CDD8D52}.Release|x86.ActiveCfg = Release|Any CPU
+		{5FDCC1ED-9F59-47ED-969D-5E463CDD8D52}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C9A7C5A2-5C90-4AD9-ABB8-6F2D2364D5AF}
+	EndGlobalSection
+EndGlobal

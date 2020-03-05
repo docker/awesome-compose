@@ -1,0 +1,41 @@
+{
+  "name": "jquery-validation",
+  "homepage": "https://jqueryvalidation.org/",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jquery-validation/jquery-validation.git"
+  },
+  "authors": [
+    "Jörn Zaefferer <joern.zaefferer@gmail.com>"
+  ],
+  "description": "Form validation made easy",
+  "main": "dist/jquery.validate.js",
+  "keywords": [
+    "forms",
+    "validation",
+    "validate"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "demo",
+    "lib"
+  ],
+  "dependencies": {
+    "jquery": ">= 1.7.2"
+  },
+  "version": "1.17.0",
+  "_release": "1.17.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "1.17.0",
+    "commit": "fc9b12d3bfaa2d0c04605855b896edb2934c0772"
+  },
+  "_source": "https://github.com/jzaefferer/jquery-validation.git",
+  "_target": "^1.17.0",
+  "_originalSource": "jquery-validation",
+  "_direct": true
+}

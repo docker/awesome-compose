@@ -1,0 +1,12 @@
+FROM node:10 as build
+
+RUN mkdir /project
+WORKDIR /project
+COPY . .
+RUN yarn install
+RUN yarn run package
+
+FROM nginx:1.13-alpine
+
+COPY config/nginx.conf /etc/nginx/conf.d/default.conf
+COPY --from=build /project/dist /usr/share/nginx/html

@@ -1,0 +1,9 @@
+version: "3.7"
+services:
+  angular:
+    build: angular
+    ports:
+    - 80:4200
+    volumes:
+    - ./angular:/project
+    - /project/node_modules

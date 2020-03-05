@@ -1,0 +1,11 @@
+version: "3.6"
+services:
+  backend:
+    build: backend
+    ports:
+    - 80:80
+  db:
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: example_123
+    image: microsoft/mssql-server-linux

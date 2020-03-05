@@ -1,0 +1,24 @@
+version: "3.7"
+services:
+  backend:
+    build: backend
+    image: docker.io/docker/back
+    ports:
+    - 80:8080
+    secrets:
+    - db-password
+  db:
+    environment:
+      MYSQL_DATABASE: example
+      MYSQL_ROOT_PASSWORD_FILE: /run/secrets/db-password
+    image: mysql:5.7
+    restart: always
+    secrets:
+    - db-password
+    volumes:
+    - db-data:/var/lib/mysql
+volumes:
+  db-data: {}
+secrets:
+  db-password:
+    file: db/password.txt
