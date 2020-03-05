@@ -1,0 +1,26 @@
+version: "3.7"
+services:
+  backend:
+    build: backend
+  db:
+    environment:
+      MYSQL_DATABASE: example
+      MYSQL_ROOT_PASSWORD_FILE: /run/secrets/db-password
+    image: mysql:5.7
+    restart: always
+    secrets:
+    - db-password
+    volumes:
+    - db-data:/var/lib/mysql
+  frontend:
+    build: frontend
+    ports:
+    - 80:9000
+    volumes:
+    - ./frontend:/project
+    - /project/node_modules
+volumes:
+  db-data: {}
+secrets:
+  db-password:
+    file: db/password.txt
