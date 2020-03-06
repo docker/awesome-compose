@@ -32,7 +32,7 @@ docker-compose down
 
 *Samples of docker-compose applications with multiple integrated services:*
 
-- [`Asp.NET/MS-SQL`](samples/aspnet-mysql/README.md) -- sample asp\\.net core application with MySQL database
+- [`Asp.NET/MS-SQL`](samples/aspnet-mssql/README.md) -- sample asp\\.net core application with MS SQL server database
 - [`Flask / NGINX / MySQL`](samples/nginx-flask-mysql/README.md) -- sample Python/Flask application with an Nginx proxy and a MySQL database
 - [`Go / NGINX / MySQL`](samples/nginx-golang-mysql/README.md) -- sample Go application with an Nginx proxy and a MySQL database
 - [`Go / NGINX / PostgreSQL`](samples/nginx-golang-postgres/README.md) -- sample Go application with an Nginx proxy and a PostgreSQL database

@@ -8,17 +8,14 @@ Project structure:
 │   ├── ...
 │   ├── ...
 │   ....
-│   
-├── docker-compose.yaml
-└── README.md
-
+└── docker-compose.yaml
 ```
 
 _docker-compose.yaml_
 ```
 version: "3.7"
 services:
-  angular:
+  web:
     build: angular
     ports:
     - 80:4200
@@ -59,7 +56,7 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 
 ```
 
-Open a browser and go to localhost.
+After the application starts, navigate to `http://localhost:80` in your web browser.
 
 ![page](https://github.com/aiordache/awesome-compose/blob/master/samples/angular/output.jpg)
 
