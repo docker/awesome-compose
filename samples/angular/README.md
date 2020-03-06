@@ -1,4 +1,5 @@
-## Compose sample - Angular service
+## Compose sample 
+### Angular service
 
 Project structure:
 ```
@@ -11,7 +12,7 @@ Project structure:
 └── docker-compose.yaml
 ```
 
-_docker-compose.yaml_
+[_docker-compose.yaml_](docker-compose.yaml)
 ```
 version: "3.7"
 services:
@@ -58,7 +59,7 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 
 After the application starts, navigate to `http://localhost:80` in your web browser.
 
-![page](https://github.com/aiordache/awesome-compose/blob/master/samples/angular/output.jpg)
+![page](output.jpg)
 
 Stop and remove the container
 

@@ -22,31 +22,30 @@ The root directory of each sample contains the docker-compose.yaml describing th
 docker-compose up -d
 ```
 Check the `README.md` of each sample to get more details on the structure and what is the expected output.
-To stop and remove the running containers of the sample application do:
+To stop and remove the all containers of the sample application run:
 ```
 docker-compose down
 ```
-
 
 ## Contents
 
 *Samples of docker-compose applications with multiple integrated services:*
 
-- [`Asp.NET/MS-SQL`](samples/aspnet-mssql/README.md) -- sample asp\\.net core application with MS SQL server database
-- [`Flask / NGINX / MySQL`](samples/nginx-flask-mysql/README.md) -- sample Python/Flask application with an Nginx proxy and a MySQL database
-- [`Go / NGINX / MySQL`](samples/nginx-golang-mysql/README.md) -- sample Go application with an Nginx proxy and a MySQL database
-- [`Go / NGINX / PostgreSQL`](samples/nginx-golang-postgres/README.md) -- sample Go application with an Nginx proxy and a PostgreSQL database
-- [`Java / MySQL`](samples/sparkjava-mysql/README.md) -- sample Java application and a MySQL database
-- [`NGINX / Go`](samples/nginx-gohttp_1/README.md) -- sample Nginx application with a Go backend 
-- [`NGINX / Go`](samples/nginx-gohttp_2/README.md) -- another Nginx sample application with a Go backend
-- [`React / Spring / MySQL`](samples/react-java-mysql/README.md) -- sample React application with a Spring backend and a MySQL database
-- [`React / Express / MySQL`](samples/react-express-mysql/README.md) -- sample React application with a NodeJS backend and a MySQL database
-- [`Spring / PostgreSQL`](samples/spring-postgres/README.md) -- sample Java application with Spring framework and a Postgres database
-
+- [`ASP.NET / MS-SQL`](samples/aspnet-mssql) -- sample ASP.NET core application with MS SQL server database
+- [`Go / NGINX / MySQL`](samples/nginx-golang-mysql) -- sample Go application with an Nginx proxy and a MySQL database
+- [`Go / NGINX / PostgreSQL`](samples/nginx-golang-postgres) -- sample Go application with an Nginx proxy and a PostgreSQL database
+- [`Java Spark / MySQL`](samples/sparkjava-mysql) -- sample Java application and a MySQL database
+- [`NGINX / Flask / MongoDB`](samples/nginx-flask-mongo) -- sample Python/Flask application with Nginx proxy and a Mongo database
+- [`NGINX / Flask / MySQL`](samples/nginx-flask-mysql) -- sample Python/Flask application with an Nginx proxy and a MySQL database
+- [`NGINX / Go`](samples/nginx-golang) -- sample Nginx proxy with a Go backend
+- [`React / Spring / MySQL`](samples/react-java-mysql) -- sample React application with a Spring backend and a MySQL database
+- [`React / Express / MySQL`](samples/react-express-mysql) -- sample React application with a NodeJS backend and a MySQL database
+- [`Spring / PostgreSQL`](samples/spring-postgres) -- sample Java application with Spring framework and a Postgres database
 
 *Single service samples:*
-- [`Angular`](samples/angular/README.md)
-- [`VueJS`](samples/vuejs/README.md)
+- [`Angular`](samples/angular)
+- [`Spark`](samples/sparkjava)
+- [`VueJS`](samples/vuejs)
 
 ## Contribute
 

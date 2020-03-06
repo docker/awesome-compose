@@ -1,4 +1,4 @@
-## Compose sample - ASP.Net
+## Compose sample application: ASP.NET with MS SQL server database
 
 Project structure:
 ```
@@ -12,17 +12,18 @@ Project structure:
 └── docker-compose.yaml
 ```
 
-_docker-compose.yaml_
+[_docker-compose.yaml_](docker-compose.yaml)
 ```
-version: "3.7"
 services:
   web:
     build: app
     ports:
     - 80:80
+  db:
+    image: microsoft/mssql-server-linux
     ...
 ```
-The compose file defines an application with one service `web`. The image for the service is built with the Dockerfile inside the `app` directory (build parameter).
+The compose file defines an application with two services `web` and `db`. The image for the web service is built with the Dockerfile inside the `app` directory (build parameter).
 
 When deploying the application, docker-compose maps the container port 80 to port 80 of the host as specified in the file.
 Make sure port 80 on the host is not being used by another container, otherwise the port should be changed.
@@ -32,7 +33,6 @@ Make sure port 80 on the host is not being used by another container, otherwise 
 
 ```
 $ docker-compose up -d
-$ compose up -d
 Creating network "aspnet-mssql_default" with the default driver
 Building web
 Step 1/13 : FROM mcr.microsoft.com/dotnet/core/sdk:2.1 AS build
@@ -59,9 +59,9 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 
 After the application starts, navigate to `http://localhost:80` in your web browser.
 
-![page](https://github.com/aiordache/awesome-compose/blob/master/samples/aspnet-mssql/output.jpg)
+![page](output.jpg)
 
-Stop and remove the container
+Stop and remove the containers
 
 ```
 $ docker-compose down
