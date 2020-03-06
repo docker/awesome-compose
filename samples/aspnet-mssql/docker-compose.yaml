@@ -1,7 +1,7 @@
-version: "3.6"
+version: "3.7"
 services:
-  backend:
-    build: backend
+  web:
+    build: app
     ports:
     - 80:80
   db:
