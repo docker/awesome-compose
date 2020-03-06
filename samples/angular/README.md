@@ -61,7 +61,7 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 
 Open a browser and go to localhost.
 
-![page](http://output.jpg)
+![page](https://github.com/aiordache/awesome-compose/blob/master/samples/angular/output.jpg)
 
 Stop and remove the container
 
