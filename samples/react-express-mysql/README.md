@@ -23,7 +23,7 @@ services:
     build: backend
     ...
   db:
-    image: postgres
+    image: mysql:5.7
     ...
   frontend:
     build: frontend
