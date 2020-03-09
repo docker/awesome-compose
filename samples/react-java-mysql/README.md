@@ -52,14 +52,13 @@ Creating react-java-mysql_backend_1  ... done
 
 ## Expected result
 
-Listing containers must show two containers running and the port mapping as below:
+Listing containers must show three containers running and the port mapping as below:
 ```
 $ docker ps
 ONTAINER ID        IMAGE                       COMMAND                  CREATED             STATUS              PORTS                  NAMES
 a63dee74d79e        react-java-mysql_backend    "java -Djava.securit…"   39 seconds ago      Up 37 seconds                              react-java-mysql_backend_1
 6a7364c0812e        react-java-mysql_frontend   "docker-entrypoint.s…"   39 seconds ago      Up 33 seconds       0.0.0.0:80->9000/tcp   react-java-mysql_frontend_1
 b176b18fbec4        mysql:5.7                   "docker-entrypoint.s…"   39 seconds ago      Up 37 seconds       3306/tcp, 33060/tcp    react-java-mysql_db_1
-e63be7db7cbc        postgres                    "docker-entrypoint.s…"   2 hours ago         Up 16 minutes       5432/tcp               nginx-golang-postgres_db_1
 ```
 
 After the application starts, navigate to `http://localhost:80` in your web browser to get a colorful message.
