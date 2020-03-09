@@ -49,5 +49,5 @@ docker-compose down
 
 ## Contribute
 
-Contributions welcome! Read the [contribution guidelines](contributing.md) first.
+We welcome examples that help people understand how to use docker-compose with common applications. 
 
