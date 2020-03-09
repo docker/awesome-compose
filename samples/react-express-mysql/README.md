@@ -53,7 +53,7 @@ Creating react-express-mysql_frontend_1 ... done
 
 ## Expected result
 
-Listing containers must show two containers running and the port mapping as below:
+Listing containers must show containers running and the port mapping as below:
 ```
 $ docker ps
 CONTAINER ID        IMAGE                           COMMAND                  CREATED             STATUS              PORTS                NAMES
