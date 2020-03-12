@@ -1,11 +1,11 @@
-FROM maven:3.5-jdk-9 AS build
+FROM maven:3.6.3-jdk-11 AS build
 COPY pom.xml .
 RUN mvn --batch-mode dependency:resolve
 COPY . .
 RUN mvn --batch-mode package
 RUN cp target/*jar target/app.jar
 
-FROM openjdk:9-jre
+FROM openjdk:11-jre
 EXPOSE 8080
 VOLUME /tmp
 COPY --from=build target/app.jar app.jar
