@@ -1,12 +1,20 @@
-FROM maven:3.5-jdk-9 AS build
-COPY pom.xml .
-RUN mvn --batch-mode dependency:resolve
-COPY . .
-RUN mvn --batch-mode package
-RUN cp target/*jar target/app.jar
+FROM maven:3.6.3-jdk-11 AS builder
+WORKDIR /workdir/server
+COPY pom.xml /workdir/server/pom.xml
+RUN mvn dependency:go-offline
 
-FROM openjdk:9-jre
+COPY src /workdir/server/src
+RUN mvn install
+RUN mkdir  -p target/depency
+WORKDIR /workdir/server/target/dependency
+RUN jar -xf ../*.jar
+
+FROM openjdk:11-jre-slim
+
 EXPOSE 8080
 VOLUME /tmp
-COPY --from=build target/app.jar app.jar
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
+ARG DEPENDENCY=/workdir/server/target/dependency
+COPY --from=builder ${DEPENDENCY}/BOOT-INF/lib /app/lib
+COPY --from=builder ${DEPENDENCY}/META-INF /app/META-INF
+COPY --from=builder ${DEPENDENCY}/BOOT-INF/classes /app
+ENTRYPOINT ["java","-cp","app:app/lib/*","com.company.project.Application"]

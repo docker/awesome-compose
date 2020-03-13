@@ -4,6 +4,10 @@ services:
     build: backend
     ports:
     - 80:8080
+    environment:
+      POSTGRES_DB: example
+    networks:
+      - spring-postges
   db:
     environment:
       POSTGRES_DB: example
@@ -14,8 +18,12 @@ services:
     - db-password
     volumes:
     - db-data:/var/lib/postgresql/data
+    networks:
+      - spring-postges
 volumes:
   db-data: {}
 secrets:
   db-password:
     file: db/password.txt
+networks:
+  spring-postges: {}
