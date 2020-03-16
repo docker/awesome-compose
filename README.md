@@ -41,30 +41,30 @@ docker-compose down
 
 *Samples of Docker Compose applications with multiple integrated services:*
 
-- [`ASP.NET / MS-SQL`](samples/aspnet-mssql) -- sample ASP.NET core application
+- [`ASP.NET / MS-SQL`](aspnet-mssql) -- sample ASP.NET core application
   with MS SQL server database
-- [`Go / NGINX / MySQL`](samples/nginx-golang-mysql) -- sample Go application
+- [`Go / NGINX / MySQL`](nginx-golang-mysql) -- sample Go application
   with an Nginx proxy and a MySQL database
-- [`Go / NGINX / PostgreSQL`](samples/nginx-golang-postgres) -- sample Go
+- [`Go / NGINX / PostgreSQL`](nginx-golang-postgres) -- sample Go
   application with an Nginx proxy and a PostgreSQL database
-- [`Java Spark / MySQL`](samples/sparkjava-mysql) -- sample Java application and
+- [`Java Spark / MySQL`](sparkjava-mysql) -- sample Java application and
   a MySQL database
-- [`NGINX / Flask / MongoDB`](samples/nginx-flask-mongo) -- sample Python/Flask
+- [`NGINX / Flask / MongoDB`](nginx-flask-mongo) -- sample Python/Flask
   application with Nginx proxy and a Mongo database
-- [`NGINX / Flask / MySQL`](samples/nginx-flask-mysql) -- sample Python/Flask
+- [`NGINX / Flask / MySQL`](nginx-flask-mysql) -- sample Python/Flask
   application with an Nginx proxy and a MySQL database
-- [`NGINX / Go`](samples/nginx-golang) -- sample Nginx proxy with a Go backend
-- [`React / Spring / MySQL`](samples/react-java-mysql) -- sample React
+- [`NGINX / Go`](nginx-golang) -- sample Nginx proxy with a Go backend
+- [`React / Spring / MySQL`](react-java-mysql) -- sample React
   application with a Spring backend and a MySQL database
-- [`React / Express / MySQL`](samples/react-express-mysql) -- sample React
+- [`React / Express / MySQL`](react-express-mysql) -- sample React
   application with a NodeJS backend and a MySQL database
-- [`Spring / PostgreSQL`](samples/spring-postgres) -- sample Java application
+- [`Spring / PostgreSQL`](spring-postgres) -- sample Java application
   with Spring framework and a Postgres database
 
 *Single service samples:*
-- [`Angular`](samples/angular)
-- [`Spark`](samples/sparkjava)
-- [`VueJS`](samples/vuejs)
+- [`Angular`](angular)
+- [`Spark`](sparkjava)
+- [`VueJS`](vuejs)
 
 ## Contribute
 
