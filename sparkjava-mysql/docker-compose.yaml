@@ -3,14 +3,14 @@ services:
   backend:
     build: backend
     ports:
-    - 80:8080
+    - 8080:8080
     secrets:
     - db-password
   db:
     environment:
       MYSQL_DATABASE: example
       MYSQL_ROOT_PASSWORD_FILE: /run/secrets/db-password
-    image: mysql:5.7
+    image: mysql:8.0.19
     restart: always
     secrets:
     - db-password
