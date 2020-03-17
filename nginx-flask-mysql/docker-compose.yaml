@@ -2,13 +2,15 @@ version: "3.7"
 services:
   backend:
     build: backend
-    depends_on: 
-    - db
+    secrets:
+      - db-password
+    ports:
+      - 5000:5000
   db:
     environment:
       MYSQL_DATABASE: example
       MYSQL_ROOT_PASSWORD_FILE: /run/secrets/db-password
-    image: mysql:5.7
+    image: mysql:8.0.19
     restart: always
     secrets:
     - db-password
@@ -17,9 +19,7 @@ services:
   proxy:
     build: proxy
     ports:
-    - 80:80
-    depends_on: 
-    - backend
+    - 8080:80
 volumes:
   db-data: {}
 secrets:
