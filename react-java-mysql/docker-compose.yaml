@@ -2,25 +2,41 @@ version: "3.7"
 services:
   backend:
     build: backend
+    environment:
+      MYSQL_HOST: db
+    networks:
+      - react-spring
+      - spring-mysql
+    depends_on:
+      - db
   db:
     environment:
       MYSQL_DATABASE: example
       MYSQL_ROOT_PASSWORD_FILE: /run/secrets/db-password
-    image: mysql:5.7
+    image: mysql:8.0.19
     restart: always
     secrets:
-    - db-password
+      - db-password
     volumes:
-    - db-data:/var/lib/mysql
+      - db-data:/var/lib/mysql
+    networks:
+      - spring-mysql
   frontend:
     build: frontend
     ports:
-    - 80:9000
+      - 9000:9000
     volumes:
-    - ./frontend:/project
-    - /project/node_modules
+      - ./frontend:/project
+      - /project/node_modules
+    networks:
+      - react-spring
+    depends_on:
+      - backend
 volumes:
   db-data: {}
 secrets:
   db-password:
     file: db/password.txt
+networks:
+  react-spring: {}
+  spring-mysql: {}
