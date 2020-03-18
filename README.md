@@ -66,6 +66,10 @@ docker-compose down
 - [`Spark`](sparkjava)
 - [`VueJS`](vuejs)
 
+*Service setups with docker-compose (not production ready - useful for personal use)*
+- [`Nextcloud with PostgresDB`](nextcloud-postgres) 
+
+
 ## Contribute
 
 We welcome examples that help people understand how to use docker-compose for
