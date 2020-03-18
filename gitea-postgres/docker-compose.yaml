@@ -1,0 +1,32 @@
+version: '3.7'
+services:
+  gitea:
+    image: gitea/gitea:latest
+    environment:
+      - DB_TYPE=postgres
+      - DB_HOST=db:5432
+      - DB_NAME=gitea
+      - DB_USER=gitea
+      - DB_PASSWD=gitea
+    restart: always
+    volumes:
+      - git_data:/data
+    ports:
+      - 80:3000
+    depends_on: 
+      - db
+  db:
+    image: postgres:alpine
+    environment:
+      - POSTGRES_USER=gitea
+      - POSTGRES_PASSWORD=gitea
+      - POSTGRES_DB=gitea
+    restart: always
+    volumes:
+      - db_data:/var/lib/postgresql/data
+volumes:
+  db_data:
+  git_data:
+  
+  
+    
