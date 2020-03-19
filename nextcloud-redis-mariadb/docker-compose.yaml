@@ -1,0 +1,45 @@
+version: '3.7'
+services:
+  nc:
+    image: nextcloud:apache
+    restart: always
+    ports:
+      - 80:80
+    volumes:
+      - nc_data:/var/www/html
+    networks:
+      - redisnet
+      - dbnet
+    environment:
+      - REDIS_HOST=redis
+      - MYSQL_HOST=db
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=nextcloud
+      - MYSQL_PASSWORD=nextcloud
+  redis:
+    image: redis:alpine
+    restart: always
+    networks:
+      - redisnet
+  db:
+    image: mariadb
+    command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW
+    restart: always
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - dbnet
+    environment:
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=nextcloud
+      - MYSQL_ROOT_PASSWORD=nextcloud
+      - MYSQL_PASSWORD=nextcloud
+volumes:
+  db_data:
+  nc_data:
+networks:
+  dbnet:
+  redisnet:
+  
+  
+    
