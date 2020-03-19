@@ -66,9 +66,11 @@ docker-compose down
 - [`Spark`](sparkjava)
 - [`VueJS`](vuejs)
 
-*Basic setups for different plaforms (not production ready - useful for personal use)*
-- [`Nextcloud / PostgreSQL`](nextcloud-postgres) 
+*Basic setups for different plaforms (not production ready - useful for personal use)* 
 - [`Gitea / PostgreSQL`](gitea-postgres)
+- [`Nextcloud / PostgreSQL`](nextcloud-postgres)
+- [`Nextcloud / Redis/ MariaDB`](nextcloud-redis-mariadb)
+- [`Wordpress / MySQL`](wordpress-mysql)
 
 ## Contribute
 
