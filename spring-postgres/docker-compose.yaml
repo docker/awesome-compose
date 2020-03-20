@@ -7,7 +7,7 @@ services:
     environment:
       POSTGRES_DB: example
     networks:
-      - spring-postges
+      - spring-postgres
   db:
     environment:
       POSTGRES_DB: example
@@ -19,11 +19,11 @@ services:
     volumes:
     - db-data:/var/lib/postgresql/data
     networks:
-      - spring-postges
+      - spring-postgres
 volumes:
   db-data: {}
 secrets:
   db-password:
     file: db/password.txt
 networks:
-  spring-postges: {}
+  spring-postgres: {}
