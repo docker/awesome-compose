@@ -3,25 +3,25 @@
 ![logo](awesome-compose.jpg)
 
 > A curated list of Docker Compose samples.
-These samples provide a starting point for how to integrate different services using a Compose file and to manage their deployment with docker-compose.
+These samples provide a starting point for how to integrate different services using a Compose file and to manage their deployment with Docker Compose.
 
 ## Getting started
 
 These instructions will get you through the bootstrap phase of creating and
-deploying samples of containerized applications with docker-compose.
+deploying samples of containerized applications with Docker Compose.
 
 ### Prerequisites
 
-* Make sure that you have Docker and docker-compose installed
+* Make sure that you have Docker and Docker Compose installed
   * Windows or macOS:
     [Install Docker Desktop](https://www.docker.com/get-started)
   * Linux: [Install Docker](https://www.docker.com/get-started) and then
-    [docker-compose](https://github.com/docker/compose)
+    [Docker Compose](https://github.com/docker/compose)
 * Download some or all of the samples in the `samples` directory
 
 ### Running a sample
 
-The root directory of each sample contains the docker-compose.yaml which
+The root directory of each sample contains the `docker-compose.yaml` which
 describes the configuration of service components. All samples can be run in
 a local environment by going into the root directory of each one and executing:
 
@@ -74,5 +74,5 @@ docker-compose down
 
 ## Contribute
 
-We welcome examples that help people understand how to use docker-compose for
+We welcome examples that help people understand how to use Docker Compose for
 common applications.
