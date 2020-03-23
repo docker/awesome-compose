@@ -12,9 +12,7 @@ services:
     volumes:
       - git_data:/data
     ports:
-      - 80:3000
-    depends_on: 
-      - db
+      - 3000:3000
   db:
     image: postgres:alpine
     environment:

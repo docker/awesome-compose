@@ -21,19 +21,23 @@ Project structure:
 services:
   backend:
     build: backend
+    ports:
+      - 80:80
+      - 9229:9229
+      - 9230:9230
     ...
   db:
-    image: mysql:5.7
+    image: mysql:8.0.19
     ...
   frontend:
     build: frontend
     ports:
-    - 80:9000
+    - 3000:3000
     ...
 ```
 The compose file defines an application with three services `frontend`, `backend` and `db`.
-When deploying the application, docker-compose maps port 80 of the frontend service container to port 9000 of the host as specified in the file.
-Make sure port 80 on the host is not already being in use.
+When deploying the application, docker-compose maps port 3000 of the frontend service container to port 3000 of the host as specified in the file.
+Make sure port 3000 on the host is not already being in use.
 
 ## Deploy with docker-compose
 
@@ -56,21 +60,21 @@ Creating react-express-mysql_frontend_1 ... done
 Listing containers must show containers running and the port mapping as below:
 ```
 $ docker ps
-CONTAINER ID        IMAGE                           COMMAND                  CREATED             STATUS              PORTS                NAMES
-5e3ecd0289c0        nginx-golang-postgres_proxy     "nginx -g 'daemon of…"   48 seconds ago      Up 48 seconds       0.0.0.0:80->80/tcp   nginx-golang-postgres_proxy_1
-ffa1410b1c8a        nginx-golang-postgres_backend   "/server"                49 seconds ago      Up 48 seconds       8000/tcp             nginx-golang-postgres_backend_1
-e63be7db7cbc        postgres                        "docker-entrypoint.s…"   49 seconds ago      Up 49 seconds       5432/tcp             nginx-golang-postgres_db_1
+CONTAINER ID        IMAGE                          COMMAND                  CREATED             STATUS                   PORTS                                                  NAMES
+f3e1183e709e        react-express-mysql_frontend   "docker-entrypoint.s…"   8 minutes ago       Up 8 minutes             0.0.0.0:3000->3000/tcp                                 react-express-mysql_frontend_1
+9422da53da76        react-express-mysql_backend    "docker-entrypoint.s…"   8 minutes ago       Up 8 minutes (healthy)   0.0.0.0:80->80/tcp, 0.0.0.0:9229-9230->9229-9230/tcp   react-express-mysql_backend_1
+a434bce6d2be        mysql:8.0.19                   "docker-entrypoint.s…"   8 minutes ago       Up 8 minutes             3306/tcp, 33060/tcp                                    react-express-mysql_db_1
 ```
 
-After the application starts, navigate to `http://localhost:80` in your web browser to get a colorful message.
-```
-My New React App
-```
+After the application starts, navigate to `http://localhost:3000` in your web browser.
 
-The backend service container has the port 80 mapped to 8080 on the host.
+![page](output.jpg)
+
+
+The backend service container has the port 80 mapped to 80 on the host.
 ```
-$ curl localhost:8080
-Hello Docker World
+$ curl localhost:80
+{"message":"Hello Docker World!"}
 ```
 
 Stop and remove the containers

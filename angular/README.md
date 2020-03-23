@@ -19,14 +19,14 @@ services:
   web:
     build: angular
     ports:
-    - 80:4200
+    - 4200:4200
     ...
 
 ```
 The compose file defines an application with one service `angular`. The image for the service is built with the Dockerfile inside the `angular` directory (build parameter).
 
-When deploying the application, docker-compose maps the container port 4200 to port 80 of the host as specified in the file.
-Make sure port 80 is not being used by another container, otherwise the port should be changed.
+When deploying the application, docker-compose maps the container port 4200 to the same port on the host as specified in the file.
+Make sure port 4200 is not being used by another container, otherwise the port should be changed.
 
 
 ## Deploy with docker-compose
@@ -53,11 +53,11 @@ Listing containers must show a container running and the port mapping as below:
 ```
 $ docker ps
 CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                  NAMES
-6884c228388e        angular_web         "docker-entrypoint.s…"   42 seconds ago      Up 36 seconds       0.0.0.0:80->4200/tcp   angular_web_1
+6884c228388e        angular_web         "docker-entrypoint.s…"   42 seconds ago      Up 36 seconds       0.0.0.0:4200->4200/tcp angular_web_1
 
 ```
 
-After the application starts, navigate to `http://localhost:80` in your web browser.
+After the application starts, navigate to `http://localhost:4200` in your web browser.
 
 ![page](output.jpg)
 

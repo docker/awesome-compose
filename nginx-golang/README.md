@@ -21,13 +21,13 @@ services:
   frontend:
     build: frontend
     ports:
-    - 8080:80
+    - 80:80
   backend:
     build: backend
 ```
 The compose file defines an application with two services `frontend` and `backend`.
-When deploying the application, docker-compose maps port 80 of the frontend service container to port 8080 of the host as specified in the file.
-Make sure port 8080 on the host is not already being in use.
+When deploying the application, docker-compose maps port 80 of the frontend service container to the same port of the host as specified in the file.
+Make sure port 80 on the host is not already being in use.
 
 ## Deploy with docker-compose
 
@@ -50,14 +50,14 @@ Creating nginx-golang_frontend_1 ... done
 Listing containers must show two containers running and the port mapping as below:
 ```
 $ docker ps
-CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                  NAMES
-8bd5b0d78e73        nginx-golang_frontend   "nginx -g 'daemon of…"   53 seconds ago      Up 52 seconds       0.0.0.0:8080->80/tcp   nginx-golang_frontend_1
+CONTAINER ID        IMAGE                   COMMAND                  CREATED             STATUS              PORTS                  NAMES
+8bd5b0d78e73        nginx-golang_frontend   "nginx -g 'daemon of…"   53 seconds ago      Up 52 seconds       0.0.0.0:80->80/tcp     nginx-golang_frontend_1
 56f929c240a0        nginx-golang_backend    "/usr/local/bin/back…"   53 seconds ago      Up 53 seconds                              nginx-golang_backend_1
 ```
 
-After the application starts, navigate to `http://localhost:8080` in your web browser or run:
+After the application starts, navigate to `http://localhost:80` in your web browser or run:
 ```
-$ curl localhost:8080
+$ curl localhost:80
 
           ##         .
     ## ## ##        ==

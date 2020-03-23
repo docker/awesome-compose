@@ -1,12 +1,10 @@
-
 version: "3.7"
 services:
   frontend:
     build: frontend    
     ports:
-    - 8080:80
+      - 80:80
     depends_on:
-    - backend
+      - backend
   backend:
     build: backend
-
