@@ -7,37 +7,49 @@ services:
       context: backend
     command: ../node_modules/.bin/nodemon --inspect=0.0.0.0:9229
     environment:
-    - NODE_ENV=development
+      - NODE_ENV=development
     ports:
-    - 8080:80
-    - 9229:9229
-    - 9230:9230
+      - 8080:80
+      - 9229:9229
+      - 9230:9230
     volumes:
-    - ./backend:/opt/app:delegated
-    - ./backend/package.json:/opt/package.json
-    - ./backend/package-lock.json:/opt/package-lock.json
-    - back-notused:/opt/app/node_modules
-    depends_on: 
+      - ./backend:/opt/app:delegated
+      - ./backend/package.json:/opt/package.json
+      - ./backend/package-lock.json:/opt/package-lock.json
+      - back-notused:/opt/app/node_modules
+    networks:
+      - public
+      - private
+    depends_on:
       - db
   db:
     environment:
       MYSQL_DATABASE: example
       MYSQL_ROOT_PASSWORD_FILE: /run/secrets/db-password
-    image: mysql:5.7
+    image: mysql:8.0.19
     restart: always
     secrets:
-    - db-password
+      - db-password
     volumes:
-    - db-data:/var/lib/mysql
+      - db-data:/var/lib/mysql
+    networks:
+      - private
   frontend:
-    build: frontend
+    build:
+      context: frontend
+      target: development
     ports:
-    - 80:9000
+      - 9000:3000
     volumes:
-    - ./frontend:/project
-    - /project/node_modules
-    depends_on: 
-    - backend
+      - ./frontend/src:/code/src
+      - /code/node_modules
+    networks:
+      - public
+    depends_on:
+      - backend
+networks:
+  public: {}
+  private: {}
 volumes:
   back-notused: {}
   db-data: {}
