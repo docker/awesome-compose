@@ -3,27 +3,28 @@ services:
   backend:
     build: backend
     secrets:
-    - db-password
+      - db-password
     depends_on:
-    - db
+      - db
   db:
-    environment:
-      POSTGRES_DB: example
-      POSTGRES_PASSWORD_FILE: /run/secrets/db-password
     image: postgres
     restart: always
     secrets:
-    - db-password
+      - db-password
     volumes:
-    - db-data:/var/lib/postgresql/data
+      - db-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=example
+      - POSTGRES_PASSWORD_FILE=/run/secrets/db-password
+    
   proxy:
     build: proxy
     ports:
-    - 80:80
+      - 80:80
     depends_on: 
-    - backend
+      - backend
 volumes:
-  db-data: {}
+  db-data:
 secrets:
   db-password:
     file: db/password.txt

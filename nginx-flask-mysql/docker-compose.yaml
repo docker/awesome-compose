@@ -5,9 +5,9 @@ services:
     command: '--default-authentication-plugin=mysql_native_password'
     restart: always
     secrets:
-    - db-password
+      - db-password
     volumes:
-    - db-data:/var/lib/mysql
+      - db-data:/var/lib/mysql
     networks:
       - backnet
     environment:
@@ -17,17 +17,17 @@ services:
     build: backend
     restart: always
     secrets:
-    - db-password
+      - db-password
     ports:
-    - 5000:5000
+      - 5000:5000
     networks:
-    - backnet
-    - frontnet
+      - backnet
+      - frontnet
   proxy:
     build: proxy
     restart: always
     ports:
-    - 80:80
+      - 80:80
     networks:
       - frontnet
 volumes:

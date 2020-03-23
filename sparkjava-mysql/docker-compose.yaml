@@ -3,21 +3,22 @@ services:
   backend:
     build: backend
     ports:
-    - 8080:8080
+      - 8080:8080
     secrets:
-    - db-password
+      - db-password
   db:
-    environment:
-      MYSQL_DATABASE: example
-      MYSQL_ROOT_PASSWORD_FILE: /run/secrets/db-password
     image: mysql:8.0.19
     restart: always
     secrets:
-    - db-password
+      - db-password
     volumes:
-    - db-data:/var/lib/mysql
+      - db-data:/var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=example
+      - MYSQL_ROOT_PASSWORD_FILE=/run/secrets/db-password
+    
 volumes:
-  db-data: {}
+  db-data:
 secrets:
   db-password:
     file: db/password.txt
