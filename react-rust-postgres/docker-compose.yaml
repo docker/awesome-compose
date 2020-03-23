@@ -1,0 +1,16 @@
+version: "3.7"
+services:
+  backend:
+    build:
+      context: backend
+      target: development
+    networks:
+      - server-side
+    volumes:
+      - ./backend/src:/code/src:ro
+      - backend-cache:/code/target
+networks:
+  client-side: {}
+  server-side: {}
+volumes:
+  backend-cache: {}
