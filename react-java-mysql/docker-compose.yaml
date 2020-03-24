@@ -22,11 +22,13 @@ services:
     networks:
       - spring-mysql
   frontend:
-    build: frontend
+    build:
+      context: frontend
+      target: development
     ports:
-      - 9000:9000
+      - 3000:3000
     volumes:
-      - ./frontend:/project
+      - ./frontend/src:/code/src
       - /project/node_modules
     networks:
       - react-spring

@@ -28,7 +28,7 @@ services:
   frontend:
     build: frontend
     ports:
-    - 9000:9000
+    - 3000:3000
     ...
 ```
 The compose file defines an application with three services `frontend`, `backend` and `db`.
@@ -57,11 +57,11 @@ Listing containers must show three containers running and the port mapping as be
 $ docker ps
 ONTAINER ID        IMAGE                       COMMAND                  CREATED             STATUS              PORTS                  NAMES
 a63dee74d79e        react-java-mysql_backend    "java -Djava.securit…"   39 seconds ago      Up 37 seconds                              react-java-mysql_backend_1
-6a7364c0812e        react-java-mysql_frontend   "docker-entrypoint.s…"   39 seconds ago      Up 33 seconds       0.0.0.0:9000->9000/tcp react-java-mysql_frontend_1
+6a7364c0812e        react-java-mysql_frontend   "docker-entrypoint.s…"   39 seconds ago      Up 33 seconds       0.0.0.0:3000->3000/tcp react-java-mysql_frontend_1
 b176b18fbec4        mysql:8.0.19                "docker-entrypoint.s…"   39 seconds ago      Up 37 seconds       3306/tcp, 33060/tcp    react-java-mysql_db_1
 ```
 
-After the application starts, navigate to `http://localhost:9000` in your web browser to get a colorful message.
+After the application starts, navigate to `http://localhost:3000` in your web browser to get a colorful message.
 ```
 My New React App
 ```
