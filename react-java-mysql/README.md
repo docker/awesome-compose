@@ -32,8 +32,8 @@ services:
     ...
 ```
 The compose file defines an application with three services `frontend`, `backend` and `db`.
-When deploying the application, docker-compose maps port 9000 of the frontend service container to port 9000 of the host as specified in the file.
-Make sure port 9000 on the host is not already being in use.
+When deploying the application, docker-compose maps port 3000 of the frontend service container to port 3000 of the host as specified in the file.  
+Make sure port 3000 on the host is not already being in use.
 
 ## Deploy with docker-compose
 
