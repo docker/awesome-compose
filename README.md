@@ -71,6 +71,7 @@ docker-compose down
 - [`Nextcloud / PostgreSQL`](nextcloud-postgres)
 - [`Nextcloud / Redis/ MariaDB`](nextcloud-redis-mariadb)
 - [`Wordpress / MySQL`](wordpress-mysql)
+- [`Prometheus / Grafana`](prometheus-grafana)
 
 ## Contribute
 
