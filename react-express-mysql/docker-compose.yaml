@@ -5,17 +5,23 @@ services:
       args:
       - NODE_ENV=development
       context: backend
-    command: ../node_modules/.bin/nodemon --inspect=0.0.0.0:9229
+    command: npm run start-watch
     environment:
+      - DATABASE_DB=example
+      - DATABASE_USER=root
+      - DATABASE_PASSWORD=/run/secrets/db-password
+      - DATABASE_HOST=db
       - NODE_ENV=development
     ports:
       - 80:80
       - 9229:9229
       - 9230:9230
+    secrets:
+      - db-password
     volumes:
-      - ./backend:/opt/app:delegated
-      - ./backend/package.json:/opt/package.json
-      - ./backend/package-lock.json:/opt/package-lock.json
+      - ./backend/src:/code/src:ro
+      - ./backend/package.json:/code/package.json
+      - ./backend/package-lock.json:/code/package-lock.json
       - back-notused:/opt/app/node_modules
     networks:
       - public
