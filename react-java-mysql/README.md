@@ -62,9 +62,7 @@ b176b18fbec4        mysql:8.0.19                "docker-entrypoint.s…"   39 se
 ```
 
 After the application starts, navigate to `http://localhost:3000` in your web browser to get a colorful message.
-```
-My New React App
-```
+![page](./output.jpg)
 
 Stop and remove the containers
 ```

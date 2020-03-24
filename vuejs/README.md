@@ -24,8 +24,8 @@ services:
     - /project/node_modules
 ```
 The compose file defines an application with one service `sparkjava`.
-When deploying the application, docker-compose maps port 8080 of the web service container to port 80 of the host as specified in the file.
-Make sure port 80 on the host is not already being in use.
+When deploying the application, docker-compose maps port 8080 of the web service container to port 8080 of the host as specified in the file.
+Make sure port 8080 on the host is not already being in use.
 
 ## Deploy with docker-compose
 
@@ -33,7 +33,7 @@ Make sure port 80 on the host is not already being in use.
 $ docker-compose up -d
 Creating network "vuejs_default" with the default driver
 Building web
-Step 1/8 : FROM node:10
+Step 1/8 : FROM node:13.10.1-alpine
 ...
 Successfully tagged vuejs_web:latest
 WARNING: Image for service web was built because it did not already exist. To rebuild this image you must use `docker-compose build` or `docker-compose up --build`.

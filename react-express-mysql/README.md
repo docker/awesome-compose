@@ -68,13 +68,13 @@ a434bce6d2be        mysql:8.0.19                   "docker-entrypoint.s…"   8 
 
 After the application starts, navigate to `http://localhost:3000` in your web browser.
 
-![page](output.jpg)
+![page](./output.png)
 
 
 The backend service container has the port 80 mapped to 80 on the host.
 ```
 $ curl localhost:80
-{"message":"Hello Docker World!"}
+{"message":"Hello from MySQL 8.0.19"}
 ```
 
 Stop and remove the containers
