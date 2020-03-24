@@ -12,13 +12,18 @@ const morgan = require("morgan");
 // which is a best practice in Docker. Friends don't let friends code their apps to
 // do app logging to files in containers.
 
+const database = require("./database");
+
 // Appi
 const app = express();
 
 app.use(morgan("common"));
 
-app.get("/", function(req, res) {
-  res.json({ message: "Hello Docker World!" });
+app.get("/", function(req, res, next) {
+  database.raw('select VERSION() version')
+    .then(([rows, columns]) => rows[0])
+    .then((row) => res.json({ message: `Hello from MySQL ${row.version}` }))
+    .catch(next);
 });
 
 app.get("/healthz", function(req, res) {
