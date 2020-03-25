@@ -16,7 +16,7 @@
   "dependencies": {
     "express": "^4.16.3",
     "knex": "^0.20.13",
-    "morgan": "^1.8.1",
+    "morgan": "^1.9.1",
     "mysql2": "^2.1.0"
   },
   "devDependencies": {
