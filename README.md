@@ -17,7 +17,7 @@ deploying samples of containerized applications with Docker Compose.
     [Install Docker Desktop](https://www.docker.com/get-started)
   * Linux: [Install Docker](https://www.docker.com/get-started) and then
     [Docker Compose](https://github.com/docker/compose)
-* Download some or all of the samples in the `samples` directory
+* Download some or all of the samples from this repository.
 
 ### Running a sample
 
@@ -69,7 +69,7 @@ docker-compose down
 *Basic setups for different plaforms (not production ready - useful for personal use)* 
 - [`Gitea / PostgreSQL`](gitea-postgres)
 - [`Nextcloud / PostgreSQL`](nextcloud-postgres)
-- [`Nextcloud / Redis/ MariaDB`](nextcloud-redis-mariadb)
+- [`Nextcloud / Redis / MariaDB`](nextcloud-redis-mariadb)
 - [`Wordpress / MySQL`](wordpress-mysql)
 - [`Prometheus / Grafana`](prometheus-grafana)
 
