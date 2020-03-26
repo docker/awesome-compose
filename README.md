@@ -3,8 +3,51 @@
 ![logo](awesome-compose.jpg)
 
 > A curated list of Docker Compose samples.
+
 These samples provide a starting point for how to integrate different services using a Compose file and to manage their deployment with Docker Compose.
 
+<!--lint disable awesome-toc-->
+## Contents
+
+- [Samples of Docker Compose applications with multiple integrated services](#samples-of-docker-compose-applications-with-multiple-integrated-services).
+- [Single service samples](#single-service-samples).
+- [Basic setups for different platforms (not production ready - useful for personal use)](#basic-setups-for-different-platforms-not-production-ready---useful-for-personal-use).
+
+## Samples of Docker Compose applications with multiple integrated services
+- [`ASP.NET / MS-SQL`](https://github.com/docker/awesome-compose/tree/master/aspnet-mssql) - Sample ASP.NET core application
+with MS SQL server database.
+- [`Go / NGINX / MySQL`](https://github.com/docker/awesome-compose/tree/master/nginx-golang-mysql) - Sample Go application
+with an Nginx proxy and a MySQL database.
+- [`Go / NGINX / PostgreSQL`](https://github.com/docker/awesome-compose/tree/master/nginx-golang-postgres) - Sample Go
+application with an Nginx proxy and a PostgreSQL database.
+- [`Java Spark / MySQL`](https://github.com/docker/awesome-compose/tree/master/sparkjava-mysql) - Sample Java application and
+a MySQL database.
+- [`NGINX / Flask / MongoDB`](https://github.com/docker/awesome-compose/tree/master/nginx-flask-mongo) - Sample Python/Flask
+application with Nginx proxy and a Mongo database.
+- [`NGINX / Flask / MySQL`](https://github.com/docker/awesome-compose/tree/master/nginx-flask-mysql) - Sample Python/Flask
+application with an Nginx proxy and a MySQL database.
+- [`NGINX / Go`](https://github.com/docker/awesome-compose/tree/master/nginx-golang) - Sample Nginx proxy with a Go backend.
+- [`React / Spring / MySQL`](https://github.com/docker/awesome-compose/tree/master/react-java-mysql) - Sample React
+application with a Spring backend and a MySQL database.
+- [`React / Express / MySQL`](https://github.com/docker/awesome-compose/tree/master/react-express-mysql) - Sample React
+application with a Node.js backend and a MySQL database.
+- [`React / Rust / PostgreSQL`](https://github.com/docker/awesome-compose/tree/master/react-rust-postgres) - Sample React
+application with a Rust backend and a Postgres database.
+- [`Spring / PostgreSQL`](https://github.com/docker/awesome-compose/tree/master/spring-postgres) - Sample Java application
+with Spring framework and a Postgres database.  
+## Single service samples
+- [`Angular`](https://github.com/docker/awesome-compose/tree/master/angular)
+- [`Spark`](https://github.com/docker/awesome-compose/tree/master/sparkjava)
+- [`VueJS`](https://github.com/docker/awesome-compose/tree/master/vuejs)
+- [`Flask`](https://github.com/docker/awesome-compose/tree/master/flask)
+## Basic setups for different platforms (not production ready - useful for personal use) 
+- [`Gitea / PostgreSQL`](https://github.com/docker/awesome-compose/tree/master/gitea-postgres)
+- [`Nextcloud / PostgreSQL`](https://github.com/docker/awesome-compose/tree/master/nextcloud-postgres)
+- [`Nextcloud / Redis / MariaDB`](https://github.com/docker/awesome-compose/tree/master/nextcloud-redis-mariadb)
+- [`Wordpress / MySQL`](https://github.com/docker/awesome-compose/tree/master/wordpress-mysql)
+- [`Prometheus / Grafana`](https://github.com/docker/awesome-compose/tree/master/prometheus-grafana)
+
+<!--lint disable awesome-toc-->
 ## Getting started
 
 These instructions will get you through the bootstrap phase of creating and
@@ -12,12 +55,12 @@ deploying samples of containerized applications with Docker Compose.
 
 ### Prerequisites
 
-* Make sure that you have Docker and Docker Compose installed
-  * Windows or macOS:
+- Make sure that you have Docker and Docker Compose installed
+  - Windows or macOS:
     [Install Docker Desktop](https://www.docker.com/get-started)
-  * Linux: [Install Docker](https://www.docker.com/get-started) and then
+  - Linux: [Install Docker](https://www.docker.com/get-started) and then
     [Docker Compose](https://github.com/docker/compose)
-* Download some or all of the samples from this repository.
+- Download some or all of the samples from this repository.
 
 ### Running a sample
 
@@ -36,47 +79,8 @@ To stop and remove the all containers of the sample application run:
 ```console
 docker-compose down
 ```
-
-## Contents
-
-*Samples of Docker Compose applications with multiple integrated services:*
-
-- [`ASP.NET / MS-SQL`](aspnet-mssql) -- sample ASP.NET core application
-  with MS SQL server database
-- [`Go / NGINX / MySQL`](nginx-golang-mysql) -- sample Go application
-  with an Nginx proxy and a MySQL database
-- [`Go / NGINX / PostgreSQL`](nginx-golang-postgres) -- sample Go
-  application with an Nginx proxy and a PostgreSQL database
-- [`Java Spark / MySQL`](sparkjava-mysql) -- sample Java application and
-  a MySQL database
-- [`NGINX / Flask / MongoDB`](nginx-flask-mongo) -- sample Python/Flask
-  application with Nginx proxy and a Mongo database
-- [`NGINX / Flask / MySQL`](nginx-flask-mysql) -- sample Python/Flask
-  application with an Nginx proxy and a MySQL database
-- [`NGINX / Go`](nginx-golang) -- sample Nginx proxy with a Go backend
-- [`React / Spring / MySQL`](react-java-mysql) -- sample React
-  application with a Spring backend and a MySQL database
-- [`React / Express / MySQL`](react-express-mysql) -- sample React
-  application with a NodeJS backend and a MySQL database
-- [`React / Rust / PostgreSQL`](react-rust-postgres) -- sample React
-  application with a Rust backend and a Postgres database
-- [`Spring / PostgreSQL`](spring-postgres) -- sample Java application
-  with Spring framework and a Postgres database
-
-*Single service samples:*
-- [`Angular`](angular)
-- [`Spark`](sparkjava)
-- [`VueJS`](vuejs)
-- [`Flask`](flask)
-
-*Basic setups for different plaforms (not production ready - useful for personal use)*
-- [`Gitea / PostgreSQL`](gitea-postgres)
-- [`Nextcloud / PostgreSQL`](nextcloud-postgres)
-- [`Nextcloud / Redis / MariaDB`](nextcloud-redis-mariadb)
-- [`Wordpress / MySQL`](wordpress-mysql)
-- [`Prometheus / Grafana`](prometheus-grafana)
-
+<!--lint disable awesome-toc-->
 ## Contribute
 
 We welcome examples that help people understand how to use Docker Compose for
-common applications.
+common applications. Check the [Contribution Guide](CONTRIBUTING.md) for more details. 
