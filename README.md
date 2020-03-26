@@ -65,6 +65,7 @@ docker-compose down
 - [`Angular`](angular)
 - [`Spark`](sparkjava)
 - [`VueJS`](vuejs)
+- [`Flask`](flask)
 
 *Basic setups for different plaforms (not production ready - useful for personal use)* 
 - [`Gitea / PostgreSQL`](gitea-postgres)
