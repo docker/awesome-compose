@@ -58,6 +58,8 @@ docker-compose down
   application with a Spring backend and a MySQL database
 - [`React / Express / MySQL`](react-express-mysql) -- sample React
   application with a NodeJS backend and a MySQL database
+- [`React / Rust / PostgreSQL`](react-rust-postgres) -- sample React
+  application with a Rust backend and a Postgres database
 - [`Spring / PostgreSQL`](spring-postgres) -- sample Java application
   with Spring framework and a Postgres database
 
@@ -66,7 +68,7 @@ docker-compose down
 - [`Spark`](sparkjava)
 - [`VueJS`](vuejs)
 
-*Basic setups for different plaforms (not production ready - useful for personal use)* 
+*Basic setups for different plaforms (not production ready - useful for personal use)*
 - [`Gitea / PostgreSQL`](gitea-postgres)
 - [`Nextcloud / PostgreSQL`](nextcloud-postgres)
 - [`Nextcloud / Redis/ MariaDB`](nextcloud-redis-mariadb)
