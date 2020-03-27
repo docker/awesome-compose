@@ -1,0 +1,23 @@
+[package]
+name = "react-rust-postgres"
+version = "0.1.0"
+authors = ["Jérémie Drouet <jeremie.drouet@gmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+diesel_migrations = "1.4.0"
+rocket = "0.4.4"
+serde = "1.0"
+serde_json = "1.0"
+serde_derive = "1.0"
+
+[dependencies.diesel]
+version = "1.0.0"
+features = ["postgres"]
+
+[dependencies.rocket_contrib]
+version = "0.4.4"
+default-features = false
+features = ["json", "diesel_postgres_pool"]
