@@ -23,7 +23,7 @@ services:
     ...
 ```
 
-When deploying this setup, docker-compose maps the nextcloud container port 3000 to
+When deploying this setup, docker-compose maps the gitea container port 3000 to
 the same port of the host as specified in the compose file.
 
 ## Deploy with docker-compose
