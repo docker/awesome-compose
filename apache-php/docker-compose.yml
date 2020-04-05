@@ -6,3 +6,4 @@ services:
       - '8008:80'
     volumes:
       - ./app:/var/www/html/
+      
