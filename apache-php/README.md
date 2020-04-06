@@ -41,12 +41,12 @@ Listing containers must show two containers running and the port mapping as belo
 ```
 $ docker ps
 CONTAINER ID        IMAGE                        COMMAND                  CREATED             STATUS              PORTS                  NAMES
-2bc8271fee81        php-docker_web               "docker-php-entrypoi…"   About a minute ago  Up About a minute   0.0.0.0:8008->80/tc    php-docker_web_1
+2bc8271fee81        php-docker_web               "docker-php-entrypoi…"   About a minute ago  Up About a minute   0.0.0.0:80->80/tc    php-docker_web_1
 ```
 
-After the application starts, navigate to `http://localhost:8008` in your web browser or run:
+After the application starts, navigate to `http://localhost:80` in your web browser or run:
 ```
-$ curl localhost:8008
+$ curl localhost:80
 Hello World!
 ```
 
