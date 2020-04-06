@@ -40,6 +40,7 @@ with Spring framework and a Postgres database.
 - [`Spark`](https://github.com/docker/awesome-compose/tree/master/sparkjava)
 - [`VueJS`](https://github.com/docker/awesome-compose/tree/master/vuejs)
 - [`Flask`](https://github.com/docker/awesome-compose/tree/master/flask)
+- [`PHP`](https://github.com/docker/awesome-compose/tree/master/apache-php)
 ## Basic setups for different platforms (not production ready - useful for personal use) 
 - [`Gitea / PostgreSQL`](https://github.com/docker/awesome-compose/tree/master/gitea-postgres)
 - [`Nextcloud / PostgreSQL`](https://github.com/docker/awesome-compose/tree/master/nextcloud-postgres)
