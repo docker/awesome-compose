@@ -1,5 +1,5 @@
 ## Compose sample application
-### Python/Flask application with Nginx proxy and a Mongo database
+### Django application in dev mode
 
 Project structure:
 ```
