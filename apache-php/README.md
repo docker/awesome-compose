@@ -17,7 +17,7 @@ services:
   web:
     build: app
     ports: 
-      - '8008:80'
+      - '80:80'
     volumes:
       - ./app:/var/www/html/
 ```
