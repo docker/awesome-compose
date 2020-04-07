@@ -41,6 +41,7 @@ with Spring framework and a Postgres database.
 - [`VueJS`](https://github.com/docker/awesome-compose/tree/master/vuejs)
 - [`Flask`](https://github.com/docker/awesome-compose/tree/master/flask)
 - [`PHP`](https://github.com/docker/awesome-compose/tree/master/apache-php)
+- [`Traefik`](https://github.com/docker/awesome-compose/tree/master/traefik-golang)
 - [`Django`](https://github.com/docker/awesome-compose/tree/master/django)
 ## Basic setups for different platforms (not production ready - useful for personal use) 
 - [`Gitea / PostgreSQL`](https://github.com/docker/awesome-compose/tree/master/gitea-postgres)
