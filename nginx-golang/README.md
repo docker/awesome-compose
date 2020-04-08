@@ -21,7 +21,9 @@ services:
   frontend:
     build: frontend
     ports:
-    - 80:80
+      - 80:80
+    depends_on:
+      - backend
   backend:
     build: backend
 ```
