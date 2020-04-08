@@ -1,5 +1,5 @@
 ## Compose sample application
-### Python/Flask application with Nginx proxy and a Mongo database
+### Python/Flask application
 
 Project structure:
 ```
