@@ -21,14 +21,14 @@ services:
   backend:
     build: backend
     ports:
-    - 80:8080
+    - 8080:8080
   db:
     image: postgres
     ...
 ```
 The compose file defines an application with two services `backend` and `db`.
-When deploying the application, docker-compose maps port 8080 of the backend service container to port 80 of the host as specified in the file.
-Make sure port 80 on the host is not already being in use.
+When deploying the application, docker-compose maps port 8080 of the backend service container to port 8080 of the host as specified in the file.
+Make sure port 8080 on the host is not already being in use.
 
 ## Deploy with docker-compose
 
@@ -52,12 +52,12 @@ Listing containers must show two containers running and the port mapping as belo
 $ docker ps
 CONTAINER ID        IMAGE                     COMMAND                  CREATED             STATUS              PORTS                  NAMES
 56236f640eaa        postgres                  "docker-entrypoint.s…"   29 seconds ago      Up 28 seconds       5432/tcp               spring-postgres_db_1
-6e69472dc2c0        spring-postgres_backend   "java -Djava.securit…"   29 seconds ago      Up 28 seconds       0.0.0.0:80->8080/tcp   spring-postgres_backend_1
+6e69472dc2c0        spring-postgres_backend   "java -Djava.securit…"   29 seconds ago      Up 28 seconds       0.0.0.0:8080->8080/tcp   spring-postgres_backend_1
 ```
 
-After the application starts, navigate to `http://localhost:80` in your web browse or run:
+After the application starts, navigate to `http://localhost:8080` in your web browse or run:
 ```
-$ curl localhost:80
+$ curl localhost:8080
 <!DOCTYPE HTML>
 <html>
 <head>
