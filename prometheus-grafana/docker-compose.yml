@@ -7,6 +7,8 @@ services:
       - '--config.file=/etc/prometheus/prometheus.yml'
     ports:
       - 9090:9090
+    restart:
+      - unless-stopped
     volumes:
       - ./prometheus:/etc/prometheus
       - prom_data:/prometheus
@@ -15,6 +17,8 @@ services:
     container_name: grafana
     ports:
       - 3000:3000
+    restart:
+      - unless-stopped
     environment:
       - GF_SECURITY_ADMIN_USER=admin
       - GF_SECURITY_ADMIN_PASSWORD=grafana
