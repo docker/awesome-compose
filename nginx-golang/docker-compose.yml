@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   frontend:
-    build: frontend    
+    build: frontend
     ports:
       - 80:80
     depends_on:

@@ -21,13 +21,15 @@ services:
   frontend:
     build: frontend
     ports:
-    - 80:80
+      - 80:80
+    depends_on:
+      - backend
   backend:
     build: backend
 ```
 The compose file defines an application with two services `frontend` and `backend`.
 When deploying the application, docker-compose maps port 80 of the frontend service container to the same port of the host as specified in the file.
-Make sure port 80 on the host is not already being in use.
+Make sure port 80 on the host is not already in use.
 
 ## Deploy with docker-compose
 
