@@ -11,22 +11,22 @@ web/.bundle
 web/log/*
 /tmp/*
 /web/tmp/*
-!/log/.keep
-!/tmp/.keep
+web/!/log/.keep
+web/!/tmp/.keep
 
 # Ignore uploaded files in development.
-/storage/*
-!/storage/.keep
+web/storage/*
+web/!/storage/.keep
 
-/public/assets
-.byebug_history
+web/public/assets
+web/.byebug_history
 
 # Ignore master key for decrypting credentials and more.
-/config/master.key
+web/config/master.key
 
-/public/packs
-/public/packs-test
-/node_modules
-/yarn-error.log
-yarn-debug.log*
-.yarn-integrity
+web/public/packs
+web/public/packs-test
+web/node_modules
+web/yarn-error.log
+web/yarn-debug.log*
+web/.yarn-integrity

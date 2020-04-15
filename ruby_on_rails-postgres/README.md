@@ -52,7 +52,9 @@ dac525a7e7f9        ruby_on_rails-postgres_web   "entrypoint.sh bash …"   49 s
 760e6b3dc241        postgres                     "docker-entrypoint.s…"   55 seconds ago      Up 49 seconds       5432/tcp                 ruby_on_rails-postgres_db_1_85be421b80ec
 ```
 
-## Use docker rails with bash and execute rails server
+After the application starts, navigate to `http://localhost:3000` in your web browser, `it may take about 5 seconds`
+
+## Use docker rails with bash
 
 ```
 $ docker-compose exec web bash 
@@ -79,24 +81,6 @@ rake db:drop
 ```
 root@dac525a7e7f9:/myapp# rake db:create db:migrate
 ```
-
-## How execute rails server
-
-```
-root@dac525a7e7f9:/myapp# bundle exec rails s -b 0.0.0.0
-=> Booting Puma
-=> Rails 6.0.2.2 application starting in development 
-=> Run `rails server --help` for more startup options
-Puma starting in single mode...
-* Version 4.3.3 (ruby 2.6.5-p114), codename: Mysterious Traveller
-* Min threads: 5, max threads: 5
-* Environment: development
-* Listening on tcp://0.0.0.0:3000
-Use Ctrl-C to stop
-```
-
-After the application starts, navigate to `http://localhost:3000` in your web browser
-For stop server `CTRL + C`
 
 ## Stop and remove the containers
 ```
