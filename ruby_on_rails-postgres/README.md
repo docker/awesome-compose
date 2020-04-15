@@ -59,6 +59,12 @@ $ docker-compose exec web bash
 root@dac525a7e7f9:/myapp#
 ```
 
+## Create and migrate database
+
+```
+root@dac525a7e7f9:/myapp# rake db:create db:migrate
+```
+
 ## How execute rails server
 
 ```
