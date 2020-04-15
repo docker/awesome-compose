@@ -11,7 +11,7 @@ services:
     build: .
     command: bash -c "rm -f tmp/pids/server.pid && sleep 100000"
     volumes:
-      - .:/myapp
+      - ./web:/myapp
     ports:
       - "3000:3000"
     depends_on:
