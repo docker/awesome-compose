@@ -59,7 +59,22 @@ $ docker-compose exec web bash
 root@dac525a7e7f9:/myapp#
 ```
 
-## Create and migrate database
+## Scripts to database
+
+**create database:**
+```
+rake db:create
+```
+
+**migrations database:**
+```
+rake db:migrate
+```
+
+**drop database:**
+```
+rake db:drop
+```
 
 ```
 root@dac525a7e7f9:/myapp# rake db:create db:migrate
