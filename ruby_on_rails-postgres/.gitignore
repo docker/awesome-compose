@@ -10,7 +10,7 @@ web/.bundle
 # Ignore all logfiles and tempfiles.
 web/log/*
 /tmp/*
-/web/tmp/*
+web/tmp/*
 web/!/log/.keep
 web/!/tmp/.keep
 
