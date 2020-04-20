@@ -1,4 +1,4 @@
-version: '2'
+version: '3.7'
 services:
   db:
     image: postgres
@@ -8,7 +8,7 @@ services:
       POSTGRES_USER: 'username'
       POSTGRES_HOST_AUTH_METHOD: trust
   web:
-    build: .
+    build: ./web
     command: bash -c "rm -f tmp/pids/server.pid && yarn install --check-files && rake db:create db:migrate && bundle exec rails s -b 0.0.0.0"
     volumes:
       - ./web:/myapp
