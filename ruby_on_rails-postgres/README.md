@@ -13,7 +13,7 @@ Project structure:
 
 [_docker-compose.yml_](docker-compose.yml)
 ```
-version: '2'
+version: '3.7'
 services:
   db:
     image: postgres
@@ -21,7 +21,7 @@ services:
       - ./tmp/db:/var/lib/postgresql/data
     ...
   web:
-    build: .
+    build: ./web
     volumes:
       - .:/myapp
     ports:
