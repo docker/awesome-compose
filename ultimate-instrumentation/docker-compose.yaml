@@ -1,0 +1,134 @@
+## Ultimate Instrumentation Stack
+## Provides
+##   - log collection and forwarding (logspout) (localhost:8000/logs)
+##   - http/tcp/udp proxying (traefik) (localhost:8080/dashboard/)
+##   - service discovery + dns + health-checks (consul) (localhost:8500/ui) (depends on registrator)
+##   - time-series DB storage (influxdb) (localhost:8086)
+##   - metric & event visualization (grafana) (localhost:3000) 
+## http routing provided by traefik on `localhost/<route>` (see SERVICE_TAGS vars for routes)
+
+version: '3'
+services:
+  # logging - Logspount meant for log collection, not storage. 
+  # Could pair this with syslog/GELF into FluentD/Logstash/Kafka with indexing by Graylog/Elasticsearch/Solr/Splunk
+  logspout:
+    image: gliderlabs/logspout:master
+    volumes: ['/var/run/docker.sock:/tmp/docker.sock:ro']
+    networks: ['backend','frontend']
+    ports: ['8000:80']  # logs avail at http://localhost:8000/logs
+    environment:
+      EXCLUDE_LABEL: logspout.exclude
+      # registrator
+      SERVICE_TAGS: 'traefik.enable=true,traefik.port=8000,traefik.docker.network=frontend,traefik.http.routers.router0.rule=PathPrefix(`/logs`)'
+
+  # service discovery (Consul + registrator)
+  registrator:
+    image: 'gliderlabs/registrator:master'
+    depends_on: ['consul']
+    networks: ['backend']
+    volumes: ['/var/run/docker.sock:/tmp/docker.sock:ro']
+    command: ["-internal=true", "consul://consul:8500"]
+  consul:
+    image: 'consul:1.6.4'
+    restart: always
+    networks: ['backend','frontend']
+    ports:
+      - '8500:8500' # web ui
+      # - '8300:8300' # server rpc
+      # - '8301:8301' # lan serf tcp
+      # - '8301:8301/udp' # lan serf udp
+      # - '8600:8600' # dns tcp
+      # - '8600:8600/udp' # dns udp
+    environment: 
+      # registrator
+      SERVICE_TAGS: "traefik.enable=true,traefik.docker.network=frontend"
+    labels:
+      - logspount.exclude 
+
+  # load balancing + routing
+  traefik:
+    image: traefik:2.2
+    depends_on: ['registrator', 'consul']
+    networks: ['backend','frontend']
+    ports: 
+      - '8080:8080' # web ui
+      - '80:80'
+    command: 
+      # - "--log.level=DEBUG"
+      - "--api.insecure=true"
+      - "--api.dashboard=true"
+      - "--providers.consulcatalog=true"
+      - "--providers.consulcatalog.endpoint.address=http://consul:8500"
+      - "--providers.consulcatalog.endpoint.datacenter=dc1"
+      - "--providers.consulcatalog.cache=true"
+      - "--providers.consulcatalog.exposedByDefault=false"
+    labels:
+      - logspount.exclude 
+
+  #monitoring
+  # TODO: Tracing - Zipkin/Jaeger
+
+  ## TIG Stack - Telegraf + Influx + Grafana
+  ## This is functionally equivalent to just Prometheus + Grafana, but allows metric push & pull
+  telegraf:
+    image: telegraf:1.14-alpine
+    restart: unless-stopped
+    networks: ['backend', 'monitor']
+    depends_on: ['influxdb']
+    labels:
+      - logspount.exclude 
+    volumes:
+      - ./telegraf.conf:/etc/telegraf/telegraf.conf:ro
+      # For docker stats
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+  influxdb:
+    image: influxdb:1.7-alpine
+    restart: always
+    ports: ['8086:8086']
+    networks: ['monitor']
+    labels:
+      - logspount.exclude 
+    environment: 
+      INFLUXDB_DB: telegraf 
+      INFLUXDB_USER: telegraf
+      INFLUXDB_USER_PASSWORD: 'compose'
+      INFLUXDB_REPORTING_DISABLED: 'true'
+
+    # volumes:
+    #   - influxdb-volume:/var/lib/influxdb
+  grafana:
+    image: grafana/grafana:master
+    depends_on: ['influxdb']
+    ports: ["3000:3000"]
+    networks: ['monitor', 'frontend']
+    user: "0"
+    labels:
+      - logspount.exclude 
+    environment:
+      GF_SECURITY_ADMIN_PASSWORD: 'compose'
+      GF_USERS_ALLOW_SIGN_UP: 'false'
+      # registrator
+      SERVICE_TAGS: 'traefik.enable=true,traefik.docker.network=frontend,traefik.http.routers.router0.rule=PathPrefix(`/grafana`)'
+
+  ## TODO - get loki working (in grafana)
+  # loki:
+  #   image: grafana/loki:latest
+  #   depends_on: ['registrator', 'consul']
+  #   ports: ["3100:3100"]
+  #   command: ["-config.file=/etc/loki/local-config.yaml"]
+  #   networks: ['backend']
+  #   environment:
+  #     # LOGSPOUT: ignore
+  #     SERVICE_TAGS: "traefik.enable=true,traefik.http.routers.router0.rule=PathPrefix(`/loki`)"
+
+
+# Create a network for intrastructure components
+networks: 
+  backend:
+  monitor:
+  frontend:
+
+# Create local persistent volumes
+volumes:
+  grafana-volume:
+  influxdb-volume:
