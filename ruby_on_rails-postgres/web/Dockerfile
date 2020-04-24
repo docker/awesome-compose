@@ -15,7 +15,8 @@ COPY Gemfile.lock /myapp/Gemfile.lock
 
 ##
 RUN gem install bundler:2.0.2
-RUN bundle install
+RUN bundle check || bundle install
+RUN yarn install --check-files
 COPY . /myapp
 
 ## Add Endpoint
