@@ -1,0 +1,8 @@
+// Override default variables before the import
+$body-bg: #fff;
+// Import Bootstrap and its default variables
+@import '~bootstrap/scss/bootstrap.scss';
+
+.cursor-pointer {
+  cursor: pointer;
+}
