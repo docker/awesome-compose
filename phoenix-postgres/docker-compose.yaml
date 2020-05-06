@@ -1,0 +1,43 @@
+version: '3.7' 
+ 
+services: 
+ 
+  app:
+    build: app
+    environment:  
+      - POSTGRES_USER=postgres 
+      - POSTGRES_PASSWORD=postgres 
+      - POSTGRES_DB=AppDB
+      - PGHOST=db 
+      - PGPORT=5432 
+      - HOST=localhost
+      - PORT=4000
+    depends_on: 
+      - db 
+    ports:  
+      - "4000:4000" 
+
+  db: 
+    image: postgres:12.2 
+    restart: always 
+    ports: 
+    - "5432:5432" 
+    environment: 
+      POSTGRES_USER: postgres 
+      POSTGRES_PASSWORD: postgres 
+      POSTGRES_DB: AppDB 
+      PGDATA: /data/postgres 
+    volumes: 
+      - postgres:/data/postgres 
+       
+networks:
+  default:
+    ipam:
+      driver: default
+      config:
+      - subnet: 173.31.0.0/17
+
+volumes: 
+    postgres: 
+
+        
