@@ -1,0 +1,37 @@
+version: "3.7"
+services:
+  frontend:
+    build:
+      context: frontend
+      args:
+        FRONT_END_PORT: 5000
+    ports:
+      - 5000:5000
+    stdin_open: true
+    volumes:
+      - ./frontend:/usr/src/app
+      - /usr/src/app/node_modules
+    container_name: frontend
+    restart: always
+  server:
+    container_name: server
+    restart: always
+    build:
+      context: server
+      args:
+        NODE_PORT: 3000
+    ports:
+      - 3000:3000
+    volumes:
+      - ./server:/usr/src/app
+      - /usr/src/app/node_modules
+    depends_on:
+      - mongo
+  mongo:
+    container_name: mongo
+    restart: always
+    image: mongo:4.2.0
+    volumes:
+      - ./data:/data/db
+    ports:
+      - 27017:27017
