@@ -13,6 +13,10 @@ services:
       - /usr/src/app/node_modules
     container_name: frontend
     restart: always
+    networks:
+      - react-express
+    depends_on:
+      - server
   server:
     container_name: server
     restart: always
@@ -20,18 +24,24 @@ services:
       context: server
       args:
         NODE_PORT: 3000
-    ports:
-      - 3000:3000
     volumes:
       - ./server:/usr/src/app
       - /usr/src/app/node_modules
     depends_on:
       - mongo
+    networks:
+      - express-mongo
+      - react-express
+
   mongo:
     container_name: mongo
     restart: always
     image: mongo:4.2.0
     volumes:
       - ./data:/data/db
-    ports:
-      - 27017:27017
+    networks:
+      - express-mongo
+networks:
+  react-express:
+  express-mongo:
+
