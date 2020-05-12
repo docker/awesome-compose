@@ -16,16 +16,17 @@ services:
     networks:
       - react-express
     depends_on:
-      - server
-  server:
-    container_name: server
+      - backend
+
+  backend:
+    container_name: backend
     restart: always
     build:
-      context: server
+      context: backend
       args:
         NODE_PORT: 3000
     volumes:
-      - ./server:/usr/src/app
+      - ./backend:/usr/src/app
       - /usr/src/app/node_modules
     depends_on:
       - mongo
@@ -44,4 +45,3 @@ services:
 networks:
   react-express:
   express-mongo:
-
