@@ -1,12 +1,9 @@
 version: "3.7"
 services:
   frontend:
-    build:
-      context: frontend
-      args:
-        FRONT_END_PORT: 5000
+    build: frontend
     ports:
-      - 5000:5000
+      - 3000:3000
     stdin_open: true
     volumes:
       - ./frontend:/usr/src/app
@@ -21,10 +18,7 @@ services:
   backend:
     container_name: backend
     restart: always
-    build:
-      context: backend
-      args:
-        NODE_PORT: 3000
+    build: backend
     volumes:
       - ./backend:/usr/src/app
       - /usr/src/app/node_modules
