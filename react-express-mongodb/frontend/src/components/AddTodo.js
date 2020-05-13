@@ -1,22 +1,33 @@
-import React from 'react';
+import React from "react";
 
 export default class AddTodo extends React.Component {
-
-    _onAddTodo = () => {
-        if(this.refs.todo.value.length > 0) {
-            this.props.handleAddTodo(this.refs.todo.value);
-            this.refs.todo.value = '';
-        }
-    };
-
-    render() {
-        return (
-            <div className="new-todo form-group">
-                <input type="text" className="form-control" ref="todo"/>
-                <button className="btn btn-primary" onClick={this._onAddTodo}>
-                    Add Todo
-                </button>
-            </div>
-        )
+  handleSubmit = (e) => {
+    e.preventDefault();
+    const { value } = e.target.elements.value;
+    if (value.length > 0) {
+      this.props.handleAddTodo(value);
+      e.target.reset();
     }
+  };
+
+  render() {
+    return (
+      <form
+        noValidate
+        onSubmit={this.handleSubmit}
+        className="new-todo form-group"
+      >
+        <input
+          type="text"
+          name="value"
+          required
+          minLength={1}
+          className="form-control"
+        />
+        <button className="btn btn-primary" type="submit">
+          Add Todo
+        </button>
+      </form>
+    );
+  }
 }
