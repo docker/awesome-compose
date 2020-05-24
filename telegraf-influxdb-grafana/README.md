@@ -42,7 +42,7 @@ When deploying this setup docker-compose maps InfluxDB in the port 8086 and 3000
 ## Deploy with docker-compose
 
 ```
-$ docker$ compose up -d
+$ docker compose up -d
 Creating network "telegraf-influxdb-grafana_default" with the default driver
 Creating influxdb ... done
 Creating grafana  ... done
@@ -60,6 +60,8 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 09aa6d8b4dc5        telegraf:latest     "/entrypoint.sh tele…"   About a minute ago   Up 51 seconds       8092/udp, 8125/udp, 8094/tcp   telegraf
 0760db685a08        influxdb:latest     "/entrypoint.sh infl…"   About a minute ago   Up 51 seconds       0.0.0.0:8086->8086/tcp         influxdb
 
+---
+
 Navigate to `http://localhost:3000` in your web browser to access the installed Grafana. The default user and password is admin/admin
 
 ![page](screenshot.png)
@@ -69,8 +71,6 @@ Stop and remove the containers
 ```
 $ docker-compose down
 
-
 To delete all data, remove all named volumes by passing the `-v` arguments:
 ```
 docker-compose down -v
-d
