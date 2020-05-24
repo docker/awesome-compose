@@ -3,14 +3,14 @@ This example defines one of the basic setups for Observability practice. These i
 
 
 Project structure:
-<code>
+```
 .
 ├── docker-compose.yaml
 └── README.md
-</code>
+```
 
 [_docker-compose.yaml_](docker-compose.yaml)
-<code>
+```
 services:
   influxdb:
     container_name: influxdb
@@ -35,31 +35,30 @@ services:
 volumes:
   influxdb:
   grafana:
-</code>
-
+```
 When deploying this setup docker-compose maps InfluxDB in the port 8086 and 3000 for Grafana. The Telegraf container enable to you to specify in a telegraf.conf file what systems you want to monitor. By default Telegraf going to connect to http://influxdb:8086 and start to report data about your server. 
 
 ## Deploy with docker-compose
 
-<code>
+```
 $ docker compose up -d
 Creating network "telegraf-influxdb-grafana_default" with the default driver
 Creating influxdb ... done
 Creating grafana  ... done
 Creating telegraf ... done
-</code>
+```
 
 ## Expected result
 
 Check containers are running and the port mapping:
 
-<code>
+```
 $ docker ps
 CONTAINER ID        IMAGE               COMMAND                  CREATED              STATUS              PORTS                          NAMES
 0f33ea260aee        grafana/grafana     "/run.sh"                About a minute ago   Up 52 seconds       0.0.0.0:3000->3000/tcp         grafana
 09aa6d8b4dc5        telegraf:latest     "/entrypoint.sh tele…"   About a minute ago   Up 51 seconds       8092/udp, 8125/udp, 8094/tcp   telegraf
 0760db685a08        influxdb:latest     "/entrypoint.sh infl…"   About a minute ago   Up 51 seconds       0.0.0.0:8086->8086/tcp         influxdb
-</code>
+```
 
 Navigate to `http://localhost:3000` in your web browser to access the installed Grafana. The default user and password is admin/admin
 
@@ -67,8 +66,12 @@ Navigate to `http://localhost:3000` in your web browser to access the installed 
 
 Stop and remove the containers
 
-<code>$ docker-compose down</code>
+```
+$ docker-compose down
+```
 
 To delete all data, remove all named volumes by passing the `-v` arguments:
 
-<code>$ docker-compose down -v</code>
+```
+$ docker-compose down -v
+```
