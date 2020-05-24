@@ -47,7 +47,6 @@ Creating network "telegraf-influxdb-grafana_default" with the default driver
 Creating influxdb ... done
 Creating grafana  ... done
 Creating telegraf ... done
-```
 
 ## Expected result
 
