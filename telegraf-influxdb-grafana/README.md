@@ -67,8 +67,7 @@ Navigate to `http://localhost:3000` in your web browser to access the installed 
 
 Stop and remove the containers
 
-```
-$ docker-compose down
+<code>$ docker-compose down</code>
 
 To delete all data, remove all named volumes by passing the `-v` arguments:
 
