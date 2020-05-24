@@ -71,5 +71,5 @@ Stop and remove the containers
 $ docker-compose down
 
 To delete all data, remove all named volumes by passing the `-v` arguments:
-```
-docker-compose down -v
+
+<code>$ docker-compose down -v</code>
