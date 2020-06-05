@@ -1,2 +1,2 @@
-Django==3.0.5
+Django==3.0.7
 environs==7.3.1
