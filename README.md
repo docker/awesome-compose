@@ -77,7 +77,7 @@ docker-compose up -d
 
 Check the `README.md` of each sample to get more details on the structure and
 what is the expected output.
-To stop and remove the all containers of the sample application run:
+To stop and remove all containers of the sample application run:
 
 ```console
 docker-compose down
