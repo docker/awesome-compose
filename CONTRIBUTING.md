@@ -15,7 +15,8 @@ Before submitting a new application, check if there isn't already application sa
 If there is one, consider updating it instead of creating a new one.
  
 If you would like to submit a new application example, please start by submitting a proposal as an issue.
-The maintainers will then use this issue to discuss what the the most valuable example for the application,
+
+maintainers will then use this issue to discuss what the most valuable example for the application,
  technology, language, or framework would be.
 
 After the choice has been made, you can submit a pull request with the example remembering to:
