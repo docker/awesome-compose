@@ -1,0 +1,30 @@
+{
+  "name": "bats-support",
+  "version": "0.3.0",
+  "description": "Supporting library for Bats test helpers",
+  "homepage": "https://github.com/jasonkarns/bats-support",
+  "license": "CC0-1.0",
+  "author": "Zoltán Tömböl (https://github.com/ztombol)",
+  "contributors": [
+    "Jason Karns <jason.karns@gmail.com> (http://jason.karns.name)"
+  ],
+  "repository": "github:jasonkarns/bats-support",
+  "bugs": "https://github.com/jasonkarns/bats-support/issues",
+  "directories": {
+    "lib": "src",
+    "test": "test"
+  },
+  "files": [
+    "load.bash",
+    "src"
+  ],
+  "scripts": {
+    "test": "bats ${CI+-t} test"
+  },
+  "devDependencies": {
+    "bats": "^1"
+  },
+  "peerDependencies": {
+    "bats": "0.4 || ^1"
+  }
+}
