@@ -38,24 +38,28 @@ function teardown_file() {
         # assumes format 22/tcp, 0.0.0.0:3000->3000/tcp
         ports_string=$(docker ps --filter="ID=${service}" --format "{{.Ports}}")
 
-        OIFS=${IFS}; IFS=','; service_port=("$ports_string"); IFS=${OIFS}; unset OIFS;
+        if [[ ! -z ${ports_string} ]]; then
 
-        for i in "${service_port[@]}"; do
+            OIFS=${IFS}; IFS=','; service_port=("$ports_string"); IFS=${OIFS}; unset OIFS;
 
-            protocol=$(expr "${i}" : '.*\(...$\)')
+            for i in "${service_port[@]}"; do
 
-            # the || true here just makes sure bats doesn't fail the test because a
-            # port wasn't matched. We will check for empty ports later
-            port=$(expr "${i}" : '.*:\([0-9]*\)->' || true)
+                protocol=$(expr "${i}" : '.*\(...$\)')
 
-            if [[ ${protocol} == "tcp" ]] && [[ ! -z ${port} ]]; then
-                run nc -z -v localhost "${port}"
-                assert_success
-            elif [[ "${protocol}" = "udp" ]] && [[ ! -z ${port} ]]; then
-                run nc -z -v -u localhost "${port}"
-                assert_success
-            fi
+                # the || true here just makes sure bats doesn't fail the test because a
+                # port wasn't matched. We will check for empty ports later
+                port=$(expr "${i}" : '.*:\([0-9]*\)->' || true)
 
-        done
+                if [[ ${protocol} == "tcp" ]] && [[ ! -z ${port} ]]; then
+                    run nc -z -v localhost "${port}"
+                    assert_success
+                elif [[ "${protocol}" = "udp" ]] && [[ ! -z ${port} ]]; then
+                    run nc -z -v -u localhost "${port}"
+                    assert_success
+                fi
+
+            done
+
+        fi
     done
 }
