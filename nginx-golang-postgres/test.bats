@@ -1,6 +1,8 @@
 #!/usr/bin/env bats
 
 load '../lib/test_helper.bash'
+load '../lib/bats-support/load.bash'
+load '../lib/bats-assert/load.bash'
 
 cd ${BATS_TEST_DIRNAME}
 
@@ -15,18 +17,17 @@ function teardown_file() {
 
 @test "$(basename ${BATS_TEST_DIRNAME}): pull check" {
     run docker-compose pull
-    [ "${status}" -eq 0 ]
+    assert_success
 }
 
 @test "$(basename ${BATS_TEST_DIRNAME}): build check" {
     run docker-compose build
-     [ "${status}" -eq 0 ]
+    assert_success
 }
 
 @test "$(basename ${BATS_TEST_DIRNAME}): up check" {
     run docker-compose up -d
-    [ "${status}" -eq 0  ]
-
+    assert_success
 }
 
 @test "$(basename ${BATS_TEST_DIRNAME}): ports check" {
@@ -49,10 +50,10 @@ function teardown_file() {
 
             if [[ ${protocol} == "tcp" ]] && [[ ! -z ${port} ]]; then
                 run nc -z -v localhost "${port}"
-                [ "${status}" -eq 0  ]
+                assert_success
             elif [[ "${protocol}" = "udp" ]] && [[ ! -z ${port} ]]; then
                 run nc -z -v -u localhost "${port}"
-                [ "${status}" -eq 0  ]
+                assert_success
             fi
 
         done
