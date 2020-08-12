@@ -6,6 +6,10 @@
 
 These samples provide a starting point for how to integrate different services using a Compose file and to manage their deployment with Docker Compose.
 
+> **Note:**
+>
+> The following samples are intended for use in local development environments such as project setups, tinkering with software stacks, etc. These samples must not be deployed in production environments.
+
 <!--lint disable awesome-toc-->
 ## Contents
 
