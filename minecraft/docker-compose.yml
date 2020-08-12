@@ -1,0 +1,14 @@
+version: '3.7'
+services:
+ minecraft:
+   image: itzg/minecraft-server
+   ports:
+     - "25565:25565"
+   environment:
+     EULA: "TRUE"
+   deploy:
+     resources:
+       limits:
+         memory: 1.5G
+   volumes:
+     - "~/minecraft_data:/data"
