@@ -14,7 +14,6 @@ Project structure:
 
 [_docker-compose.yml_](docker-compose.yml)
 ```
-version: "3.7"
 services:
   prometheus:
     image: prom/prometheus
