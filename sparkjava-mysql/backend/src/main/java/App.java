@@ -64,7 +64,7 @@ public class App {
     private static Connection connect() throws Exception {
         for (int i = 0; i < 60; i++) {
             try {
-                return DriverManager.getConnection("jdbc:mysql://db/example?useSSL=false", "root", Files.lines(Paths.get("/run/secrets/db-password")).findFirst().get());
+                return DriverManager.getConnection("jdbc:mysql://db/example?allowPublicKeyRetrieval=true&useSSL=false", "root", Files.lines(Paths.get("/run/secrets/db-password")).findFirst().get());
             } catch (CommunicationsException ex) {
                 Thread.sleep(1000L);
                 continue;
