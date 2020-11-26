@@ -1,5 +1,5 @@
-## Wordpress with MySQL
-This example defines one of the basic setups for Wordpress. More details on how this works can be found on the official [wordpress image page](https://hub.docker.com/_/wordpress).
+## WordPress with MySQL
+This example defines one of the basic setups for WordPress. More details on how this works can be found on the official [wordpress image page](https://hub.docker.com/_/wordpress).
 
 
 Project structure:
@@ -23,7 +23,7 @@ services:
     ...
 ```
 
-When deploying this setup, docker-compose maps the wordpress container port 80 to
+When deploying this setup, docker-compose maps the wordpress container's port 80 to
 port 80 of the host as specified in the compose file.
 
 ## Deploy with docker-compose
@@ -48,7 +48,7 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 e0884a8d444d        mysql:8.0.19        "docker-entrypoint.s…"   35 seconds ago      Up 34 seconds       3306/tcp, 33060/tcp   wordpress-mysql_db_1
 ```
 
-Navigate to `http://localhost:80` in your web browser to access Wordpress.
+Navigate to `http://localhost:80` in your web browser to access WordPress.
 
 ![page](output.jpg)
 
