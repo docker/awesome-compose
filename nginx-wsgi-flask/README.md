@@ -87,16 +87,7 @@ Removing network nginx-wsgi-flask_default
 
 By following the steps above, you will have an NGINX Reverse Proxy and a Flask backend. The general traffic flow will look like the following:
 
-```mermaid
-graph LR;
-C["Client"]
-N["NGINX"]
-W["WSGI"]
-F["Flask"]
-C-->N
-N-->W
-W-->F
-```
+`Client -> NGINX -> WSGI -> Flask`
 
 ### NGINX
 
