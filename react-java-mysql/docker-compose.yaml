@@ -2,6 +2,7 @@ version: "3.7"
 services:
   backend:
     build: backend
+    restart: always
     environment:
       MYSQL_HOST: db
     networks:
