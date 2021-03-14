@@ -3,6 +3,8 @@ services:
   backend:
     build: backend
     restart: always
+    secrets:
+      - db-password
     environment:
       MYSQL_HOST: db
     networks:
