@@ -31,6 +31,7 @@ a MySQL database.
 application with Nginx proxy and a Mongo database.
 - [`NGINX / Flask / MySQL`](https://github.com/docker/awesome-compose/tree/master/nginx-flask-mysql) - Sample Python/Flask
 application with an Nginx proxy and a MySQL database.
+- [`NGINX / WSGI / Flask`](https://github.com/docker/awesome-compose/tree/master/nginx-wsgi-flask) - Sample web framework stack using NGINX as a reverse proxy and WSGI to interface requests to a Flask backend.
 - [`NGINX / Go`](https://github.com/docker/awesome-compose/tree/master/nginx-golang) - Sample Nginx proxy with a Go backend.
 - [`React / Spring / MySQL`](https://github.com/docker/awesome-compose/tree/master/react-java-mysql) - Sample React
 application with a Spring backend and a MySQL database.
