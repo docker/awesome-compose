@@ -1,5 +1,5 @@
 ## Compose sample application
-### React application with a NodeJS backend and a MySQL database
+### React application with a Spring backend and a MySQL database
 
 Project structure:
 ```
