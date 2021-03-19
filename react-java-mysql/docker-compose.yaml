@@ -11,13 +11,19 @@ services:
       - react-spring
       - spring-mysql
     depends_on:
-      - db
+      db:
+        condition: service_healthy
   db:
     environment:
       MYSQL_DATABASE: example
       MYSQL_ROOT_PASSWORD_FILE: /run/secrets/db-password
     image: mysql:8.0.19
     restart: always
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "--silent"]
+      interval: 3s
+      retries: 5
+      start_period: 30s
     secrets:
       - db-password
     volumes:
