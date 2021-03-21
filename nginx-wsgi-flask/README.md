@@ -7,7 +7,6 @@ Project structure:
 ```text
 .
 ├── docker-compose.yaml
-├── Makefile
 ├── flask
 │   ├── app.py
 │   ├── Dockerfile
