@@ -1,0 +1,34 @@
+version: "3.8"
+services:
+  backend:
+    build: backend
+    secrets:
+      - db-password
+    depends_on: 
+      - db
+    volumes:
+      - ./src:/var/www/html # this part seems repetitive (jb)
+  db:
+    image: mysql:8.0.19
+    command: '--default-authentication-plugin=mysql_native_password'
+    restart: always
+    secrets:
+      - db-password
+    volumes:
+      - db-data:/var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=example
+      - MYSQL_ROOT_PASSWORD_FILE=/run/secrets/db-password
+  proxy:
+    build: proxy
+    ports:
+      - 80:80
+    depends_on: 
+      - backend
+    volumes:
+      - ./src:/var/www/html # this part seems repetitive (jb)
+volumes:
+  db-data:
+secrets:
+  db-password:
+    file: db/password.txt
