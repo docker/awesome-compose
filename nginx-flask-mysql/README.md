@@ -61,7 +61,7 @@ c2c703b66b19        nginx-flask-mysql_proxy     "nginx -g 'daemon of…"   39 se
 
 After the application starts, navigate to `http://localhost:80` in your web browser or run:
 ```
-$ curl localhost:8080
+$ curl localhost:80
 <div>Blog post #1</div><div>Blog post #2</div><div>Blog post #3</div><div>Blog post #4</div>
 ```
 
