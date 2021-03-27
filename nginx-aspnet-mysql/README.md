@@ -6,8 +6,8 @@ Project structure:
 .
 ├── backend
 │   ├── Dockerfile
-│   ├── go.mod
-│   └── main.go
+│   ├── aspnet.csproj
+│   └── Program.cs
 ├── db
 │   └── password.txt
 ├── docker-compose.yaml
@@ -40,17 +40,6 @@ Make sure port 80 on the host is not already being in use.
 
 ```
 $ docker-compose up -d
-Creating network "nginx-golang-mysql_default" with the default driver
-Building backend
-Step 1/8 : FROM golang:1.13-alpine AS build
-1.13-alpine: Pulling from library/golang
-...
-Successfully built 5f7c899f9b49
-Successfully tagged nginx-golang-mysql_proxy:latest
-WARNING: Image for service proxy was built because it did not already exist. To rebuild this image you must use `docker-compose build` or `docker-compose up --build`.
-Creating nginx-golang-mysql_db_1 ... done
-Creating nginx-golang-mysql_backend_1 ... done
-Creating nginx-golang-mysql_proxy_1   ... done
 ```
 
 ## Expected result
@@ -59,11 +48,11 @@ Listing containers must show three containers running and the port mapping as be
 ```
 $ docker ps
 CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                  NAMES
-8906b14c5ad1        nginx-golang-mysql_proxy     "nginx -g 'daemon of…"   2 minutes ago       Up 2 minutes        0.0.0.0:80->80/tcp    nginx-golang-mysq
+8906b14c5ad1        nginx-aspnet-mysql_proxy     "nginx -g 'daemon of…"   2 minutes ago       Up 2 minutes        0.0.0.0:80->80/tcp    nginx-aspnet-mysql
 l_proxy_1
-13e0e0a7715a        nginx-golang-mysql_backend   "/server"                2 minutes ago       Up 2 minutes        8000/tcp              nginx-golang-mysq
+13e0e0a7715a        nginx-aspnet-mysql_backend   "/server"                2 minutes ago       Up 2 minutes        8000/tcp              nginx-aspnet-mysq
 l_backend_1
-ca8c5975d205        mysql:5.7                    "docker-entrypoint.s…"   2 minutes ago       Up 2 minutes        3306/tcp, 33060/tcp   nginx-golang-mysq
+ca8c5975d205        mysql:5.7                    "docker-entrypoint.s…"   2 minutes ago       Up 2 minutes        3306/tcp, 33060/tcp   nginx-aspnet-mysql
 l_db_1
 ```
 
