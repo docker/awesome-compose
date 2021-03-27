@@ -34,6 +34,7 @@ services:
 
 The compose file defines an application with two services `nginx-proxy` and `flask-app`.
 When deploying the application, docker-compose maps port 80 of the web service container to port 80 of the host as specified in the file.
+
 Make sure port 80 on the host is not being used by another container, otherwise the port should be changed.
 
 ## Deploy with docker-compose
