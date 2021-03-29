@@ -1,0 +1,8 @@
+version: "2"
+services:
+  frontend:
+    build:
+      context: .
+    container_name: frontend
+    ports:
+      - "3000:80"
