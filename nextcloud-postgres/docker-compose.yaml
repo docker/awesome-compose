@@ -21,6 +21,8 @@ services:
     restart: always
     volumes:
       - db_data:/var/lib/postgresql/data
+    expose:
+      - 5432
 volumes:
   db_data:
   nc_data:
