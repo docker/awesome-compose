@@ -5,15 +5,13 @@ Project structure:
 ```
 .
 ├── backend
-│   ├── Dockerfile
+│   ├── index.php
 ├── db
 │   └── password.txt
 ├── docker-compose.yaml
 ├── proxy
 │   ├── conf
 │   └── Dockerfile
-├── src
-│   ├── index.php
 └── README.md
 ```
 
@@ -21,7 +19,7 @@ Project structure:
 ```
 services:
   backend:
-    build: backend
+    image: php:8.0.3-fpm-buster
     ...
   db:
     image: mysql:8.0.19
