@@ -1,13 +1,13 @@
 version: "3.8"
 services:
   backend:
-    build: backend
+    image: php:8.0.3-fpm-buster
     secrets:
       - db-password
     depends_on: 
       - db
     volumes:
-      - ./src:/var/www/html # this part seems repetitive (jb)
+      - ./backend:/var/www/html # this part seems repetitive (jb)
   db:
     image: mysql:8.0.19
     command: '--default-authentication-plugin=mysql_native_password'
@@ -26,7 +26,7 @@ services:
     depends_on: 
       - backend
     volumes:
-      - ./src:/var/www/html # this part seems repetitive (jb)
+      - ./backend:/var/www/html # this part seems repetitive (jb)
 volumes:
   db-data:
 secrets:
