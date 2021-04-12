@@ -36,6 +36,8 @@ application with an Nginx proxy and a MySQL database.
 application with a Spring backend and a MySQL database.
 - [`React / Express / MySQL`](https://github.com/docker/awesome-compose/tree/master/react-express-mysql) - Sample React
 application with a Node.js backend and a MySQL database.
+- [`React / Express / MongoDB`](https://github.com/docker/awesome-compose/tree/master/react-express-mongodb) - Sample React
+application with a Node.js backend and a Mongo database.
 - [`React / Rust / PostgreSQL`](https://github.com/docker/awesome-compose/tree/master/react-rust-postgres) - Sample React
 application with a Rust backend and a Postgres database.
 - [`Spring / PostgreSQL`](https://github.com/docker/awesome-compose/tree/master/spring-postgres) - Sample Java application
