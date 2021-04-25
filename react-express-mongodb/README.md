@@ -109,7 +109,7 @@ We make image of app from our `DockeFile`, explanation below.
 __Explanation of service server__
 
 - Defining a **nodejs** service as __server__.
-- We named our **node server** container service as **server**. Assigning a name to the containers makes it easier to read when there are lot of containers on a machine, it can aslo avoid randomly generated container names. (Although in this case, __container_name__ is also __server__, this is merely personal preference, the name of the service and container do not have to be the same.) 
+- We named our **node server** container service as **server**. Assigning a name to the containers makes it easier to read when there are lot of containers on a machine, it can also avoid randomly generated container names. (Although in this case, __container_name__ is also __server__, this is merely personal preference, the name of the service and container do not have to be the same.) 
 - Docker container starts automatically if its fails.
 - Building the __server__ image using the Dockerfile from the current directory and passing an argument to the
 backend(server) `DockerFile`.
