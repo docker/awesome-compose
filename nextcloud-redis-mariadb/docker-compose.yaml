@@ -21,6 +21,8 @@ services:
     restart: always
     networks:
       - redisnet
+    expose:
+      - 6379
   db:
     image: mariadb
     command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW
@@ -34,12 +36,11 @@ services:
       - MYSQL_USER=nextcloud
       - MYSQL_ROOT_PASSWORD=nextcloud
       - MYSQL_PASSWORD=nextcloud
+    expose:
+      - 3306
 volumes:
   db_data:
   nc_data:
 networks:
   dbnet:
   redisnet:
-  
-  
-    

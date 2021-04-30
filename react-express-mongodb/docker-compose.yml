@@ -27,7 +27,8 @@ services:
     networks:
       - express-mongo
       - react-express
-
+    expose: 
+      - 3000
   mongo:
     container_name: mongo
     restart: always
@@ -36,6 +37,8 @@ services:
       - ./data:/data/db
     networks:
       - express-mongo
+    expose:
+      - 27017
 networks:
   react-express:
   express-mongo:
