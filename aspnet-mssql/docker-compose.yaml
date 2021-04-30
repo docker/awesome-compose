@@ -8,4 +8,6 @@ services:
     environment:
       ACCEPT_EULA: "Y"
       SA_PASSWORD: example_123
+    expose: 
+      - 1433
     image: microsoft/mssql-server-linux

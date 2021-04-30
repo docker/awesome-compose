@@ -20,6 +20,8 @@ services:
     environment:
       - POSTGRES_DB=example
       - POSTGRES_PASSWORD_FILE=/run/secrets/db-password
+    expose:
+      - 5432
 volumes:
   db-data:
 secrets:
