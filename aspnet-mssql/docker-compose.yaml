@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   web:
-    build: app
+    build: app/aspnetapp
     ports:
       - 80:80
   db:
