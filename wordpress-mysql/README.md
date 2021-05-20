@@ -58,7 +58,7 @@ Stop and remove the containers
 $ docker-compose down
 ```
 
-To remove all Gitea data, delete the named volumes by passing the `-v` parameter:
+To remove all Wordpress data, delete the named volumes by passing the `-v` parameter:
 ```
 $ docker-compose down -v
 ```
