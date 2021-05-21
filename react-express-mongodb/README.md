@@ -22,7 +22,7 @@ services:
       context: frontend
     ...
     ports:
-      - 5000:5000
+      - 3000:3000
     ...
   server:
     container_name: server
@@ -42,8 +42,8 @@ services:
     ...
 ```
 The compose file defines an application with three services `frontend`, `backend` and `db`.
-When deploying the application, docker-compose maps port 5000 of the frontend service container to port 5000 of the host as specified in the file.
-Make sure port 5000 on the host is not already being in use.
+When deploying the application, docker-compose maps port 3000 of the frontend service container to port 3000 of the host as specified in the file.
+Make sure port 3000 on the host is not already being in use.
 
 ## Deploy with docker-compose
 
@@ -68,11 +68,11 @@ Listing containers must show containers running and the port mapping as below:
 $ docker ps
 CONTAINER ID        IMAGE                               COMMAND                  CREATED             STATUS                  PORTS                      NAMES
 06e606d69a0e        react-express-mongodb_server        "docker-entrypoint.s…"   23 minutes ago      Up 23 minutes           0.0.0.0:3000->3000/tcp     server
-ff56585e1db4        react-express-mongodb_frontend      "docker-entrypoint.s…"   23 minutes ago      Up 23 minutes           0.0.0.0:5000->5000/tcp     frontend
+ff56585e1db4        react-express-mongodb_frontend      "docker-entrypoint.s…"   23 minutes ago      Up 23 minutes           0.0.0.0:3000->3000/tcp     frontend
 a1f321f06490        mongo:4.2.0                         "docker-entrypoint.s…"   23 minutes ago      Up 23 minutes           0.0.0.0:27017->27017/tcp   mongo
 ```
 
-After the application starts, navigate to `http://localhost:5000` in your web browser.
+After the application starts, navigate to `http://localhost:3000` in your web browser.
 
 ![page](./output.png)
 
