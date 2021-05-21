@@ -16,7 +16,7 @@ module.exports = {
   },
   UNAUTHORIZED: {
     code: 401,
-    message: "You session is expired. Please login again",
+    message: "Your session has expired. Please login again",
     success: false,
   },
   SUCCESSFUL_DELETE: {
