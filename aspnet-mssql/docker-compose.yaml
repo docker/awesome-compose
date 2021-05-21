@@ -1,13 +1,20 @@
 version: "3.7"
 services:
   web:
-    build: app
+    build: app/aspnetapp
     ports:
       - 80:80
   db:
     environment:
       ACCEPT_EULA: "Y"
       SA_PASSWORD: example_123
-    expose: 
-      - 1433
     image: microsoft/mssql-server-linux
+    restart: always
+    healthcheck:
+        test: ["CMD-SHELL", "/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P example_123 -Q 'SELECT 1' || exit 1"]
+        interval: 10s
+        retries: 10
+        start_period: 10s
+        timeout: 3s     
+         
+       

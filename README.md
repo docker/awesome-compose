@@ -27,6 +27,7 @@ with an Nginx proxy and a MySQL database.
 application with an Nginx proxy and a PostgreSQL database.
 - [`Java Spark / MySQL`](https://github.com/docker/awesome-compose/tree/master/sparkjava-mysql) - Sample Java application and
 a MySQL database.
+- [`NGINX / ASP.NET / MySQL`](https://github.com/docker/awesome-compose/tree/master/nginx-aspnet-mysql) - Sample Nginx reverse proxy with an C# backend using ASP.NET
 - [`NGINX / Flask / MongoDB`](https://github.com/docker/awesome-compose/tree/master/nginx-flask-mongo) - Sample Python/Flask
 application with Nginx proxy and a Mongo database.
 - [`NGINX / Flask / MySQL`](https://github.com/docker/awesome-compose/tree/master/nginx-flask-mysql) - Sample Python/Flask

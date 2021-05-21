@@ -35,7 +35,7 @@ Make sure port 80 on the host is not being used by another container, otherwise 
 $ docker-compose up -d
 Creating network "aspnet-mssql_default" with the default driver
 Building web
-Step 1/13 : FROM mcr.microsoft.com/dotnet/core/sdk:2.1 AS build
+Step 1/13 : FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 2.1: Pulling from dotnet/core/sdk
 ....
 ....
