@@ -38,6 +38,7 @@ application with a Spring backend and a MySQL database.
 application with a Node.js backend and a MySQL database.
 - [`React / Rust / PostgreSQL`](https://github.com/docker/awesome-compose/tree/master/react-rust-postgres) - Sample React
 application with a Rust backend and a Postgres database.
+- [`React / Nginx`](https://github.com/docker/awesome-compose/tree/master/react-nginx) - Sample React application with Nginx.
 - [`Spring / PostgreSQL`](https://github.com/docker/awesome-compose/tree/master/spring-postgres) - Sample Java application
 with Spring framework and a Postgres database.  
 ## Single service samples
