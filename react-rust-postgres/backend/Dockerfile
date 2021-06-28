@@ -1,4 +1,4 @@
-FROM jdrouet/rust-nightly:buster-slim AS base
+FROM rust:1-buster AS base
 
 RUN apt-get update \
   && apt-get install -y libpq-dev \
