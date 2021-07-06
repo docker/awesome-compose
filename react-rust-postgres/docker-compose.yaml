@@ -10,12 +10,18 @@ services:
       - 3000:3000
     volumes:
       - ./frontend/src:/code/src:ro
+
   backend:
     build:
       context: backend
       target: development
     environment:
-      - DATABASE_URL=postgres://postgres:mysecretpassword@db/postgres
+      - ADDRESS=0.0.0.0:8000
+      - RUST_LOG=debug
+      - PG_DBNAME=postgres
+      - PG_HOST=db
+      - PG_USER=postgres
+      - PG_PASSWORD=mysecretpassword
     networks:
       - client-side
       - server-side
@@ -24,6 +30,7 @@ services:
       - backend-cache:/code/target
     depends_on:
       - db
+
   db:
     image: postgres:12-alpine
     restart: always
@@ -35,9 +42,11 @@ services:
       - 5432:5432
     volumes:
       - db-data:/var/lib/postgresql/data
+
 networks:
   client-side: {}
   server-side: {}
+
 volumes:
   backend-cache: {}
   db-data: {}

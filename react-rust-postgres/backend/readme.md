@@ -1,4 +1,4 @@
 # Backend
 
-This backend is made with Rust using [Rocket](https://rocket.rs/) as a web server and [Diesel](https://diesel.rs/) as an ORM.
+This backend is made with Rust using [actix-web](https://actix.rs/) as a web server and [deadpool-postgres](https://crates.io/crates/deadpool-postgres) as a connection manager.
 

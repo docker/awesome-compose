@@ -5,9 +5,9 @@ import "./App.css";
 function App() {
   const [message, setMessage] = useState();
   useEffect(() => {
-    fetch("/api/")
-      .then(res => res.json())
-      .then(res => setMessage(res.message))
+    fetch("/api/users")
+      .then((res) => res.json())
+      .then((res) => setMessage(res.message))
       .catch(console.error);
   }, [setMessage]);
   return (

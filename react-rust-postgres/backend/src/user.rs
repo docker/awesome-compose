@@ -1,18 +1,25 @@
-#![allow(proc_macro_derive_resolution_fallback)]
+use tokio_postgres::{Error, GenericClient, Row};
 
-use diesel;
-use diesel::prelude::*;
-use super::schema::users;
-
-#[derive(Queryable, AsChangeset, Serialize, Deserialize)]
-#[table_name = "users"]
+#[derive(Debug, serde::Serialize)]
 pub struct User {
     pub id: i32,
     pub login: String,
 }
 
+impl From<Row> for User {
+    fn from(row: Row) -> Self {
+        Self {
+            id: row.get(0),
+            login: row.get(1),
+        }
+    }
+}
+
 impl User {
-    pub fn all(connection: &PgConnection) -> QueryResult<Vec<User>> {
-        users::table.load::<User>(&*connection)
+    pub async fn all<C: GenericClient>(client: &C) -> Result<Vec<User>, Error> {
+        let stmt = client.prepare("SELECT id, login FROM users").await?;
+        let rows = client.query(&stmt, &[]).await?;
+
+        Ok(rows.into_iter().map(User::from).collect())
     }
 }
