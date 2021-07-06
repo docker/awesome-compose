@@ -12,7 +12,7 @@ Project structure:
 └── README.md
 ```
 
-[_docker-compose.yaml_](docker-compose.yaml)
+[_docker-compose.yml_](docker-compose.yml)
 ```
 version: "3.7"
 services:
