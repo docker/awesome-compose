@@ -1,9 +1,11 @@
 version: '3.7'
 services:
   api:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: fastapi-service
+    build: .
+    container_name: fastapi-application
+    environment:
+      PORT: 8000
     ports:
       - '8000:8000'
+    restart: "no"
+
