@@ -27,10 +27,10 @@ services:
 $ docker-compose up -d
 Creating network "django_default" with the default driver
 Building web
-Step 1/6 : FROM python:3.7-alpine
+Step 1/6 : FROM python:alpine3.14
 ...
 ...
-Status: Downloaded newer image for python:3.7-alpine
+Status: Downloaded newer image for python:alpine3.14
 Creating django_web_1 ... done
 
 ```
