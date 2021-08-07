@@ -55,6 +55,7 @@ with Spring framework and a Postgres database.
 - [`Django`](https://github.com/docker/awesome-compose/tree/master/django)
 - [`Minecraft server`](https://github.com/docker/awesome-compose/tree/master/minecraft)
 - [`Plex`](https://github.com/docker/awesome-compose/tree/master/plex)
+- [`Portainer`](https://github.com/docker/awesome-compose/tree/master/portainer)
 ## Basic setups for different platforms (not production ready - useful for personal use) 
 - [`Gitea / PostgreSQL`](https://github.com/docker/awesome-compose/tree/master/gitea-postgres)
 - [`Nextcloud / PostgreSQL`](https://github.com/docker/awesome-compose/tree/master/nextcloud-postgres)
