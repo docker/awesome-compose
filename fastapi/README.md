@@ -3,7 +3,6 @@
 
 Project structure:
 ```
-.
 ├── docker-compose.yaml
 ├── Dockerfile
 ├── requirements.txt
@@ -15,7 +14,6 @@ Project structure:
 
 [_docker-compose.yaml_](docker-compose.yaml)
 ```
-version: '3.7'
 services:
   api:
     build: .
