@@ -6,5 +6,7 @@ services:
       - 80:80
     depends_on:
       - backend
+    extra_hosts:
+      - "backend:172.24.121.152" #172.24.121.152 you host ip addr
   backend:
     build: backend
