@@ -1,10 +1,44 @@
-## Details
+## Compose sample application
 
-An project deploy a React Application with Nginx
+### An project deploy React Application with Nginx
 
-### Command
+Project structure:
 
-#### Build image and run container
+```
+├── docker-compose.yml
+├── Dockerfile
+├── .dockerignore
+├── .nginx
+│   └── nginx.conf
+├── package.json
+├── public
+│   ├── ...
+│   └── robots.txt
+├── README.md
+├── src
+│   ├── ...
+│   └── App.js
+└── yarn.lock
+
+```
+
+[_docker-compose.yaml_](docker-compose.yaml)
+
+```
+version: "3.7"
+services:
+  frontend:
+    build:
+      context: .
+    container_name: frontend
+    ports:
+      - "80:80"
+```
+
+The compose file defines an application with an services `frontend`.
+When deploying the application, docker-compose maps port 80 of the frontend service container to port 80 of the host as specified in the file.  
+
+## Deploy with docker-compose
 
 ```
 $ docker-compose up -d
@@ -31,8 +65,13 @@ Successfully built 6372a67cf86f
 Successfully tagged react-nginx_frontend:latest
 ```
 
-#### Expected result
+## Expected result
+
+Listing containers must show containers running and the port mapping as below:
+
 ```
+$ docker ps
+
 CONTAINER ID   IMAGE                  COMMAND                  CREATED              STATUS              PORTS                               NAMES
 b6d00a4974ce   react-nginx_frontend   "nginx -g 'daemon of…"   About a minute ago   Up About a minute   0.0.0.0:80->80/tcp, :::80->80/tcp   frontend
 ```
@@ -40,45 +79,11 @@ b6d00a4974ce   react-nginx_frontend   "nginx -g 'daemon of…"   About a minute 
 After the application start, navigate to http://localhost in your browser:
 ![page](./output.png)
 
-#### Stop and remove the container
+Stop and remove the containers
 
 ```
 $ docker-compose down
 Stopping frontend ... done
 Removing frontend ... done
 Removing network react-nginx_default
-```
-
-### Structure
-
-This base project created with [Create React App](https://github.com/facebook/create-react-app).
-
-```
-├── docker-compose.yml
-├── Dockerfile
-├── .dockerignore
-├── .gitignore
-├── .nginx
-│   └── nginx.conf
-├── package.json
-├── public
-│   ├── favicon.ico
-│   ├── index.html
-│   ├── logo192.png
-│   ├── logo512.png
-│   ├── manifest.json
-│   └── robots.txt
-├── README.md
-├── node_modules
-├── src
-│   ├── App.css
-│   ├── App.js
-│   ├── App.test.js
-│   ├── index.css
-│   ├── index.js
-│   ├── logo.svg
-│   ├── reportWebVitals.js
-│   └── setupTests.js
-└── yarn.lock
-
 ```
