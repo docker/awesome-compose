@@ -6,5 +6,5 @@ require (
 	github.com/gorilla/context v1.1.1
 	github.com/gorilla/handlers v1.3.0
 	github.com/gorilla/mux v1.6.2
-	github.com/lib/pq v0.0.0-20180327071824-d34b9ff171c2
+	github.com/lib/pq v1.10.3
 )
