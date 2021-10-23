@@ -1,4 +1,4 @@
-FROM node:10
+FROM node:14.15
 
 RUN mkdir /project
 WORKDIR /project
