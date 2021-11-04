@@ -1,10 +1,12 @@
-FROM node:10
+FROM node:17.0.1-bullseye-slim
 
 RUN mkdir /project
 WORKDIR /project
 
-COPY . .
+RUN npm install -g @angular/cli@13
 
-RUN npm install -g @angular/cli
-RUN yarn install
+COPY package.json package-lock.json ./
+RUN npm ci
+
+COPY . .
 CMD ["ng", "serve", "--host", "0.0.0.0"]
