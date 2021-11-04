@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   elasticsearch:
     image: elasticsearch:7.8.0

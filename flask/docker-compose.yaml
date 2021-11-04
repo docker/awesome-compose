@@ -1,5 +1,4 @@
-version: '3' 
-services: 
+services:
   web: 
     build: app 
     ports: 
