@@ -21,7 +21,7 @@
     "mongodb": "^3.0.7",
     "mongoose": "^6.0.9",
     "simple-node-logger": "^18.12.23",
-    "validator": "^10.1.0"
+    "validator": "^13.7.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.3",
