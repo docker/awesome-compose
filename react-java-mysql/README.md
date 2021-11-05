@@ -23,7 +23,10 @@ services:
     build: backend
     ...
   db:
-    image: mysql:8.0.19
+    # We use a mariadb image which support both amd64 & arm64 architecture
+    image: mariadb:10.6.4-focal
+    # If you really want to use MySQL, uncomment the following line
+    #image: mysql:8.0.27
     ...
   frontend:
     build: frontend
@@ -34,6 +37,11 @@ services:
 The compose file defines an application with three services `frontend`, `backend` and `db`.
 When deploying the application, docker-compose maps port 3000 of the frontend service container to port 3000 of the host as specified in the file.  
 Make sure port 3000 on the host is not already being in use.
+
+> ℹ️ **_INFO_**  
+> For compatibility purpose between `AMD64` and `ARM64` architecture, we use a MariaDB as database instead of MySQL.  
+> You still can use the MySQL image by uncommenting the following line in the Compose file   
+> `#image: mysql:8.0.27`
 
 ## Deploy with docker-compose
 
