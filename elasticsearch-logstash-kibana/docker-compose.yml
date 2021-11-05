@@ -1,6 +1,6 @@
 services:
   elasticsearch:
-    image: elasticsearch:7.8.0
+    image: elasticsearch:7.14.2
     container_name: es
     environment:
       discovery.type: single-node
@@ -16,7 +16,7 @@ services:
     networks:
       - elastic
   logstash:
-    image: logstash:7.8.0
+    image: logstash:7.14.2
     container_name: log
     environment:
       discovery.seed_hosts: logstash
@@ -35,7 +35,7 @@ services:
       - elastic
     command: logstash -f /usr/share/logstash/pipeline/logstash-nginx.config
   kibana:
-    image: kibana:7.8.0
+    image: kibana:7.14.2
     container_name: kib
     ports:
       - "5601:5601"
