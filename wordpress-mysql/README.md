@@ -1,5 +1,5 @@
-## Wordpress with MySQL
-This example defines one of the basic setups for Wordpress. More details on how this works can be found on the official [wordpress image page](https://hub.docker.com/_/wordpress).
+## WordPress with MySQL
+This example defines one of the basic setups for WordPress. More details on how this works can be found on the official [WordPress image page](https://hub.docker.com/_/wordpress).
 
 
 Project structure:
@@ -13,7 +13,10 @@ Project structure:
 ```
 services:
   db:
-    image: mysql:8.0.19
+    # We use a mariadb image which support both amd64 & arm64 architecture
+    image: mariadb:10.6.4-focal
+    # If you really want to use MySQL, uncomment the following line
+    #image: mysql:8.0.27
     ...
   wordpress:
     image: wordpress:latest
@@ -23,8 +26,13 @@ services:
     ...
 ```
 
-When deploying this setup, docker-compose maps the wordpress container port 80 to
+When deploying this setup, docker-compose maps the WordPress container port 80 to
 port 80 of the host as specified in the compose file.
+
+> ℹ️ **_INFO_**  
+> For compatibility purpose between `AMD64` and `ARM64` architecture, we use a MariaDB as database instead of MySQL.  
+> You still can use the MySQL image by uncommenting the following line in the Compose file   
+> `#image: mysql:8.0.27`
 
 ## Deploy with docker-compose
 
@@ -48,7 +56,7 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 e0884a8d444d        mysql:8.0.19        "docker-entrypoint.s…"   35 seconds ago      Up 34 seconds       3306/tcp, 33060/tcp   wordpress-mysql_db_1
 ```
 
-Navigate to `http://localhost:80` in your web browser to access Wordpress.
+Navigate to `http://localhost:80` in your web browser to access WordPress.
 
 ![page](output.jpg)
 
@@ -58,7 +66,7 @@ Stop and remove the containers
 $ docker-compose down
 ```
 
-To remove all Wordpress data, delete the named volumes by passing the `-v` parameter:
+To remove all WordPress data, delete the named volumes by passing the `-v` parameter:
 ```
 $ docker-compose down -v
 ```
