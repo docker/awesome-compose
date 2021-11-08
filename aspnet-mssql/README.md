@@ -20,7 +20,10 @@ services:
     ports:
     - 80:80
   db:
-    image: microsoft/mssql-server-linux
+    # mssql server image isn't available for arm64 architecture, so we use azure-sql instead
+    image: mcr.microsoft.com/azure-sql-edge:1.0.4
+    # If you really want to use MS SQL Server, uncomment the following line
+    #image: mcr.microsoft.com/mssql/server
     ...
 ```
 The compose file defines an application with two services `web` and `db`. The image for the web service is built with the Dockerfile inside the `app` directory (build parameter).
@@ -28,6 +31,10 @@ The compose file defines an application with two services `web` and `db`. The im
 When deploying the application, docker-compose maps the container port 80 to port 80 of the host as specified in the file.
 Make sure port 80 on the host is not being used by another container, otherwise the port should be changed.
 
+> ℹ️ **_INFO_**  
+> For compatibility purpose between `AMD64` and `ARM64` architecture, we use Azure SQL Edge as database instead of MS SQL Server.  
+> You still can use the MS SQL Server image by uncommenting the following line in the Compose file   
+> `#image: mcr.microsoft.com/mssql/server`
 
 ## Deploy with docker-compose
 

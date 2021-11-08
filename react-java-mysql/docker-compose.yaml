@@ -13,10 +13,13 @@ services:
       db:
         condition: service_healthy
   db:
+    # We use a mariadb image which supports both amd64 & arm64 architecture
+    image: mariadb:10.6.4-focal
+    # If you really want to use MySQL, uncomment the following line
+    #image: mysql:8.0.19
     environment:
-      MYSQL_DATABASE: example
-      MYSQL_ROOT_PASSWORD_FILE: /run/secrets/db-password
-    image: mysql:8.0.19
+      - MYSQL_DATABASE=example
+      - MYSQL_ROOT_PASSWORD_FILE=/run/secrets/db-password
     restart: always
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "--silent"]

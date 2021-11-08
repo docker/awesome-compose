@@ -3,6 +3,6 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="MySql.Data" Version="8.0.23" />
+    <PackageReference Include="MySqlConnector" Version="0.61.0" />
   </ItemGroup>
 </Project>
