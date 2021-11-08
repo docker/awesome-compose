@@ -22,7 +22,7 @@ services:
     ports:
     - 8080:8080
   db:
-    # We use a mariadb image which support both amd64 & arm64 architecture
+    # We use a mariadb image which supports both amd64 & arm64 architecture
     image: mariadb:10.6.4-focal
     # If you really want to use MySQL, uncomment the following line
     #image: mysql:8.0.27
