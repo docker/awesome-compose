@@ -3,17 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.5.0",
-    "@testing-library/user-event": "^7.2.1",
-    "@types/jest": "^24.9.1",
-    "@types/node": "^12.12.30",
-    "@types/react": "^16.9.25",
-    "@types/react-dom": "^16.9.5",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1",
-    "typescript": "^3.7.5"
+    "@testing-library/jest-dom": "^5.15.0",
+    "@testing-library/react": "^12.1.2",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^27.0.3",
+    "@types/node": "^16.11.9",
+    "@types/react": "^17.0.35",
+    "@types/react-dom": "^17.0.11",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "typescript": "^4.5.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -37,6 +36,7 @@
     ]
   },
   "devDependencies": {
-    "http-proxy-middleware": "^1.0.3"
+    "http-proxy-middleware": "^2.0.1",
+    "react-scripts": "^4.0.3"
   }
 }
