@@ -34,7 +34,7 @@ volumes:
   postgres_data:
 ```
 
-# Changes in Django project
+## Changes in Django project
 To make your Django project work with PostgreSQL, you need to add the following lines to your settings.py file:
 ```python
 DATABASES = {
@@ -49,7 +49,7 @@ DATABASES = {
 }
 ```
 
-# Deploy with docker-compose
+## Deploy with docker-compose
 ```
 $ docker-compose up -d
 [+] Building 27.5s (10/10) FINISHED
@@ -65,7 +65,7 @@ $ docker-compose up -d
 ```
 
 
-# Expected result
+## Expected result
 Listing containers must showtwo containers running and the port mapping as below:
 ```
 $ docker ps
