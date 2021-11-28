@@ -14,6 +14,7 @@ Project structure:
 
 [_docker-compose.yaml_](docker-compose.yaml)
 ```
+version: "3.7"
 services:
   web:
     build: angular
