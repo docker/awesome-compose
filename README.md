@@ -34,7 +34,6 @@ application with Nginx proxy and a Mongo database.
 application with an Nginx proxy and a MySQL database.
 - [`NGINX / Go`](https://github.com/docker/awesome-compose/tree/master/nginx-golang) - Sample Nginx proxy with a Go backend.
 - [`NGINX / WSGI / Flask`](https://github.com/docker/awesome-compose/tree/master/nginx-wsgi-flask) - Sample Nginx reverse proxy with a Flask backend using WSGI.
-- [`Pi-hole / cloudflared`](https://github.com/docker/awesome-compose/tree/master/pihole-cloudflared-DoH) - Sample Pi-hole setup with use of DoH cloudflared service
 - [`PostgreSQL / pgAdmin`](https://github.com/docker/awesome-compose/tree/master/postgresql-pgadmin) - Sample setup for postgreSQL database with pgAdmin web interface
 - [`React / Spring / MySQL`](https://github.com/docker/awesome-compose/tree/master/react-java-mysql) - Sample React
 application with a Spring backend and a MySQL database.
@@ -63,8 +62,9 @@ with Spring framework and a Postgres database.
 - [`Gitea / PostgreSQL`](https://github.com/docker/awesome-compose/tree/master/gitea-postgres)
 - [`Nextcloud / PostgreSQL`](https://github.com/docker/awesome-compose/tree/master/nextcloud-postgres)
 - [`Nextcloud / Redis / MariaDB`](https://github.com/docker/awesome-compose/tree/master/nextcloud-redis-mariadb)
-- [`Wordpress / MySQL`](https://github.com/docker/awesome-compose/tree/master/wordpress-mysql)
+- [`Pi-hole / cloudflared`](https://github.com/docker/awesome-compose/tree/master/pihole-cloudflared-DoH) - Sample Pi-hole setup with use of DoH cloudflared service
 - [`Prometheus / Grafana`](https://github.com/docker/awesome-compose/tree/master/prometheus-grafana)
+- [`Wordpress / MySQL`](https://github.com/docker/awesome-compose/tree/master/wordpress-mysql)
 
 <!--lint disable awesome-toc-->
 ## Getting started
