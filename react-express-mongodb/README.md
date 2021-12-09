@@ -104,7 +104,7 @@ Our main goal to create a containers, it starts from here. As you can see there 
 
 ##### Service app (backend - NodeJS)
 
-We make image of app from our `DockeFile`, explanation below.
+We make image of app from our `Dockerfile`, explanation below.
 
 __Explanation of service server__
 
