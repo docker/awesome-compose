@@ -43,7 +43,7 @@ Check containers are running:
 ```
 $ docker ps
 CONTAINER ID   IMAGE                             COMMAND                  CREATED          STATUS         PORTS                                          NAMES
-62fc3ff1f1a0   ghcr.io/linuxserver/plex:latest   "/init"                  38 seconds ago   Up 3 seconds                                                  plex
+62fc3ff1f1a0   linuxserver/plex:latest           "/init"                  38 seconds ago   Up 3 seconds                                                  plex
 ```
 
 Navigate to `http://localhost:32400/web` in your web browser to access the plex web interface.

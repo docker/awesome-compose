@@ -14,7 +14,7 @@ Project structure:
 ``` yaml
 services:
   wireguard:
-    image: ghcr.io/linuxserver/wireguard
+    image: linuxserver/wireguard
 ```
 
 ## Configuration
@@ -46,7 +46,7 @@ Check containers are running:
 ```
 $ docker ps
 CONTAINER ID   IMAGE                           COMMAND                  CREATED          STATUS                          PORTS                                                                                  NAMES
-4992922d23dc   ghcr.io/linuxserver/wireguard   "/init"                  7 seconds ago    Up 5 seconds                    0.0.0.0:51820->51820/udp, :::51820->51820/udp                                          wireguard
+4992922d23dc   linuxserver/wireguard           "/init"                  7 seconds ago    Up 5 seconds                    0.0.0.0:51820->51820/udp, :::51820->51820/udp                                          wireguard
 ```
 
 ## Mobile Wireguard App
