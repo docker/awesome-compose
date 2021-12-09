@@ -1,0 +1,5 @@
+POSTGRES_USER=yourUser
+POSTGRES_PW=changeit
+POSTGRES_DB=postgres
+PGADMIN_MAIL=your@email.com
+PGADMIN_PW=changeit

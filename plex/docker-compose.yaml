@@ -1,0 +1,11 @@
+version: '3.7'
+services:
+  plex:
+    image: ghcr.io/linuxserver/plex:latest
+    container_name: plex
+    network_mode: host
+    environment:
+      - VERSION=docker
+    restart: always
+    volumes:
+      - ${PLEX_MEDIA_PATH}:/media/

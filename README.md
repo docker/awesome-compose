@@ -34,6 +34,8 @@ application with Nginx proxy and a Mongo database.
 application with an Nginx proxy and a MySQL database.
 - [`NGINX / Go`](https://github.com/docker/awesome-compose/tree/master/nginx-golang) - Sample Nginx proxy with a Go backend.
 - [`NGINX / WSGI / Flask`](https://github.com/docker/awesome-compose/tree/master/nginx-wsgi-flask) - Sample Nginx reverse proxy with a Flask backend using WSGI.
+- [`Pi-hole / cloudflared`](https://github.com/docker/awesome-compose/tree/master/pihole-cloudflared-DoH) - Sample Pi-hole setup with use of DoH cloudflared service
+- [`PostgreSQL / pgAdmin`](https://github.com/docker/awesome-compose/tree/master/postgresql-pgadmin) - Sample setup for postgreSQL database with pgAdmin web interface
 - [`React / Spring / MySQL`](https://github.com/docker/awesome-compose/tree/master/react-java-mysql) - Sample React
 application with a Spring backend and a MySQL database.
 - [`React / Express / MySQL`](https://github.com/docker/awesome-compose/tree/master/react-express-mysql) - Sample React
@@ -54,6 +56,9 @@ with Spring framework and a Postgres database.
 - [`Traefik`](https://github.com/docker/awesome-compose/tree/master/traefik-golang)
 - [`Django`](https://github.com/docker/awesome-compose/tree/master/django)
 - [`Minecraft server`](https://github.com/docker/awesome-compose/tree/master/minecraft)
+- [`Plex`](https://github.com/docker/awesome-compose/tree/master/plex)
+- [`Portainer`](https://github.com/docker/awesome-compose/tree/master/portainer)
+- [`Wireguard`](https://github.com/docker/awesome-compose/tree/master/wireguard)
 ## Basic setups for different platforms (not production ready - useful for personal use) 
 - [`Gitea / PostgreSQL`](https://github.com/docker/awesome-compose/tree/master/gitea-postgres)
 - [`Nextcloud / PostgreSQL`](https://github.com/docker/awesome-compose/tree/master/nextcloud-postgres)
