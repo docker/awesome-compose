@@ -5,6 +5,7 @@ services:
     environment:
       discovery.type: single-node
       ES_JAVA_OPTS: "-Xms512m -Xmx512m"
+      LOG4J_FORMAT_MSG_NO_LOOKUPS: true
     ports:
       - "9200:9200"
       - "9300:9300"
@@ -21,6 +22,7 @@ services:
     environment:
       discovery.seed_hosts: logstash
       LS_JAVA_OPTS: "-Xms512m -Xmx512m"
+      LOG4J_FORMAT_MSG_NO_LOOKUPS: true
     volumes:
       - ./logstash/pipeline/logstash-nginx.config:/usr/share/logstash/pipeline/logstash-nginx.config
       - ./logstash/nginx.log:/home/nginx.log
