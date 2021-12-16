@@ -1,11 +1,10 @@
 services:
   elasticsearch:
-    image: elasticsearch:7.14.2
+    image: elasticsearch:7.16.1
     container_name: es
     environment:
       discovery.type: single-node
       ES_JAVA_OPTS: "-Xms512m -Xmx512m"
-      LOG4J_FORMAT_MSG_NO_LOOKUPS: true
     ports:
       - "9200:9200"
       - "9300:9300"
@@ -17,12 +16,11 @@ services:
     networks:
       - elastic
   logstash:
-    image: logstash:7.14.2
+    image: logstash:7.16.1
     container_name: log
     environment:
       discovery.seed_hosts: logstash
       LS_JAVA_OPTS: "-Xms512m -Xmx512m"
-      LOG4J_FORMAT_MSG_NO_LOOKUPS: true
     volumes:
       - ./logstash/pipeline/logstash-nginx.config:/usr/share/logstash/pipeline/logstash-nginx.config
       - ./logstash/nginx.log:/home/nginx.log
@@ -37,7 +35,7 @@ services:
       - elastic
     command: logstash -f /usr/share/logstash/pipeline/logstash-nginx.config
   kibana:
-    image: kibana:7.14.2
+    image: kibana:7.16.1
     container_name: kib
     ports:
       - "5601:5601"
