@@ -9,7 +9,7 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
-      - TZ=${ZIMEZONE}
+      - TZ=${TIMEZONE}
       - SERVERURL=${VPN_SERVER_URL} #optional
       - SERVERPORT=51820 #optional
       - PEERS=1 #optional
