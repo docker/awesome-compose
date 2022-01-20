@@ -1,8 +1,8 @@
 
-FROM mcr.microsoft.com/dotnet/aspnet:5.0 as base
+FROM mcr.microsoft.com/dotnet/aspnet:6.0 as base
 WORKDIR /app
 
-FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
+FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 COPY . /src
 WORKDIR /src
 RUN ls
