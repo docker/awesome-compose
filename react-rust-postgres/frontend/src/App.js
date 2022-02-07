@@ -2,12 +2,17 @@ import React, { useEffect, useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 
+function formatUsers(users) {
+  return `Users: ${users.map(user => user.login).join(", ")}`
+}
+
 function App() {
   const [message, setMessage] = useState();
   useEffect(() => {
     fetch("/api/users")
       .then((res) => res.json())
-      .then((res) => setMessage(res.message))
+      .then(formatUsers)
+      .then(setMessage)
       .catch(console.error);
   }, [setMessage]);
   return (
