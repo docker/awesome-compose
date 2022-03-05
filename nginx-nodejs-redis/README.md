@@ -1,6 +1,5 @@
-## Compose sample application
 
-### Node.js application with Nginx proxy and a Redis database
+## Node.js application with Nginx proxy and a Redis database
 
 Project structure:
 ```
