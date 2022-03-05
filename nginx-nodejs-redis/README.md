@@ -25,7 +25,7 @@ Project structure:
 4 directories, 12 files
 ```
 
-[_docker-compose.yaml_](docker-compose.yaml)
+[_docker-compose.yml_](docker-compose.yml)
 ```
 version: '3.9'
 services:
