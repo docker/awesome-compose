@@ -53,7 +53,10 @@ services:
 ```
 The compose file defines an application with four services `redis`, `web`, `web1` and `web2`.
 When deploying the application, docker-compose maps port 80 of the web service container to port 80 of the host as specified in the file.
-Redis runs on default port 6379. Make sure port 6379 on the host is not being used by another container, otherwise the port should be changed.
+
+
+> ℹ️ **_INFO_**  
+> Redis runs on port 6379 by default. Make sure port 6379 on the host is not being used by another container, otherwise the port should be changed.
 
 ## Deploy with docker-compose
 
