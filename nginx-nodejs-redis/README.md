@@ -1,5 +1,5 @@
 
-## Node.js application with Nginx proxy and a Redis database
+## Node.js application with Nginx proxy and Redis database
 
 Project structure:
 ```
