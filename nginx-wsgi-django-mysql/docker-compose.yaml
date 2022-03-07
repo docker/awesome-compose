@@ -25,7 +25,7 @@ services:
     image: mysql:8.0.28
     container_name: mysql
     volumes:
-      - /Users/iml/Desktop/mysql:/var/lib/mysql
+      - /your/data/path/mysql:/var/lib/mysql
     ports:
       - 3306:3306
     environment:
