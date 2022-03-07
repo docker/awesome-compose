@@ -25,13 +25,10 @@ services:
 
 ```
 $ docker-compose up -d
-Creating network "flask_default" with the default driver
-Building web
-Step 1/6 : FROM python:3.7-alpine
 ...
 ...
-Status: Downloaded newer image for python:3.7-alpine
-Creating flask_web_1 ... done
+Status: Downloaded newer image for python
+Creating flask-redis-web1 ... done
 
 ```
 
@@ -39,16 +36,30 @@ Creating flask_web_1 ... done
 
 Listing containers must show one container running and the port mapping as below:
 ```
-$ docker ps
-CONTAINER ID        IMAGE                        COMMAND                  CREATED             STATUS              PORTS                  NAMES
-c126411df522        flask_web                    "python3 app.py"         About a minute ago  Up About a minute   0.0.0.0:5000->5000/tcp flask_web_1
+
+$ docker-compose ps
+NAME                  COMMAND                  SERVICE             STATUS              PORTS
+flask-redis-redis-1   "redis-server --load…"   redis               running             0.0.0.0:6379->6379/tcp
+flask-redis-web-1     "/bin/sh -c 'python …"   web                 running             0.0.0.0:5000->5000/tcp
 ```
 
 After the application starts, navigate to `http://localhost:5000` in your web browser or run:
 ```
 $ curl localhost:5000
-Hello World!
+
 ```
+
+## Monitoring Redis keys
+
+Connect to redis database by using ```redis-cli``` command and monitor the keys.
+```
+redis-cli -p 6379
+127.0.0.1:6379> monitor
+OK
+1646634062.732496 [0 172.21.0.3:33106] "INCRBY" "hits" "1"
+1646634062.735669 [0 172.21.0.3:33106] "GET" "hits"
+```
+
 
 Stop and remove the containers
 ```
