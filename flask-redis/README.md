@@ -4,12 +4,11 @@
 Project structure:
 ```
 .
-├── docker-compose.yaml
-├── app
-    ├── Dockerfile
-    ├── requirements.txt
-    └── app.py
-
+├── Dockerfile
+├── README.md
+├── app.py
+├── docker-compose.yml
+└── requirements.txt
 ```
 
 [_docker-compose.yaml_](docker-compose.yaml)
