@@ -1,7 +1,9 @@
 ## Compose sample application
+
 ### Python/Flask application
 
 Project structure:
+
 ```
 .
 ├── Dockerfile
@@ -12,12 +14,22 @@ Project structure:
 ```
 
 [_docker-compose.yml_](docker-compose.yml)
+
 ```
-services: 
-  web: 
-    build: app 
-    ports: 
-      - '5000:5000'
+version: '2'
+services:
+   redis: 
+     image: redislabs/redismod
+     ports:
+       - '6379:6379' 
+   web:
+        build: .
+        ports:
+            - "5000:5000"
+        volumes:
+            - .:/code
+        depends_on:
+            - redis
 ```
 
 ## Deploy with docker-compose
