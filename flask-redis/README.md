@@ -1,6 +1,6 @@
 ## Compose sample application
 
-### Python/Flask application
+### Python/Flask application built using Docker Compose
 
 Project structure:
 
