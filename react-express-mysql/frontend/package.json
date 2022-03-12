@@ -28,10 +28,10 @@
     ]
   },
   "devDependencies": {
-    "http-proxy-middleware": "^2.0.1",
-    "react-scripts": "4.0.3",
     "@testing-library/jest-dom": "^5.15.0",
     "@testing-library/react": "^12.1.2",
-    "@testing-library/user-event": "^13.5.0"
+    "@testing-library/user-event": "^13.5.0",
+    "http-proxy-middleware": "^2.0.1",
+    "react-scripts": "^5.0.0"
   }
 }
