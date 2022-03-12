@@ -1,3 +1,4 @@
+## Compose sample application
 
 ## Node.js application with Nginx proxy and Redis database
 
@@ -26,10 +27,8 @@ Project structure:
 
 [_docker-compose.yml_](docker-compose.yml)
 ```
-version: '3.9'
-services:
-  redis:
-    image: 'redis:alpine'
+redis:
+    image: 'redislabs/redismod'
     ports:
       - '6379:6379'
   web1:
@@ -50,8 +49,8 @@ services:
     - web1
     - web2
 ```
-The compose file defines an application with four services `redis`, `web`, `web1` and `web2`.
-When deploying the application, docker-compose maps port 80 of the web service container to port 80 of the host as specified in the file.
+The compose file defines an application with four services `redis`, `nginx`, `web1` and `web2`.
+When deploying the application, docker-compose maps port 80 of the nginx service container to port 80 of the host as specified in the file.
 
 
 > ℹ️ **_INFO_**  
@@ -61,8 +60,6 @@ When deploying the application, docker-compose maps port 80 of the web service c
 
 ```
 $ docker-compose up -d
-```
-```
 Creating nginx-nodejs-redis_redis_1 ... done
 Creating nginx-nodejs-redis_web1_1  ... done
 Creating nginx-nodejs-redis_web2_1  ... done

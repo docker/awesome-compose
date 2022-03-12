@@ -1,4 +1,3 @@
-# compose_flask/app.py
 from flask import Flask
 from redis import Redis
 
@@ -8,8 +7,8 @@ redis = Redis(host='redis', port=6379)
 @app.route('/')
 def hello():
     redis.incr('hits')
-    return 'This webpage has been viewed %s time(s).' % redis.get('hits')
-
+    counter = str(redis.get('hits'),'utf-8')
+    return "This webpage has been viewed "+counter+" time(s)"
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", debug=True)

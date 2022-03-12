@@ -1,7 +1,7 @@
 
 services:
   redis:
-    image: 'redis:alpine'
+    image: 'redislabs/redismod'
     ports:
       - '6379:6379'
   web1:

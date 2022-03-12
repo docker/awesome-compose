@@ -1,6 +1,6 @@
 ## Compose sample application
 
-### Python/Flask application built using Docker Compose
+### Python/Flask application using a Redis database
 
 Project structure:
 
@@ -16,7 +16,6 @@ Project structure:
 [_docker-compose.yml_](docker-compose.yml)
 
 ```
-version: '2'
 services:
    redis: 
      image: redislabs/redismod
@@ -61,7 +60,7 @@ flask-redis-web-1     "/bin/sh -c 'python …"   web                 running    
 After the application starts, navigate to `http://localhost:5000` in your web browser or run:
 ```
 $ curl localhost:5000
-
+This webpage has been viewed 2 time(s)
 ```
 
 ## Monitoring Redis keys
