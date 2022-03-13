@@ -35,15 +35,6 @@ services:
 
 ```
 $ docker-compose up -d
-Creating network "flask-redis_default" with the default driver
-Pulling redis (redislabs/redismod:)...
-...
-...
-web_1    |    WARNING: This is a development server. Do not use it in a production deployment.
-web_1    |  * Running on http://172.19.0.3:5000/ (Press CTRL+C to quit)
-web_1    |  * Restarting with stat
-web_1    |  * Debugger is active!
-web_1    |  * Debugger PIN: 598-320-965
 ```
 
 ## Expected result

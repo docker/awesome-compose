@@ -1,5 +1,4 @@
-const express = require('express');
-const redis = require('redis');
+const os = require('os');
 const app = express();
 const redisClient = redis.createClient({
   host: 'redis',
