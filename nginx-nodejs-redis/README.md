@@ -27,12 +27,14 @@ redis:
       - '6379:6379'
   web1:
     restart: on-failure
-    build: ./web1
+    build: ./web
+    hostname: web1
     ports:
       - '81:5000'
   web2:
     restart: on-failure
-    build: ./web2
+    build: ./web
+    hostname: web2
     ports:
       - '82:5000'
   nginx:
