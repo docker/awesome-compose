@@ -1,5 +1,7 @@
-const os = require('os');
+cost os = require('os');
+const express = require('express');
 const app = express();
+const redis = require('redis');
 const redisClient = redis.createClient({
   host: 'redis',
   port: 6379
