@@ -5,26 +5,20 @@
 Project structure:
 ```
 .
+├── README.md
 ├── docker-compose.yml
 ├── nginx
 │   ├── Dockerfile
 │   └── nginx.conf
-├── web
-│   ├── Dockerfile
-│   ├── package.json
-│   └── server.js
-├── web1
-│   ├── Dockerfile
-│   ├── package.json
-│   └── server.js
-└── web2
+└── web
     ├── Dockerfile
     ├── package.json
     └── server.js
 
-4 directories, 12 files
-```
+2 directories, 7 files
 
+
+```
 [_docker-compose.yml_](docker-compose.yml)
 ```
 redis:
@@ -60,10 +54,6 @@ When deploying the application, docker-compose maps port 80 of the nginx service
 
 ```
 $ docker-compose up -d
-Creating nginx-nodejs-redis_redis_1 ... done
-Creating nginx-nodejs-redis_web1_1  ... done
-Creating nginx-nodejs-redis_web2_1  ... done
-Creating nginx-nodejs-redis_nginx_1 ... done
 ```
 
 
@@ -74,16 +64,6 @@ Listing containers must show three containers running and the port mapping as be
 
 ```
 docker-compose ps
-           Name                        Command              State           Ports         
-------------------------------------------------------------------------------------------
-nginx-nodejs-redis_nginx_1   /docker-entrypoint.sh ngin     Up      0.0.0.0:80->80/tcp    
-                             ...                                                          
-nginx-nodejs-redis_redis_1   docker-entrypoint.sh redis     Up      0.0.0.0:6379->6379/tcp
-                             ...                                                          
-nginx-nodejs-redis_web1_1    docker-entrypoint.sh npm       Up      0.0.0.0:81->5000/tcp  
-                             start                                                        
-nginx-nodejs-redis_web2_1    docker-entrypoint.sh npm       Up      0.0.0.0:82->5000/tcp  
-                             start   
 ```
 
 ## Testing the app
@@ -105,10 +85,6 @@ $ curl localhost:80
 web2: Total number of visits is: 3
 ```
 
-```
-$ curl localhost:80
-web2: Total number of visits is: 4
-``` 
 
 
 ## Stop and remove the containers
