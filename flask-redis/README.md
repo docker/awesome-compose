@@ -35,6 +35,16 @@ services:
 
 ```
 $ docker-compose up -d
+[+] Running 24/24
+ ⠿ redis Pulled   
+ ...                                                                                                                                                                                                                                                                                                                                                                                                             
+   ⠿ 565225d89260 Pull complete                                                                                                                                                                                                      
+[+] Building 12.7s (10/10) FINISHED
+ => [internal] load build definition from Dockerfile                                                                                                                                                                                  ...
+[+] Running 3/3
+ ⠿ Network flask-redis_default    Created                                                                                                                                                                                             
+ ⠿ Container flask-redis-redis-1  Started                                                                                                                                                                                             
+ ⠿ Container flask-redis-web-1    Started
 ```
 
 ## Expected result
