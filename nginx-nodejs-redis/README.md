@@ -56,6 +56,17 @@ When deploying the application, docker-compose maps port 80 of the nginx service
 
 ```
 $ docker-compose up -d
+[+] Running 24/24
+ ⠿ redis Pulled                                                                                                                                                                                                                      ...
+   ⠿ 565225d89260 Pull complete                                                                                                                                                                                                      
+[+] Building 2.4s (22/25)
+ => [nginx-nodejs-redis_nginx internal] load build definition from Dockerfile                                                                                                                                                         ...
+[+] Running 5/5
+ ⠿ Network nginx-nodejs-redis_default    Created                                                                                                                                                                                      
+ ⠿ Container nginx-nodejs-redis-web2-1   Started                                                                                                                                                                                      
+ ⠿ Container nginx-nodejs-redis-redis-1  Started                                                                                                                                                                                      
+ ⠿ Container nginx-nodejs-redis-web1-1   Started                                                                                                                                                                                      
+ ⠿ Container nginx-nodejs-redis-nginx-1  Started
 ```
 
 
