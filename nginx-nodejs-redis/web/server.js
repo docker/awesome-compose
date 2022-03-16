@@ -1,4 +1,4 @@
-cost os = require('os');
+const os = require('os');
 const express = require('express');
 const app = express();
 const redis = require('redis');
