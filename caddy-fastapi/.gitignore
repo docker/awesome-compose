@@ -1,0 +1,5 @@
+__pycache__
+
+# container volume files
+data/*
+!data/.gitkeep
