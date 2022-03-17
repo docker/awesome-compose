@@ -30,11 +30,12 @@ a MySQL database.
 - [`NGINX / ASP.NET / MySQL`](https://github.com/docker/awesome-compose/tree/master/nginx-aspnet-mysql) - Sample Nginx reverse proxy with an C# backend using ASP.NET
 - [`NGINX / Flask / MongoDB`](https://github.com/docker/awesome-compose/tree/master/nginx-flask-mongo) - Sample Python/Flask
 application with Nginx proxy and a Mongo database.
-- [`NGINX / Flask / MySQL`](https://github.com/docker/awesome-compose/tree/master/nginx-flask-mysql) - Sample Python/Flask
-application with an Nginx proxy and a MySQL database.
+- [`NGINX / Flask / MySQL`](https://github.com/docker/awesome-compose/tree/master/nginx-flask-mysql) - Sample Python/Flask application with an Nginx proxy and a MySQL database.
+- [`NGINX / Node.js / Redis`](https://github.com/docker/awesome-compose/tree/master/nginx-nodejs-redis) - Sample Node.js application with Nginx proxy and a Redis database
 - [`NGINX / Go`](https://github.com/docker/awesome-compose/tree/master/nginx-golang) - Sample Nginx proxy with a Go backend.
 - [`NGINX / WSGI / Flask`](https://github.com/docker/awesome-compose/tree/master/nginx-wsgi-flask) - Sample Nginx reverse proxy with a Flask backend using WSGI.
 - [`PostgreSQL / pgAdmin`](https://github.com/docker/awesome-compose/tree/master/postgresql-pgadmin) - Sample setup for postgreSQL database with pgAdmin web interface
+- [`Python / Flask / Redis`](https://github.com/docker/awesome-compose/tree/master/flask-redis) - Sample Python/Flask and a Redis database
 - [`React / Spring / MySQL`](https://github.com/docker/awesome-compose/tree/master/react-java-mysql) - Sample React
 application with a Spring backend and a MySQL database.
 - [`React / Express / MySQL`](https://github.com/docker/awesome-compose/tree/master/react-express-mysql) - Sample React
