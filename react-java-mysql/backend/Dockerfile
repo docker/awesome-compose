@@ -5,7 +5,7 @@ RUN mvn dependency:go-offline
 
 COPY src /workdir/server/src
 RUN mvn install
-RUN mkdir  -p target/depency
+RUN mkdir -p target/dependency
 WORKDIR /workdir/server/target/dependency
 RUN jar -xf ../*.jar
 
