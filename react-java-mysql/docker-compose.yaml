@@ -23,7 +23,7 @@ services:
     - 3306:3306
     environment:
       - MYSQL_DATABASE=example
-      
+      - MYSQL_ROOT_PASSWORD=db-57xsl
 #       - MYSQL_ROOT_PASSWORD_FILE=/run/secrets/db-password
     restart: always
     healthcheck:
@@ -55,9 +55,9 @@ services:
 #       - 33060
 # volumes:
 #   db-data: {}
-secrets:
-  db-password:
-    file: db/password.txt
+# secrets:
+#   db-password:
+#     file: db/password.txt
 networks:
   react-spring: {}
   spring-mysql: {}
