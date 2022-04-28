@@ -17,6 +17,8 @@ services:
     image: mariadb:10.6.4-focal
     # If you really want to use MySQL, uncomment the following line
     #image: mysql:8.0.19
+    ports:
+    - 3306:3306
     environment:
       - MYSQL_DATABASE=example
       - MYSQL_ROOT_PASSWORD_FILE=/run/secrets/db-password
@@ -45,9 +47,9 @@ services:
       - react-spring
     depends_on:
       - backend
-    expose:
-      - 3306
-      - 33060
+#     expose:
+#       - 3306
+#       - 33060
 # volumes:
 #   db-data: {}
 secrets:
