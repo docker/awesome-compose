@@ -28,8 +28,8 @@ services:
       start_period: 30s
     secrets:
       - db-password
-    volumes:
-      - db-data:/var/lib/mysql
+#     volumes:
+#       - db-data:/var/lib/mysql
     networks:
       - spring-mysql
   frontend:
