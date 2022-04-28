@@ -2,6 +2,8 @@ services:
   backend:
     build: backend
     restart: always
+    port:
+    - 8080:8080
     secrets:
       - db-password
     environment:
@@ -21,7 +23,8 @@ services:
     - 3306:3306
     environment:
       - MYSQL_DATABASE=example
-      - MYSQL_ROOT_PASSWORD_FILE=/run/secrets/db-password
+      
+#       - MYSQL_ROOT_PASSWORD_FILE=/run/secrets/db-password
     restart: always
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "--silent"]
