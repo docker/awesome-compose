@@ -4,8 +4,8 @@ services:
     restart: always
     ports:
     - 8080:8080
-    secrets:
-      - db-password
+#     secrets:
+#       - db-password
     environment:
       MYSQL_HOST: db
     networks:
@@ -31,8 +31,8 @@ services:
       interval: 3s
       retries: 5
       start_period: 30s
-    secrets:
-      - db-password
+#     secrets:
+#       - db-password
 #     volumes:
 #       - db-data:/var/lib/mysql
     networks:
