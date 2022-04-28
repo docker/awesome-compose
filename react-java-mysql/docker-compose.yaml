@@ -38,9 +38,9 @@ services:
       target: development
     ports:
       - 3000:3000
-    volumes:
-      - ./frontend/src:/code/src
-      - /project/node_modules
+#     volumes:
+#       - ./frontend/src:/code/src
+#       - /project/node_modules
     networks:
       - react-spring
     depends_on:
@@ -48,8 +48,8 @@ services:
     expose:
       - 3306
       - 33060
-volumes:
-  db-data: {}
+# volumes:
+#   db-data: {}
 secrets:
   db-password:
     file: db/password.txt
