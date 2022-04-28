@@ -2,7 +2,7 @@ services:
   backend:
     build: backend
     restart: always
-    port:
+    ports:
     - 8080:8080
     secrets:
       - db-password
