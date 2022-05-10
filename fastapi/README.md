@@ -3,7 +3,7 @@
 
 Project structure:
 ```
-├── docker-compose.yaml
+├── compose.yaml
 ├── Dockerfile
 ├── requirements.txt
 ├── app
@@ -12,7 +12,7 @@ Project structure:
 
 ```
 
-[_docker-compose.yaml_](docker-compose.yaml)
+[_compose.yaml_](compose.yaml)
 ```
 services:
   api:
@@ -26,7 +26,7 @@ services:
 
 ```
 
-## Deploy with docker-compose
+## Deploy with docker compose
 
 ```shell
 docker-compose up -d --build
@@ -49,7 +49,7 @@ After the application starts, navigate to `http://localhost:8000` in your web br
 
 Stop and remove the containers
 ```
-$ docker-compose down
+$ docker compose down
 ```
 
 

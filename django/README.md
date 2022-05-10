@@ -4,7 +4,7 @@
 Project structure:
 ```
 .
-├── docker-compose.yml
+├── compose.yaml
 ├── app
     ├── Dockerfile
     ├── requirements.txt
@@ -12,7 +12,7 @@ Project structure:
 
 ```
 
-[_docker-compose.yml_](docker-compose.yml)
+[_compose.yaml_](compose.yaml)
 ```
 services: 
   web: 
@@ -21,10 +21,10 @@ services:
       - '8000:8000'
 ```
 
-## Deploy with docker-compose
+## Deploy with docker compose
 
 ```
-$ docker-compose up -d
+$ docker compose up -d
 Creating network "django_default" with the default driver
 Building web
 Step 1/6 : FROM python:3.7-alpine
@@ -48,5 +48,5 @@ After the application starts, navigate to `http://localhost:8000` in your web br
 
 Stop and remove the containers
 ```
-$ docker-compose down
+$ docker compose down
 ```

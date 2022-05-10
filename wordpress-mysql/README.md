@@ -5,11 +5,11 @@ This example defines one of the basic setups for WordPress. More details on how 
 Project structure:
 ```
 .
-├── docker-compose.yaml
+├── compose.yaml
 └── README.md
 ```
 
-[_docker-compose.yaml_](docker-compose.yaml)
+[_compose.yaml_](compose.yaml)
 ```
 services:
   db:
@@ -26,7 +26,7 @@ services:
     ...
 ```
 
-When deploying this setup, docker-compose maps the WordPress container port 80 to
+When deploying this setup, docker compose maps the WordPress container port 80 to
 port 80 of the host as specified in the compose file.
 
 > ℹ️ **_INFO_**  
@@ -34,10 +34,10 @@ port 80 of the host as specified in the compose file.
 > You still can use the MySQL image by uncommenting the following line in the Compose file   
 > `#image: mysql:8.0.27`
 
-## Deploy with docker-compose
+## Deploy with docker compose
 
 ```
-$ docker-compose up -d
+$ docker compose up -d
 Creating network "wordpress-mysql_default" with the default driver
 Creating volume "wordpress-mysql_db_data" with default driver
 ...
@@ -63,10 +63,10 @@ Navigate to `http://localhost:80` in your web browser to access WordPress.
 Stop and remove the containers
 
 ```
-$ docker-compose down
+$ docker compose down
 ```
 
 To remove all WordPress data, delete the named volumes by passing the `-v` parameter:
 ```
-$ docker-compose down -v
+$ docker compose down -v
 ```

@@ -7,11 +7,11 @@ further customize the installation and the compose file can be found on the
 Project structure:
 ```
 .
-├── docker-compose.yaml
+├── compose.yaml
 └── README.md
 ```
 
-[_docker-compose.yaml_](docker-compose.yaml)
+[_compose.yaml_](compose.yaml)
 ```
 services:
   nc:
@@ -29,13 +29,13 @@ services:
     ...
 ```
 
-When deploying this setup, docker-compose maps the nextcloud container port 80 to
+When deploying this setup, docker compose maps the nextcloud container port 80 to
 port 80 of the host as specified in the compose file.
 
-## Deploy with docker-compose
+## Deploy with docker compose
 
 ```
-$ docker$ compose up -d
+$ docker compose up -d
 Creating network "nextcloud-redis-mariadb_redisnet" with the default driver
 Creating network "nextcloud-redis-mariadb_dbnet" with the default driver
 Creating volume "nextcloud-redis-mariadb_nc_data" with default driver
@@ -68,10 +68,10 @@ Nextcloud service.
 Stop and remove the containers
 
 ```
-$ docker-compose down
+$ docker compose down
 ```
 
 To delete all data, remove all named volumes by passing the `-v` arguments:
 ```
-$ docker-compose down -v
+$ docker compose down -v
 ```

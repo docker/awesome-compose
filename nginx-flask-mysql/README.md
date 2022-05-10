@@ -4,7 +4,7 @@
 Project structure:
 ```
 .
-├── docker-compose.yaml
+├── compose.yaml
 ├── flask
 │   ├── Dockerfile
 │   ├── requirements.txt
@@ -14,7 +14,7 @@ Project structure:
 
 ```
 
-[_docker-compose.yaml_](docker-compose.yaml)
+[_compose.yaml_](compose.yaml)
 ```
 services:
   backend:
@@ -31,7 +31,7 @@ services:
     ...
 ```
 The compose file defines an application with three services `proxy`, `backend` and `db`.
-When deploying the application, docker-compose maps port 80 of the proxy service container to port 80 of the host as specified in the file.
+When deploying the application, docker compose maps port 80 of the proxy service container to port 80 of the host as specified in the file.
 Make sure port 80 on the host is not already being in use.
 
 > ℹ️ **_INFO_**  
@@ -39,10 +39,10 @@ Make sure port 80 on the host is not already being in use.
 > You still can use the MySQL image by uncommenting the following line in the Compose file   
 > `#image: mysql:8.0.27`
 
-## Deploy with docker-compose
+## Deploy with docker compose
 
 ```
-$ docker-compose up -d
+$ docker compose up -d
 Creating network "nginx-flask-mysql_default" with the default driver
 Pulling db (mysql:8.0.19)...
 5.7: Pulling from library/mysql
@@ -75,5 +75,5 @@ $ curl localhost:80
 
 Stop and remove the containers
 ```
-$ docker-compose down
+$ docker compose down
 ```

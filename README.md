@@ -84,12 +84,12 @@ deploying samples of containerized applications with Docker Compose.
 
 ### Running a sample
 
-The root directory of each sample contains the `docker-compose.yaml` which
+The root directory of each sample contains the `compose.yaml` which
 describes the configuration of service components. All samples can be run in
 a local environment by going into the root directory of each one and executing:
 
 ```console
-docker-compose up -d
+docker compose up -d
 ```
 
 Check the `README.md` of each sample to get more details on the structure and
@@ -97,7 +97,7 @@ what is the expected output.
 To stop and remove all containers of the sample application run:
 
 ```console
-docker-compose down
+docker compose down
 ```
 <!--lint disable awesome-toc-->
 ## Contribute

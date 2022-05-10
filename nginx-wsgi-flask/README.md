@@ -6,7 +6,7 @@ Project structure:
 
 ```text
 .
-├── docker-compose.yaml
+├── compose.yaml
 ├── flask
 │   ├── app.py
 │   ├── Dockerfile
@@ -19,7 +19,7 @@ Project structure:
     └── start.sh
 ```
 
-[_docker-compose.yaml_](docker-compose.yaml)
+[_compose.yaml_](compose.yaml)
 
 ```yml
 services:
@@ -33,14 +33,14 @@ services:
 ```
 
 The compose file defines an application with two services `nginx-proxy` and `flask-app`.
-When deploying the application, docker-compose maps port 80 of the web service container to port 80 of the host as specified in the file.
+When deploying the application, docker compose maps port 80 of the web service container to port 80 of the host as specified in the file.
 
 Make sure port 80 on the host is not being used by another container, otherwise the port should be changed.
 
-## Deploy with docker-compose
+## Deploy with docker compose
 
 ```bash
-$ docker-compose up -d
+$ docker compose up -d
 Creating network "nginx-wsgi-flask_default" with the default driver
 Building flask-app
 ...
@@ -71,7 +71,7 @@ Hello World!
 Stop and remove the containers
 
 ```bash
-$ docker-compose down
+$ docker compose down
 Stopping nginx-wsgi-flask_nginx-proxy_1 ... done
 Stopping nginx-wsgi-flask_flask-app_1   ... done
 Removing nginx-wsgi-flask_nginx-proxy_1 ... done

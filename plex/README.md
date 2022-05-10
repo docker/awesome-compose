@@ -8,11 +8,11 @@ Project structure:
 ```
 .
 ├── .env
-├── docker-compose.yaml
+├── compose.yaml
 └── README.md
 ```
 
-[_docker-compose.yaml_](docker-compose.yaml)
+[_compose.yaml_](compose.yaml)
 ``` yaml
 services:
   plex:
@@ -28,11 +28,11 @@ Before deploying this setup, you need to configure the following values in the [
 ### Hardware Acceleration
 Check out the description for Hardware Acceleration support in the [documentation](https://github.com/linuxserver/docker-plex).
 
-## Deploy with docker-compose
+## Deploy with docker compose
 When deploying this setup, the web interface will be available on port 32400 (e.g. http://localhost:32400/web).
 
 ``` shell
-$ docker-compose up -d
+$ docker compose up -d
 Starting plex ... done
 ```
 
@@ -51,7 +51,7 @@ Navigate to `http://localhost:32400/web` in your web browser to access the plex 
 
 Stop the containers with
 ``` shell
-$ docker-compose down
+$ docker compose down
 # To delete all data run:
-$ docker-compose down -v
+$ docker compose down -v
 ```

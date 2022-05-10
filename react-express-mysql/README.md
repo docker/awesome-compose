@@ -9,14 +9,14 @@ Project structure:
 │   ...
 ├── db
 │   └── password.txt
-├── docker-compose.yaml
+├── compose.yaml
 ├── frontend
 │   ├── ...
 │   └── Dockerfile
 └── README.md
 ```
 
-[_docker-compose.yaml_](docker-compose.yaml)
+[_compose.yaml_](compose.yaml)
 ```
 services:
   backend:
@@ -39,7 +39,7 @@ services:
     ...
 ```
 The compose file defines an application with three services `frontend`, `backend` and `db`.
-When deploying the application, docker-compose maps port 3000 of the frontend service container to port 3000 of the host as specified in the file.
+When deploying the application, docker compose maps port 3000 of the frontend service container to port 3000 of the host as specified in the file.
 Make sure port 3000 on the host is not already being in use.
 
 > ℹ️ **_INFO_**  
@@ -47,10 +47,10 @@ Make sure port 3000 on the host is not already being in use.
 > You still can use the MySQL image by uncommenting the following line in the Compose file   
 > `#image: mysql:8.0.27`
 
-## Deploy with docker-compose
+## Deploy with docker compose
 
 ```
-$ docker-compose up -d
+$ docker compose up -d
 Creating network "react-express-mysql_default" with the default driver
 Building backend
 Step 1/16 : FROM node:10
@@ -87,7 +87,7 @@ $ curl localhost:80
 
 Stop and remove the containers
 ```
-$ docker-compose down
+$ docker compose down
 Stopping react-express-mysql_frontend_1 ... done
 Stopping react-express-mysql_backend_1  ... done
 Stopping react-express-mysql_db_1       ... done

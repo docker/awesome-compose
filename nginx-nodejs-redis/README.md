@@ -6,7 +6,7 @@ Project structure:
 ```
 .
 ├── README.md
-├── docker-compose.yml
+├── compose.yaml
 ├── nginx
 │   ├── Dockerfile
 │   └── nginx.conf
@@ -19,7 +19,7 @@ Project structure:
 
 
 ```
-[_docker-compose.yml_](docker-compose.yml)
+[_compose.yaml_](compose.yaml)
 ```
 redis:
     image: 'redislabs/redismod'
@@ -46,16 +46,16 @@ redis:
     - web2
 ```
 The compose file defines an application with four services `redis`, `nginx`, `web1` and `web2`.
-When deploying the application, docker-compose maps port 80 of the nginx service container to port 80 of the host as specified in the file.
+When deploying the application, docker compose maps port 80 of the nginx service container to port 80 of the host as specified in the file.
 
 
 > ℹ️ **_INFO_**  
 > Redis runs on port 6379 by default. Make sure port 6379 on the host is not being used by another container, otherwise the port should be changed.
 
-## Deploy with docker-compose
+## Deploy with docker compose
 
 ```
-$ docker-compose up -d
+$ docker compose up -d
 [+] Running 24/24
  ⠿ redis Pulled                                                                                                                                                                                                                      ...
    ⠿ 565225d89260 Pull complete                                                                                                                                                                                                      
@@ -103,6 +103,6 @@ web2: Total number of visits is: 3
 ## Stop and remove the containers
 
 ```
-$ docker-compose down
+$ docker compose down
 ```
 

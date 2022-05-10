@@ -10,22 +10,22 @@ You can try out the public demo instance first: http://demo.portainer.io/
 Project structure:
 ```
 .
-├── docker-compose.yaml
+├── compose.yaml
 └── README.md
 ```
 
-[_docker-compose.yaml_](docker-compose.yaml)
+[_compose.yaml_](compose.yaml)
 ``` yaml
 services:
   portainer:
     image: portainer/portainer-ce:alpine
 ```
 
-## Deploy with docker-compose
+## Deploy with docker compose
 When deploying this setup, the web interface will be available on port 9000 (e.g. http://localhost:9000).
 
 ``` shell
-$ docker-compose up -d
+$ docker compose up -d
 Starting portainer ... done
 ```
 
@@ -45,9 +45,9 @@ Navigate to `http://localhost:9000` in your web browser to access the portainer 
 
 Stop the containers with
 ``` shell
-$ docker-compose down
+$ docker compose down
 # To delete all data run:
-$ docker-compose down -v
+$ docker compose down -v
 ```
 
 ## Troubleshooting

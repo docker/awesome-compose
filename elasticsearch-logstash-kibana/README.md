@@ -4,10 +4,10 @@
 Project structure:
 ```
 .
-└── docker-compose.yml
+└── compose.yaml
 ```
 
-[_docker-compose.yml_](docker-compose.yml)
+[_compose.yaml_](compose.yaml)
 ```
 services:
   elasticsearch:
@@ -21,10 +21,10 @@ services:
     ...
 ```
 
-## Deploy with docker-compose
+## Deploy with docker compose
 
 ```
-$ docker-compose up -d
+$ docker compose up -d
 Creating network "elasticsearch-logstash-kibana_elastic" with driver "bridge"
 Creating es ... done
 Creating log ... done
@@ -50,7 +50,7 @@ After the application starts, navigate to below links in your web browser:
 
 Stop and remove the containers
 ```
-$ docker-compose down
+$ docker compose down
 ```
 
 ## Attribution
