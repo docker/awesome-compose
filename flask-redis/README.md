@@ -9,7 +9,7 @@ Project structure:
 ├── Dockerfile
 ├── README.md
 ├── app.py
-├── docker-compose.yml
+├── docker compose.yml
 └── requirements.txt
 ```
 
@@ -31,10 +31,10 @@ services:
             - redis
 ```
 
-## Deploy with docker-compose
+## Deploy with docker compose
 
 ```
-$ docker-compose up -d
+$ docker compose up -d
 [+] Running 24/24
  ⠿ redis Pulled   
  ...                                                                                                                                                                                                                                                                                                                                                                                                             
@@ -52,7 +52,7 @@ $ docker-compose up -d
 Listing containers must show one container running and the port mapping as below:
 ```
 
-$ docker-compose ps
+$ docker compose ps
 NAME                  COMMAND                  SERVICE             STATUS              PORTS
 flask-redis-redis-1   "redis-server --load…"   redis               running             0.0.0.0:6379->6379/tcp
 flask-redis-web-1     "/bin/sh -c 'python …"   web                 running             0.0.0.0:5000->5000/tcp
@@ -78,5 +78,5 @@ OK
 
 Stop and remove the containers
 ```
-$ docker-compose down
+$ docker compose down
 ```

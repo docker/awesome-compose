@@ -4,14 +4,14 @@
 Project structure:
 ```
 .
-├── docker-compose.yaml
+├── compose.yaml
 ├── app
     ├── Dockerfile
     └── index.php
 
 ```
 
-[_docker-compose.yaml_](docker-compose.yaml)
+[_compose.yaml_](compose.yaml)
 ```
 services:
   web:
@@ -22,10 +22,10 @@ services:
       - ./app:/var/www/html/
 ```
 
-## Deploy with docker-compose
+## Deploy with docker compose
 
 ```
-$ docker-compose up -d
+$ docker compose up -d
 Creating network "php-docker_web" with the default driver
 Building web
 Step 1/6 : FROM php:7.2-apache
@@ -52,5 +52,5 @@ Hello World!
 
 Stop and remove the containers
 ```
-$ docker-compose down
+$ docker compose down
 ```

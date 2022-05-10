@@ -5,11 +5,11 @@ This example defines one of the base setups for Gitea. More details on how to cu
 Project structure:
 ```
 .
-├── docker-compose.yaml
+├── compose.yaml
 └── README.md
 ```
 
-[_docker-compose.yaml_](docker-compose.yaml)
+[_compose.yaml_](compose.yaml)
 ```
 services:
   gitea:
@@ -23,10 +23,10 @@ services:
     ...
 ```
 
-When deploying this setup, docker-compose maps the gitea container port 3000 to
+When deploying this setup, docker compose maps the gitea container port 3000 to
 the same port of the host as specified in the compose file.
 
-## Deploy with docker-compose
+## Deploy with docker compose
 
 ```
 $ docker$ compose up -d
@@ -58,10 +58,10 @@ Gitea service.
 Stop and remove the containers
 
 ```
-$ docker-compose down
+$ docker compose down
 ```
 
 To remove all Gitea data, delete the named volumes by passing the `-v` parameter:
 ```
-$ docker-compose down -v
+$ docker compose down -v
 ```

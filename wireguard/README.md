@@ -6,11 +6,11 @@ Project structure:
 ```
 .
 ├── .env
-├── docker-compose.yaml
+├── compose.yaml
 └── README.md
 ```
 
-[_docker-compose.yaml_](docker-compose.yaml)
+[_compose.yaml_](compose.yaml)
 ``` yaml
 services:
   wireguard:
@@ -24,11 +24,11 @@ Before deploying this setup, you need to configure the following values in the [
 - TIMEZONE
 - VPN_SERVER_URL (recommended setting up a server url with e.g. http://www.duckdns.org/ if you don't own a domain)
 
-## Deploy with docker-compose
+## Deploy with docker compose
 When deploying this setup, the log will show relevant information. You need to forward the external port 51820 to access your VPN from outside. 
 
 ``` shell
-$ docker-compose up
+$ docker compose up
 Starting wireguard ...
 wireguard    | **** It seems the wireguard module is already active. Skipping kernel header install and module compilation. ****
 wireguard    | **** Server mode is selected ****
@@ -63,9 +63,9 @@ Install your Wireguard client on an Apple device by downloading the wireguard ap
 
 Stop the containers with
 ``` shell
-$ docker-compose down
+$ docker compose down
 # To delete all data run:
-$ docker-compose down -v
+$ docker compose down -v
 ```
 
 ## Troubleshooting

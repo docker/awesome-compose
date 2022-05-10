@@ -7,11 +7,11 @@ Project structure:
 ```
 .
 ├── .env
-├── docker-compose.yaml
+├── compose.yaml
 └── README.md
 ```
 
-[_docker-compose.yaml_](docker-compose.yaml)
+[_compose.yaml_](compose.yaml)
 ``` yaml
 services:
   pihole:
@@ -46,18 +46,18 @@ Before deploying this setup, you need to configure the following values in the [
 If you would like to disable conditional forwarding, delete the environment variables starting with "CONDITIONAL_FORWARDING"
 
 ### Container DNS (optional, default: disabled)
-In the docker-compose file, dns is added as a comment. To enable dns remove '#' in front of the following lines: 
+In the docker compose file, dns is added as a comment. To enable dns remove '#' in front of the following lines: 
 ``` yaml
 dns:
     - 127.0.0.1 # "Sets your container's resolve settings to localhost so it can resolve DHCP hostnames [...]" - github.com/pi-hole/docker-pi-hole
     - 1.1.1.1 # Backup server 
 ```
 
-## Deploy with docker-compose
+## Deploy with docker compose
 When deploying this setup, the admin web interface will be available on port 8080 (e.g. http://localhost:8080/admin).
 
 ``` shell
-$ docker-compose up -d
+$ docker compose up -d
 Starting cloudflared ... done
 Starting pihole      ... done
 ```
@@ -78,9 +78,9 @@ Navigate to `http://localhost:8080` in your web browser to access the installed 
 
 Stop the containers with
 ``` shell
-$ docker-compose down
+$ docker compose down
 # To delete all data run:
-$ docker-compose down -v
+$ docker compose down -v
 ```
 
 ## Troubleshooting

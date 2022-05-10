@@ -7,11 +7,11 @@ further customize the installation and the compose file can be found on the
 Project structure:
 ```
 .
-├── docker-compose.yaml
+├── compose.yaml
 └── README.md
 ```
 
-[_docker-compose.yaml_](docker-compose.yaml)
+[_compose.yaml_](compose.yaml)
 ```
 services:
   nc:
@@ -24,10 +24,10 @@ services:
     ...
 ```
 
-When deploying this setup, docker-compose maps the nextcloud container port 80 to
+When deploying this setup, docker compose maps the nextcloud container port 80 to
 port 80 of the host as specified in the compose file.
 
-## Deploy with docker-compose
+## Deploy with docker compose
 
 ```
 $ docker$ compose up -d
@@ -60,5 +60,5 @@ Nextcloud service.
 Stop and remove the containers
 
 ```
-$ docker-compose down
+$ docker compose down
 ```

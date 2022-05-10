@@ -6,11 +6,11 @@ Project structure:
 ```
 .
 ├── .env
-├── docker-compose.yaml
+├── compose.yaml
 └── README.md
 ```
 
-[_docker-compose.yaml_](docker-compose.yaml)
+[_compose.yaml_](compose.yaml)
 ``` yaml
 services:
   postgres:
@@ -30,11 +30,11 @@ Before deploying this setup, you need to configure the following values in the [
 - PGADMIN_MAIL
 - PGADMIN_PW
 
-## Deploy with docker-compose
+## Deploy with docker compose
 When deploying this setup, the pgAdmin web interface will be available at port 5050 (e.g. http://localhost:5050).  
 
 ``` shell
-$ docker-compose up
+$ docker compose up
 Starting postgres ... done
 Starting pgadmin ... done
 ```
@@ -62,7 +62,7 @@ d3cde3b455ee   dpage/pgadmin4:latest           "/entrypoint.sh"         9 minute
 
 Stop the containers with
 ``` shell
-$ docker-compose down
+$ docker compose down
 # To delete all data run:
-$ docker-compose down -v
+$ docker compose down -v
 ```

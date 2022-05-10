@@ -4,11 +4,11 @@ This example defines a basic setup for a Minecraft server. More details on the M
 Project structure:
 ```
 .
-├── docker-compose.yaml
+├── compose.yaml
 └── README.md
 ```
 
-[_docker-compose.yaml_](docker-compose.yaml)
+[_compose.yaml_](compose.yaml)
 ```
 services:
  minecraft:
@@ -20,15 +20,15 @@ services:
      - "~/minecraft_data:/data"
 ```
 
-When deploying this setup, docker-compose maps the Minecraft server port 25565 to
+When deploying this setup, docker compose maps the Minecraft server port 25565 to
 the same port of the host as specified in the compose file. The Minecraft client application can connect to this port directly.
 This example maps the Minecraft data folder holding all game storage to ~/minecraft_data on the host.
 
-## Deploy with docker-compose
+## Deploy with docker compose
 
 ```
 $ mkdir -p ~/minecraft_data
-$ docker-compose up -d
+$ docker compose up -d
 WARNING: Some services (minecraft) use the 'deploy' key, which will be ignored. Compose does not support 'deploy' configuration - use `docker stack deploy` to deploy to a swarm.
 Creating network "minecraft_default" with the default driver
 Creating minecraft_minecraft_1 ... done
@@ -49,7 +49,7 @@ CONTAINER ID        IMAGE                   COMMAND             CREATED         
 After running `docker-compose up`, the minecraft server takes a bit of time to initialize Minecraft world. You can follow the progress:
 
 ```
-$ docker-compose logs
+$ docker compose logs
 ...
 minecraft_1  | [15:06:39] [Worker-Main-6/INFO]: Preparing spawn area: 94%
 minecraft_1  | [15:06:39] [Worker-Main-7/INFO]: Preparing spawn area: 94%
@@ -72,11 +72,11 @@ Once it is initialized, run your Minecraft application, hit "Play", then "Multip
 Stop and remove the containers
 
 ```
-$ docker-compose down
+$ docker compose down
 ```
 
 To delete all data, remove all named volumes by passing the -v arguments:
 
 ```
-$ docker-compose down -v
+$ docker compose down -v
 ```
