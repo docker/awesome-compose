@@ -7,7 +7,7 @@ Project structure:
 ├── backend
 │   ├── Dockerfile
 │   └── main.go
-├── docker compose.yml
+├── compose.yaml
 └── README.md
 ```
 

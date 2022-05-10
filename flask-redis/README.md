@@ -9,11 +9,11 @@ Project structure:
 ├── Dockerfile
 ├── README.md
 ├── app.py
-├── docker compose.yml
+├── compose.yaml
 └── requirements.txt
 ```
 
-[_docker-compose.yml_](docker-compose.yml)
+[_compose.yaml_](compose.yaml)
 
 ```
 services:

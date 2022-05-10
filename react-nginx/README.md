@@ -5,7 +5,7 @@
 Project structure:
 
 ```
-├── docker compose.yml
+├── compose.yaml
 ├── Dockerfile
 ├── .dockerignore
 ├── .nginx

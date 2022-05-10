@@ -29,7 +29,7 @@ the same port of the host as specified in the compose file.
 ## Deploy with docker compose
 
 ```
-$ docker$ compose up -d
+$ docker compose up -d
 Creating network "gitea-postgres_default" with the default driver
 Creating gitea-postgres_db_1 ... done
 Creating gitea-postgres_gitea_1 ... done

@@ -4,7 +4,7 @@
 Project structure:
 ```
 .
-├── docker compose.yml
+├── compose.yaml
 ├── app
     ├── Dockerfile
     ├── requirements.txt
@@ -12,7 +12,7 @@ Project structure:
 
 ```
 
-[_docker-compose.yml_](docker-compose.yml)
+[_compose.yaml_](compose.yaml)
 ```
 services: 
   web: 

@@ -4,7 +4,7 @@
 Project structure:
 ```
 .
-├── docker compose.yml
+├── compose.yaml
 ├── grafana
 │   └── datasource.yml
 ├── prometheus
@@ -12,7 +12,7 @@ Project structure:
 └── README.md
 ```
 
-[_docker-compose.yml_](docker-compose.yml)
+[_compose.yaml_](compose.yaml)
 ```
 services:
   prometheus:

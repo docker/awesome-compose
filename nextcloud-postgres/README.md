@@ -30,7 +30,7 @@ port 80 of the host as specified in the compose file.
 ## Deploy with docker compose
 
 ```
-$ docker$ compose up -d
+$ docker compose up -d
 Creating network "nextcloud-postgres_default" with the default driver
 Creating volume "nextcloud-postgres_nc_data" with default driver
 Pulling nc (nextcloud:apache)...

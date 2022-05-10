@@ -6,7 +6,7 @@ Project structure:
 ```
 .
 ├── README.md
-├── docker compose.yml
+├── compose.yaml
 ├── nginx
 │   ├── Dockerfile
 │   └── nginx.conf
@@ -19,7 +19,7 @@ Project structure:
 
 
 ```
-[_docker-compose.yml_](docker-compose.yml)
+[_compose.yaml_](compose.yaml)
 ```
 redis:
     image: 'redislabs/redismod'
