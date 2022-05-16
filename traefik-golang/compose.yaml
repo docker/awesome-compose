@@ -1,6 +1,6 @@
 services:
   frontend:
-    image: traefik:2.2
+    image: traefik:2.6
     command: --providers.docker --entrypoints.web.address=:80 --providers.docker.exposedbydefault=false
     ports:
       # The HTTP port
