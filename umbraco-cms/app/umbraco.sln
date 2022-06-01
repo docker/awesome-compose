@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "umbraco", "umbraco\umbraco.csproj", "{8CABE562-AC29-4C7C-9F6A-E2508D6B8C8A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8CABE562-AC29-4C7C-9F6A-E2508D6B8C8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CABE562-AC29-4C7C-9F6A-E2508D6B8C8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CABE562-AC29-4C7C-9F6A-E2508D6B8C8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CABE562-AC29-4C7C-9F6A-E2508D6B8C8A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

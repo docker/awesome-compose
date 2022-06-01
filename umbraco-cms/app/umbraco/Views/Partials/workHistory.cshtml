@@ -1,0 +1,25 @@
+﻿@inherits UmbracoViewPage<ContentModels.IWorkHistoryControls>
+
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels
+
+<div class="work-experience group">
+    <div class="heading">
+        <h2 class="text-center">@Model.WorkHistoryTitle</h2>
+    </div>
+    @if (Model.WorkHistory != null && Model.WorkHistory.Any())
+    {
+        foreach (var item in Model.WorkHistory)
+        {
+            <div class="item">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h3>@item.Title</h3>
+                        <h4 class="organization">@item.PlaceName</h4>
+                    </div>
+                    <div class="col-md-6"><span class="period">@item.StartDate.ToString("MM/yyyy") - @(item.EndDate != null && item.EndDate > DateTime.MinValue ? item.EndDate.ToString("MM/yyyy") : "Present")</span></div>
+                </div>
+                <div class="text-muted">@item.Details</div>
+            </div>
+        }
+    }
+</div>

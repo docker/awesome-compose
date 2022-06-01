@@ -1,0 +1,64 @@
+@model dynamic
+@using Umbraco.Cms.Core.Media
+@using Umbraco.Cms.Core.PropertyEditors.ValueConverters
+@inject IImageUrlGenerator ImageUrlGenerator
+
+@if (Model?.value is not null)
+{
+    var url = Model.value.image;
+
+    if (Model.editor.config != null && Model.editor.config.size != null)
+    {
+        if (Model.value.coordinates != null)
+        {
+            url = ImageCropperTemplateCoreExtensions.GetCropUrl(
+                (string)url,
+                ImageUrlGenerator,
+                width: (int)Model.editor.config.size.width,
+                height: (int)Model.editor.config.size.height,
+                cropAlias: "default",
+                cropDataSet: new ImageCropperValue
+                {
+                    Crops = new[]
+                    {
+                        new ImageCropperValue.ImageCropperCrop
+                        {
+                            Alias = "default",
+                            Coordinates = new ImageCropperValue.ImageCropperCropCoordinates
+                            {
+                                X1 = (decimal)Model.value.coordinates.x1,
+                                Y1 = (decimal)Model.value.coordinates.y1,
+                                X2 = (decimal)Model.value.coordinates.x2,
+                                Y2 = (decimal)Model.value.coordinates.y2
+                            }
+                        }
+                    }
+                });
+        }
+        else
+        {
+            url = ImageCropperTemplateCoreExtensions.GetCropUrl(
+                (string)url,
+                ImageUrlGenerator,
+                width: (int)Model.editor.config.size.width,
+                height: (int)Model.editor.config.size.height,
+                cropDataSet: new ImageCropperValue
+                {
+                    FocalPoint = new ImageCropperValue.ImageCropperFocalPoint
+                    {
+                        Top = Model.value.focalPoint == null ? 0.5m : Model.value.focalPoint.top,
+                        Left = Model.value.focalPoint == null ? 0.5m : Model.value.focalPoint.left
+                    }
+                });
+        }
+    }
+
+    var altText = Model.value.altText ?? Model.value.caption ?? string.Empty;
+
+    <img src="@url" alt="@altText">
+
+    if (Model.value.caption != null)
+    {
+        <p class="caption">@Model.value.caption</p>
+    }
+}

@@ -1,0 +1,63 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.Project>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels
+
+@using Portfolio.Core.Extensions
+
+@{
+    Layout = "Master.cshtml";
+    var projectList = Model.Parent;
+    var otherProjects = projectList.Children<ContentModels.Project>().Where(x => x.Id != Model.Id);
+    var title = Model.Value<string>("title", fallback: Fallback.ToDefaultValue, defaultValue: Model.Name);
+}
+
+<main class="page project-page">
+    <section class="portfolio-block project">
+        <div class="container">
+            <div class="heading">
+                <h1 class="font-weight-bold text-uppercase">@title</h1>
+            </div>
+            @if (Model.MainImage != null)
+            {
+                <div class="image" style="background-image: url('@Model.MainImage.GetCropUrl(width: 1110, height: 450)');"></div>
+            }
+            <div class="row">
+                <div class="col-12 col-md-6 offset-md-1 info">
+                    <h3>Description</h3>
+                    @Model.Description
+                </div>
+                <div class="col-12 col-md-3 offset-md-1 meta">
+                    <div class="tags">
+                        @if (Model.ProjectDate != null && Model.ProjectDate > DateTime.MinValue)
+                        {
+                            <span class="meta-heading">Date</span>
+                            <span>@Model.ProjectDate.ToString("dd MMM yyyy")</span>
+                        }
+                    </div>
+                </div>
+            </div>
+
+            @if (otherProjects != null && otherProjects.Any())
+            {
+                <div class="more-projects">
+                    <h3 class="text-center">More Projects</h3>
+                    <div class="row gallery">
+                        @foreach (var project in otherProjects)
+                        {
+                            var projectContentItem = (IPublishedContent)project;
+                            <div class="col-md-4 col-lg-3 mx-auto">
+                                <div class="item">
+                                    <a href="@project.Url()" title="@projectContentItem.GetPageTitle()">
+                                        @if (project.MainImage != null)
+                                        {
+                                            <img class="img-fluid scale-on-hover" src="@project.MainImage.GetCropUrl(width: 663, height: 442)">
+                                        }
+                                    </a>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            }
+        </div>
+    </section>
+</main>

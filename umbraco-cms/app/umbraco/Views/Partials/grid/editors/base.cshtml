@@ -1,0 +1,27 @@
+@model dynamic
+
+@try
+{
+    string editor = EditorView(Model);
+    <text>@await Html.PartialAsync(editor, Model as object)</text>
+}
+catch (Exception ex)
+{
+    <pre>@ex.ToString()</pre>
+}
+
+@functions{
+
+    public static string EditorView(dynamic contentItem)
+    {
+        string view = contentItem.editor.render != null ? contentItem.editor.render.ToString() : contentItem.editor.view.ToString();
+        view = view.Replace(".html", ".cshtml");
+
+        if (!view.Contains("/"))
+        {
+            view = "grid/editors/" + view;
+        }
+
+        return view;
+    }
+}

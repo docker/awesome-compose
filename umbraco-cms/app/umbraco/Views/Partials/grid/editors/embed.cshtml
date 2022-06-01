@@ -1,0 +1,11 @@
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<dynamic>
+
+@if (Model is not null)
+{
+  string embedValue = Convert.ToString(Model.value);
+  embedValue = embedValue.DetectIsJson() ? Model.value.preview : Model.value;
+
+  <div class="video-wrapper">
+    @Html.Raw(embedValue)
+  </div>
+}

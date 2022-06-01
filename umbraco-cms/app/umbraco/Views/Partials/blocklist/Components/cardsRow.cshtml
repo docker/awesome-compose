@@ -1,0 +1,53 @@
+﻿@inherits UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>
+
+@using Umbraco.Cms.Web.Common.PublishedModels
+@using System.Collections
+@using Umbraco.Cms.Core.Models
+@using Portfolio.Core.Extensions
+
+@{
+    var cardsRow = (CardsRow)Model.Content;
+}
+
+<section class="portfolio-block skills">
+    <div class="container">
+        @if(!string.IsNullOrWhiteSpace(cardsRow.Title))
+        {
+            <div class="heading">
+                <h2>@cardsRow.Title</h2>
+            </div>
+        }
+        @if(cardsRow.Cards != null && cardsRow.Cards.Any())
+        {
+            var visibleCards = cardsRow.Cards.Where(x => x.Settings == null
+            || !x.Settings.HasProperty("hide")
+            || !x.Settings.HasValue("hide")
+            || !x.Settings.Value<bool>("hide"));
+
+            if(visibleCards != null && visibleCards.Any())
+            {
+                <div class="row">
+                    @foreach (var item in cardsRow.Cards)
+                    {
+                        IconCard card = (IconCard)item.Content;
+                        <div class="col-md-4">
+                            <div class="card special-skill-item border-0">
+                                @if (!string.IsNullOrWhiteSpace(card.IconClass))
+                                {
+                                    <div class="card-header bg-transparent border-0"><i class="icon @card.IconClass.ToIconClass()"></i></div>
+                                }
+                                @if(!string.IsNullOrWhiteSpace(card.Title) || !string.IsNullOrWhiteSpace(card.Description))
+                                {
+                                    <div class="card-body">
+                                        <h3 class="card-title">@card.Title</h3>
+                                        <p class="card-text">@card.Description</p>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+        }
+    </div>
+</section>

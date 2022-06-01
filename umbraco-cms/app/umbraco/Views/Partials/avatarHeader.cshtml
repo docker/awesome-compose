@@ -1,0 +1,18 @@
+﻿@inherits UmbracoViewPage<ContentModels.IProfileControls>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels
+
+<section class="portfolio-block block-intro">
+    <div class="container">
+        @if (Model.Avatar != null)
+        {
+            <div class="avatar" style="background-image:url('@(Model.Avatar.GetCropUrl(width: 150, height: 150))');"></div>
+        }
+        <div class="about-me">
+            @Model.AboutMe
+            @if (Model.ProfileLink != null && !string.IsNullOrWhiteSpace(Model.ProfileLink.Url))
+            {
+                <a class="btn btn-outline-primary" role="button" target="@Model.ProfileLink.Target" href="@Model.ProfileLink.Url">@Model.ProfileLink.Name</a>
+            }
+        </div>
+    </div>
+</section>
