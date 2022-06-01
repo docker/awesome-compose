@@ -7,6 +7,13 @@ This sample project will start up the [Umbraco CMS](https://github.com/umbraco/U
 
 
 
+## Credentials
+
+hello@umbraco.com
+1234567890
+
+
+
 ## crap below
 
 docker build --tag=umbraco .\umbraco

@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 using Umbraco.Cms.Web.Common.Hosting;
 
-namespace umbraco
+namespace umbracocms
 {
     public class Program
     {
