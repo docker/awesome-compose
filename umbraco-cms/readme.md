@@ -16,8 +16,8 @@ hello@umbraco.com
 
 ## crap below
 
-docker build --tag=umbraco .\umbraco
+docker build --tag=umbracocms .\umbracocms
 
-docker run --name umbraco -p 8000:80 -v media:/app/wwwroot/media -v logs:/app/umbraco/Logs -e -d umbraco
+docker run --name umbracocms -p 8000:80 -v umbraco-media:/app/wwwroot/media -v umbraco-logs:/app/umbraco/Logs -e -d umbracocms
 
-docker run --name umbraco -p 8000:80 -d umbraco
+docker run --name umbraco -p 8000:80 -d umbracodotnet 
