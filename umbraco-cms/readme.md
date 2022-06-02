@@ -17,29 +17,45 @@ Project structure:
 ```
 services:
   web:
-    build: app
+    build: app/umbracocms
     ports:
-    - 80:80
-  db:
-    # mssql server image isn't available for arm64 architecture, so we use azure-sql instead
-    image: mcr.microsoft.com/azure-sql-edge:1.0.4
-    # If you really want to use MS SQL Server, uncomment the following line
-    #image: mcr.microsoft.com/mssql/server
-    ...
+      - 8000:80
+    restart: always
+    volumes:
+     - umbraco-media:/app/wwwroot/media     
+     - umbraco-logs:/app/umbraco/Logs     
+     
+volumes:
+  umbraco-media:
+  umbraco-logs:
 ```
 
+This compose file defines the umbraco application. In this instance it's configured in the simplest way possible, using an SQLite database. This is not a recommended configuration for production use, but is good for demos. 
+
+The site uses 2 volumes, one for media, where images are stored, and one for Logs, so logs can be viewed even when the container is stopped.
+
+The application is configured to run on port 8000, so when the container is running you can run the site on http://localhost:8000.
+
+## Deploy with docker compose
+
+```
+$ docker compose up -d
+```
 
 ## Credentials
 
-hello@umbraco.com
-1234567890
+When the site is up and running, you can log in with the following credentials:
 
+- Login URL : http://localhost:8000/umbraco/
+- Username : hello@umbraco.com
+- Password : 1234567890
 
+If you want to browse the front end of the site, you can use : http://localhost:8000
 
-## crap below
+![page](media/umbraco_sample.jpeg)
 
-docker build --tag=umbracocms .\umbracocms
+Stop and remove the containers
 
-docker run --name umbracocms -p 8000:80 -v umbraco-media:/app/wwwroot/media -v umbraco-logs:/app/umbraco/Logs -e -d umbracocms
-
-docker run --name umbraco -p 8000:80 -d umbracodotnet 
+```
+$ docker compose down
+```
