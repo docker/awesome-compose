@@ -1,13 +1,22 @@
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListModel>
-@{
-    if (Model?.Any() != true) { return; }
-}
-<div class="umb-block-list">
-    @foreach (var block in Model)
-    {
-        if (block?.ContentUdi == null) { continue; }
-        var data = block.Content;
 
-        @await Html.PartialAsync("blocklist/Components/" + data.ContentType.Alias, block)
-    }
-</div>
+@using Umbraco.Extensions
+
+@{
+    if (!Model.Any()) { return; }
+
+    var visibleBlocks = Model.Where(x =>
+                            x.Settings == null
+                            || !x.Settings.HasProperty("hide")
+                            || !x.Settings.HasValue("hide")
+                            || !x.Settings.Value<bool>("hide"));
+
+    if (!visibleBlocks.Any()) { return; }
+}
+@foreach (var block in visibleBlocks)
+{
+    if (block?.ContentUdi == null) { continue; }
+    var data = block.Content;
+
+    @await Html.PartialAsync("blocklist/Components/" + data.ContentType.Alias, block)
+}

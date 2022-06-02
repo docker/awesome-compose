@@ -1,0 +1,25 @@
+﻿@inherits UmbracoViewPage<ContentModels.Home>
+
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels
+
+@{
+    var pages = Model?.Children().Where(x => x.IsVisible()) ?? Enumerable.Empty<IPublishedContent>();
+}
+
+<nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-primary portfolio-navbar">
+    <div class="container">
+        <a class="navbar-brand logo" href="@Model.Url()">@(Model.SiteName)</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navbarNav"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link active" href="@Model.Url()">@Model.Name</a></li>
+                @if (pages != null && pages.Any())
+                {
+                    @foreach (var item in pages)
+                    {
+                        <li class="nav-item"><a class="nav-link active" href="@item.Url()">@item.Name</a></li>
+                    }
+                }
+            </ul>
+        </div>
+    </div>
+</nav>

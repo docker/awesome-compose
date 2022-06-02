@@ -1,0 +1,38 @@
+﻿@inherits UmbracoViewPage<ContentModels.IFooterControls>
+
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels
+@using Portfolio.Core.Extensions
+
+@if (Model != null)
+{
+    var homePage = (IPublishedContent)Model;
+    
+    <footer class="page-footer">
+        <div class="container">
+            @if (Model.FooterContentLinks != null && Model.FooterContentLinks.Any())
+            {
+                <div class="links">
+                    @foreach (var item in Model.FooterContentLinks)
+                    {
+                        <a href="@item.Url" target="@item.Target">@item.Name</a>
+                    }
+                </div>
+            }
+
+            @if (Model.FooterSocialLinks != null && Model.FooterSocialLinks.Any())
+            {
+                <div class="social-icons">
+                    @foreach (var item in Model.FooterSocialLinks)
+                    {
+                        @if (item is ContentModels.IconLinkItem)
+                        {
+                            var linkItem = item as ContentModels.IconLinkItem;
+                            <a href="@(linkItem.Link.Url)" target="@linkItem.Link.Target" rel="noopener" title="@linkItem.Link.Name" class="bg-primary"><i class="icon @(item.Value<string>("icon").ToIconClass())"></i></a>
+                        }
+                    }
+                </div>
+            }
+        <p class="text-center small">&copy; Copyright @homePage.GetSiteName() @DateTime.UtcNow.Year</p>
+        </div>
+    </footer>
+}

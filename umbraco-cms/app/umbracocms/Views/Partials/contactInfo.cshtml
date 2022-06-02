@@ -1,0 +1,31 @@
+﻿@inherits UmbracoViewPage<ContentModels.IWorkHistoryControls>
+
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels
+
+@using Portfolio.Core.Extensions
+
+<div class="contact-info portfolio-info-card">
+    @if (!string.IsNullOrWhiteSpace(Model?.ContactInfoTitle ?? ""))
+    {
+        <h2>@Model.ContactInfoTitle</h2>
+    }
+    @if (Model.ContactInfo != null && Model.ContactInfo.Any())
+    {
+        foreach (var item in Model.ContactInfo)
+        {
+            <div class="row">
+                <div class="col-1"><i class="icon @(item.Value<string>("icon").ToIconClass())"></i></div>
+                @if (item is ContentModels.IconLinkItem)
+                {
+                    var linkItem = item as ContentModels.IconLinkItem;
+                    <div class="col-9"><span><a href="@(linkItem.Link.Url)" target="@linkItem.Link.Target">@linkItem.Link.Name</a></span></div>
+                }
+                else if (item is ContentModels.IconTextItem)
+                {
+                    <div class="col-9"><span>@(item.Value<string>("text"))</span></div>
+                }
+            </div>
+        }
+    }
+
+</div>

@@ -1,11 +1,12 @@
 # Umbraco CMS Docker compose file
 
-This sample project will start up the [Umbraco CMS](https://github.com/umbraco/Umbraco-CMS/) in a Docker container, with an attached database container running SQL Server. This site also uses a template starter kit which is built on the Portfolio demo from Paul Seal
+This sample project will start up the [Umbraco CMS](https://github.com/umbraco/Umbraco-CMS/) in a Docker container, with an attached database container running SQL Server. This site also uses a template starter kit which is built on the [Portfolio demo](https://github.com/prjseal/Portfolio-Starter-Kit-fo-Umbraco) from Paul Seal.
 
 Project structure:
 ```
 .
 ├── app
+│   ├── db
 │   ├── umbracocms
 |   │   ├── Dockerfile
 |   |   └── ...
