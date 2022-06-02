@@ -7,7 +7,22 @@ services:
     volumes:
      - umbraco-media:/app/wwwroot/media     
      - umbraco-logs:/app/umbraco/Logs     
-     
+    networks:
+      - umbnet   
+  db:
+    build: app/db
+    ports:
+      - 1433:1433
+    restart: always
+    volumes:
+     - umbraco-media:/app/wwwroot/media     
+     - umbraco-logs:/app/umbraco/Logs     
+    networks:
+      - umbnet   
+networks:
+  umbnet:
+    driver: bridge
+
 volumes:
   umbraco-media:
   umbraco-logs:

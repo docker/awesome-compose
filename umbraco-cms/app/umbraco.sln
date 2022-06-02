@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "umbracocms", "umbracocms\umbracocms.csproj", "{E1EACBB3-3F43-4C73-84A1-BB046BF1BFCD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "umbracocms", "umbracocms\umbracocms.csproj", "{1872A709-44C9-4F78-B499-0DE7BC736640}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -14,9 +14,9 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E1EACBB3-3F43-4C73-84A1-BB046BF1BFCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E1EACBB3-3F43-4C73-84A1-BB046BF1BFCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E1EACBB3-3F43-4C73-84A1-BB046BF1BFCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E1EACBB3-3F43-4C73-84A1-BB046BF1BFCD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1872A709-44C9-4F78-B499-0DE7BC736640}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1872A709-44C9-4F78-B499-0DE7BC736640}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1872A709-44C9-4F78-B499-0DE7BC736640}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1872A709-44C9-4F78-B499-0DE7BC736640}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
