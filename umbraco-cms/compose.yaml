@@ -3,12 +3,14 @@ services:
     build: app/umbracocms
     ports:
       - 8000:80
+    environment:
+     - ASPNETCORE_ENVIRONMENT=Staging
     restart: always
     volumes:
      - umbraco-media:/app/wwwroot/media     
      - umbraco-logs:/app/umbraco/Logs     
     networks:
-      - umbnet   
+      - umbraco-network   
   db:
     build: app/db
     ports:
@@ -18,9 +20,9 @@ services:
      - umbraco-media:/app/wwwroot/media     
      - umbraco-logs:/app/umbraco/Logs     
     networks:
-      - umbnet   
+      - umbraco-network   
 networks:
-  umbnet:
+  umbraco-network:
     driver: bridge
 
 volumes:
