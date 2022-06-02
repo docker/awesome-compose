@@ -1,0 +1,13 @@
+services:
+  web:
+    build: app/umbracocms
+    ports:
+      - 8000:80
+    restart: always
+    volumes:
+     - umbraco-media:/app/wwwroot/media     
+     - umbraco-logs:/app/umbraco/Logs     
+     
+volumes:
+  umbraco-media:
+  umbraco-logs:
