@@ -1,0 +1,17 @@
+﻿@inherits UmbracoViewPage<ContentModels.IWorkHistoryControls>
+
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels
+
+<div class="skills portfolio-info-card">
+    <h2>@Model.SkillsTitle</h2>
+    @if (Model.Skills != null && Model.Skills.Any())
+    {
+        foreach (var item in Model.Skills)
+        {
+            <h3>@item.Skill</h3>
+            <div class="progress">
+                <div class="progress-bar" aria-valuenow="@(item.Rating)" aria-valuemin="0" aria-valuemax="100" style="width: @(item.Rating)%;"><span class="sr-only">@(item.Rating)%</span></div>
+            </div>
+        }
+    }
+</div>

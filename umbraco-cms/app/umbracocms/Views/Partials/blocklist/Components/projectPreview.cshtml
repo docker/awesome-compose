@@ -1,0 +1,29 @@
+﻿@inherits UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>
+
+@using Umbraco.Cms.Web.Common.PublishedModels
+
+@{
+    var projectPreview = (ProjectPreview)Model.Content;
+}
+
+<section class="portfolio-block website bg-primary text-white">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-12 col-lg-5 offset-lg-1 text">
+                <h3>@projectPreview.Title</h3>
+                <p>@projectPreview.Description</p>
+            </div>
+            <div class="col-md-12 col-lg-5">
+                @if (projectPreview.Image != null)
+                {
+                    <div class="portfolio-laptop-mockup">
+                        <div class="screen">
+                            <div class="screen-content" style="background-image:url('@(projectPreview.Image.GetCropUrl(width: 298, height: 189))');"></div>
+                        </div>
+                        <div class="keyboard"></div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,23 @@
+@using System.Web
+@model dynamic
+
+@if (Model?.editor.config.markup is not null)
+{
+    string markup = Model.editor.config.markup.ToString();
+    markup = markup.Replace("#value#", Html.ReplaceLineBreaks((string)Model.value.ToString()).ToString());
+
+    if (Model.editor.config.style != null)
+    {
+        markup = markup.Replace("#style#", Model.editor.config.style.ToString());
+    }
+
+    <text>
+        @Html.Raw(markup)
+    </text>
+}
+else
+{
+    <text>
+        <div style="@Model?.editor.config.style">@Model?.value</div>
+    </text>
+}

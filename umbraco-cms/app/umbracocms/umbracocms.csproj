@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Portfolio" Version="1.0.5" />
+        <PackageReference Include="Umbraco.Cms" Version="10.0.0-rc4" />
+    </ItemGroup>
+
+    <!-- Force Windows to use ICU. Otherwise Windows 10 2019H1+ will do it, but older Windows 10 and most, if not all, Windows Server editions will run NLS -->
+    <ItemGroup>
+      <PackageReference Include="Microsoft.ICU.ICU4C.Runtime" Version="68.2.0.9" />
+      <RuntimeHostConfigurationOption Include="System.Globalization.AppLocalIcu" Value="68.2.0.9" Condition="$(RuntimeIdentifier.StartsWith('linux')) or $(RuntimeIdentifier.StartsWith('win')) or ('$(RuntimeIdentifier)' == '' and !$([MSBuild]::IsOSPlatform('osx')))" />
+    </ItemGroup>
+
+
+    <PropertyGroup>
+        <CopyRazorGenerateFilesToPublishDirectory>true</CopyRazorGenerateFilesToPublishDirectory>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Folder Include="wwwroot" />
+    </ItemGroup>
+
+    <!-- Keep this as false if ModelsBuilder mode is InMemoryAuto -->
+    <PropertyGroup>
+        <RazorCompileOnBuild>false</RazorCompileOnBuild>
+        <RazorCompileOnPublish>false</RazorCompileOnPublish>
+    </PropertyGroup>
+
+</Project>

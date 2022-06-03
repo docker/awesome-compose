@@ -1,0 +1,29 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.CV>
+
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels
+
+@{
+    Layout = "Master.cshtml";
+    var homePage = Model.AncestorOrSelf<ContentModels.Home>();
+}
+
+<main class="page cv-page">
+    @await Html.PartialAsync("avatarHeader", homePage)
+    <section class="portfolio-block cv">
+        <div class="container">
+            @await Html.PartialAsync("workHistory", Model)
+            @await Html.PartialAsync("educationHistory", Model)
+            <div class="group">
+                <div class="row">
+                    <div class="col-md-6">
+                        @await Html.PartialAsync("skills", Model)
+                    </div>
+                    <div class="col-md-6">
+                        @await Html.PartialAsync("contactInfo", Model)
+                    </div>
+                </div>
+            </div>
+            @await Html.PartialAsync("hobbies", Model)
+        </div>
+    </section>
+</main>

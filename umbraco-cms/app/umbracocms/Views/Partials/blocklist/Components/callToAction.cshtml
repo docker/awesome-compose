@@ -1,0 +1,22 @@
+﻿@inherits UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>
+
+@using Umbraco.Cms.Web.Common.PublishedModels
+
+@{
+    var cta = (CallToAction)Model.Content;
+}
+
+<section class="portfolio-block call-to-action border-bottom">
+    <div class="container">
+        <div class="d-flex justify-content-center align-items-center content">
+            @if(!string.IsNullOrWhiteSpace(cta.Text))
+            {
+                <h3>@cta.Text</h3>
+            }
+            @if(cta.Link != null)
+            {
+                <a class="btn btn-outline-primary btn-lg" target="@cta.Link.Target" href="@cta.Link.Url">@cta.Link.Name</a>
+            }
+        </div>
+    </div>
+</section>

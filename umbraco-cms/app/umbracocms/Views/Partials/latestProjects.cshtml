@@ -1,0 +1,34 @@
+﻿@inherits UmbracoViewPage<ContentModels.ProjectList>
+
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels
+@using Portfolio.Core.Extensions
+
+@{ 
+    var projects = Model != null ? Model.Children<ContentModels.Project>().Where(x => x.IsVisible()) : Enumerable.Empty<ContentModels.Project>();
+}
+
+@if (projects != null && projects.Any())
+{
+    <section class="portfolio-block photography">
+        <div class="container">
+            <div class="row no-gutters">
+                @foreach (var project in projects)
+                {
+                    var projectTitle = project.GetPageTitle();
+                    <div class="col-md-6 col-lg-4 item zoom-on-hover">
+                        <a href="@project.Url()" title="@projectTitle">
+                            @if (project.MainImage != null)
+                            {
+                                <img class="img-fluid image" width="663" height="442" src="@project.MainImage.GetCropUrl(width: 663, height: 442)" alt="@project.MainImage.GetAltText()">
+                            }
+                            else
+                            {
+                                @projectTitle;
+                            }
+                        </a>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+}
