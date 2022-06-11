@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="MongoDb.Driver" Version="2.16.0" />
+  </ItemGroup>
+</Project>

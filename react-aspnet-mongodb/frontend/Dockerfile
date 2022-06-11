@@ -1,24 +1,26 @@
-# Create image based on the official Node image from dockerhub
-FROM node:lts-buster
+FROM node:lts AS development
 
-# Create app directory
-WORKDIR /usr/src/app
+WORKDIR /app
 
-# Copy dependency definitions
-COPY package.json /usr/src/app
-COPY package-lock.json /usr/src/app
+# add `/app/node_modules/.bin` to $PATH
+ENV PATH /app/node_modules/.bin:$PATH
 
-# Install dependecies
-#RUN npm set progress=false \
-#    && npm config set depth 0 \
-#    && npm i install
+# install app dependencies
+COPY package.json ./
+COPY package-lock.json ./
 RUN npm ci
 
-# Get all the code needed to run the app
-COPY . /usr/src/app
+# add app
+COPY . ./
 
-# Expose the port the app runs in
-EXPOSE 3000
-
-# Serve the app
+# start app
 CMD ["npm", "start"]
+
+ENV CI=true
+ENV PORT=3000
+
+FROM development AS build
+RUN npm run build
+
+FROM nginx:1.13-alpine
+COPY --from=build /code/build /usr/share/nginx/html

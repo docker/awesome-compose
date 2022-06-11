@@ -6,15 +6,40 @@ services:
     ports:
       - 3000:3000
     volumes:
-      - ./frontend/src:/code/src
-      - /project/node_modules
+      - ./frontend/src:/app
     networks:
-      - react-backend
+      - react-frontend
     depends_on:
       - backend
+
+  backend:
+    build: backend
+    restart: always
+    depends_on: 
+      - mongo
+    environment:
+      - ASPNETCORE_URLS=http://+:8000
+    secrets:
+      - db-connection
+    networks:
+      - react-backend
+    ports:
+      - 8000:8000
+
+  mongo:
+    restart: always
+    image: mongo:4.2.0
+    volumes:
+      - ./data:/data/db
+    networks:
+      - react-backend
     expose:
-      - 3306
-      - 33060
+      - 27017
 
 networks:
   react-backend: {}
+  react-frontend: {}
+
+secrets:
+  db-connection:
+    file: db/connection.txt
