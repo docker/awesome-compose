@@ -1,0 +1,20 @@
+services:
+  frontend:
+    build:
+      context: frontend
+      target: development
+    ports:
+      - 3000:3000
+    volumes:
+      - ./frontend/src:/code/src
+      - /project/node_modules
+    networks:
+      - react-backend
+    depends_on:
+      - backend
+    expose:
+      - 3306
+      - 33060
+
+networks:
+  react-backend: {}
