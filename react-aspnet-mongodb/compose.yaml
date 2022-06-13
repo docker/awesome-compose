@@ -2,29 +2,30 @@ services:
   frontend:
     build:
       context: frontend
-      target: development
     ports:
-      - 3000:3000
+      - 80:80
     volumes:
-      - ./frontend/src:/app
+      - '.:/app'
+      - '/app/node_modules'
     networks:
       - react-frontend
     depends_on:
+      - backend
+    links:
       - backend
 
   backend:
     build: backend
     restart: always
+    ports:
+      - 8000:8000
     depends_on: 
       - mongo
     environment:
       - ASPNETCORE_URLS=http://+:8000
-    secrets:
-      - db-connection
     networks:
       - react-backend
-    ports:
-      - 8000:8000
+      - react-frontend
 
   mongo:
     restart: always
@@ -33,13 +34,7 @@ services:
       - ./data:/data/db
     networks:
       - react-backend
-    expose:
-      - 27017
 
 networks:
   react-backend: {}
   react-frontend: {}
-
-secrets:
-  db-connection:
-    file: db/connection.txt

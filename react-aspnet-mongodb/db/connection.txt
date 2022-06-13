@@ -1,1 +1,0 @@
-mongodb://mongo:27017
