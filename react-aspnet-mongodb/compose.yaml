@@ -23,6 +23,7 @@ services:
       - mongo
     environment:
       - ASPNETCORE_URLS=http://+:8000
+      - EnableSwagger=true
     networks:
       - react-backend
       - react-frontend

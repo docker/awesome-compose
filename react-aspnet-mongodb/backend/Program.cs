@@ -14,15 +14,21 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 string connectionString = builder.Configuration.GetConnectionString("DocumentDbConnection");
-string databaseName = builder.Configuration["DocumentDbName"] ?? "BackendMongoDb";
-string collectionName = builder.Configuration["DocumentCollectionName"] ?? "ToDos";
+string databaseName = builder.Configuration.GetConnectionString("DocumentDbName") ?? "BackendMongoDb";
+string collectionName = builder.Configuration.GetConnectionString("DocumentCollectionName") ?? "ToDos";
 
 builder.Services.AddTransient<MongoClient>((_provider) => new MongoClient(connectionString));
 
 var app = builder.Build();
 
+var isSwaggerEnabledFromConfig = bool.TrueString.Equals(builder.Configuration["EnableSwagger"] ?? "", StringComparison.OrdinalIgnoreCase);
+if (isSwaggerEnabledFromConfig) 
+{
+    Console.WriteLine("Swagger enabled via appsettings.json");
+}
+
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+if (app.Environment.IsDevelopment() || isSwaggerEnabledFromConfig)
 {
     app.UseSwagger();
     app.UseSwaggerUI();
@@ -50,7 +56,6 @@ app.MapGet("/api/todos/{id}", async (string id, MongoClient connection) =>
     {
         var database = connection.GetDatabase(databaseName);
         var collection = database.GetCollection<ToDo>(collectionName);
-
         var result = await collection.FindAsync(record => record.Id == id).ConfigureAwait(false) as ToDo;
         
         if (result is null) 
