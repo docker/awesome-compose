@@ -5,8 +5,13 @@ using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Driver;
 using Models;
+using Swashbuckle.AspNetCore.SwaggerGen;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
 string connectionString = builder.Configuration.GetConnectionString("DocumentDbConnection");
 string databaseName = builder.Configuration["DocumentDbName"] ?? "BackendMongoDb";
@@ -16,12 +21,18 @@ builder.Services.AddTransient<MongoClient>((_provider) => new MongoClient(connec
 
 var app = builder.Build();
 
-app.MapGet("/api/todos", async (MongoClient connection) => {
+// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+
+app.MapGet("/api/todos", async (MongoClient connection) =>
+{
     try
     {
-        var client = new MongoClient(connectionString);  
-        var database = client.GetDatabase(databaseName);  
-
+        var database = connection.GetDatabase(databaseName);
         var collection = database.GetCollection<ToDo>(collectionName);
         var results = await collection.Find(_ => true).ToListAsync().ConfigureAwait(false);
 
@@ -33,19 +44,21 @@ app.MapGet("/api/todos", async (MongoClient connection) => {
     }
 });
 
-
-app.MapGet("/api/todos/{id}", async (string id, MongoClient connection) => {
+app.MapGet("/api/todos/{id}", async (string id, MongoClient connection) =>
+{
     try
     {
-        var client = new MongoClient(connectionString);  
-        var database = client.GetDatabase(databaseName);  
-
+        var database = connection.GetDatabase(databaseName);
         var collection = database.GetCollection<ToDo>(collectionName);
-        var result = await collection.FindAsync(record => record.Id == id).ConfigureAwait(false);
 
-        return result is ToDo todo
-                ? Results.Ok(todo)
-                : Results.NotFound();
+        var result = await collection.FindAsync(record => record.Id == id).ConfigureAwait(false) as ToDo;
+        
+        if (result is null) 
+        {
+            return Results.NotFound();
+        }
+
+        return Results.Created($"/todoitems/{result.Id}", result);
     }
     catch (Exception ex)
     {
@@ -53,12 +66,11 @@ app.MapGet("/api/todos/{id}", async (string id, MongoClient connection) => {
     }
 });
 
-app.MapPost("/api/todos", async (ToDo record, MongoClient connection) => {
+app.MapPost("/api/todos", async (ToDo record, MongoClient connection) =>
+{
     try
     {
-        var client = new MongoClient(connectionString);  
-        var database = client.GetDatabase(databaseName);  
-
+        var database = connection.GetDatabase(databaseName);
         var collection = database.GetCollection<ToDo>(collectionName);
         await collection.InsertOneAsync(record).ConfigureAwait(false);
 
