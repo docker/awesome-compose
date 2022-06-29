@@ -83,3 +83,11 @@ Removing react-java-mysql_frontend_1 ... done
 Removing react-java-mysql_db_1       ... done
 Removing network react-java-mysql_default
 ```
+
+## Use with Docker Development Environments
+
+You can use this sample with the Dev Environments feature of Docker Desktop.  
+To develop directly frontend or the backend services inside containers, you just need to use the https git url of the sample:  
+`https://github.com/docker/awesome-compose/tree/master/react-java-mysql`
+
+![page](../dev-envs.png)
