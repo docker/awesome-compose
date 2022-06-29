@@ -73,3 +73,11 @@ Stop and remove the containers
 ```
 $ docker compose down
 ```
+
+## Use with Docker Development Environments
+
+You can use this sample with the Dev Environments feature of Docker Desktop.  
+To develop directly frontend or the backend services inside containers, you just need to use the https git url of the sample:  
+`https://github.com/docker/awesome-compose/tree/master/nginx-golang-postgres`
+
+![page](../dev-envs.png)
