@@ -59,3 +59,11 @@ Stopping vuejs_web_1 ... done
 Removing vuejs_web_1 ... done
 Removing network vuejs_default
 ```
+
+## Use with Docker Development Environments
+
+You can use this sample with the Dev Environments feature of Docker Desktop.  
+To develop directly web service inside containers, you just need to use the https git url of the sample:  
+`https://github.com/docker/awesome-compose/tree/master/vuejs`
+
+![page](../dev-envs.png)

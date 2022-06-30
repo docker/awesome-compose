@@ -2,9 +2,8 @@ services:
   web:
     build:
       context: vuejs
-      target: development
+      target: dev-envs
     ports:
       - 8080:8080
     volumes:
-      - ./vuejs:/project
-      - /project/node_modules
+      - /var/run/docker.sock:/var/run/docker.sock
