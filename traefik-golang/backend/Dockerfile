@@ -9,8 +9,8 @@ RUN CGO_ENABLED=0 go build -o backend main.go
 FROM build as dev-envs
 
 RUN <<EOF
-apt update
-apt install git
+apt-get update
+apt-get install -y --no-install-recommends git
 EOF
 
 RUN <<EOF

@@ -99,4 +99,4 @@ You can use this sample with the Dev Environments feature of Docker Desktop.
 To develop directly the backend service inside containers, you just need to use the https git url of the sample:  
 `https://github.com/docker/awesome-compose/tree/master/traefik-golang`
 
-![page](./dev-envs.png)
+![page](../dev-envs.png)
