@@ -2,8 +2,9 @@ services:
   web:
     build:
       context: app
-      target: builder
+      target: dev-envs
     ports: 
       - '80:80'
     volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
       - ./app:/var/www/html/
