@@ -2,32 +2,31 @@ name: react-rust-postgres
 services:
   frontend:
     build:
-      context: frontend
-      target: development
+      context: ../frontend
+      target: dev-envs
     networks:
       - client-side
     ports:
       - 3000:3000
     volumes:
-      - ./frontend/src:/code/src:ro
+      - /var/run/docker.sock:/var/run/docker.sock
 
   backend:
     build:
-      context: backend
-      target: development
+      context: ../backend
+      target: dev-envs
     environment:
-      - ADDRESS=0.0.0.0:8000
       - RUST_LOG=debug
       - PG_DBNAME=postgres
       - PG_HOST=db
       - PG_USER=postgres
       - PG_PASSWORD=mysecretpassword
+      - ADDRESS=0.0.0.0:8000
     networks:
       - client-side
       - server-side
     volumes:
-      - ./backend/src:/code/src
-      - backend-cache:/code/target
+      - /var/run/docker.sock:/var/run/docker.sock
     depends_on:
       - db
 
