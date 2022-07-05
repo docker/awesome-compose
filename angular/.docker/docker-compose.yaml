@@ -2,9 +2,10 @@ services:
   web:
     build:
       context: angular
-      target: builder
+      target: dev-envs
     ports:
       - 4200:4200
     volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
       - ./angular:/project
       - /project/node_modules
