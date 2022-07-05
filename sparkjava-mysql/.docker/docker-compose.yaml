@@ -1,0 +1,32 @@
+services:
+  backend:
+    build:
+      context: backend
+      target: dev-envs
+    ports:
+      - 8080:8080
+    secrets:
+      - db-password
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+  db:
+    # We use a mariadb image which supports both amd64 & arm64 architecture
+    image: mariadb:10.6.4-focal
+    # If you really want to use MySQL, uncomment the following line
+    #image: mysql:8.0.27
+    restart: always
+    secrets:
+      - db-password
+    volumes:
+      - db-data:/var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=example
+      - MYSQL_ROOT_PASSWORD_FILE=/run/secrets/db-password
+    expose:
+      - 3306
+      - 33060   
+volumes:
+  db-data:
+secrets:
+  db-password:
+    file: db/password.txt
