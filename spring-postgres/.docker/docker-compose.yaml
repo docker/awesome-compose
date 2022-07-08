@@ -1,0 +1,34 @@
+services:
+  backend:
+    build:
+      context: backend
+      target: dev-envs
+    ports:
+      - 8080:8080
+    environment:
+      - POSTGRES_DB=example
+    networks:
+      - spring-postgres
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+  db:
+    image: postgres
+    restart: always
+    secrets:
+      - db-password
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    networks:
+      - spring-postgres
+    environment:
+      - POSTGRES_DB=example
+      - POSTGRES_PASSWORD_FILE=/run/secrets/db-password
+    expose:
+      - 5432
+volumes:
+  db-data:
+secrets:
+  db-password:
+    file: db/password.txt
+networks:
+  spring-postgres:

@@ -77,3 +77,11 @@ Removing spring-postgres_db_1      ... done
 Removing spring-postgres_backend_1 ... done
 Removing network spring-postgres_default
 ```
+
+## Use with Docker Development Environments
+
+You can use this sample with the Dev Environments feature of Docker Desktop.  
+To develop directly frontend or the backend services inside containers, you just need to use the https git url of the sample:  
+`https://github.com/docker/awesome-compose/tree/master/spring-postgres`
+
+![page](../dev-envs.png)
