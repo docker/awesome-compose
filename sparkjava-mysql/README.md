@@ -75,3 +75,11 @@ Removing sparkjava-mysql_backend_1 ... done
 Removing sparkjava-mysql_db_1      ... done
 Removing network sparkjava-mysql_default
 ```
+
+## Use with Docker Development Environments
+
+You can use this sample with the Dev Environments feature of Docker Desktop.  
+To develop directly frontend or the backend services inside containers, you just need to use the https git url of the sample:  
+`https://github.com/docker/awesome-compose/tree/master/sparkjava-mysql`
+
+![page](../dev-envs.png)
