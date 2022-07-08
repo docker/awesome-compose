@@ -2,6 +2,7 @@ services:
   backend:
     build:
       context: backend
+      target: dev-envs
     restart: always
     secrets:
       - db-password
@@ -10,12 +11,11 @@ services:
         condition: service_healthy
     environment:
       - ASPNETCORE_URLS=http://+:8000
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
 
   db:
-    # We use a mariadb image which supports both amd64 & arm64 architecture
     image: mariadb:10-focal
-    # If you really want to use MySQL, uncomment the following line
-    #image: mysql:8
     command: '--default-authentication-plugin=mysql_native_password'
     restart: always
     healthcheck:
@@ -40,7 +40,6 @@ services:
 
 volumes:
   db-data:
-
 secrets:
   db-password:
     file: db/password.txt
