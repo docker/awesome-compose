@@ -74,3 +74,11 @@ Removing react-rust-postgres_frontend_1 ... done
 Removing react-rust-postgres_db_1       ... done
 Removing network react-rust-postgres_default
 ```
+
+## Use with Docker Development Environments
+
+You can use this sample with the Dev Environments feature of Docker Desktop.  
+To develop directly frontend or the backend services inside containers, you just need to use the https git url of the sample:  
+`https://github.com/docker/awesome-compose/tree/master/react-rust-postgres`
+
+![page](../dev-envs.png)
