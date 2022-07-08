@@ -82,6 +82,6 @@ Removing network spring-postgres_default
 
 You can use this sample with the Dev Environments feature of Docker Desktop.  
 To develop directly frontend or the backend services inside containers, you just need to use the https git url of the sample:  
-`https://github.com/docker/awesome-compose/tree/master/react-java-mysql`
+`https://github.com/docker/awesome-compose/tree/master/spring-postgres`
 
 ![page](../dev-envs.png)
