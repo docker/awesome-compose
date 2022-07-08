@@ -47,6 +47,9 @@ application with a Rust backend and a Postgres database.
 - [`React / Nginx`](https://github.com/docker/awesome-compose/tree/master/react-nginx) - Sample React application with Nginx.
 - [`Spring / PostgreSQL`](https://github.com/docker/awesome-compose/tree/master/spring-postgres) - Sample Java application
 with Spring framework and a Postgres database.  
+- [`Phoenix(Elixir) / PostgreSQL`](https://github.com/docker/awesome-compose/tree/master/phoenix-postgres) - Sample Elixir 
+application with Phoenix framework and a Postgres database
+
 ## Single service samples
 - [`Angular`](https://github.com/docker/awesome-compose/tree/master/angular)
 - [`Spark`](https://github.com/docker/awesome-compose/tree/master/sparkjava)
