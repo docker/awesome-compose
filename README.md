@@ -46,7 +46,9 @@ application with a Node.js backend and a Mongo database.
 application with a Rust backend and a Postgres database.
 - [`React / Nginx`](https://github.com/docker/awesome-compose/tree/master/react-nginx) - Sample React application with Nginx.
 - [`Spring / PostgreSQL`](https://github.com/docker/awesome-compose/tree/master/spring-postgres) - Sample Java application
-with Spring framework and a Postgres database.  
+with Spring framework and a Postgres database.
+- [`PHP / MySQL / Apache`](https://github.com/docker/awesome-compose/tree/master/php-mysql-apache) - Sample PHP application
+with MySQL database and PhpMyAdmin.
 ## Single service samples
 - [`Angular`](https://github.com/docker/awesome-compose/tree/master/angular)
 - [`Spark`](https://github.com/docker/awesome-compose/tree/master/sparkjava)
