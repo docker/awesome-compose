@@ -2,14 +2,12 @@ services:
   frontend:
     build:
       context: frontend
-      target: development
+      target: dev-envs
     ports:
       - 3000:3000
     stdin_open: true
     volumes:
-      - ./frontend:/usr/src/app
-      - /usr/src/app/node_modules
-    container_name: frontend
+      - /var/run/docker.sock:/var/run/docker.sock
     restart: always
     networks:
       - react-express
@@ -17,14 +15,12 @@ services:
       - backend
 
   backend:
-    container_name: backend
     restart: always
     build:
       context: backend
-      target: development
+      target: dev-envs
     volumes:
-      - ./backend:/usr/src/app
-      - /usr/src/app/node_modules
+      - /var/run/docker.sock:/var/run/docker.sock
     depends_on:
       - mongo
     networks:
