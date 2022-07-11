@@ -12,9 +12,11 @@ services:
   web1:
     build:
       context: web
-      target: builder
+      target: dev-envs
     restart: on-failure
     hostname: web1
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
     depends_on:
       redis:
         condition: service_healthy
@@ -22,9 +24,11 @@ services:
   web2:
     build:
       context: web
-      target: builder
+      target: dev-envs
     restart: on-failure
     hostname: web2
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
     depends_on:
       redis:
         condition: service_healthy
