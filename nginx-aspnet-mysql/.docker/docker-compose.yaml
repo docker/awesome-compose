@@ -6,9 +6,7 @@ services:
     restart: always
     secrets:
       - db-password
-    depends_on:
-      db:
-        condition: service_healthy
+    depends_on: ['db']
     environment:
       - ASPNETCORE_URLS=http://+:8000
     volumes:
@@ -18,11 +16,6 @@ services:
     image: mariadb:10-focal
     command: '--default-authentication-plugin=mysql_native_password'
     restart: always
-    healthcheck:
-      test: ['CMD-SHELL', 'mysqladmin ping -h 127.0.0.1 --password="$$(cat /run/secrets/db-password)" --silent']
-      interval: 3s
-      retries: 5
-      start_period: 30s
     secrets:
       - db-password
     volumes:
