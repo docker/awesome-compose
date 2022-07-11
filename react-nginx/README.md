@@ -86,3 +86,14 @@ Stopping frontend ... done
 Removing frontend ... done
 Removing network react-nginx_default
 ```
+
+## Use with Docker Development Environments
+
+You can use this sample with the Dev Environments feature of Docker Desktop.
+
+![Screenshot of creating a Dev Environment in Docker Desktop](../dev-envs.png)
+
+To develop directly on the services inside containers, use the HTTPS Git url of the sample:
+```
+https://github.com/docker/awesome-compose/tree/master/react-nginx
+```
