@@ -4,11 +4,14 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+
+	"github.com/go-chi/chi/v5"
+	"github.com/go-chi/chi/v5/middleware"
 )
 
 func handler(w http.ResponseWriter, r *http.Request) {
-	fmt.Println(r.URL.RawQuery)
-	fmt.Fprintf(w, `
+	fmt.Fprintf(
+		w, `
           ##         .
     ## ## ##        ==
  ## ## ## ## ##    ===
@@ -21,10 +24,15 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	
 Hello from Docker!
 
-`)
+`,
+	)
 }
 
 func main() {
-	http.HandleFunc("/", handler)
-	log.Fatal(http.ListenAndServe(":80", nil))
+	r := chi.NewRouter()
+	r.Use(middleware.Logger)
+	r.Get("/", handler)
+
+	fmt.Println("Go backend started!")
+	log.Fatal(http.ListenAndServe(":80", r))
 }
