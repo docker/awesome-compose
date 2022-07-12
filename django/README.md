@@ -50,3 +50,10 @@ Stop and remove the containers
 ```
 $ docker compose down
 ```
+## Use with Docker Development Environments
+
+You can use this sample with the Dev Environments feature of Docker Desktop.  
+To develop directly the web service inside a container, you just need to use the https git url of the sample:  
+`https://github.com/docker/awesome-compose/tree/master/django`
+
+![page](../dev-envs.png)
