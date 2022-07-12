@@ -21,13 +21,14 @@ Project structure:
 ```
 services:
   backend:
-    build: backend
+    build:
+      context: backend
     ...
   db:
     # We use a mariadb image which supports both amd64 & arm64 architecture
-    image: mariadb:10.6.4-focal
+    image: mariadb:10-focal
     # If you really want to use MySQL, uncomment the following line
-    #image: mysql:8.0.27
+    #image: mysql:8
     ...
   proxy:
     build: proxy
@@ -73,4 +74,15 @@ $ curl localhost:80
 Stop and remove the containers
 ```
 $ docker compose down
+```
+
+## Use with Docker Development Environments
+
+You can use this sample with the Dev Environments feature of Docker Desktop.
+
+![Screenshot of creating a Dev Environment in Docker Desktop](../dev-envs.png)
+
+To develop directly on the services inside containers, use the HTTPS Git url of the sample:
+```
+https://github.com/docker/awesome-compose/tree/master/nginx-aspnet-mysql
 ```
