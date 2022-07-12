@@ -59,3 +59,11 @@ Stopping sparkjava_sparkjava_1 ... done
 Removing sparkjava_sparkjava_1 ... done
 Removing network sparkjava_default
 ```
+
+## Use with Docker Development Environments
+
+You can use this sample with the Dev Environments feature of Docker Desktop.  
+To develop directly sparkjava service inside containers, you just need to use the https git url of the sample:  
+`https://github.com/docker/awesome-compose/tree/master/sparkjava`
+
+![page](../dev-envs.png)
