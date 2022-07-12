@@ -14,4 +14,6 @@ services:
   backend:
     build:
       context: backend
-      target: builder
+      target: dev-envs
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
