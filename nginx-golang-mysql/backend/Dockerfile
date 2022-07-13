@@ -19,7 +19,7 @@ RUN --mount=type=cache,target=/go/pkg/mod/cache \
 
 CMD ["/code/bin/backend"]
 
-FROM builder as dev-envs
+FROM builder AS dev-envs
 
 RUN <<EOF
 apk update
