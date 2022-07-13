@@ -132,3 +132,14 @@ __Explanation of service mongo__
 :key: `If you wish to check your DB changes on your local machine as well. You should have installed MongoDB locally, otherwise you can't access your mongodb service of container from host machine.` 
 
 :white_check_mark: You should check your __mongo__ version is same as used in image. You can see the version of __mongo__ image in `docker-compose `file, I used __image: mongo:4.2.0__. If your mongo db version on your machine is not same then furst you have to updated your  local __mongo__ version in order to works correctly.
+
+## Use with Docker Development Environments
+
+You can use this sample with the Dev Environments feature of Docker Desktop.
+
+![Screenshot of creating a Dev Environment in Docker Desktop](../dev-envs.png)
+
+To develop directly on the services inside containers, use the HTTPS Git url of the sample:
+```
+https://github.com/docker/awesome-compose/tree/master/react-express-mongodb
+```

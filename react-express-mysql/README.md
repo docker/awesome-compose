@@ -106,5 +106,5 @@ You can use this sample with the Dev Environments feature of Docker Desktop.
 
 To develop directly on the services inside containers, use the HTTPS Git url of the sample:
 ```
-https://github.com/docker/awesome-compose/tree/master/react-express-mongodb
+https://github.com/docker/awesome-compose/tree/master/react-express-mysql
 ```

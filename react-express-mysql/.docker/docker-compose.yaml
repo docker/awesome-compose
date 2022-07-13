@@ -4,7 +4,7 @@ services:
       args:
       - NODE_ENV=development
       context: backend
-      target: development
+      target: dev-envs
     command: npm run start-watch
     environment:
       - DATABASE_DB=example
@@ -19,10 +19,7 @@ services:
     secrets:
       - db-password
     volumes:
-      - ./backend/src:/code/src:ro
-      - ./backend/package.json:/code/package.json
-      - ./backend/package-lock.json:/code/package-lock.json
-      - back-notused:/opt/app/node_modules
+      - /var/run/docker.sock:/var/run/docker.sock
     networks:
       - public
       - private
@@ -47,12 +44,11 @@ services:
   frontend:
     build:
       context: frontend
-      target: development
+      target: dev-envs
     ports:
       - 3000:3000
     volumes:
-      - ./frontend/src:/code/src
-      - /code/node_modules
+      - /var/run/docker.sock:/var/run/docker.sock
     networks:
       - public
     depends_on:
