@@ -17,7 +17,7 @@ EXPOSE 8000
 
 CMD ["flask", "run"]
 
-FROM builder as dev-envs
+FROM builder AS dev-envs
 
 RUN <<EOF
 apk update
