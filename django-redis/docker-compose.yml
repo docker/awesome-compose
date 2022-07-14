@@ -1,0 +1,16 @@
+services:
+  redis:
+    image: redislabs/redismod
+    ports:
+      - '6379:6379'
+  web:
+    build: .
+    command: python django_redis/manage.py runserver 0.0.0.0:8000
+    env_file:
+      - .env
+    ports:
+      - '8000:8000'
+    volumes:
+      - .:/code
+    depends_on:
+      - redis

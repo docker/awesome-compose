@@ -35,6 +35,7 @@ application with Nginx proxy and a Mongo database.
 - [`NGINX / Go`](https://github.com/docker/awesome-compose/tree/master/nginx-golang) - Sample Nginx proxy with a Go backend.
 - [`NGINX / WSGI / Flask`](https://github.com/docker/awesome-compose/tree/master/nginx-wsgi-flask) - Sample Nginx reverse proxy with a Flask backend using WSGI.
 - [`PostgreSQL / pgAdmin`](https://github.com/docker/awesome-compose/tree/master/postgresql-pgadmin) - Sample setup for postgreSQL database with pgAdmin web interface
+- [`Python / Django / Redis`](https://github.com/docker/awesome-compose/tree/master/django-redis) - Sample Python/Django application with a Redis database.
 - [`Python / Flask / Redis`](https://github.com/docker/awesome-compose/tree/master/flask-redis) - Sample Python/Flask and a Redis database
 - [`React / Spring / MySQL`](https://github.com/docker/awesome-compose/tree/master/react-java-mysql) - Sample React
 application with a Spring backend and a MySQL database.
