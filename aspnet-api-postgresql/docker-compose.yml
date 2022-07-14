@@ -1,0 +1,28 @@
+version: '3.7'
+services:
+  api:
+    image: mcr.microsoft.com/dotnet/sdk
+    container_name: "api"
+    ports:
+      - 5000:5000
+    working_dir: /api
+    volumes:
+      - ./api:/api
+    command: ["dotnet", "watch", "run", "--urls=http://0.0.0.0:5000/"]
+    depends_on:
+      - "db"
+  db:
+      image: postgres:10.5
+      restart: always
+      environment:
+        POSTGRES_USER: "postgres"
+        POSTGRES_PASSWORD: "postgres"
+        POSTGRES_DB: "aspnetapipostgresqldb"
+      logging:
+        options:
+          max-size: 10m
+          max-file: "3"
+      ports:
+        - '5432:5432'
+      volumes: 
+        - ./postgres-data:/var/lib/postgresql/data

@@ -20,6 +20,8 @@ These samples provide a starting point for how to integrate different services u
 ## Samples of Docker Compose applications with multiple integrated services
 - [`ASP.NET / MS-SQL`](https://github.com/docker/awesome-compose/tree/master/aspnet-mssql) - Sample ASP.NET core application
 with MS SQL server database.
+- [`ASP.NET / Postgresql`](https://github.com/docker/awesome-compose/tree/master/aspnet-api-postgresql) - Sample ASP.NET core application
+with Postgresql server database.
 - [`Elasticsearch / Logstash / Kibana`](https://github.com/docker/awesome-compose/tree/master/elasticsearch-logstash-kibana) - Sample Elasticsearch, Logstash, and Kibana stack.
 - [`Go / NGINX / MySQL`](https://github.com/docker/awesome-compose/tree/master/nginx-golang-mysql) - Sample Go application
 with an Nginx proxy and a MySQL database.
