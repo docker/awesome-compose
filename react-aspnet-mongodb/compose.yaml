@@ -1,0 +1,58 @@
+services:
+  frontend:
+    build:
+      context: frontend
+    ports:
+      - 80:80
+    volumes:
+      - '.:/app'
+      - '/app/node_modules'
+    networks:
+      - react-frontend
+    depends_on:
+      - backend
+    links:
+      - backend
+
+  backend:
+    build: backend
+    restart: always
+    ports:
+      - 8000:8000
+    depends_on: 
+      - mongo
+    links:
+      - mongo
+    environment:
+      - ASPNETCORE_URLS=http://+:8000
+      - EnableSwagger=true
+    networks:
+      - react-backend
+      - react-frontend
+
+  mongo:
+    restart: always
+    image: mongo:4.2.0
+    volumes:
+      - ./data:/data/db
+    networks:
+      - react-backend
+
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: example
+    depends_on: 
+      - mongo
+    links:
+      - mongo
+    networks:
+      - react-backend
+
+networks:
+  react-backend: {}
+  react-frontend: {}
