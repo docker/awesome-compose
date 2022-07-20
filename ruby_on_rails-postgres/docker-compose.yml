@@ -1,0 +1,18 @@
+version: '3.7'
+services:
+  db:
+    image: postgres
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: 'username'
+      POSTGRES_HOST_AUTH_METHOD: trust
+  web:
+    build: ./web
+    command: bash -c "rm -f tmp/pids/server.pid && rake db:drop db:create db:migrate && bundle exec rails s -b 0.0.0.0"
+    volumes:
+      - ./web:/myapp
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
