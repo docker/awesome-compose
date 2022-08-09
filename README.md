@@ -6,8 +6,7 @@
 
 These samples provide a starting point for how to integrate different services using a Compose file and to manage their deployment with Docker Compose.
 
-> **Note:**
->
+> **Note**  
 > The following samples are intended for use in local development environments such as project setups, tinkering with software stacks, etc. These samples must not be deployed in production environments.
 
 <!--lint disable awesome-toc-->
@@ -18,47 +17,54 @@ These samples provide a starting point for how to integrate different services u
 - [Basic setups for different platforms (not production ready - useful for personal use)](#basic-setups-for-different-platforms-not-production-ready---useful-for-personal-use).
 
 ## Samples of Docker Compose applications with multiple integrated services
+
+<img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/> Icon indicates Sample is compatible with [Docker Dev Environments](https://docs.docker.com/desktop/dev-environments/)
+
 - [`ASP.NET / MS-SQL`](https://github.com/docker/awesome-compose/tree/master/aspnet-mssql) - Sample ASP.NET core application
 with MS SQL server database.
 - [`Elasticsearch / Logstash / Kibana`](https://github.com/docker/awesome-compose/tree/master/elasticsearch-logstash-kibana) - Sample Elasticsearch, Logstash, and Kibana stack.
 - [`Go / NGINX / MySQL`](https://github.com/docker/awesome-compose/tree/master/nginx-golang-mysql) - Sample Go application
-with an Nginx proxy and a MySQL database.
+with an Nginx proxy and a MySQL database.&nbsp;<img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/>
 - [`Go / NGINX / PostgreSQL`](https://github.com/docker/awesome-compose/tree/master/nginx-golang-postgres) - Sample Go
-application with an Nginx proxy and a PostgreSQL database.
+application with an Nginx proxy and a PostgreSQL database.&nbsp;<img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/>
 - [`Java Spark / MySQL`](https://github.com/docker/awesome-compose/tree/master/sparkjava-mysql) - Sample Java application and
-a MySQL database.
-- [`NGINX / ASP.NET / MySQL`](https://github.com/docker/awesome-compose/tree/master/nginx-aspnet-mysql) - Sample Nginx reverse proxy with an C# backend using ASP.NET
+a MySQL database.&nbsp;<img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/>
+- [`NGINX / ASP.NET / MySQL`](https://github.com/docker/awesome-compose/tree/master/nginx-aspnet-mysql) - Sample Nginx reverse proxy with an C# backend using ASP.NET&nbsp;<img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/>
 - [`NGINX / Flask / MongoDB`](https://github.com/docker/awesome-compose/tree/master/nginx-flask-mongo) - Sample Python/Flask
-application with Nginx proxy and a Mongo database.
+application with Nginx proxy and a Mongo database.&nbsp;<img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/>
 - [`NGINX / Flask / MySQL`](https://github.com/docker/awesome-compose/tree/master/nginx-flask-mysql) - Sample Python/Flask application with an Nginx proxy and a MySQL database.
 - [`NGINX / Node.js / Redis`](https://github.com/docker/awesome-compose/tree/master/nginx-nodejs-redis) - Sample Node.js application with Nginx proxy and a Redis database
-- [`NGINX / Go`](https://github.com/docker/awesome-compose/tree/master/nginx-golang) - Sample Nginx proxy with a Go backend.
+- [`NGINX / Go`](https://github.com/docker/awesome-compose/tree/master/nginx-golang) - Sample Nginx proxy with a Go backend.&nbsp;<img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/>
 - [`NGINX / WSGI / Flask`](https://github.com/docker/awesome-compose/tree/master/nginx-wsgi-flask) - Sample Nginx reverse proxy with a Flask backend using WSGI.
 - [`PostgreSQL / pgAdmin`](https://github.com/docker/awesome-compose/tree/master/postgresql-pgadmin) - Sample setup for postgreSQL database with pgAdmin web interface
-- [`Python / Flask / Redis`](https://github.com/docker/awesome-compose/tree/master/flask-redis) - Sample Python/Flask and a Redis database
+- [`Python / Flask / Redis`](https://github.com/docker/awesome-compose/tree/master/flask-redis) - Sample Python/Flask and a Redis database&nbsp;<img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/>
 - [`React / Spring / MySQL`](https://github.com/docker/awesome-compose/tree/master/react-java-mysql) - Sample React
-application with a Spring backend and a MySQL database.
+application with a Spring backend and a MySQL database.&nbsp;<img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/>
 - [`React / Express / MySQL`](https://github.com/docker/awesome-compose/tree/master/react-express-mysql) - Sample React
-application with a Node.js backend and a MySQL database.
+application with a Node.js backend and a MySQL database.&nbsp;<img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/>
 - [`React / Express / MongoDB`](https://github.com/docker/awesome-compose/tree/master/react-express-mongodb) - Sample React
-application with a Node.js backend and a Mongo database.
+application with a Node.js backend and a Mongo database.&nbsp;<img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/>
 - [`React / Rust / PostgreSQL`](https://github.com/docker/awesome-compose/tree/master/react-rust-postgres) - Sample React
-application with a Rust backend and a Postgres database.
-- [`React / Nginx`](https://github.com/docker/awesome-compose/tree/master/react-nginx) - Sample React application with Nginx.
+application with a Rust backend and a Postgres database.&nbsp;<img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/>
+- [`React / Nginx`](https://github.com/docker/awesome-compose/tree/master/react-nginx) - Sample React application with Nginx.&nbsp;<img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/>
 - [`Spring / PostgreSQL`](https://github.com/docker/awesome-compose/tree/master/spring-postgres) - Sample Java application
-with Spring framework and a Postgres database.  
+with Spring framework and a Postgres database.&nbsp;<img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/>  
 ## Single service samples
-- [`Angular`](https://github.com/docker/awesome-compose/tree/master/angular)
-- [`Spark`](https://github.com/docker/awesome-compose/tree/master/sparkjava)
-- [`VueJS`](https://github.com/docker/awesome-compose/tree/master/vuejs)
-- [`Flask`](https://github.com/docker/awesome-compose/tree/master/flask)
-- [`PHP`](https://github.com/docker/awesome-compose/tree/master/apache-php)
-- [`Traefik`](https://github.com/docker/awesome-compose/tree/master/traefik-golang)
-- [`Django`](https://github.com/docker/awesome-compose/tree/master/django)
+
+<img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/> Icon indicates Sample is compatible with [Docker Dev Environments](https://docs.docker.com/desktop/dev-environments/)
+
+- [`Angular`](https://github.com/docker/awesome-compose/tree/master/angular)&nbsp;<img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/>
+- [`Spark`](https://github.com/docker/awesome-compose/tree/master/sparkjava)&nbsp;<img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/>
+- [`VueJS`](https://github.com/docker/awesome-compose/tree/master/vuejs)&nbsp;<img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/>
+- [`Flask`](https://github.com/docker/awesome-compose/tree/master/flask)&nbsp;<img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/>
+- [`PHP`](https://github.com/docker/awesome-compose/tree/master/apache-php)&nbsp;<img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/>
+- [`Traefik`](https://github.com/docker/awesome-compose/tree/master/traefik-golang)&nbsp;<img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/>
+- [`Django`](https://github.com/docker/awesome-compose/tree/master/django)&nbsp;<img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/>
 - [`Minecraft server`](https://github.com/docker/awesome-compose/tree/master/minecraft)
 - [`Plex`](https://github.com/docker/awesome-compose/tree/master/plex)
 - [`Portainer`](https://github.com/docker/awesome-compose/tree/master/portainer)
 - [`Wireguard`](https://github.com/docker/awesome-compose/tree/master/wireguard)
+- [`FastAPI`](https://github.com/docker/awesome-compose/tree/master/fastapi)&nbsp;<img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/>
 ## Basic setups for different platforms (not production ready - useful for personal use) 
 - [`Gitea / PostgreSQL`](https://github.com/docker/awesome-compose/tree/master/gitea-postgres)
 - [`Nextcloud / PostgreSQL`](https://github.com/docker/awesome-compose/tree/master/nextcloud-postgres)
