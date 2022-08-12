@@ -95,8 +95,13 @@ $ docker compose down
 
 ## Use with Docker Development Environments
 
-You can use this sample with the Dev Environments feature of Docker Desktop.  
-To develop directly the backend service inside containers, you just need to use the https git url of the sample:  
-`https://github.com/docker/awesome-compose/tree/master/traefik-golang`
+You can use this sample with the Dev Environments feature of Docker Desktop version 4.10 or later.
+
+* [Open in Docker Dev Environments <img src="../open_in_new.svg" alt="Open in Docker Dev Environments" align="top"/>](https://open.docker.com/dashboard/dev-envs?url=https://github.com/docker/awesome-compose/tree/master/traefik-golang) (works in Docker Desktop 4.12 and later versions)
+* In the "Create a Dev Environment" wizard, choose "Existing Git Repo", copy the URL below and paste into the Git Repository field.
+
+```
+https://github.com/docker/awesome-compose/tree/master/traefik-golang
+```
 
 ![page](../dev-envs.png)
