@@ -1,5 +1,11 @@
 ## Compose sample application
 
+### Use with Docker Development Environments
+
+You can open this sample in the Dev Environments feature of Docker Desktop version 4.12 or later.
+
+[Open in Docker Dev Environments <img src="../open_in_new.svg" alt="Open in Docker Dev Environments" align="top"/>](https://open.docker.com/dashboard/dev-envs?url=https://github.com/docker/awesome-compose/tree/master/react-nginx)
+
 ### An project deploy React Application with Nginx
 
 Project structure:
@@ -86,16 +92,3 @@ Stopping frontend ... done
 Removing frontend ... done
 Removing network react-nginx_default
 ```
-
-## Use with Docker Development Environments
-
-You can use this sample with the Dev Environments feature of Docker Desktop version 4.10 or later.
-
-* [Open in Docker Dev Environments <img src="../open_in_new.svg" alt="Open in Docker Dev Environments" align="top"/>](https://open.docker.com/dashboard/dev-envs?url=https://github.com/docker/awesome-compose/tree/master/react-nginx) (works in Docker Desktop 4.12 and later versions)
-* In the "Create a Dev Environment" wizard, choose "Existing Git Repo", copy the URL below and paste into the Git Repository field.
-
-```
-https://github.com/docker/awesome-compose/tree/master/react-nginx
-```
-
-![Screenshot of creating a Dev Environment in Docker Desktop](../dev-envs.png)

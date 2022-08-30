@@ -24,43 +24,43 @@ These samples provide a starting point for how to integrate different services u
 with MS SQL server database.
 - [`Elasticsearch / Logstash / Kibana`](elasticsearch-logstash-kibana) - Sample Elasticsearch, Logstash, and Kibana stack.
 - [`Go / NGINX / MySQL`](nginx-golang-mysql) - Sample Go application
-with an Nginx proxy and a MySQL database.&nbsp;<a href="nginx-golang-mysql/README.md#use-with-docker-development-environments"><img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/></a>
+with an Nginx proxy and a MySQL database.&nbsp;<a href="nginx-golang-mysql"><img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/></a>
 - [`Go / NGINX / PostgreSQL`](nginx-golang-postgres) - Sample Go
-application with an Nginx proxy and a PostgreSQL database.&nbsp;<a href="nginx-golang-postgres/README.md#use-with-docker-development-environments"><img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/></a>
+application with an Nginx proxy and a PostgreSQL database.&nbsp;<a href="nginx-golang-postgres"><img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/></a>
 - [`Java Spark / MySQL`](sparkjava-mysql) - Sample Java application and
-a MySQL database.&nbsp;<a href="sparkjava-mysql/README.md#use-with-docker-development-environments"><img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/></a>
-- [`NGINX / ASP.NET / MySQL`](nginx-aspnet-mysql) - Sample Nginx reverse proxy with an C# backend using ASP.NET&nbsp;<a href="nginx-aspnet-mysql/README.md#use-with-docker-development-environments"><img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/></a>
+a MySQL database.&nbsp;<a href="sparkjava-mysql"><img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/></a>
+- [`NGINX / ASP.NET / MySQL`](nginx-aspnet-mysql) - Sample Nginx reverse proxy with an C# backend using ASP.NET&nbsp;<a href="nginx-aspnet-mysql"><img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/></a>
 - [`NGINX / Flask / MongoDB`](nginx-flask-mongo) - Sample Python/Flask
-application with Nginx proxy and a Mongo database.&nbsp;<a href="nginx-flask-mongo/README.md#use-with-docker-development-environments"><img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/></a>
+application with Nginx proxy and a Mongo database.&nbsp;<a href="nginx-flask-mongo"><img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/></a>
 - [`NGINX / Flask / MySQL`](nginx-flask-mysql) - Sample Python/Flask application with an Nginx proxy and a MySQL database.
 - [`NGINX / Node.js / Redis`](nginx-nodejs-redis) - Sample Node.js application with Nginx proxy and a Redis database
-- [`NGINX / Go`](nginx-golang) - Sample Nginx proxy with a Go backend.&nbsp;<a href="nginx-golang/README.md#use-with-docker-development-environments"><img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/></a>
+- [`NGINX / Go`](nginx-golang) - Sample Nginx proxy with a Go backend.&nbsp;<a href="nginx-golang"><img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/></a>
 - [`NGINX / WSGI / Flask`](nginx-wsgi-flask) - Sample Nginx reverse proxy with a Flask backend using WSGI.
 - [`PostgreSQL / pgAdmin`](postgresql-pgadmin) - Sample setup for postgreSQL database with pgAdmin web interface
-- [`Python / Flask / Redis`](flask-redis) - Sample Python/Flask and a Redis database&nbsp;<a href="flask-redis/README.md#use-with-docker-development-environments"><img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/></a>
+- [`Python / Flask / Redis`](flask-redis) - Sample Python/Flask and a Redis database&nbsp;<a href="flask-redis"><img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/></a>
 - [`React / Spring / MySQL`](react-java-mysql) - Sample React
-application with a Spring backend and a MySQL database.&nbsp;<a href="react-java-mysql/README.md#use-with-docker-development-environments"><img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/></a>
+application with a Spring backend and a MySQL database.&nbsp;<a href="react-java-mysql"><img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/></a>
 - [`React / Express / MySQL`](react-express-mysql) - Sample React
-application with a Node.js backend and a MySQL database.&nbsp;<a href="react-express-mysql/README.md#use-with-docker-development-environments"><img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/></a>
+application with a Node.js backend and a MySQL database.&nbsp;<a href="react-express-mysql"><img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/></a>
 - [`React / Express / MongoDB`](react-express-mongodb) - Sample React
-application with a Node.js backend and a Mongo database.&nbsp;<a href="react-express-mongodb/README.md#use-with-docker-development-environments"><img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/></a>
+application with a Node.js backend and a Mongo database.&nbsp;<a href="react-express-mongodb"><img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/></a>
 - [`React / Rust / PostgreSQL`](react-rust-postgres) - Sample React
-application with a Rust backend and a Postgres database.&nbsp;<a href="react-rust-postgres/README.md#use-with-docker-development-environments"><img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/></a>
-- [`React / Nginx`](react-nginx) - Sample React application with Nginx.&nbsp;<a href="react-nginx/README.md#use-with-docker-development-environments"><img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/></a>
+application with a Rust backend and a Postgres database.&nbsp;<a href="react-rust-postgres"><img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/></a>
+- [`React / Nginx`](react-nginx) - Sample React application with Nginx.&nbsp;<a href="react-nginx"><img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/></a>
 - [`Spring / PostgreSQL`](spring-postgres) - Sample Java application
-with Spring framework and a Postgres database.&nbsp;<a href="spring-postgres/README.md#use-with-docker-development-environments"><img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/></a>
+with Spring framework and a Postgres database.&nbsp;<a href="spring-postgres"><img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/></a>
 
 ## Single service samples
 
 <a href="https://docs.docker.com/desktop/dev-environments/"><img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/></a> Icon indicates Sample is compatible with [Docker Dev Environments](https://docs.docker.com/desktop/dev-environments/) in Docker Desktop version 4.10 or later.
 
-- [`Angular`](angular)&nbsp;<a href="angular/README.md#use-with-docker-development-environments"><img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/></a>
-- [`Spark`](sparkjava)&nbsp;<a href="sparkjava/README.md#use-with-docker-development-environments"><img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/></a>
-- [`VueJS`](vuejs)&nbsp;<a href="vuejs/README.md#use-with-docker-development-environments"><img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/></a>
-- [`Flask`](flask)&nbsp;<a href="flask/README.md#use-with-docker-development-environments"><img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/></a>
-- [`PHP`](apache-php)&nbsp;<a href="apache-php/README.md#use-with-docker-development-environments"><img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/></a>
-- [`Traefik`](traefik-golang)&nbsp;<a href="traefik-golang/README.md#use-with-docker-development-environments"><img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/></a>
-- [`Django`](django)&nbsp;<a href="django/README.md#use-with-docker-development-environments"><img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/></a>
+- [`Angular`](angular)&nbsp;<a href="angular"><img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/></a>
+- [`Spark`](sparkjava)&nbsp;<a href="sparkjava"><img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/></a>
+- [`VueJS`](vuejs)&nbsp;<a href="vuejs"><img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/></a>
+- [`Flask`](flask)&nbsp;<a href="flask"><img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/></a>
+- [`PHP`](apache-php)&nbsp;<a href="apache-php"><img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/></a>
+- [`Traefik`](traefik-golang)&nbsp;<a href="traefik-golang"><img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/></a>
+- [`Django`](django)&nbsp;<a href="django"><img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/></a>
 - [`Minecraft server`](https://github.com/docker/awesome-compose/tree/master/minecraft)
 - [`Plex`](https://github.com/docker/awesome-compose/tree/master/plex)
 - [`Portainer`](https://github.com/docker/awesome-compose/tree/master/portainer)
