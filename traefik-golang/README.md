@@ -1,4 +1,11 @@
 ## Compose sample application
+
+### Use with Docker Development Environments
+
+You can open this sample in the Dev Environments feature of Docker Desktop version 4.12 or later.
+
+[Open in Docker Dev Environments <img src="../open_in_new.svg" alt="Open in Docker Dev Environments" align="top"/>](https://open.docker.com/dashboard/dev-envs?url=https://github.com/docker/awesome-compose/tree/master/traefik-golang)
+
 ### TRAEFIK proxy with GO backend
 
 Project structure:
@@ -92,11 +99,3 @@ Stop and remove the containers
 ```
 $ docker compose down
 ```
-
-## Use with Docker Development Environments
-
-You can use this sample with the Dev Environments feature of Docker Desktop.  
-To develop directly the backend service inside containers, you just need to use the https git url of the sample:  
-`https://github.com/docker/awesome-compose/tree/master/traefik-golang`
-
-![page](../dev-envs.png)
