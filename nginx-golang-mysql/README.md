@@ -1,4 +1,11 @@
 ## Compose sample application
+
+### Use with Docker Development Environments
+
+You can open this sample in the Dev Environments feature of Docker Desktop version 4.12 or later.
+
+[Open in Docker Dev Environments <img src="../open_in_new.svg" alt="Open in Docker Dev Environments" align="top"/>](https://open.docker.com/dashboard/dev-envs?url=https://github.com/docker/awesome-compose/tree/master/nginx-golang-mysql)
+
 ### Go server with an Nginx proxy and a MariaDB/MySQL database
 
 Project structure:
@@ -89,15 +96,4 @@ $ curl localhost:80
 Stop and remove the containers
 ```shell
 $ docker compose down
-```
-
-## Use with Docker Development Environments
-
-You can use this sample with the Dev Environments feature of Docker Desktop.
-
-![Screenshot of creating a Dev Environment in Docker Desktop](../dev-envs.png)
-
-To develop directly on the services inside containers, use the HTTPS Git url of the sample:
-```
-https://github.com/docker/awesome-compose/tree/master/nginx-golang-mysql
 ```
