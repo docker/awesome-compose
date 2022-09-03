@@ -1,0 +1,8 @@
+[server]
+port = 8080
+
+[database]
+host = "mydb"
+port = 3306
+user = "root"
+password = "114514"

@@ -49,6 +49,7 @@ application with a Rust backend and a Postgres database.&nbsp;<a href="react-rus
 - [`React / Nginx`](react-nginx) - Sample React application with Nginx.&nbsp;<a href="react-nginx"><img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/></a>
 - [`Spring / PostgreSQL`](spring-postgres) - Sample Java application
 with Spring framework and a Postgres database.&nbsp;<a href="spring-postgres"><img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/></a>
+- [`Vue / Golang / MySQL`](vue-golang-mysql/) - Vue3 application with Go backend and mysql database
 
 ## Single service samples
 
