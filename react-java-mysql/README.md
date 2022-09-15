@@ -54,15 +54,15 @@ Make sure port 3000 on the host is not already being in use.
 
 ```
 $ docker compose up -d
-Creating network "react-java-mysql_default" with the default driver
+Creating network "react-java-mysql-default" with the default driver
 Building backend
 Step 1/17 : FROM maven:3.6.3-jdk-11 AS builder
 ...
 Successfully tagged react-java-mysql_frontend:latest
 WARNING: Image for service frontend was built because it did not already exist. To rebuild this image you must use `docker-compose build` or `docker-compose up --build`.
-Creating react-java-mysql_frontend_1 ... done
-Creating react-java-mysql_db_1       ... done
-Creating react-java-mysql_backend_1  ... done
+Creating react-java-mysql-frontend-1 ... done
+Creating react-java-mysql-db-1       ... done
+Creating react-java-mysql-backend-1  ... done
 ```
 
 ## Expected result
@@ -71,9 +71,9 @@ Listing containers must show three containers running and the port mapping as be
 ```
 $ docker ps
 ONTAINER ID        IMAGE                       COMMAND                  CREATED             STATUS              PORTS                  NAMES
-a63dee74d79e        react-java-mysql_backend    "java -Djava.securit…"   39 seconds ago      Up 37 seconds                              react-java-mysql_backend_1
-6a7364c0812e        react-java-mysql_frontend   "docker-entrypoint.s…"   39 seconds ago      Up 33 seconds       0.0.0.0:3000->3000/tcp react-java-mysql_frontend_1
-b176b18fbec4        mysql:8.0.19                "docker-entrypoint.s…"   39 seconds ago      Up 37 seconds       3306/tcp, 33060/tcp    react-java-mysql_db_1
+a63dee74d79e        react-java-mysql-backend    "java -Djava.securit…"   39 seconds ago      Up 37 seconds                              react-java-mysql_backend-1
+6a7364c0812e        react-java-mysql-frontend   "docker-entrypoint.s…"   39 seconds ago      Up 33 seconds       0.0.0.0:3000->3000/tcp react-java-mysql_frontend-1
+b176b18fbec4        mysql:8.0.19                "docker-entrypoint.s…"   39 seconds ago      Up 37 seconds       3306/tcp, 33060/tcp    react-java-mysql_db-1
 ```
 
 After the application starts, navigate to `http://localhost:3000` in your web browser to get a colorful message.
@@ -82,11 +82,11 @@ After the application starts, navigate to `http://localhost:3000` in your web br
 Stop and remove the containers
 ```
 $ docker compose down
-Stopping react-java-mysql_backend_1  ... done
-Stopping react-java-mysql_frontend_1 ... done
-Stopping react-java-mysql_db_1       ... done
-Removing react-java-mysql_backend_1  ... done
-Removing react-java-mysql_frontend_1 ... done
-Removing react-java-mysql_db_1       ... done
-Removing network react-java-mysql_default
+Stopping react-java-mysql-backend-1  ... done
+Stopping react-java-mysql-frontend-1 ... done
+Stopping react-java-mysql-db-1       ... done
+Removing react-java-mysql-backend-1  ... done
+Removing react-java-mysql-frontend-1 ... done
+Removing react-java-mysql-db-1       ... done
+Removing network react-java-mysql-default
 ```
