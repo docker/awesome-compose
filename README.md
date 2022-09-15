@@ -38,6 +38,7 @@ application with Nginx proxy and a Mongo database.&nbsp;<a href="nginx-flask-mon
 - [`NGINX / WSGI / Flask`](nginx-wsgi-flask) - Sample Nginx reverse proxy with a Flask backend using WSGI.
 - [`PostgreSQL / pgAdmin`](postgresql-pgadmin) - Sample setup for postgreSQL database with pgAdmin web interface
 - [`Python / Flask / Redis`](flask-redis) - Sample Python/Flask and a Redis database&nbsp;<a href="flask-redis"><img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/></a>
+- [`Rails / PostgreSQL`](rails-postgres) - Sample Ruby on Rails application and a PostgreSQL database.&nbsp;<a href="rails-postgres"><img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/></a>
 - [`React / Spring / MySQL`](react-java-mysql) - Sample React
 application with a Spring backend and a MySQL database.&nbsp;<a href="react-java-mysql"><img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/></a>
 - [`React / Express / MySQL`](react-express-mysql) - Sample React
@@ -113,4 +114,4 @@ docker compose down
 ## Contribute
 
 We welcome examples that help people understand how to use Docker Compose for
-common applications. Check the [Contribution Guide](CONTRIBUTING.md) for more details. 
+common applications. Check the [Contribution Guide](CONTRIBUTING.md) for more details.

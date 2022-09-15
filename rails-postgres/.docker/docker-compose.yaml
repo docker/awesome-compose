@@ -1,0 +1,18 @@
+services:
+  app:
+    build:
+      context: app
+    command: bash -c "bundle exec rails db:migrate && bundle exec rails server -b 0.0.0.0"
+    ports:
+      - "3000:3000"
+    depends_on:
+      - database
+  database:
+    image: postgres:14
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: app_development
+volumes:
+  postgres:
