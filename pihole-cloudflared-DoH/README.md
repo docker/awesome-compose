@@ -39,7 +39,7 @@ Before deploying this setup, you need to configure the following values in the [
 - PIHOLE_PW (admin password)
 - PIHOLE_ROUTER_IP (only needed for activated conditional forwarding)
 - PIHOLE_NETWORK_DOMAIN (only needed for activated conditional forwarding)
-- PIHOLE_HOST_IP (IPv4 address of your Pi-hole - needs to by static)
+- PIHOLE_HOST_IP (IPv4 address of your Pi-hole - needs to be static)
 - PIHOLE_HOST_IPV6 (IPv6 address of your Pi-hole - can be empty if you only use IPv4)
 
 ### Conditional forwarding (optional, default: enabled)
@@ -101,7 +101,7 @@ $ docker compose down -v
   ```
   If you created an empty file, you may also check the ownership to prevent permission problems.
   
-### - Installing on Ubuntu may conflict with `systemd-resolved` - see [Installing on Ubuntu](https://github.com/pi-hole/docker-pi-hole#installing-on-ubuntu) for help.
+### - Installing on Ubuntu may conflict with `systemd-resolved` - see [Installing on Ubuntu](https://github.com/pi-hole/docker-pi-hole#installing-on-ubuntu-or-fedora) for help.
 
 ### - Environment variables are version-dependent
   Environment variables like "CONDIIONAL_FORWARDING*" and "DNS1" are deprecated and replaced by e.g. "REV_SERVER*" and "PIHOLE_DNS" in version 5.8+.
