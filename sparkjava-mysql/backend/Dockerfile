@@ -24,7 +24,7 @@ EOF
 COPY --from=gloursdocker/docker / /
 CMD ["java", "-jar", "target/app.jar" ]
 
-FROM eclipse-temurin:17-jre-focal
+FROM eclipse-temurin:17-jre-focal@sha256:55c1ff40a91898c456dc5a874a66db17b6aa1b4aef8d9cac1ad3b194575638a1
 ARG DEPENDENCY=/workdir/server/target
 EXPOSE 8080
 COPY --from=build ${DEPENDENCY}/app.jar /app.jar
