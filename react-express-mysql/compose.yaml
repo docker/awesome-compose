@@ -13,7 +13,7 @@ services:
       - DATABASE_HOST=db
       - NODE_ENV=development
     ports:
-      - 80:80
+      - 80:8080
       - 9229:9229
       - 9230:9230
     secrets:
