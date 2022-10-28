@@ -109,6 +109,11 @@ To stop and remove all containers of the sample application run:
 ```console
 docker compose down
 ```
+
+### Quickstart guides
+
+In addition to all the ready to run Compose samples listed above the folder [official-documentation-samples](official-documentation-samples/README.md) contains quickstart guides. Each of these step by step guides explain which files need to be created to build and run a Docker Compose application.
+
 <!--lint disable awesome-toc-->
 ## Contribute
 
