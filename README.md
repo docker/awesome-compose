@@ -49,6 +49,8 @@ application with a Rust backend and a Postgres database.&nbsp;<a href="react-rus
 - [`React / Nginx`](react-nginx) - Sample React application with Nginx.&nbsp;<a href="react-nginx"><img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/></a>
 - [`Spring / PostgreSQL`](spring-postgres) - Sample Java application
 with Spring framework and a Postgres database.&nbsp;<a href="spring-postgres"><img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/></a>
+- [`WasmEdge / MySQL / Nginx`](wasmedge-mysql-nginx) - Sample WebAssembly-based microservice
+with WasmEdge Runtime, a MySQL / MariaDB database, and an optional Nginx web server for hosting static web UI files.&nbsp;<a href="wasmedge-mysql-nginx"><img src="icon_devenvs.svg" alt="Compatible with Docker+wasm" height="30" align="top"/></a>
 
 ## Single service samples
 
