@@ -1,5 +1,5 @@
 ## Compose sample
-### Netdata
+### [Netdata](https://github.com/netdata/netdata)
 
 Project structure:
 ```
