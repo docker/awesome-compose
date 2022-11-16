@@ -45,6 +45,14 @@ Make sure the port 19999 on the host is not already in use.
 
 ```
 $ docker compose up -d
+[+] Running 8/8
+ ⠿ netdata Pulled
+[+] Running 5/5
+ ⠿ Network tmp_default         Created
+ ⠿ Volume "tmp_netdatalib"     Created
+ ⠿ Volume "tmp_netdatacache"   Created
+ ⠿ Volume "tmp_netdataconfig"  Created
+ ⠿ Container netdata           Started
 ```
 
 ## Expected result
@@ -52,10 +60,21 @@ $ docker compose up -d
 Listing containers must show two containers running and the port mapping as below:
 ```
 $ docker ps
-TODO
+NAME                COMMAND              SERVICE             STATUS              PORTS
+netdata             "/usr/sbin/run.sh"   netdata             running (healthy)   0.0.0.0:19999->19999/tcp
 ```
 
-Navigate to `http://localhost:19999` in your web browser to access the local Netdata dashboard.
+Navigate to `http://localhost:19999` in your web browser to access the local Netdata dashboard or run:
+
+```
+$ curl localhost:19999/api/v1/allmetrics
+# chart: system.idlejitter (name: system.idlejitter)
+NETDATA_SYSTEM_IDLEJITTER_MIN="73"      # microseconds lost/s
+NETDATA_SYSTEM_IDLEJITTER_MAX="231"      # microseconds lost/s
+NETDATA_SYSTEM_IDLEJITTER_AVERAGE="109"      # microseconds lost/s
+NETDATA_SYSTEM_IDLEJITTER_VISIBLETOTAL="413"      # microseconds lost/s
+...
+```
 
 ![page](output.jpg)
 
