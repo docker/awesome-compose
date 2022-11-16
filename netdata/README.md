@@ -1,5 +1,6 @@
 ## Compose sample
 ### [Netdata](https://github.com/netdata/netdata)
+### Netdata
 
 Project structure:
 ```
@@ -27,6 +28,9 @@ services:
       - apparmor:unconfined
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
+    security_opt:
+      - apparmor:unconfined
+    volumes:
       - netdataconfig:/etc/netdata
       - netdatalib:/var/lib/netdata
       - netdatacache:/var/cache/netdata
@@ -79,6 +83,10 @@ NETDATA_SYSTEM_IDLEJITTER_AVERAGE="109"      # microseconds lost/s
 NETDATA_SYSTEM_IDLEJITTER_VISIBLETOTAL="413"      # microseconds lost/s
 ...
 ```
+TODO
+```
+
+Navigate to `http://localhost:19999` in your web browser to access the local Netdata dashboard.
 
 ![page](output.jpg)
 
