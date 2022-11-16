@@ -86,7 +86,17 @@ NETDATA_SYSTEM_IDLEJITTER_VISIBLETOTAL="413"      # microseconds lost/s
 TODO
 ```
 
-Navigate to `http://localhost:19999` in your web browser to access the local Netdata dashboard.
+Navigate to `http://localhost:19999` in your web browser to access the local Netdata dashboard or run:
+
+```
+$ curl localhost:19999/api/v1/allmetrics
+# chart: system.idlejitter (name: system.idlejitter)
+NETDATA_SYSTEM_IDLEJITTER_MIN="73"      # microseconds lost/s
+NETDATA_SYSTEM_IDLEJITTER_MAX="231"      # microseconds lost/s
+NETDATA_SYSTEM_IDLEJITTER_AVERAGE="109"      # microseconds lost/s
+NETDATA_SYSTEM_IDLEJITTER_VISIBLETOTAL="413"      # microseconds lost/s
+...
+```
 
 ![page](output.jpg)
 
