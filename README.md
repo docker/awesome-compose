@@ -74,6 +74,7 @@ with Spring framework and a Postgres database.&nbsp;<a href="spring-postgres"><i
 - [`Nextcloud / Redis / MariaDB`](nextcloud-redis-mariadb)
 - [`Pi-hole / cloudflared`](pihole-cloudflared-DoH) - Sample Pi-hole setup with use of DoH cloudflared service
 - [`Prometheus / Grafana`](prometheus-grafana)
+- [`Netdata`](netdata)
 - [`Wordpress / MySQL`](wordpress-mysql)
 
 <!--lint disable awesome-toc-->
