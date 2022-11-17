@@ -3,15 +3,18 @@ services:
   netdata:
     image: netdata/netdata
     container_name: netdata
+    pid: host
     hostname: example.com # set to fqdn of host
     ports:
       - 19999:19999
     restart: unless-stopped
     cap_add:
       - SYS_PTRACE
+      - SYS_ADMIN
     security_opt:
       - apparmor:unconfined
     volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
       - netdataconfig:/etc/netdata
       - netdatalib:/var/lib/netdata
       - netdatacache:/var/cache/netdata
