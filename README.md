@@ -20,6 +20,8 @@ These samples provide a starting point for how to integrate different services u
 
 <a href="https://docs.docker.com/desktop/dev-environments/"><img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/></a> Icon indicates Sample is compatible with [Docker Dev Environments](https://docs.docker.com/desktop/dev-environments/) in Docker Desktop version 4.10 or later.
 
+<a href="https://docs.docker.com/desktop/wasm/"><img src="icon_wasm.svg" alt="Docker + wasm" height="30" align="top"/></a> Icon indicates Sample is compatible with [Docker+Wasm](https://docs.docker.com/desktop/wasm/) tech preview.
+
 - [`ASP.NET / MS-SQL`](aspnet-mssql) - Sample ASP.NET core application
 with MS SQL server database.
 - [`Elasticsearch / Logstash / Kibana`](elasticsearch-logstash-kibana) - Sample Elasticsearch, Logstash, and Kibana stack.
@@ -50,7 +52,8 @@ application with a Rust backend and a Postgres database.&nbsp;<a href="react-rus
 - [`Spring / PostgreSQL`](spring-postgres) - Sample Java application
 with Spring framework and a Postgres database.&nbsp;<a href="spring-postgres"><img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/></a>
 - [`WasmEdge / MySQL / Nginx`](wasmedge-mysql-nginx) - Sample WebAssembly-based microservice
-with WasmEdge Runtime, a MySQL / MariaDB database, and an optional Nginx web server for hosting static web UI files.&nbsp;<a href="wasmedge-mysql-nginx"><img src="icon_devenvs.svg" alt="Compatible with Docker+wasm" height="30" align="top"/></a>
+with WasmEdge Runtime, a MySQL / MariaDB database, and an optional Nginx web server for hosting static web UI files.&nbsp;<a href="wasmedge-mysql-nginx"><img src="icon_wasm.svg" alt="Compatible with Docker+wasm" height="30" align="top"/></a>
+- [`WasmEdge / Kafka / MySQL`](wasmedge-kafka-mysql) - Sample WebAssembly-based microservice that subscribes to a Kafka / Redpanda queue topic, and transforms and saves any incoming message into a MySQL / MariaDB database.&nbsp;<a href="wasmedge-kafka-mysql"><img src="icon_wasm.svg" alt="Compatible with Docker+wasm" height="30" align="top"/></a>
 
 ## Single service samples
 
