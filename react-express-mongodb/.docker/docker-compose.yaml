@@ -29,7 +29,6 @@ services:
     expose: 
       - 3000
   mongo:
-    container_name: mongo
     restart: always
     image: mongo:4.2.0
     volumes:
