@@ -20,10 +20,9 @@ services:
       - ./kafka:/app
   etl:
     image: etl-kafka
+    platform: wasi/wasm
     build:
       context: etl
-      platforms:
-        - wasi/wasm32
     environment:
       DATABASE_URL: mysql://root:whalehello@db:3306/mysql
       KAFKA_URL: kafka://redpanda:9092/order

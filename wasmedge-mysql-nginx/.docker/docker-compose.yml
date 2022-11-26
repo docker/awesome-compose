@@ -8,10 +8,9 @@ services:
 
   backend:
     image: demo-microservice
+    platform: wasi/wasm
     build:
       context: backend/
-      platforms:
-        - wasi/wasm32
     ports:
       - 8080:8080
     environment:
