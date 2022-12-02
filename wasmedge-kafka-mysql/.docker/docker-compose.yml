@@ -20,7 +20,7 @@ services:
       - ./kafka:/app
   etl:
     image: etl-kafka
-    platform: wasi/wasm
+    platform: wasi/wasm32
     build:
       context: etl
     environment:
