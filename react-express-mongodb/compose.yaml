@@ -9,7 +9,6 @@ services:
     volumes:
       - ./frontend:/usr/src/app
       - /usr/src/app/node_modules
-    container_name: frontend
     restart: always
     networks:
       - react-express
@@ -17,7 +16,6 @@ services:
       - backend
 
   backend:
-    container_name: backend
     restart: always
     build:
       context: backend
@@ -33,7 +31,6 @@ services:
     expose: 
       - 3000
   mongo:
-    container_name: mongo
     restart: always
     image: mongo:4.2.0
     volumes:
