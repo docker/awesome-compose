@@ -66,6 +66,7 @@ with Spring framework and a Postgres database.&nbsp;<a href="spring-postgres"><i
 - [`Portainer`](https://github.com/docker/awesome-compose/tree/master/portainer)
 - [`Wireguard`](https://github.com/docker/awesome-compose/tree/master/wireguard)
 - [`FastAPI`](fastapi)&nbsp;<a href="fastapi#use-with-docker-development-environments"><img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/></a>
+- [`Next.js`](https://github.com/docker/awesome-compose/tree/master/next)
 
 ## Basic setups for different platforms (not production ready - useful for personal use)
 
