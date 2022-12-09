@@ -32,7 +32,7 @@ Project structure:
     |-- update_order.json
 ```
 
-The [compose.yml](compose.yml) is as follows.
+The [compose.yml](compose.yml) file:
 
 ```yaml
 services:
