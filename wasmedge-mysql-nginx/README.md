@@ -39,7 +39,7 @@ services:
   frontend:
     image: nginx:alpine
     ports:
-      - 8090:80
+      - 8090:8090
     volumes:
       - ./frontend:/usr/share/nginx/html
 
@@ -63,7 +63,7 @@ services:
       MYSQL_ROOT_PASSWORD: whalehello
 ```
 
-The compose file defines an application with three services `frontend`, `backend` and `db`. The `frontend` is a simple Nginx server that hosts static web pages that access the `backend` web service, in the WasmEdge container, via HTTP port 8080. When deploying the application, docker compose maps port 8090 of the `frontend` service container to port 80 of the host as specified in the file. Make sure that ports 80 and 8080 on the host are not already being used.
+The compose file defines an application with three services `frontend`, `backend` and `db`. The `frontend` is a simple Nginx server that hosts static web pages that access the `backend` web service, in the WasmEdge container, via HTTP port 8080. When deploying the application, docker compose maps port 8090 of the `frontend` service container to port 8090 of the host as specified in the file. Make sure that ports 8090 and 8080 on the host are not already being used.
 
 ## Deploy with docker compose
 
@@ -83,10 +83,10 @@ $ docker compose ps
 NAME                              COMMAND                  SERVICE             STATUS              PORTS
 wasmedge-mysql-nginx-backend-1    "order_demo_service.…"   backend             running             0.0.0.0:8080->8080/tcp, :::8080->8080/tcp
 wasmedge-mysql-nginx-db-1         "docker-entrypoint.s…"   db                  running             3306/tcp
-wasmedge-mysql-nginx-frontend-1   "/docker-entrypoint.…"   frontend            running             0.0.0.0:8090->80/tcp, :::8090->80/tcp
+wasmedge-mysql-nginx-frontend-1   "/docker-entrypoint.…"   frontend            running             0.0.0.0:8090->8090/tcp, :::8090->8090/tcp
 ```
 
-After the application starts, go to `http://localhost:80` in your web browser to display the web frontend. 
+After the application starts, go to `http://localhost:8090` in your web browser to display the web frontend. 
 
 ### Using the API with `curl`
 

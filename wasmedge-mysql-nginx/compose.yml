@@ -2,7 +2,7 @@ services:
   frontend:
     image: nginx:alpine
     ports:
-      - 8090:80
+      - 8090:8090
     volumes:
       - ./frontend:/usr/share/nginx/html
 
