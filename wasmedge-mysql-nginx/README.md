@@ -87,7 +87,10 @@ wasmedge-mysql-nginx-frontend-1   "/docker-entrypoint.…"   frontend           
 ```
 
 After the application starts, go to `http://localhost:80` in your web browser to display the web frontend. 
-Alternatively, you can use the `curl` command to interact with the WasmEdge web service (i.e., the `backend` service).
+
+### Using the API with `curl`
+
+As an alternative to the web frontend, you can use `curl` to interact with the WasmEdge API directly (the `backend` service).
 
 When the WasmEdge web service receives a GET request to the `/init` endpoint, it would initialize the database with the `orders` table.
 
