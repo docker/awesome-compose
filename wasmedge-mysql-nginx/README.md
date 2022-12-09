@@ -108,7 +108,7 @@ When the WasmEdge web service receives a GET request to the `/orders` endpoint, 
 curl http://localhost:8080/orders
 ```
 
-When the WasmEdge web service receives a POST request to the `/update_order` endpoint, it would extract the JSON data from the POST body and update the `Order` record in the database table that matches the `order_id` in the input data.
+When the WasmEdge web service receives a POST request to the `/update_order` endpoint, it extracts the JSON data from the POST body and update the `Order` record in the database table that matches the `order_id` in the input data.
 
 ```bash
 curl http://localhost:8080/update_order -X POST -d @db/update_order.json
