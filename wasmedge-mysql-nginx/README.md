@@ -96,7 +96,7 @@ curl http://localhost:8080/init
 ```
 
 When the WasmEdge web service receives a POST request to the `/create_order` endpoint, it extracts the JSON data from the POST body and inserts an `Order` record into the database table.
-For multiple records, use the `/create_orders` endpoint and POST a JSON array of `Order` objects.
+To insert multiple records, use the `/create_orders` endpoint and POST a JSON array of `Order` objects:
 
 ```bash
 curl http://localhost:8080/create_orders -X POST -d @db/orders.json
