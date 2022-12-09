@@ -86,7 +86,7 @@ wasmedge-mysql-nginx-db-1         "docker-entrypoint.s…"   db                 
 wasmedge-mysql-nginx-frontend-1   "/docker-entrypoint.…"   frontend            running             0.0.0.0:8090->80/tcp, :::8090->80/tcp
 ```
 
-After the application starts, navigate to `http://localhost:80` in your web browser to interact with the `backend` WasmEdge server and database through HTML and JavaScript. 
+After the application starts, go to `http://localhost:80` in your web browser to display the web frontend. 
 Alternatively, you can use the `curl` command to interact with the WasmEdge web service (i.e., the `backend` service).
 
 When the WasmEdge web service receives a GET request to the `/init` endpoint, it would initialize the database with the `orders` table.
