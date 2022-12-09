@@ -63,7 +63,7 @@ services:
       MYSQL_ROOT_PASSWORD: whalehello
 ```
 
-The compose file defines an application with three services `frontend`, `backend` and `db`. The `frontend` is a simple Nginx server that hosts static web pages that access the `backend` web service, in the WasmEdge container, via HTTP port 8080. When deploying the application, docker compose maps port 8090 of the `frontend` service container to port 80 of the host as specified in the file. Make sure ports 80 and 8080 on the host is not already being in use.
+The compose file defines an application with three services `frontend`, `backend` and `db`. The `frontend` is a simple Nginx server that hosts static web pages that access the `backend` web service, in the WasmEdge container, via HTTP port 8080. When deploying the application, docker compose maps port 8090 of the `frontend` service container to port 80 of the host as specified in the file. Make sure that ports 80 and 8080 on the host are not already being used.
 
 ## Deploy with docker compose
 
