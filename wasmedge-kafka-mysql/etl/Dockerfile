@@ -1,3 +1,4 @@
+# syntax=docker/dockerfile:1
 FROM --platform=$BUILDPLATFORM rust:1.64 AS buildbase
 RUN <<EOT bash
     set -ex
