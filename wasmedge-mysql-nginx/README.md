@@ -114,7 +114,7 @@ When the WasmEdge web service receives a POST request to the `/update_order` end
 curl http://localhost:8080/update_order -X POST -d @db/update_order.json
 ```
 
-When the WasmEdge web service receives a GET request to the `/delete_order` endpoint, it would delete the row in the `orders` table that matches the `id` GET parameter.
+When the WasmEdge web service receives a GET request to the `/delete_order` endpoint, it deletes the row in the `orders` table that matches the `id` GET parameter.
 
 ```bash
 curl http://localhost:8080/delete_order?id=2
