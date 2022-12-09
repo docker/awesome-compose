@@ -73,7 +73,7 @@ services:
       MYSQL_ROOT_PASSWORD: whalehello
 ```
 
-The compose file defines an application with three services `redpanda`, `etl` and `db`. The `redpanda` is a Kafka-compatible messaging server that produces messages in a queue topic. The `etl` service, in the WasmEdge container, subscribes to the queue topic and receives incoming messages. Each incoming message is parsed and stored in the `db` MySQL database server.
+The compose file defines an application with three services `redpanda`, `etl` and `db`. The `redpanda` service is a Kafka-compatible messaging server that produces messages in a queue topic. The `etl` service, in the WasmEdge container that subscribes to the queue topic and receives incoming messages. Each incoming message is parsed and stored in the `db` MySQL (MariaDB) database server.
 
 ## Deploy with docker compose
 
