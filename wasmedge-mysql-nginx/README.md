@@ -102,7 +102,7 @@ To insert multiple records, use the `/create_orders` endpoint and POST a JSON ar
 curl http://localhost:8080/create_orders -X POST -d @db/orders.json
 ```
 
-When the WasmEdge web service receives a GET request to the `/orders` endpoint, it would get all rows from the `orders` table and return the result set in a JSON array in the HTTP response.
+When the WasmEdge web service receives a GET request to the `/orders` endpoint, it gets all rows from the `orders` table and return the result set in a JSON array in the HTTP response.
 
 ```bash
 curl http://localhost:8080/orders
