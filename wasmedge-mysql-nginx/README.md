@@ -39,7 +39,7 @@ services:
   frontend:
     image: nginx:alpine
     ports:
-      - 8090:8090
+      - 8090:80
     volumes:
       - ./frontend:/usr/share/nginx/html
 
@@ -83,7 +83,7 @@ $ docker compose ps
 NAME                              COMMAND                  SERVICE             STATUS              PORTS
 wasmedge-mysql-nginx-backend-1    "order_demo_service.…"   backend             running             0.0.0.0:8080->8080/tcp, :::8080->8080/tcp
 wasmedge-mysql-nginx-db-1         "docker-entrypoint.s…"   db                  running             3306/tcp
-wasmedge-mysql-nginx-frontend-1   "/docker-entrypoint.…"   frontend            running             0.0.0.0:8090->8090/tcp, :::8090->8090/tcp
+wasmedge-mysql-nginx-frontend-1   "/docker-entrypoint.…"   frontend            running             0.0.0.0:8090->80/tcp, :::8090->80/tcp
 ```
 
 After the application starts, go to `http://localhost:8090` in your web browser to display the web frontend. 
