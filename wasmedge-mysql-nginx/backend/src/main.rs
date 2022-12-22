@@ -103,7 +103,6 @@ async fn handle_request(req: Request<Body>, pool: Pool) -> Result<Response<Body>
 
             drop(conn);
             Ok(response_build("{\"status\":true}"))
-            // Ok(Response::new(Body::from("{\"status\":true}")))
         }
 
         (&Method::POST, "/create_orders") => {
@@ -129,7 +128,6 @@ async fn handle_request(req: Request<Body>, pool: Pool) -> Result<Response<Body>
 
             drop(conn);
             Ok(response_build("{\"status\":true}"))
-            // Ok(Response::new(Body::from("{\"status\":true}")))
         }
 
         (&Method::POST, "/update_order") => {
@@ -153,7 +151,6 @@ async fn handle_request(req: Request<Body>, pool: Pool) -> Result<Response<Body>
 
             drop(conn);
             Ok(response_build("{\"status\":true}"))
-            // Ok(Response::new(Body::from("{\"status\":true}")))
         }
 
         (&Method::GET, "/orders") => {
@@ -175,7 +172,6 @@ async fn handle_request(req: Request<Body>, pool: Pool) -> Result<Response<Body>
 
             drop(conn);
             Ok(response_build(serde_json::to_string(&orders)?.as_str()))
-            // Ok(Response::new(Body::from(serde_json::to_string(&orders)?)))
         }        
         
         (&Method::GET, "/delete_order") => {
@@ -193,7 +189,6 @@ async fn handle_request(req: Request<Body>, pool: Pool) -> Result<Response<Body>
 
             drop(conn);
             Ok(response_build("{\"status\":true}"))
-            // Ok(Response::new(Body::from("{\"status\":true}")))
         }
 
         // Return the 404 Not Found for other routes.
@@ -239,18 +234,4 @@ async fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
         eprintln!("server error: {}", e);
     }
     Ok(())
-
-    /*
-    let listener = TcpListener::bind(addr).await?;
-    println!("Listening on http://{}", addr);
-    loop {
-        let (stream, _) = listener.accept().await?;
-
-        tokio::task::spawn(async move {
-            if let Err(err) = Http::new().serve_connection(stream, service_fn(handle_request)).await {
-                println!("Error serving connection: {:?}", err);
-            }
-        });
-    }
-    */
 }
