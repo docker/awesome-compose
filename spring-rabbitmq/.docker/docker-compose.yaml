@@ -1,0 +1,29 @@
+services:
+  backend:
+    build: backend
+    ports:
+      - 8080:8080
+    environment:
+      - RABBITMQ_HOST=rabbitmq
+      - RABBITMQ_QUEUE_NAME=springboot-queue
+      - RABBITMQ_FANOUT_EXCHANGE=springboot-exchange
+    networks:
+      - spring-rabbitmq
+    depends_on:
+      - rabbitmq
+  rabbitmq:
+    image: rabbitmq
+    restart: always
+    volumes:
+      - rabbitmq-data:/var/lib/rabbitmq
+    networks:
+      - spring-rabbitmq
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+    expose:
+      - 5672
+volumes:
+  rabbitmq-data:
+networks:
+  spring-rabbitmq:
