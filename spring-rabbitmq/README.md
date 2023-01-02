@@ -21,7 +21,7 @@ services:
     ports:
     - 8080:8080
   rabbitmq:
-    rabbitmq:3.9-management
+    image: rabbitmq
     ...
 ```
 The compose file defines an application with two services `backend` and `rabbitmq`.
@@ -47,6 +47,7 @@ CONTAINER ID   IMAGE                     COMMAND                  CREATED       
 After the application starts, you can send and receive data to rabbitmq with this api :
 
 `POST`: http://localhost:8080/sendMessage
+
 Body:
 ```
 {
