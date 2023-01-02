@@ -22,6 +22,7 @@ services:
     - 8080:8080
   rabbitmq:
     image: rabbitmq
+    rabbitmq:3.9-management
     ...
 ```
 The compose file defines an application with two services `backend` and `rabbitmq`.
