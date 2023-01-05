@@ -37,7 +37,7 @@ port 80 of the host as specified in the compose file.
 ## Deploy with docker compose
 
 ```
-$ docker compose up -d
+$ docker-compose up -d
 Creating network "wordpress-mysql_default" with the default driver
 Creating volume "wordpress-mysql_db_data" with default driver
 ...
@@ -63,10 +63,10 @@ Navigate to `http://localhost:80` in your web browser to access WordPress.
 Stop and remove the containers
 
 ```
-$ docker compose down
+$ docker-compose down
 ```
 
 To remove all WordPress data, delete the named volumes by passing the `-v` parameter:
 ```
-$ docker compose down -v
+$ docker-compose down -v
 ```
