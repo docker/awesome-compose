@@ -1,8 +1,9 @@
 ## Gitea with PostgreSQL
+
 This example defines one of the base setups for Gitea. More details on how to customize the installation and the compose file can be found in [Gitea documentation](https://docs.gitea.io/en-us/install-with-docker/).
 
-
 Project structure:
+
 ```
 .
 ├── compose.yaml
@@ -10,6 +11,7 @@ Project structure:
 ```
 
 [_compose.yaml_](compose.yaml)
+
 ```
 services:
   gitea:
@@ -29,7 +31,7 @@ the same port of the host as specified in the compose file.
 ## Deploy with docker compose
 
 ```
-$ docker compose up -d
+$ docker-compose up -d
 Creating network "gitea-postgres_default" with the default driver
 Creating gitea-postgres_db_1 ... done
 Creating gitea-postgres_gitea_1 ... done
@@ -39,10 +41,10 @@ Starting gitea-postgres_db_1 ... done
 Starting gitea-postgres_gitea_1 ... done
 ```
 
-
 ## Expected result
 
 Check containers are running and the port mapping:
+
 ```
 $ docker ps
 CONTAINER ID        IMAGE                COMMAND                  CREATED             STATUS              PORTS                          NAMES
@@ -58,10 +60,11 @@ Gitea service.
 Stop and remove the containers
 
 ```
-$ docker compose down
+$ docker-compose down
 ```
 
 To remove all Gitea data, delete the named volumes by passing the `-v` parameter:
+
 ```
-$ docker compose down -v
+$ docker-compose down -v
 ```

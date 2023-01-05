@@ -9,6 +9,7 @@ You can open this sample in the Dev Environments feature of Docker Desktop versi
 ### Go server with an Nginx proxy and a MariaDB/MySQL database
 
 Project structure:
+
 ```
 .
 ├── backend
@@ -25,6 +26,7 @@ Project structure:
 ```
 
 [_compose.yaml_](compose.yaml)
+
 ```yaml
 services:
   backend:
@@ -49,19 +51,20 @@ services:
     - 80:80
     ...
 ```
+
 The compose file defines an application with three services `proxy`, `backend` and `db`.
 When deploying the application, docker compose maps port 80 of the proxy service container to port 80 of the host as specified in the file.
 Make sure port 80 on the host is not already being in use.
 
 > ℹ️ **_INFO_**  
 > For compatibility purpose between `AMD64` and `ARM64` architecture, we use a MariaDB as database instead of MySQL.  
-> You still can use the MySQL image by uncommenting the following line in the Compose file   
+> You still can use the MySQL image by uncommenting the following line in the Compose file  
 > `#image: mysql:8`
 
 ## Deploy with docker compose
 
 ```shell
-$ docker compose up -d
+$ docker-compose up -d
 Creating network "nginx-golang-mysql_default" with the default driver
 Building backend
 Step 1/8 : FROM golang:1.13-alpine AS build
@@ -78,8 +81,9 @@ Creating nginx-golang-mysql_proxy_1   ... done
 ## Expected result
 
 Listing containers must show three containers running and the port mapping as below:
+
 ```shell
-$ docker compose ps
+$ docker-compose ps
 NAME                           COMMAND                  SERVICE             STATUS              PORTS
 nginx-golang-mysql-backend-1   "/code/bin/backend"      backend             running
 nginx-golang-mysql-db-1        "docker-entrypoint.s…"   db                  running (healthy)   3306/tcp
@@ -88,12 +92,14 @@ l_db_1
 ```
 
 After the application starts, navigate to `http://localhost:80` in your web browser or run:
+
 ```shell
 $ curl localhost:80
 ["Blog post #0","Blog post #1","Blog post #2","Blog post #3","Blog post #4"]
 ```
 
 Stop and remove the containers
+
 ```shell
-$ docker compose down
+$ docker-compose down
 ```

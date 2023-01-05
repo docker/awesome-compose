@@ -9,6 +9,7 @@ You can open this sample in the Dev Environments feature of Docker Desktop versi
 ### Python/Flask application
 
 Project structure:
+
 ```
 .
 ├── compose.yaml
@@ -20,20 +21,21 @@ Project structure:
 ```
 
 [_compose.yaml_](compose.yaml)
+
 ```
-services: 
-  web: 
+services:
+  web:
     build:
      context: app
      target: builder
-    ports: 
+    ports:
       - '8000:8000'
 ```
 
 ## Deploy with docker compose
 
 ```
-$ docker compose up -d
+$ docker-compose up -d
 [+] Building 1.1s (16/16) FINISHED
  => [internal] load build definition from Dockerfile                                                                                                                                                                                       0.0s
     ...                                                                                                                                         0.0s
@@ -46,19 +48,22 @@ $ docker compose up -d
 ## Expected result
 
 Listing containers must show one container running and the port mapping as below:
+
 ```
-$ docker compose ps
+$ docker-compose ps
 NAME                COMMAND             SERVICE             STATUS              PORTS
 flask-web-1         "python3 app.py"    web                 running             0.0.0.0:8000->8000/tcp
 ```
 
 After the application starts, navigate to `http://localhost:8000` in your web browser or run:
+
 ```
 $ curl localhost:8000
 Hello World!
 ```
 
 Stop and remove the containers
+
 ```
-$ docker compose down
+$ docker-compose down
 ```

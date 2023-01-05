@@ -9,6 +9,7 @@ You can open this sample in the Dev Environments feature of Docker Desktop versi
 ### NGINX proxy with Go backend
 
 Project structure:
+
 ```
 .
 ├── backend
@@ -21,6 +22,7 @@ Project structure:
 ```
 
 [`compose.yaml`](compose.yaml)
+
 ```
 services:
   proxy:
@@ -40,6 +42,7 @@ services:
       context: backend
       target: builder
 ```
+
 The compose file defines an application with two services `proxy` and `backend`.
 When deploying the application, docker compose maps port 80 of the frontend service container to the same port of the host as specified in the file.
 Make sure port 80 on the host is not already in use.
@@ -47,7 +50,7 @@ Make sure port 80 on the host is not already in use.
 ## Deploy with docker compose
 
 ```
-$ docker compose up -d
+$ docker-compose up -d
 Creating network "nginx-golang_default" with the default driver
 Building backend
 Step 1/7 : FROM golang:1.13 AS build
@@ -62,14 +65,16 @@ Creating nginx-golang_proxy_1 ... done
 ## Expected result
 
 Listing containers must show two containers running and the port mapping as below:
+
 ```
-$ docker compose ps
+$ docker-compose ps
 NAME                     COMMAND                  SERVICE             STATUS              PORTS
 nginx-golang-backend-1   "/code/bin/backend"      backend             running
 nginx-golang-proxy-1     "/docker-entrypoint.…"   proxy               running             0.0.0.0:80->80/tcp
 ```
 
 After the application starts, navigate to `http://localhost:80` in your web browser or run:
+
 ```
 $ curl localhost:80
 
@@ -82,11 +87,12 @@ $ curl localhost:80
  \    \         __/
   \____\_______/
 
-	
+
 Hello from Docker!
 ```
 
 Stop and remove the containers
+
 ```
-$ docker compose down
+$ docker-compose down
 ```

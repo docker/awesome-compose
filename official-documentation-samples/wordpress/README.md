@@ -16,8 +16,8 @@ Compose to set up and run WordPress. Before starting, make sure you have
     This project directory contains a `docker-compose.yml` file which
     is complete in itself for a good starter wordpress project.
 
-    >**Tip**: You can use either a `.yml` or `.yaml` extension for
-    this file. They both work.
+    > **Tip**: You can use either a `.yml` or `.yaml` extension for
+    > this file. They both work.
 
 2.  Change into your project directory.
 
@@ -67,24 +67,24 @@ Compose to set up and run WordPress. Before starting, make sure you have
       wp_data:
     ```
 
-   > **Notes**:
-   >
-   * The docker volumes `db_data` and `wordpress_data` persists updates made by WordPress
-   to the database, as well as the installed themes and plugins. [Learn more about docker volumes](https://docs.docker.com/storage/volumes/)
-   >
-   * WordPress Multisite works only on ports `80` and `443`.
-   {: .note-vanilla}
+> **Notes**:
+
+- The docker volumes `db_data` and `wordpress_data` persists updates made by WordPress
+  to the database, as well as the installed themes and plugins. [Learn more about docker volumes](https://docs.docker.com/storage/volumes/)
+  >
+- WordPress Multisite works only on ports `80` and `443`.
+  {: .note-vanilla}
 
 ### Build the project
 
-Now, run `docker compose up -d` from your project directory.
+Now, run `docker-compose up -d` from your project directory.
 
-This runs [`docker compose up`](https://docs.docker.com/engine/reference/commandline/compose_up/) in detached mode, pulls
+This runs [`docker-compose up`](https://docs.docker.com/engine/reference/commandline/compose_up/) in detached mode, pulls
 the needed Docker images, and starts the wordpress and database containers, as shown in
 the example below.
 
 ```console
-$ docker compose up -d
+$ docker-compose up -d
 
 Creating network "my_wordpress_default" with the default driver
 Pulling db (mysql:5.7)...
@@ -107,9 +107,9 @@ Creating my_wordpress_wordpress_1
 ```
 
 > **Note**: WordPress Multisite works only on ports `80` and/or `443`.
-If you get an error message about binding `0.0.0.0` to port `80` or `443`
-(depending on which one you specified), it is likely that the port you
-configured for WordPress is already in use by another service.
+> If you get an error message about binding `0.0.0.0` to port `80` or `443`
+> (depending on which one you specified), it is likely that the port you
+> configured for WordPress is already in use by another service.
 
 ### Bring up WordPress in a web browser
 
@@ -118,8 +118,8 @@ and you can complete the "famous five-minute installation" as a WordPress
 administrator.
 
 > **Note**: The WordPress site is not immediately available on port `80`
-because the containers are still being initialized and may take a couple of
-minutes before the first load.
+> because the containers are still being initialized and may take a couple of
+> minutes before the first load.
 
 If you are using Docker Desktop for Mac or Docker Desktop for Windows, you can use
 `http://localhost` as the IP address, and open `http://localhost:80` in a web
@@ -131,17 +131,17 @@ browser.
 
 ### Shutdown and cleanup
 
-The command [`docker compose down`](https://docs.docker.com/engine/reference/commandline/compose_down/) removes the
+The command [`docker-compose down`](https://docs.docker.com/engine/reference/commandline/compose_down/) removes the
 containers and default network, but preserves your WordPress database.
 
-The command `docker compose down --volumes` removes the containers, default
+The command `docker-compose down --volumes` removes the containers, default
 network, and the WordPress database.
 
 ## More Compose documentation
 
-* [Docker Compose overview](https://docs.docker.com/compose/)
-* [Install Docker Compose](https://docs.docker.com/compose/install/)
-* [Getting Started with Docker Compose](https://docs.docker.com/compose/gettingstarted/)
-* [Docker Compose Command line reference](https://docs.docker.com/compose/reference/)
-* [Compose file reference](https://docs.docker.com/compose/compose-file/)
-* [Awesome Compose WordPress sample](../../wordpress-mysql/README.md)
+- [Docker Compose overview](https://docs.docker.com/compose/)
+- [Install Docker Compose](https://docs.docker.com/compose/install/)
+- [Getting Started with Docker Compose](https://docs.docker.com/compose/gettingstarted/)
+- [Docker Compose Command line reference](https://docs.docker.com/compose/reference/)
+- [Compose file reference](https://docs.docker.com/compose/compose-file/)
+- [Awesome Compose WordPress sample](../../wordpress-mysql/README.md)

@@ -1,10 +1,11 @@
 ## Nextcloud with Redis and MariaDB
+
 This example defines one of the basic setups for Nextcloud. More details on how to
 further customize the installation and the compose file can be found on the
 [official image page](https://hub.docker.com/_/nextcloud).
 
-
 Project structure:
+
 ```
 .
 ├── compose.yaml
@@ -12,6 +13,7 @@ Project structure:
 ```
 
 [_compose.yaml_](compose.yaml)
+
 ```
 services:
   nc:
@@ -35,7 +37,7 @@ port 80 of the host as specified in the compose file.
 ## Deploy with docker compose
 
 ```
-$ docker compose up -d
+$ docker-compose up -d
 Creating network "nextcloud-redis-mariadb_redisnet" with the default driver
 Creating network "nextcloud-redis-mariadb_dbnet" with the default driver
 Creating volume "nextcloud-redis-mariadb_nc_data" with default driver
@@ -48,10 +50,10 @@ Creating nextcloud-redis-mariadb_nc_1    ... done
 Creating nextcloud-redis-mariadb_redis_1 ... done
 ```
 
-
 ## Expected result
 
 Check containers are running and the port mapping:
+
 ```
 $ docker ps
 CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                NAMES
@@ -68,10 +70,11 @@ Nextcloud service.
 Stop and remove the containers
 
 ```
-$ docker compose down
+$ docker-compose down
 ```
 
 To delete all data, remove all named volumes by passing the `-v` arguments:
+
 ```
-$ docker compose down -v
+$ docker-compose down -v
 ```

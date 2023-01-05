@@ -9,6 +9,7 @@ You can open this sample in the Dev Environments feature of Docker Desktop versi
 ### Spark Java
 
 Project structure:
+
 ```
 .
 ├── compose.yaml
@@ -19,6 +20,7 @@ Project structure:
 ```
 
 [_compose.yaml_](compose.yaml)
+
 ```
 services:
   sparkjava:
@@ -26,6 +28,7 @@ services:
     ports:
     - 8080:8080
 ```
+
 The compose file defines an application with one service `sparkjava`.
 When deploying the application, docker compose maps port 8080 of the sparkjava service container to port 8080 of the host as specified in the file.
 Make sure port 8080 on the host is not already being in use.
@@ -33,7 +36,7 @@ Make sure port 8080 on the host is not already being in use.
 ## Deploy with docker compose
 
 ```
-$ docker compose up -d
+$ docker-compose up -d
 Creating network "sparkjava_default" with the default driver
 Building sparkjava
 Step 1/11 : FROM maven:3.6.3-jdk-11 AS build
@@ -47,6 +50,7 @@ Creating sparkjava_sparkjava_1 ... done
 ## Expected result
 
 Listing containers must show one container running and the port mapping as below:
+
 ```
 $ docker ps
 CONTAINER ID        IMAGE                 COMMAND                  CREATED             STATUS              PORTS                  NAMES
@@ -54,14 +58,16 @@ CONTAINER ID        IMAGE                 COMMAND                  CREATED      
 ```
 
 After the application starts, navigate to `http://localhost:8080` in your web browser or run:
+
 ```
 $ curl localhost:8080
 Hello from Docker!
 ```
 
 Stop and remove the containers
+
 ```
-$ docker compose down
+$ docker-compose down
 Stopping sparkjava_sparkjava_1 ... done
 Removing sparkjava_sparkjava_1 ... done
 Removing network sparkjava_default

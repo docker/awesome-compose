@@ -41,12 +41,12 @@ services:
 ```
 
 The compose file defines an application with an services `frontend`.
-When deploying the application, docker compose maps port 80 of the frontend service container to port 80 of the host as specified in the file.  
+When deploying the application, docker compose maps port 80 of the frontend service container to port 80 of the host as specified in the file.
 
 ## Deploy with docker compose
 
 ```
-$ docker compose up -d
+$ docker-compose up -d
 Building frontend
 Sending build context to Docker daemon   1.49MB
 
@@ -87,7 +87,7 @@ After the application start, navigate to http://localhost in your browser:
 Stop and remove the containers
 
 ```
-$ docker compose down
+$ docker-compose down
 Stopping frontend ... done
 Removing frontend ... done
 Removing network react-nginx_default

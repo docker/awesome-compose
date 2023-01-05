@@ -9,6 +9,7 @@ You can open this sample in the Dev Environments feature of Docker Desktop versi
 ### Python/FastAPI application
 
 Project structure:
+
 ```
 ├── compose.yaml
 ├── Dockerfile
@@ -20,6 +21,7 @@ Project structure:
 ```
 
 [_compose.yaml_](compose.yaml)
+
 ```
 services:
   api:
@@ -38,9 +40,11 @@ services:
 ```shell
 docker-compose up -d --build
 ```
+
 ## Expected result
 
 Listing containers must show one container running and the port mapping as below:
+
 ```
 $ docker ps
 CONTAINER ID   IMAGE          COMMAND       CREATED              STATUS              PORTS                                               NAMES
@@ -48,6 +52,7 @@ CONTAINER ID   IMAGE          COMMAND       CREATED              STATUS         
 ```
 
 After the application starts, navigate to `http://localhost:8000` in your web browser and you should see the following json response:
+
 ```
 {
 "message": "OK"
@@ -55,6 +60,7 @@ After the application starts, navigate to `http://localhost:8000` in your web br
 ```
 
 Stop and remove the containers
+
 ```
-$ docker compose down
+$ docker-compose down
 ```

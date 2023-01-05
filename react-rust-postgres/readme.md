@@ -9,6 +9,7 @@ You can open this sample in the Dev Environments feature of Docker Desktop versi
 ### React application with a Rust backend and a Postgresql database
 
 Project structure:
+
 ```
 .
 ├── backend
@@ -22,6 +23,7 @@ Project structure:
 ```
 
 [_compose.yaml_](compose.yaml)
+
 ```
 services:
   backend:
@@ -36,6 +38,7 @@ services:
     - 3000:3000
     ...
 ```
+
 The compose file defines an application with three services `frontend`, `backend` and `db`.
 When deploying the application, docker compose maps port 3000 of the frontend service container to port 3000 of the host as specified in the file.
 Make sure port 3000 on the host is not already being in use.
@@ -43,7 +46,7 @@ Make sure port 3000 on the host is not already being in use.
 ## Deploy with docker compose
 
 ```
-$ docker compose up -d
+$ docker-compose up -d
 Creating network "react-rust-postgres_default" with the default driver
 Building backend
 ...
@@ -57,6 +60,7 @@ Creating react-rust-postgres_backend_1  ... done
 ## Expected result
 
 Listing containers must show three containers running and the port mapping as below:
+
 ```
 $ docker ps
 CONTAINER ID        IMAGE                          COMMAND                  CREATED             STATUS              PORTS                    NAMES
@@ -70,8 +74,9 @@ After the application starts, navigate to `http://localhost:3000` in your web br
 ![page](./capture.png)
 
 Stop and remove the containers
+
 ```
-$ docker compose down
+$ docker-compose down
 Stopping react-rust-postgres_backend_1  ... done
 Stopping react-rust-postgres_frontend_1 ... done
 Stopping react-rust-postgres_db_1       ... done

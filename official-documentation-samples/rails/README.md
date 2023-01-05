@@ -7,7 +7,7 @@ a Rails/PostgreSQL app. Before starting, [install Compose](https://docs.docker.c
 
 Start by setting up the files needed to build the app. The app will run inside a
 Docker container containing its dependencies. Defining dependencies is done using
-a file called `Dockerfile`. To begin with, the  Dockerfile consists of:
+a file called `Dockerfile`. To begin with, the Dockerfile consists of:
 
 ```dockerfile
 # syntax=docker/dockerfile:1
@@ -82,7 +82,7 @@ services:
     volumes:
       - .:/myapp
     ports:
-      - "3000:3000"
+      - '3000:3000'
     depends_on:
       - db
 ```
@@ -94,10 +94,10 @@ services:
 ### Build the project
 
 With those files in place, you can now generate the Rails skeleton app
-using [docker compose run](https://docs.docker.com/engine/reference/commandline/compose_run/):
+using [docker-compose run](https://docs.docker.com/engine/reference/commandline/compose_run/):
 
 ```console
-$ docker compose run --no-deps web rails new . --force --database=postgresql
+$ docker-compose run --no-deps web rails new . --force --database=postgresql
 ```
 
 First, Compose builds the image for the `web` service using the `Dockerfile`.
@@ -148,7 +148,7 @@ changes to the `Gemfile` or the Dockerfile, should be the only times you’ll ne
 to rebuild.)
 
 ```console
-$ docker compose build
+$ docker-compose build
 ```
 
 ### Connect the database
@@ -173,17 +173,16 @@ development:
   <<: *default
   database: myapp_development
 
-
 test:
   <<: *default
   database: myapp_test
 ```
 
-You can now boot the app with [docker compose up](https://docs.docker.com/engine/reference/commandline/compose_up/).
+You can now boot the app with [docker-compose up](https://docs.docker.com/engine/reference/commandline/compose_up/).
 If all is well, you should see some PostgreSQL output:
 
 ```console
-$ docker compose up
+$ docker-compose up
 
 rails_db_1 is up-to-date
 Creating rails_web_1 ... done
@@ -200,7 +199,7 @@ db_1   | 2018-03-21 20:18:37.772 UTC [1] LOG:  database system is ready to accep
 Finally, you need to create the database. In another terminal, run:
 
 ```console
-$ docker compose run web rake db:create
+$ docker-compose run web rake db:create
 Starting rails_db_1 ... done
 Created database 'myapp_development'
 Created database 'myapp_test'
@@ -217,13 +216,13 @@ browser to see the Rails Welcome.
 
 ### Stop the application
 
-To stop the application, run [docker compose down](https://docs.docker.com/engine/reference/commandline/compose_down/) in
+To stop the application, run [docker-compose down](https://docs.docker.com/engine/reference/commandline/compose_down/) in
 your project directory. You can use the same terminal window in which you
 started the database, or another one where you have access to a command prompt.
 This is a clean way to stop the application.
 
 ```console
-$ docker compose down
+$ docker-compose down
 
 Stopping rails_web_1 ... done
 Stopping rails_db_1 ... done
@@ -236,15 +235,15 @@ Removing network rails_default
 
 ### Restart the application
 
-To restart the application run `docker compose up` in the project directory.
+To restart the application run `docker-compose up` in the project directory.
 
 ### Rebuild the application
 
 If you make changes to the Gemfile or the Compose file to try out some different
 configurations, you need to rebuild. Some changes require only
-`docker compose up --build`, but a full rebuild requires a re-run of
-`docker compose run web bundle install` to sync changes in the `Gemfile.lock` to
-the host, followed by `docker compose up --build`.
+`docker-compose up --build`, but a full rebuild requires a re-run of
+`docker-compose run web bundle install` to sync changes in the `Gemfile.lock` to
+the host, followed by `docker-compose up --build`.
 
 Here is an example of the first case, where a full rebuild is not necessary.
 Suppose you simply want to change the exposed port on the local host from `3000`
@@ -254,10 +253,10 @@ the changes:
 
 ```yaml
 ports:
-  - "3001:3000"
+  - '3001:3000'
 ```
 
-Now, rebuild and restart the app with `docker compose up --build`.
+Now, rebuild and restart the app with `docker-compose up --build`.
 
 Inside the container, your app is running on the same port as before `3000`, but
 the Rails Welcome is now available on `http://localhost:3001` on your local
@@ -265,8 +264,8 @@ host.
 
 ## More Compose documentation
 
-* [Docker Compose overview](https://docs.docker.com/compose/)
-* [Install Docker Compose](https://docs.docker.com/compose/install/)
-* [Getting Started with Docker Compose](https://docs.docker.com/compose/gettingstarted/)
-* [Docker Compose Command line reference](https://docs.docker.com/compose/reference/)
-* [Compose file reference](https://docs.docker.com/compose/compose-file/)
+- [Docker Compose overview](https://docs.docker.com/compose/)
+- [Install Docker Compose](https://docs.docker.com/compose/install/)
+- [Getting Started with Docker Compose](https://docs.docker.com/compose/gettingstarted/)
+- [Docker Compose Command line reference](https://docs.docker.com/compose/reference/)
+- [Compose file reference](https://docs.docker.com/compose/compose-file/)

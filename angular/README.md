@@ -1,4 +1,4 @@
-## Compose sample 
+## Compose sample
 
 ### Use with Docker Development Environments
 
@@ -9,6 +9,7 @@ You can open this sample in the Dev Environments feature of Docker Desktop versi
 ### Angular service
 
 Project structure:
+
 ```
 .
 ├── angular
@@ -20,6 +21,7 @@ Project structure:
 ```
 
 [_compose.yaml_](compose.yaml)
+
 ```
 services:
   web:
@@ -29,16 +31,16 @@ services:
     ...
 
 ```
+
 The compose file defines an application with one service `angular`. The image for the service is built with the Dockerfile inside the `angular` directory (build parameter).
 
 When deploying the application, docker compose maps the container port 4200 to the same port on the host as specified in the file.
 Make sure port 4200 is not being used by another container, otherwise the port should be changed.
 
-
 ## Deploy with docker compose
 
 ```
-$ docker compose up -d
+$ docker-compose up -d
 Creating network "angular_default" with the default driver
 Building angular
 Step 1/7 : FROM node:10
@@ -52,10 +54,10 @@ WARNING: Image for service web was built because it did not already exist. To re
 Creating angular_web_1 ... done
 ```
 
-
 ## Expected result
 
 Listing containers must show a container running and the port mapping as below:
+
 ```
 $ docker ps
 CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                  NAMES
@@ -70,5 +72,5 @@ After the application starts, navigate to `http://localhost:4200` in your web br
 Stop and remove the container
 
 ```
-$ docker compose down
+$ docker-compose down
 ```

@@ -9,6 +9,7 @@ You can open this sample in the Dev Environments feature of Docker Desktop versi
 ### Python/Flask application with Nginx proxy and a Mongo database
 
 Project structure:
+
 ```
 .
 ├── compose.yaml
@@ -22,6 +23,7 @@ Project structure:
 ```
 
 [_compose.yaml_](compose.yaml)
+
 ```
 services:
   web:
@@ -34,6 +36,7 @@ services:
   mongo:
     image: mongo
 ```
+
 The compose file defines an application with three services `web`, `backend` and `db`.
 When deploying the application, docker compose maps port 80 of the web service container to port 80 of the host as specified in the file.
 Make sure port 80 on the host is not being used by another container, otherwise the port should be changed.
@@ -41,7 +44,7 @@ Make sure port 80 on the host is not being used by another container, otherwise 
 ## Deploy with docker compose
 
 ```
-$ docker compose up -d
+$ docker-compose up -d
 Creating network "nginx-flask-mongo_default" with the default driver
 Pulling mongo (mongo:)...
 latest: Pulling from library/mongo
@@ -58,6 +61,7 @@ Creating nginx-flask-mongo_web_1     ... done
 ## Expected result
 
 Listing containers must show three containers running and the port mapping as below:
+
 ```
 $ docker ps
 CONTAINER ID        IMAGE                        COMMAND                  CREATED             STATUS              PORTS                  NAMES
@@ -67,12 +71,14 @@ d7eea5481c77        mongo                       "docker-entrypoint.s…"   About
 ```
 
 After the application starts, navigate to `http://localhost:80` in your web browser or run:
+
 ```
 $ curl localhost:80
 Hello from the MongoDB client!
 ```
 
 Stop and remove the containers
+
 ```
-$ docker compose down
+$ docker-compose down
 ```

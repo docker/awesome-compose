@@ -10,14 +10,14 @@ and a `docker-compose.yml` file. (You can use either a `.yml` or `.yaml` extensi
 
 1. Create an empty project directory.
 
-    You can name the directory something easy for you to remember. This directory is the context for your application image. The directory should only contain resources to build that image.
+   You can name the directory something easy for you to remember. This directory is the context for your application image. The directory should only contain resources to build that image.
 
 2. Create a new file called `Dockerfile` in your project directory.
 
-    The Dockerfile defines an application's image content via one or more build
-    commands that configure that image. Once built, you can run the image in a
-    container.  For more information on `Dockerfile`, see the [Docker user guide](https://docs.docker.com/get-started/)
-    and the [Dockerfile reference](https://docs.docker.com/engine/reference/builder/).
+   The Dockerfile defines an application's image content via one or more build
+   commands that configure that image. Once built, you can run the image in a
+   container. For more information on `Dockerfile`, see the [Docker user guide](https://docs.docker.com/get-started/)
+   and the [Dockerfile reference](https://docs.docker.com/engine/reference/builder/).
 
 3. Add the following content to the `Dockerfile`.
 
@@ -40,26 +40,26 @@ and a `docker-compose.yml` file. (You can use either a `.yml` or `.yaml` extensi
 
 5. Create a `requirements.txt` in your project directory.
 
-    This file is used by the `RUN pip install -r requirements.txt` command in your `Dockerfile`.
+   This file is used by the `RUN pip install -r requirements.txt` command in your `Dockerfile`.
 
 6. Add the required software in the file.
 
-    ```python
-    Django>=3.0,<4.0
-    psycopg2>=2.8
-    ```
+   ```python
+   Django>=3.0,<4.0
+   psycopg2>=2.8
+   ```
 
 7. Save and close the `requirements.txt` file.
 
 8. Create a file called `docker-compose.yml` in your project directory.
 
-    The `docker-compose.yml` file describes the services that make your app. In
-    this example those services are a web server and database.  The compose file
-    also describes which Docker images these services use, how they link
-    together, any volumes they might need to be mounted inside the containers.
-    Finally, the `docker-compose.yml` file describes which ports these services
-    expose. See the [`docker-compose.yml` reference](https://docs.docker.com/compose/compose-file/) for more
-    information on how this file works.
+   The `docker-compose.yml` file describes the services that make your app. In
+   this example those services are a web server and database. The compose file
+   also describes which Docker images these services use, how they link
+   together, any volumes they might need to be mounted inside the containers.
+   Finally, the `docker-compose.yml` file describes which ports these services
+   expose. See the [`docker-compose.yml` reference](https://docs.docker.com/compose/compose-file/) for more
+   information on how this file works.
 
 9. Add the following configuration to the file.
 
@@ -79,7 +79,7 @@ and a `docker-compose.yml` file. (You can use either a `.yml` or `.yaml` extensi
        volumes:
          - .:/code
        ports:
-         - "8000:8000"
+         - '8000:8000'
        environment:
          - POSTGRES_NAME=postgres
          - POSTGRES_USER=postgres
@@ -104,11 +104,11 @@ In this step, you create a Django starter project by building the image from the
 
 1. Change to the root of your project directory.
 
-2. Create the Django project by running the [docker compose run](https://docs.docker.com/engine/reference/commandline/compose_run/)
+2. Create the Django project by running the [docker-compose run](https://docs.docker.com/engine/reference/commandline/compose_run/)
    command as follows.
 
    ```console
-   sudo docker compose run web django-admin startproject composeexample .
+   sudo docker-compose run web django-admin startproject composeexample .
    ```
 
    This instructs Compose to run `django-admin startproject composeexample`
@@ -121,7 +121,7 @@ In this step, you create a Django starter project by building the image from the
    instructs Django to create a set of files and directories representing a
    Django project.
 
-3. After the `docker compose` command completes, list the contents of your project.
+3. After the `docker-compose` command completes, list the contents of your project.
 
    ```console
    $ ls -l
@@ -169,11 +169,11 @@ In this section, you set up the database connection for Django.
 
    ```python
    # settings.py
-   
+
    import os
-   
+
    [...]
-   
+
    DATABASES = {
        'default': {
            'ENGINE': 'django.db.backends.postgresql',
@@ -192,10 +192,10 @@ In this section, you set up the database connection for Django.
 
 3. Save and close the file.
 
-4. Run the [docker compose up](https://docs.docker.com/engine/reference/commandline/compose_up/) command from the top level directory for your project.
+4. Run the [docker-compose up](https://docs.docker.com/engine/reference/commandline/compose_up/) command from the top level directory for your project.
 
    ```console
-   $ docker compose up
+   $ docker-compose up
 
    djangosample_db_1 is up-to-date
    Creating djangosample_web_1 ...
@@ -233,8 +233,8 @@ In this section, you set up the database connection for Django.
    > ALLOWED_HOSTS = ['*']
    > ```
    >
-   > This value is **not** safe for production usage.  Refer to the
-   > [Django documentation](https://docs.djangoproject.com/en/1.11/ref/settings/#allowed-hosts)  for more information.
+   > This value is **not** safe for production usage. Refer to the
+   > [Django documentation](https://docs.djangoproject.com/en/1.11/ref/settings/#allowed-hosts) for more information.
 
 5. List running containers.
 
@@ -250,37 +250,37 @@ In this section, you set up the database connection for Django.
 
 6. Shut down services and clean up by using either of these methods:
 
-    * Stop the application by typing `Ctrl-C`  in the same shell in where you
-      started it:
+   - Stop the application by typing `Ctrl-C` in the same shell in where you
+     started it:
 
-      ```console
-      Gracefully stopping... (press Ctrl+C again to force)
-      Killing test_web_1 ... done
-      Killing test_db_1 ... done
-      ```
+     ```console
+     Gracefully stopping... (press Ctrl+C again to force)
+     Killing test_web_1 ... done
+     Killing test_db_1 ... done
+     ```
 
-    * Or, for a more elegant shutdown, switch to a different shell, and run
-      [docker compose down](https://docs.docker.com/engine/reference/commandline/compose_down/) from the top level of your
-      Django sample project directory.
+   - Or, for a more elegant shutdown, switch to a different shell, and run
+     [docker-compose down](https://docs.docker.com/engine/reference/commandline/compose_down/) from the top level of your
+     Django sample project directory.
 
-      ```console
-      $ docker compose down
+     ```console
+     $ docker-compose down
 
-      Stopping django_web_1 ... done
-      Stopping django_db_1 ... done
-      Removing django_web_1 ... done
-      Removing django_web_run_1 ... done
-      Removing django_db_1 ... done
-      Removing network django_default
-      ```
+     Stopping django_web_1 ... done
+     Stopping django_db_1 ... done
+     Removing django_web_1 ... done
+     Removing django_web_run_1 ... done
+     Removing django_db_1 ... done
+     Removing network django_default
+     ```
 
-  Once you've shut down the app, you can safely remove the Django project directory (for example, `rm -rf django`).
+Once you've shut down the app, you can safely remove the Django project directory (for example, `rm -rf django`).
 
 ## More Compose documentation
 
-* [Docker Compose overview](https://docs.docker.com/compose/)
-* [Install Docker Compose](https://docs.docker.com/compose/install/)
-* [Getting Started with Docker Compose](https://docs.docker.com/compose/gettingstarted/)
-* [Docker Compose Command line reference](https://docs.docker.com/compose/reference/)
-* [Compose file reference](https://docs.docker.com/compose/compose-file/)
-* [Awesome Compose Django sample application](../../django/README.md)
+- [Docker Compose overview](https://docs.docker.com/compose/)
+- [Install Docker Compose](https://docs.docker.com/compose/install/)
+- [Getting Started with Docker Compose](https://docs.docker.com/compose/gettingstarted/)
+- [Docker Compose Command line reference](https://docs.docker.com/compose/reference/)
+- [Compose file reference](https://docs.docker.com/compose/compose-file/)
+- [Awesome Compose Django sample application](../../django/README.md)

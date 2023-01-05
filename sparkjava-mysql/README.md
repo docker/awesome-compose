@@ -9,6 +9,7 @@ You can open this sample in the Dev Environments feature of Docker Desktop versi
 ### Java Spark application with MySQL database
 
 Project structure:
+
 ```
 .
 ├── backend
@@ -22,6 +23,7 @@ Project structure:
 ```
 
 [_compose.yaml_](compose.yaml)
+
 ```
 services:
   backend:
@@ -35,19 +37,20 @@ services:
     #image: mysql:8.0.27
     ...
 ```
+
 The compose file defines an application with two services `backend` and `db`.
 When deploying the application, docker compose maps port 8080 of the backend service container to port 80 of the host as specified in the file.
 Make sure port 8080 on the host is not already being in use.
 
 > ℹ️ **_INFO_**  
 > For compatibility purpose between `AMD64` and `ARM64` architecture, we use a MariaDB as database instead of MySQL.  
-> You still can use the MySQL image by uncommenting the following line in the Compose file   
+> You still can use the MySQL image by uncommenting the following line in the Compose file  
 > `#image: mysql:8.0.27`
 
 ## Deploy with docker compose
 
 ```
-$ docker compose up -d
+$ docker-compose up -d
 Creating network "sparkjava-mysql_default" with the default driver
 Building backend
 ...
@@ -60,6 +63,7 @@ Creating sparkjava-mysql_backend_1 ... done
 ## Expected result
 
 Listing containers must show two containers running and the port mapping as below:
+
 ```
 $ docker ps
 CONTAINER ID        IMAGE                     COMMAND                  CREATED             STATUS              PORTS                  NAMES
@@ -68,14 +72,16 @@ ee1e4f05d9f6        sparkjava-mysql_backend   "/bin/sh -c 'java -j…"   44 seco
 ```
 
 After the application starts, run:
+
 ```
 $ curl localhost:8080
 ["Blog post #0","Blog post #1","Blog post #2","Blog post #3","Blog post #4"]
 ```
 
 Stop and remove the containers
+
 ```
-$ docker compose down
+$ docker-compose down
 Stopping sparkjava-mysql_backend_1 ... done
 Stopping sparkjava-mysql_db_1      ... done
 Removing sparkjava-mysql_backend_1 ... done

@@ -9,6 +9,7 @@ You can open this sample in the Dev Environments feature of Docker Desktop versi
 ### Java application with Spring framework and a Postgres database
 
 Project structure:
+
 ```
 .
 ├── backend
@@ -22,6 +23,7 @@ Project structure:
 ```
 
 [_compose.yaml_](compose.yaml)
+
 ```
 services:
   backend:
@@ -32,6 +34,7 @@ services:
     image: postgres
     ...
 ```
+
 The compose file defines an application with two services `backend` and `db`.
 When deploying the application, docker compose maps port 8080 of the backend service container to port 8080 of the host as specified in the file.
 Make sure port 8080 on the host is not already being in use.
@@ -39,7 +42,7 @@ Make sure port 8080 on the host is not already being in use.
 ## Deploy with docker compose
 
 ```
-$ docker compose up -d
+$ docker-compose up -d
 Creating network "spring-postgres_default" with the default driver
 Building backend
 Step 1/11 : FROM maven:3.5-jdk-9 AS build
@@ -54,6 +57,7 @@ Creating spring-postgres_db_1      ... done
 ## Expected result
 
 Listing containers must show two containers running and the port mapping as below:
+
 ```
 $ docker ps
 CONTAINER ID        IMAGE                     COMMAND                  CREATED             STATUS              PORTS                  NAMES
@@ -62,6 +66,7 @@ CONTAINER ID        IMAGE                     COMMAND                  CREATED  
 ```
 
 After the application starts, navigate to `http://localhost:8080` in your web browse or run:
+
 ```
 $ curl localhost:8080
 <!DOCTYPE HTML>
@@ -76,8 +81,9 @@ $ curl localhost:8080
 ```
 
 Stop and remove the containers
+
 ```
-$ docker compose down
+$ docker-compose down
 Stopping spring-postgres_db_1      ... done
 Stopping spring-postgres_backend_1 ... done
 Removing spring-postgres_db_1      ... done
