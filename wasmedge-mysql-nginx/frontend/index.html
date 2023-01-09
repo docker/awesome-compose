@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Demo App</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
+  <style>.d-none { display: none; }</style>
+</head>
+<body class="mb-5">
+  <div class="container mt-5">
+    <div id="app-loading-display">
+      <h1>Loading...</h1>
+    </div>
+  
+    <div id="order-display" class="d-none">
+      <h1>Welcome to the Demo!</h1>
+      <p>This application is served using nginx for the website, Wasm for the backend, and MariaDB for the database.</p>
+
+      <div id="order-empty-text" class="d-none">
+        <em>There are currently no orders to display!</em>
+      </div>
+
+      <table id="order-table" class="d-none table table-striped">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Product Id</th>
+            <th>Quantity</th>
+            <th>Amount</th>
+            <th>Shipping</th>
+            <th>Tax</th>
+            <th>Address</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+
+      <hr />
+
+      <div id="add-order-wrapper" class="d-none row">
+        <div class="col-6">
+         <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="addOrderHeading">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#addOrder" aria-controls="addOrder">
+                  Add an order
+                </button>
+              </h2>
+              
+              <div id="addOrder" class="accordion-collapse collapse p-3" aria-labelledby="addOrderHeading" data-bs-parent="#accordionExample">
+                <form id="add-order-form">
+                  <div class="mb-3">
+                    <label for="order-id" class="form-label">Order Id</label>
+                    <input type="number" required class="form-control" id="order-id" aria-describedby="orderIdHelp">
+                    <div id="orderIdHelp" class="form-text">The ID of the order</div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="product-id" class="form-label">Product Id</label>
+                    <input type="number" required class="form-control" id="product-id" aria-describedby="productIdHelp">
+                    <div id="productIdHelp" class="form-text">The ID of the product</div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="quantity" class="form-label">Quantity</label>
+                    <input type="number" required class="form-control" id="quantity" aria-describedby="quantityHelp">
+                    <div id="quantityHelp" class="form-text">How many of the product?</div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="amount" class="form-label">Amount</label>
+                    <input type="number" required class="form-control" id="amount" aria-describedby="amountHelp">
+                    <div id="amountHelp" class="form-text">The total amount</div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="tax" class="form-label">Tax</label>
+                    <input type="number" required class="form-control" id="tax" aria-describedby="taxHelp">
+                    <div id="taxHelp" class="form-text">The total amount of tax</div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="shippingAmount" class="form-label">Shipping Amount</label>
+                    <input type="number" required class="form-control" id="shippingAmount" aria-describedby="shippingAmountHelp">
+                    <div id="shippingAmountHelp" class="form-text">The total amount for shipping</div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="shippingAddress" class="form-label">Shipping Address</label>
+                    <input type="text" required class="form-control" id="shippingAddress" aria-describedby="addressHelp">
+                    <div id="addressHelp" class="form-text">Where to send the order</div>
+                  </div>
+
+                  <input type="submit" class="btn btn-success" value="Add Order" />
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="/js/app.js"></script>
+</body>
+</html>
