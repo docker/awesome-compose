@@ -1,0 +1,34 @@
+version: "3.9"
+services:
+  
+  nginx-proxy:
+    build: nginx
+    container_name: nginx-proxy
+    volumes:
+      - ./nginx/default.conf:/tmp/default.conf
+    environment: 
+      - SERVER_ADDR=django-app:8000
+    ports:
+      - 80:80
+    depends_on:
+      - django-app
+    command: /app/start.sh
+  
+  django-app:
+    build: django
+    container_name: django-app
+    ports:
+      - 8000:8000
+    command: gunicorn -w 1 -b 0.0.0.0:8000 sample.wsgi:application
+  
+  mysql:
+    image: mysql:8.0.28
+    container_name: mysql
+    volumes:
+      - /your/data/path/mysql:/var/lib/mysql
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+
+
