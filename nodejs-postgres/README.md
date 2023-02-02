@@ -1,4 +1,4 @@
-#NodeJS with Postgres Connection
+##NodeJS with Postgres Connection
 
 This is a sample project that demonstrates how to connect a NodeJS app using Express to a Postgres database using Docker Compose. The project includes the following components:
 
