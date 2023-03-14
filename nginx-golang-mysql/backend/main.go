@@ -79,8 +79,9 @@ func prepare() error {
 		return err
 	}
 
-	for i := 0; i < 5; i++ {
+	for i := 0; i < 10; i++ {
 		if _, err := db.Exec("INSERT INTO blog (title) VALUES (?);", fmt.Sprintf("Blog post #%d", i)); err != nil {
+			log.Print(fmt.Sprintf("Blog post #%d", i))
 			return err
 		}
 	}
