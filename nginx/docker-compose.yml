@@ -1,0 +1,13 @@
+﻿version: "3"
+
+services:
+  nginx:
+    container_name: nginx
+    build:
+      ./nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/html:/usr/share/nginx/html
+      - ./nginx/conf.d:/etc/nginx/conf.d
