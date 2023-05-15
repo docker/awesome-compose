@@ -1,19 +1,19 @@
 ﻿
 
-### ソースコード入手
+### clone source code
 
 ```sh
 git clone https://github.com/kawadasatoshi/DockerImages.git
 ```
 
 
-### ディレクトリ移動
+### change directory
 
 ```sh
 cd DockerImages/nginx
 ```
 
-### コンテナ立ち上げ
+### run
 
 ```sh
 docker-compose up
