@@ -6,6 +6,8 @@ WORKDIR /code
 ENV CGO_ENABLED 0
 ENV GOPATH /go
 ENV GOCACHE /go-build
+ENV GOPORXY https://goproxy.cn,direct
+ENV GO111MODULE on
 
 COPY go.mod go.sum ./
 RUN --mount=type=cache,target=/go/pkg/mod/cache \
