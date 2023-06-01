@@ -29,6 +29,21 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+  
+  mq:
+    image: rabbitmq:3.8.3-management
+    # container_name: rabbitmq
+    # restart: always
+    # hostname: rabbitmq_host
+    ports:
+      - 15672:15672
+      - 5672:5672
+    volumes:
+      - db-data:/var/log/rabbitmq
+      - db-data:/var/lib/rabbitmq
+    environment:
+      - RABBITMQ_DEFAULT_USER=root
+      - RABBITMQ_DEFAULT_PASS=123456
 
   proxy:
     image: nginx
