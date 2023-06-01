@@ -4,7 +4,7 @@
 
 You can open this sample in the Dev Environments feature of Docker Desktop version 4.12 or later.
 
-[Open in Docker Dev Environments <img src="../open_in_new.svg" alt="Open in Docker Dev Environments" align="top"/>](https://open.docker.com/dashboard/dev-envs?url=https://github.com/YYUYYJ/awesome-compose/tree/master/nginx-golang-postgres-rabbitmq)
+[Open in Docker Dev Environments <img src="../open_in_new.svg" alt="Open in Docker Dev Environments" align="top"/>](https://open.docker.com/dashboard/dev-envs?url=https://github.com/YYUYYJ/awesome-compose/tree/YYUYYJ-patch-1/nginx-golang-postgres-rabbitmq)
 
 ### Go server with an Nginx proxy and a Postgres database
 
