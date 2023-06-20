@@ -1,0 +1,36 @@
+services:
+  redpanda:
+    image: docker.redpanda.com/vectorized/redpanda:v22.2.2
+    command:
+      - redpanda start
+      - --smp 1
+      - --overprovisioned
+      - --node-id 0
+      - --kafka-addr PLAINTEXT://0.0.0.0:29092,OUTSIDE://0.0.0.0:9092
+      - --advertise-kafka-addr PLAINTEXT://redpanda:29092,OUTSIDE://redpanda:9092
+      - --pandaproxy-addr 0.0.0.0:8082
+      - --advertise-pandaproxy-addr localhost:8082
+    ports:
+      - 8081:8081
+      - 8082:8082
+      - 9092:9092
+      - 9644:9644
+      - 29092:29092
+    volumes:
+      - ./kafka:/app
+  etl:
+    image: etl-kafka
+    platform: wasi/wasm
+    build:
+      context: etl
+    environment:
+      DATABASE_URL: mysql://root:whalehello@db:3306/mysql
+      KAFKA_URL: kafka://redpanda:9092/order
+      RUST_BACKTRACE: full
+      RUST_LOG: info
+    restart: unless-stopped
+    runtime: io.containerd.wasmedge.v1
+  db:
+    image: mariadb:10.9
+    environment:
+      MYSQL_ROOT_PASSWORD: whalehello
