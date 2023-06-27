@@ -36,7 +36,7 @@ Make sure port 8080 on the host is not already being in use.
 ## Deploy with docker compose
 
 ```
-$ docker compose up -d
+$ docker-compose up -d
 Creating network "vuejs_default" with the default driver
 Building web
 Step 1/8 : FROM node:13.10.1-alpine
@@ -61,7 +61,7 @@ After the application starts, navigate to `http://localhost:80` in your web brow
 
 Stop and remove the containers
 ```
-$ docker compose down
+$ docker-compose down
 Stopping vuejs_web_1 ... done
 Removing vuejs_web_1 ... done
 Removing network vuejs_default
