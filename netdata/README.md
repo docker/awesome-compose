@@ -41,6 +41,7 @@ volumes:
   netdatalib:
   netdatacache:
 ```
+
 The compose file defines a stack with the service `netdata` and available at port `19999` by default. More information around installation options and configuration via Docker can be found in the Netdata docs [here](https://learn.netdata.cloud/docs/agent/packaging/docker).
 Make sure the port 19999 on the host is not already in use.
 
