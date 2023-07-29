@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+import socket
 
 app = Flask(__name__)
 
@@ -17,6 +18,7 @@ def info():
 		'connecting_ip': request.headers['X-Real-IP'],
 		'proxy_ip': request.headers['X-Forwarded-For'],
 		'host': request.headers['Host'],
+		'containe_id': socket.gethostname(),
 		'user-agent': request.headers['User-Agent']
 	}
 
