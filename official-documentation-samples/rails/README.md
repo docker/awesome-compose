@@ -110,8 +110,8 @@ services:
     env_file: .env
 
     # lets you use the debugger
-    stdin_open: true
-    tty: true
+    # stdin_open: true
+    # tty: true
   
   # Shows you emails sent by Rails at localhost:1080
   maildev:
@@ -130,8 +130,10 @@ services:
     environment:
       RAILS_ENV: test
     env_file: .env
-    stdin_open: true
-    tty: true
+
+    # lets you use the debugger
+    # stdin_open: true
+    # tty: true
 
   # For system tests, optional
   chrome-server:
