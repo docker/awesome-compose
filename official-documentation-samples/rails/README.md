@@ -26,7 +26,7 @@ RUN bundle install
 COPY . /app
 
 # Only necessary for production
-RUN rails assets:precompile
+# RUN rails assets:precompile
 
 # Add a script to be executed every time the container starts.
 COPY entrypoint.sh /usr/bin/
