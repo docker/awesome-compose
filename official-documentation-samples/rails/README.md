@@ -48,7 +48,7 @@ Next, open an editor and create a bootstrap `Gemfile` which just loads Rails. Th
 
 ```ruby
 source 'https://rubygems.org'
-gem 'rails', '~>5'
+gem 'rails', '~>7'
 ```
 
 Create an empty `Gemfile.lock` file to build our `Dockerfile`.
