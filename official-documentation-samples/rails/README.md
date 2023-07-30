@@ -138,6 +138,20 @@ services:
 >
 > You can use either a `.yml` or `.yaml` extension for this file.
 
+You can see in the docker-compose.yml file:
+> env_file: .env
+
+We need to create that .env file, with the following content:
+
+```bash
+POSTGRES_PASSWORD=uniquesecretpassword
+POSTGRES_USER=postgres
+```
+Feel free to make them unique.
+
+Note for later: if you commit your code to git, make sure to add this .env file that has your
+db password to .gitignore. You can use this file to store other secrets.
+
 ### Build the project
 
 With those files in place, you can now generate the Rails skeleton app
