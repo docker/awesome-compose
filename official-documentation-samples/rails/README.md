@@ -229,25 +229,27 @@ expects a database to be running on `localhost` - so you need to point it at the
 `db` container instead. You also need to change the database and username to
 align with the defaults set by the `postgres` image.
 
-Replace the contents of `config/database.yml` with the following:
+Adapt the contents of `config/database.yml`.
+
+The lines you need to add are marked with a comment.
 
 ```yaml
 default: &default
   adapter: postgresql
   encoding: unicode
-  host: db
-  username: postgres
-  password: password
-  pool: 5
+  host: db # add this
+  username: <%= ENV['POSTGRES_USER'] %> # and this
+  password: <%= ENV['POSTGRES_PASSWORD'] %> # and this
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
   <<: *default
-  database: myapp_development
+  database: app_development
 
 
 test:
   <<: *default
-  database: myapp_test
+  database: app_test
 ```
 
 You can now boot the app with [docker compose up](https://docs.docker.com/engine/reference/commandline/compose_up/).
