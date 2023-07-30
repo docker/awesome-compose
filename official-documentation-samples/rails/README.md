@@ -80,22 +80,58 @@ the web app is built from the current directory), and the configuration needed
 to link them together and expose the web app's port.
 
 ```yaml
+volumes:
+  db-data:
+  gems:
+
 services:
   db:
-    image: postgres
+    image: postgres:15
     volumes:
-      - ./tmp/db:/var/lib/postgresql/data
-    environment:
-      POSTGRES_PASSWORD: password
+      - db-data:/var/lib/postgresql/data
+    env_file: .env
+
   web:
     build: .
-    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
-      - .:/myapp
+      - .:/app:z
+      - gems:/usr/local/bundle
     ports:
       - "3000:3000"
     depends_on:
+      - maildev # for email in dev, optional
       - db
+    env_file: .env
+
+    # lets you use the debugger
+    stdin_open: true
+    tty: true
+  
+  # Shows you emails sent by Rails at localhost:1080
+  maildev:
+    image: maildev/maildev
+    ports:
+      - "1080:1080"
+
+  test:
+    build: .
+    volumes:
+      - .:/app
+      - gems:/usr/local/bundle
+    depends_on:
+      - db
+      - chrome-server # For system tests, optional
+    environment:
+      RAILS_ENV: test
+    env_file: .env
+    stdin_open: true
+    tty: true
+
+  # For system tests, optional
+  chrome-server:
+    image: selenium/standalone-chrome
+    ports:
+      - "7900:7900"
 ```
 
 > **Tip**
