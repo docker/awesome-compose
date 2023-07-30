@@ -5,6 +5,8 @@ a Rails/PostgreSQL app. Before starting, [install Compose](https://docs.docker.c
 
 ## Define the project
 
+### Dockerfile
+
 Start by setting up the files needed to build the app. The app will run inside a
 Docker container containing its dependencies. Defining dependencies is done using
 a file called `Dockerfile`. To begin with, the  Dockerfile consists of:
@@ -44,6 +46,8 @@ with Ruby, Bundler and all your dependencies inside it. For more information on
 how to write Dockerfiles, see the [Docker user guide](https://docs.docker.com/get-started/)
 and the [Dockerfile reference](https://docs.docker.com/engine/reference/builder/).
 
+# Set up Rails
+
 Next, open an editor and create a bootstrap `Gemfile` which just loads Rails. This will be overwritten in a moment by `rails new`.
 
 ```ruby
@@ -72,6 +76,8 @@ rm -f /app/tmp/pids/server.pid
 # Then exec the container's main process (what's set as CMD in the Dockerfile).
 exec "$@"
 ```
+
+### Compose file
 
 Finally, `docker-compose.yml` is where the magic happens. This file describes
 the services that comprise your app (a database and a web app), how to get each
@@ -138,8 +144,12 @@ services:
 >
 > You can use either a `.yml` or `.yaml` extension for this file.
 
+### Dot env file
+
 You can see in the docker-compose.yml file:
-> env_file: .env
+```yaml
+env_file: .env
+```
 
 We need to create that .env file, with the following content:
 
@@ -152,7 +162,7 @@ Feel free to make them unique.
 Note for later: if you commit your code to git, make sure to add this .env file that has your
 db password to .gitignore. You can use this file to store other secrets.
 
-### Build the project
+## Build the project
 
 With those files in place, you can now generate the Rails skeleton app
 using [docker compose run](https://docs.docker.com/engine/reference/commandline/compose_run/):
@@ -212,7 +222,7 @@ to rebuild.)
 $ docker compose build
 ```
 
-### Connect the database
+## Connect the database
 
 The app is now bootable, but you're not quite there yet. By default, Rails
 expects a database to be running on `localhost` - so you need to point it at the
@@ -276,7 +286,7 @@ browser to see the Rails Welcome.
 
 ![Rails example](images/rails-welcome.png)
 
-### Stop the application
+## Stop the application
 
 To stop the application, run [docker compose down](https://docs.docker.com/engine/reference/commandline/compose_down/) in
 your project directory. You can use the same terminal window in which you
@@ -295,7 +305,7 @@ Removing network rails_default
 
 ```
 
-### Restart the application
+## Restart the application
 
 To restart the application run `docker compose up` in the project directory.
 
