@@ -313,7 +313,7 @@ Removing network rails_default
 
 To restart the application run `docker compose up` in the project directory.
 
-### Rebuild the application
+## Rebuild the application
 
 If you make changes to the Gemfile or the Compose file to try out some different
 configurations, you need to rebuild. Some changes require only
@@ -337,6 +337,31 @@ Now, rebuild and restart the app with `docker compose up --build`.
 Inside the container, your app is running on the same port as before `3000`, but
 the Rails Welcome is now available on `http://localhost:3001` on your local
 host.
+
+## How to use rails in Docker Compose
+You probably guessed it from the step where we created the database: now you have to
+prefix your rails commands with "docker compose run web"
+
+If you want to migrate the database:
+
+```console
+docker compose run web rails db:migrate
+```
+If you want to see the routes:
+
+```console
+docker compose run web rails routes
+```
+NB: you can pipe it to other commands.
+
+```console
+docker compose run web rails routes | grep articles
+```
+And the rails console is waiting for you at
+
+```console
+docker compose run web rails console
+```
 
 ## More Compose documentation
 
