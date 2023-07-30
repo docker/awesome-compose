@@ -273,10 +273,10 @@ db_1   | 2018-03-21 20:18:37.772 UTC [1] LOG:  database system is ready to accep
 Finally, you need to create the database. In another terminal, run:
 
 ```console
-$ docker compose run web rake db:create
+$ docker compose run web rails db:prepare
 Starting rails_db_1 ... done
-Created database 'myapp_development'
-Created database 'myapp_test'
+Created database 'app_development'
+Created database 'app_test'
 ```
 
 ### View the Rails welcome page!
