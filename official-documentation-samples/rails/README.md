@@ -258,7 +258,7 @@ You can now boot the app with [docker compose up](https://docs.docker.com/engine
 If all is well, you should see some PostgreSQL output:
 
 ```console
-$ docker compose up
+$ docker compose up web
 
 rails_db_1 is up-to-date
 Creating rails_web_1 ... done
