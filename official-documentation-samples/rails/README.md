@@ -379,6 +379,21 @@ config.action_mailer.smtp_settings = {
 Now [set up a mailer](https://guides.rubyonrails.org/action_mailer_basics.html) and view all emails sent by
 your app at http://localhost:1080
 
+## Run some tests
+
+Your tests are ready to run with:
+
+```bash
+docker compose run test rails test
+```
+Note how we're not running them from the "web" container, but from the "test" container.
+
+Your system tests however, the ones that fire up an actual browser and simulate clicks and keyboard entries,
+these tests won't work yet, as we need to point Rails to the Chrome browser included in the app in the
+"chrome-server" service.
+
+If you don't need system tests, ignore this and comment out the "chrome-server" service.
+
 ## More Compose documentation
 
 * [Docker Compose overview](https://docs.docker.com/compose/)
