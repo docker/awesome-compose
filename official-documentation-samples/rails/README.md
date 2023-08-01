@@ -361,6 +361,24 @@ And the rails console is waiting for you at
 docker compose run web rails console
 ```
 
+## Configure mail
+
+The app includes a maildev server so you can view emails sent by your app.
+Comment out the maildev service if your app doesn't send email.
+
+If it does, add this to config/development.rb
+
+```yaml
+config.action_mailer.delivery_method = :smtp
+config.action_mailer.smtp_settings = {
+  :address => 'maildev',
+  :port => 1025,
+  :openssl_verify_mode => 'none'
+}
+```
+Now [set up a mailer](https://guides.rubyonrails.org/action_mailer_basics.html) and view all emails sent by
+your app at http://localhost:1080
+
 ## More Compose documentation
 
 * [Docker Compose overview](https://docs.docker.com/compose/)
