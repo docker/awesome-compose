@@ -90,7 +90,7 @@ volumes:
 
 services:
   db:
-    image: postgres
+    image: postgres:15
     volumes:
       - db-data:/var/lib/postgresql/data
     env_file: .env
@@ -113,7 +113,7 @@ services:
   
   # Shows you emails sent by Rails at localhost:1080
   maildev:
-    image: maildev/maildev
+    image: maildev/maildev:2
     ports:
       - "1080:1080"
 
@@ -135,7 +135,7 @@ services:
 
   # For system tests, optional
   chrome-server:
-    image: selenium/standalone-chrome
+    image: selenium/standalone-chrome:114
     ports:
       - "7900:7900"
 ```
