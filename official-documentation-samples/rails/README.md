@@ -90,7 +90,7 @@ volumes:
 
 services:
   db:
-    image: postgres:15
+    image: postgres
     volumes:
       - db-data:/var/lib/postgresql/data
     env_file: .env
