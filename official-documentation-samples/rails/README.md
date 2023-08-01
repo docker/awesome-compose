@@ -309,7 +309,7 @@ Removing network rails_default
 
 ## Restart the application
 
-To restart the application run `docker compose up` in the project directory.
+To restart the application run `docker compose up web` in the project directory.
 
 ## Rebuild the application
 
