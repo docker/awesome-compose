@@ -361,6 +361,16 @@ And the rails console is waiting for you at
 docker compose run web rails console
 ```
 
+Install some gems you added to your Gemfile:
+```console
+docker-compose run web bundle install
+```
+
+Drop in a terminal inside the rails container:
+```console
+docker-compose run web bash
+```
+
 ## Configure mail
 
 The app includes a maildev server so you can view emails sent by your app.
