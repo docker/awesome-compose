@@ -440,7 +440,7 @@ It should be at the base of the file, outside of the TestCase class definition.
 Now you can run your system tests:
 
 ```bash
-docker compose run test rails test
+docker compose run test rails test:system
 ```
 
 #### Watch the system tests run
