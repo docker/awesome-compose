@@ -427,7 +427,7 @@ First, uncomment the chrome-server service in the docker-compose.yml
 
 Rails expects the browser to be local. We need to point it to the chrome-server.
 
-Add the options to the driver definition in test/application_system_test_case.rb
+Adapth the driver definition in test/application_system_test_case.rb
 
 ```ruby
 driven_by :selenium, using: :headless_chrome, screen_size: [1400, 1400], options: {
