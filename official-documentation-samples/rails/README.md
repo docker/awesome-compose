@@ -328,7 +328,7 @@ send email.
 
 Then add this to config/development.rb
 
-```yaml
+```ruby
 config.action_mailer.delivery_method = :smtp
 config.action_mailer.smtp_settings = {
   :address => 'maildev',
