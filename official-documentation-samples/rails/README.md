@@ -254,7 +254,7 @@ test:
   database: app_test
 ```
 
-You can now boot the app with [docker compose up](https://docs.docker.com/engine/reference/commandline/compose_up/).
+You can now boot the app with [docker compose up web](https://docs.docker.com/engine/reference/commandline/compose_up/).
 If all is well, you should see some PostgreSQL output:
 
 ```console
