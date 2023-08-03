@@ -113,7 +113,7 @@ services:
   
   # Shows you emails sent by Rails at localhost:1080
   maildev:
-    image: maildev/maildev:2
+    image: maildev/maildev:2.1.0
     ports:
       - "1080:1080"
 
