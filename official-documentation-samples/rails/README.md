@@ -237,9 +237,11 @@ The lines you need to add are marked with a comment.
 default: &default
   adapter: postgresql
   encoding: unicode
-  host: db # add this
-  username: <%= ENV['POSTGRES_USER'] %> # and this
-  password: <%= ENV['POSTGRES_PASSWORD'] %> # and this
+  # add what's below this
+  host: db
+  username: <%= ENV['POSTGRES_USER'] %>
+  password: <%= ENV['POSTGRES_PASSWORD'] %>
+  # and above this
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
