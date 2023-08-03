@@ -395,18 +395,16 @@ docker-compose run web bash
 
 ## Run some tests
 
-Once you migrate your test database:
+The test environment has some setup steps as well. Mostly related to system tests. In fact, your regular tests are already ready to run.
+
+Once you migrate your test database of course:
 
 ```bash
 docker compose run test rails db:migrate
-```
-
-your tests are ready to run with:
-
-```bash
 docker compose run test rails test
 ```
-Note how we're not running them from the "web" container, but from the "test" container.
+
+Note how we're not using the "web" container, but from the "test" container.
 
 Your system tests however, the ones that fire up an actual browser and simulate clicks and keyboard entries,
 these tests won't work yet, as we need to point Rails to the Chrome browser included in the app in the
