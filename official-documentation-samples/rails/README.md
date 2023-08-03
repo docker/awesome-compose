@@ -13,7 +13,7 @@ a file called `Dockerfile`. To begin with, the  Dockerfile consists of:
 
 ```dockerfile
 # syntax=docker/dockerfile:1
-FROM ruby:3
+FROM ruby:3.2.2
 
 # Install postgres client
 RUN apt-get update && apt-get install -y postgresql-client
