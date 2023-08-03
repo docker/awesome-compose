@@ -112,10 +112,10 @@ services:
     # tty: true
   
   # Shows you emails sent by Rails at localhost:1080
-  maildev:
-    image: maildev/maildev:2.1.0
-    ports:
-      - "1080:1080"
+  # maildev:
+  #  image: maildev/maildev:2.1.0
+  #  ports:
+  #    - "1080:1080"
 
   test:
     build: .
@@ -134,8 +134,8 @@ services:
     # tty: true
 
   # For system tests, optional
-  chrome-server:
-    image: selenium/standalone-chrome:114.0
+  # chrome-server:
+  #   image: selenium/standalone-chrome:114.0
 ```
 
 > **Tip**
@@ -347,9 +347,10 @@ host.
 ## Configure mail
 
 The app includes a maildev server so you can view emails sent by your app.
-Comment out the maildev service if your app doesn't send email.
+Uncomment the maildev service in docker-compose.yml if your app needs to
+send email.
 
-If it does, add this to config/development.rb
+Then add this to config/development.rb
 
 ```yaml
 config.action_mailer.delivery_method = :smtp
@@ -416,9 +417,11 @@ Your system tests however, the ones that fire up an actual browser and simulate 
 these tests won't work yet, as we need to point Rails to the Chrome browser included in the app in the
 "chrome-server" service.
 
-If you don't need system tests, ignore this and comment out the "chrome-server" service.
+If you don't need system tests, ignore the next part.
 
 ### Set up the browser for system tests
+
+First, uncomment the chrome-server service in the docker-compose.yml
 
 #### Point Capybara to the browser
 
