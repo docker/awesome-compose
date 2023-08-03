@@ -338,41 +338,6 @@ Inside the container, your app is running on the same port as before `3000`, but
 the Rails Welcome is now available on `http://localhost:3001` on your local
 host.
 
-## How to use rails in Docker Compose
-You probably guessed it from the step where we created the database: now you have to
-prefix your rails commands with "docker compose run web"
-
-If you want to migrate the database:
-
-```console
-docker compose run web rails db:migrate
-```
-If you want to see the routes:
-
-```console
-docker compose run web rails routes
-```
-NB: you can pipe it to other commands.
-
-```console
-docker compose run web rails routes | grep articles
-```
-And the rails console is waiting for you at
-
-```console
-docker compose run web rails console
-```
-
-Install some gems you added to your Gemfile:
-```console
-docker-compose run web bundle install
-```
-
-Drop in a terminal inside the rails container:
-```console
-docker-compose run web bash
-```
-
 ## Configure mail
 
 The app includes a maildev server so you can view emails sent by your app.
@@ -390,6 +355,43 @@ config.action_mailer.smtp_settings = {
 ```
 Now [set up a mailer](https://guides.rubyonrails.org/action_mailer_basics.html) and view all emails sent by
 your app at http://localhost:1080
+
+## How to use rails in Docker Compose
+
+At this point, your dev environement is set up. You can create your models and scaffold by piping rails to the correct container. Simply prefix "docker compose run web" to your command. For example, let's generate a scaffold.
+```console
+docker compose run web rails generate scaffold Post title:string body:text
+```
+
+You can edit files locally and see the result in your browser. Just edit the routes files to point to Post#index and your new blogging platform is ready. As soon as you've migrated the database, that is:
+```console
+docker compose run web rails db:migrate
+```
+
+If you want to see the routes:
+```console
+docker compose run web rails routes
+```
+NB: you can pipe it to other commands.
+
+```console
+docker compose run web rails routes | grep articles
+```
+
+And the rails console is waiting for you at
+```console
+docker compose run web rails console
+```
+
+Install some gems you added to your Gemfile:
+```console
+docker-compose run web bundle install
+```
+
+Drop in a terminal inside the rails container:
+```console
+docker-compose run web bash
+```
 
 ## Run some tests
 
