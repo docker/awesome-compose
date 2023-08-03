@@ -103,7 +103,7 @@ services:
     ports:
       - "3000:3000"
     depends_on:
-      - maildev # for email in dev, optional
+      # - maildev # for email in dev, optional
       - db
     env_file: .env
 
@@ -124,7 +124,7 @@ services:
       - gems:/usr/local/bundle
     depends_on:
       - db
-      - chrome-server # For system tests, optional
+      # - chrome-server # For system tests, optional
     environment:
       RAILS_ENV: test
     env_file: .env
