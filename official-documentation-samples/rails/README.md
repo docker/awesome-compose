@@ -253,30 +253,14 @@ test:
 ```
 
 You can now boot the app with [docker compose up web](https://docs.docker.com/engine/reference/commandline/compose_up/).
-If all is well, you should see some PostgreSQL output:
 
 ```console
 $ docker compose up web
-
-rails_db_1 is up-to-date
-Creating rails_web_1 ... done
-Attaching to rails_db_1, rails_web_1
-db_1   | PostgreSQL init process complete; ready for start up.
-db_1   |
-db_1   | 2018-03-21 20:18:37.437 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
-db_1   | 2018-03-21 20:18:37.437 UTC [1] LOG:  listening on IPv6 address "::", port 5432
-db_1   | 2018-03-21 20:18:37.443 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
-db_1   | 2018-03-21 20:18:37.726 UTC [55] LOG:  database system was shut down at 2018-03-21 20:18:37 UTC
-db_1   | 2018-03-21 20:18:37.772 UTC [1] LOG:  database system is ready to accept connections
 ```
 
 Finally, you need to create the database. In another terminal, run:
-
 ```console
 $ docker compose run web rails db:prepare
-Starting rails_db_1 ... done
-Created database 'app_development'
-Created database 'app_test'
 ```
 
 ### View the Rails welcome page!
