@@ -136,8 +136,6 @@ services:
   # For system tests, optional
   chrome-server:
     image: selenium/standalone-chrome:114.0
-    ports:
-      - "7900:7900"
 ```
 
 > **Tip**
