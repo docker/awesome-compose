@@ -393,7 +393,13 @@ your app at http://localhost:1080
 
 ## Run some tests
 
-Your tests are ready to run with:
+Once you migrate your test database:
+
+```bash
+docker compose run test rails db:migrate
+```
+
+your tests are ready to run with:
 
 ```bash
 docker compose run test rails test
