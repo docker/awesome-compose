@@ -421,7 +421,7 @@ Rails expects the browser to be local. We need to point it to the chrome-server.
 Add the options to the driver definition in test/application_system_test_case.rb
 
 ```ruby
-driven_by :selenium, using: :chrome, screen_size: [1400, 1400], options: {
+driven_by :selenium, using: :headless_chrome, screen_size: [1400, 1400], options: {
     browser: :remote,
     url: "http://chrome-server:4444/wd/hub"
   }
@@ -441,47 +441,6 @@ Now you can run your system tests:
 
 ```bash
 docker compose run test rails test:system
-```
-
-#### Watch the system tests run
-
-The chrome-server definition has an open port on the host:
-
-```yaml
-chrome-server:
-  image: selenium/standalone-chrome
-  ports:
-    - "7900:7900"
-```
-This is so that you can watch them execute in the browser.
-
-Before running your tests, start the chrome-server:
-
-```bash
-docker compose run chrome-server
-```
-Once it's up, visit localhost:7900 on your browser.
-
-Click on "connect", enter the secret password (it's "secret"), and you'll see
-a GUI workspace.
-
-Now, from another terminal, launch your tests:
-
-```bash
-docker compose run test rails test:system
-```
-And watch a browser window (inside your browser window) go through all the steps.
-
-Better with popcorn.
-
-When you get tired of watching, you can remove the open ports on the "chrome-server" service
-in the docker-compose file, and change the Selenium driver to :headless_chrome. It'll be a
-little faster:
-
-In test/application_system_test_case.rb:
-
-```ruby
-driven_by :selenium, using: :headless_chrome # ....
 ```
 
 ## More Compose documentation
