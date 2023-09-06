@@ -1,0 +1,29 @@
+version: '3.5'
+services:
+  zabbix-postgres:
+    image: postgres
+    ports:
+      - "5439:5432"
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=zabbix
+
+  zabbix-server:
+    image: zabbix/zabbix-server-pgsql
+    ports:
+      - "10051:10051"
+    environment:
+      - DB_SERVER_HOST=zabbix-postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+
+  zabbix-web-nginx-pgsql:
+    image: zabbix/zabbix-web-nginx-pgsql
+    ports:
+      - "80:8080"
+      - "443:8443"
+    environment:
+      - ZBX_SERVER_HOST=zabbix-server
+      - DB_SERVER_HOST=zabbix-postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
