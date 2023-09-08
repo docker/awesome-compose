@@ -5,13 +5,12 @@
 Nginx is capable of providing a reverse proxy with basic authentication for a service. This is a simple example of how 
 to do that. The upload route is protected with a different password file to the base route. The intent of this is to 
 allow the upload route to be protected with a more restricted set of users than the base route. The nginx configuration
-is set delay the response to a failed authentication for 5 seconds. This is to slow down brute force attacks. The upload
+is set to delay the response to a failed authentication for 5 seconds. This is to slow down brute force attacks. The upload
 route is redirected internally to the pypiserver service and is only for POST methods. In this way we have added the 
 admin password to a route that is for uploads based on the POST verb.
 
-In this example two users are used bob and alice. The password for both is password. You would not hardcode the passwords.
+In this example two users are used, bob and alice. The password for both is **password**. You would not hardcode the passwords.
 This is for demonstration purposes only. The pypiserver is capable of providing basic auth but not basic auth per a route.
-Additionally nginx provides an auth_delay which is set to 5 seconds. This is to slow down brute force attacks.
 
 
 ## Project structure:
@@ -52,7 +51,7 @@ services:
 ## Deploy with docker compose
 
 ```
-docker compose up -d
+docker compose up 
 ...
 Creating network "nginx-proxy-auth-work_default" with the default driver
 Creating nginx-proxy-auth-work_pypiserver_1 ... done
@@ -100,7 +99,3 @@ Stop and remove the containers
 $ docker compose down
 ```
 
-To delete all data, remove all named volumes by passing the `-v` arguments:
-```
-$ docker compose down -v
-```
