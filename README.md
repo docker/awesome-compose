@@ -38,6 +38,7 @@ application with Nginx proxy and a Mongo database.&nbsp;<a href="nginx-flask-mon
 - [`NGINX / Node.js / Redis`](nginx-nodejs-redis) - Sample Node.js application with Nginx proxy and a Redis database
 - [`NGINX / Go`](nginx-golang) - Sample Nginx proxy with a Go backend.&nbsp;<a href="nginx-golang"><img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/></a>
 - [`NGINX / WSGI / Flask`](nginx-wsgi-flask) - Sample Nginx reverse proxy with a Flask backend using WSGI.
+- [`NGINX / PyPiServer`](nginx-auth-rev-proxy-pypiserver) - Sample Nginx reverse proxy with a PyPiServer backend using WSGI.
 - [`PostgreSQL / pgAdmin`](postgresql-pgadmin) - Sample setup for postgreSQL database with pgAdmin web interface
 - [`Python / Flask / Redis`](flask-redis) - Sample Python/Flask and a Redis database&nbsp;<a href="flask-redis"><img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/></a>
 - [`React / Spring / MySQL`](react-java-mysql) - Sample React
