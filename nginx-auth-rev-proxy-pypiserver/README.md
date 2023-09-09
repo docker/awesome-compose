@@ -3,7 +3,7 @@
 
 ## Purpose
 Nginx is capable of providing a reverse proxy with basic authentication for a service. This is a simple example of how 
-to do that. The upload route is protected with a different password file to the base route. The intent of this is to 
+to do that. The upload route is protected with a different password to the base route. The intent of this is to 
 allow the upload route to be protected with a more restricted set of users than the base route. The nginx configuration
 is set to delay the response to a failed authentication for 5 seconds. This is to slow down brute force attacks. The upload
 route is redirected internally to the pypiserver service and is only for POST methods. In this way we have added the 
