@@ -10,7 +10,7 @@ route is redirected internally to the pypiserver service and is only for POST me
 admin password to a route that is for uploads based on the POST verb.
 
 In this example two users are used, bob and alice. The password for both is **password**. You would not hardcode the passwords.
-This is for demonstration purposes only. The pypiserver is capable of providing basic auth but not basic auth per a route.
+This is for demonstration purposes only. In addition only the nginx port would be exposed to the internet. 
 
 
 ## Project structure:
