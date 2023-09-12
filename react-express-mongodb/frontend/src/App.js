@@ -1,15 +1,15 @@
 import React from "react";
 import axios from "axios";
 import "./App.scss";
-import AddTodo from "./components/AddTodo";
-import TodoList from "./components/TodoList";
+import AddJobApp from "./components/AddJobApp";
+import JobAppList from "./components/JobAppList_v2";
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      todos: [],
+      jobapps: [],
     };
   }
 
@@ -18,18 +18,18 @@ export default class App extends React.Component {
       .get("/api")
       .then((response) => {
         this.setState({
-          todos: response.data.data,
+          jobapps: response.data.data,
         });
       })
       .catch((e) => console.log("Error : ", e));
   }
 
-  handleAddTodo = (value) => {
+  handleAddJobApp = (value, sendDate, source, desc) => {
     axios
-      .post("/api/todos", { text: value })
+      .post("/api/jobapps", { text: value, whenApplied: sendDate, from: source, description: desc })
       .then(() => {
         this.setState({
-          todos: [...this.state.todos, { text: value }],
+          jobapps: [...this.state.jobapps, { text: value, whenApplied: sendDate, from: source, description: desc }],
         });
       })
       .catch((e) => console.log("Error : ", e));
@@ -41,10 +41,10 @@ export default class App extends React.Component {
         <div className="container-fluid">
           <div className="row">
             <div className="col-xs-12 col-sm-8 col-md-8 offset-md-2">
-              <h1>Todos</h1>
-              <div className="todo-app">
-                <AddTodo handleAddTodo={this.handleAddTodo} />
-                <TodoList todos={this.state.todos} />
+              <h1>JobApps</h1>
+              <div className="jobapp-app">
+                <AddJobApp handleAddJobApp={this.handleAddJobApp} />
+                <JobAppList jobapps={this.state.jobapps} />
               </div>
             </div>
           </div>

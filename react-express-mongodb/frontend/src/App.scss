@@ -1,15 +1,15 @@
 .App {
   text-align: center;
 }
-.todo-app {
+.jobapp-app {
   background-color: #efefef;
   padding: 1.2em;
-  .new-todo{
+  .new-jobapp{
     display: flex;
     justify-content: space-between;
     align-items: center;
     input{
-      width: 80% !important;
+      width: 100% !important;
     }
   }
 }

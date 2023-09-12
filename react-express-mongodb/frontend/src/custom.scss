@@ -6,3 +6,15 @@ $body-bg: #fff;
 .cursor-pointer {
   cursor: pointer;
 }
+
+.notActive {
+  display:none;
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+
+th, td {
+  padding: 10px;
+}
