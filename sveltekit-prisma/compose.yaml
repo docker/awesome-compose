@@ -1,0 +1,40 @@
+services:
+  server:
+    container_name: sveltekit-prisma-server
+    build:
+      context: .
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - 3000:3000
+    env_file:
+      - .env
+    networks:
+      - net
+  db:
+    container_name: sveltekit-prisma-db
+    image: postgres
+    restart: always
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    env_file:
+      - .env
+    healthcheck:
+      test: ['CMD', 'pg_isready']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - net
+
+volumes:
+  db-data:
+    name: sveltekit-prisma-vol
+
+networks:
+  net:
+    name: sveltekit-prisma-net
+    driver: bridge
