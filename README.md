@@ -79,6 +79,7 @@ with Spring framework and a Postgres database.&nbsp;<a href="spring-postgres"><i
 - [`Pi-hole / cloudflared`](pihole-cloudflared-DoH) - Sample Pi-hole setup with use of DoH cloudflared service
 - [`Prometheus / Grafana`](prometheus-grafana)
 - [`Wordpress / MySQL`](wordpress-mysql)
+- [`LocalStack`](localstack)
 
 <!--lint disable awesome-toc-->
 
