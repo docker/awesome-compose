@@ -1,0 +1,82 @@
+version: '3'
+
+networks:
+  graynet:
+    driver: bridge
+
+# This is how you persist data between container restarts
+volumes:
+  mongo_data:
+    driver: local
+  log_data:
+    driver: local
+  graylog_data:
+    driver: local
+
+services:
+  # The configuration is stored in MongoDB
+  mongo:
+    image: mongo:6.0.5-jammy
+    container_name: mongodb
+    volumes:
+      - "mongo_data:/data/db"
+    networks:
+      - graynet
+    restart: unless-stopped
+
+  # The logs are stored in Opensearch
+  opensearch:
+    image: opensearchproject/opensearch:2
+    container_name: opensearch
+    environment:
+      - "OPENSEARCH_JAVA_OPTS=-Xms1g -Xmx1g"
+      - "bootstrap.memory_lock=true"
+      - "discovery.type=single-node"
+      - "action.auto_create_index=false"
+      - "plugins.security.ssl.http.enabled=false"
+      - "plugins.security.disabled=true"
+    volumes:
+      - "log_data:/usr/share/opensearch/data"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+      nofile:
+        soft: 65536
+        hard: 65536
+    ports:
+      - 9200:9200/tcp
+    networks:
+      - graynet
+    restart: unless-stopped
+
+  graylog:
+    image: graylog/graylog:5.1
+    container_name: graylog
+    environment:
+      GRAYLOG_PASSWORD_SECRET: "${GRAYLOG_PASSWORD_SECRET:?Please configure GRAYLOG_PASSWORD_SECRET in the .env file}"
+      GRAYLOG_ROOT_PASSWORD_SHA2: "${GRAYLOG_ROOT_PASSWORD_SHA2:?Please configure GRAYLOG_ROOT_PASSWORD_SHA2 in the .env file}"
+      GRAYLOG_HTTP_BIND_ADDRESS: "0.0.0.0:9000"
+      GRAYLOG_HTTP_EXTERNAL_URI: "http://localhost:9000/"
+      GRAYLOG_ELASTICSEARCH_HOSTS: "http://opensearch:9200"
+      GRAYLOG_MONGODB_URI: "mongodb://mongodb:27017/graylog"
+      GRAYLOG_TIMEZONE: "America/Los_Angeles"
+      TZ: "America/Los_Angeles"
+    entrypoint: /usr/bin/tini -- wait-for-it opensearch:9200 -- /docker-entrypoint.sh
+    volumes:
+      - "${PWD}/config/graylog/graylog.conf:/usr/share/graylog/config/graylog.conf"
+      - "graylog_data:/usr/share/graylog/data"
+    networks:
+      - graynet
+    restart: always
+    depends_on:
+      opensearch:
+        condition: "service_started"
+      mongo:
+        condition: "service_started"
+    ports:
+      - 9000:9000/tcp   # Graylog web interface and REST API
+      - 1514:1514/tcp   # Syslog
+      - 1514:1514/udp   # Syslog
+      - 12201:12201/tcp # GELF
+      - 12201:12201/udp # GELF
