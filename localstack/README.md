@@ -6,9 +6,10 @@ Project structure:
 
 ```text
 .
+├── init.d/
+│   └── init.sh
 ├── compose.yaml
-├── README.md
-└── setup-resources.sh
+└── README.md
 ```
 
 [_compose.yaml_](compose.yaml)
@@ -21,11 +22,6 @@ services:
       - "4566:4566" # LocalStack Gateway
       - "4510-4559:4510-4559" # external services port range
     ...
-  setup-resources:
-    image: mesosphere/aws-cli:1.14.5
-    volumes:
-      - ./:/project
-    ...
 ```
 
 ## Deploy with docker compose
@@ -34,7 +30,7 @@ services:
 docker compose up -d
 ```
 
-It will execute the script `setup-resources.sh` to setup the resources.
+It will execute the scripts located in the `init.d/` folder to bootstrap the resources.
 
 ## Resources
 

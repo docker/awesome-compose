@@ -19,24 +19,4 @@ services:
     volumes:
       - "${LOCALSTACK_VOLUME_DIR:-./volume}:/var/lib/localstack"
       - "/var/run/docker.sock:/var/run/docker.sock"
-    networks:
-      - localstack-net
-
-  setup-resources:
-    image: mesosphere/aws-cli:1.14.5
-    volumes:
-      - ./:/project
-    environment:
-      - AWS_ACCESS_KEY_ID=dummyaccess
-      - AWS_SECRET_ACCESS_KEY=dummysecret
-      - AWS_DEFAULT_REGION=us-east-1
-    entrypoint: /bin/sh -c
-    command: /project/setup-resources.sh
-    networks:
-      - localstack-net
-    depends_on:
-      - localstack
-
-networks:
-  localstack-net:
-    driver: bridge
+      - "./init.d:/etc/localstack/init/ready.d"
