@@ -41,6 +41,10 @@ Once the docker compose is up, it will create the following resources:
 - [S3 Bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html)
 - [SQS Queue](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/welcome.html)
 
+## LocalStack Desktop
+
+You can use [LocalStack Desktop](https://docs.localstack.cloud/user-guide/tools/localstack-desktop/) to manage the resources created by the docker compose.
+
 ## Testing the services
 
 From outside the container you can execute the following commands to test the service each service:
@@ -48,7 +52,7 @@ From outside the container you can execute the following commands to test the se
 - **DynamoDB**
 
 ```sh
-$ aws --endpoint-url=http://localhost:4566 dynamodb list-tables
+$ awslocal dynamodb list-tables
 {
     "TableNames": [
         "my_table"
@@ -59,7 +63,7 @@ $ aws --endpoint-url=http://localhost:4566 dynamodb list-tables
 - **Kinesis**
 
 ```sh
-$ aws --endpoint-url=http://localhost:4566 kinesis list-streams
+$ awslocal kinesis list-streams
 {
     "StreamNames": [
         "my_stream"
@@ -70,14 +74,14 @@ $ aws --endpoint-url=http://localhost:4566 kinesis list-streams
 - **S3**
 
 ```sh
-$ aws --endpoint-url=http://localhost:4566 s3 ls
+$ awslocal s3 ls
 2022-08-08 03:16:01 example-bucket
 ```
 
 - **SQS**
 
 ```sh
-$ aws --endpoint-url=http://localhost:4566 sqs list-queues
+$ awslocal sqs list-queues
 {
     "QueueUrls": [
         "http://localhost:4566/000000000000/my_queue"
