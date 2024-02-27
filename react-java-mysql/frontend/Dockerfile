@@ -9,6 +9,7 @@ COPY package-lock.json /code/package-lock.json
 RUN npm ci
 COPY . /code
 
+
 ENV CI=true
 ENV PORT=3000
 
