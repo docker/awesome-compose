@@ -1,2 +1,3 @@
 Flask==2.0.1
+Werkzeug==2.2.2
 mysql-connector==2.2.9
