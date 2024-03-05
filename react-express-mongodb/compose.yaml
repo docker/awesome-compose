@@ -34,7 +34,7 @@ services:
     restart: always
     image: mongo:4.2.0
     volumes:
-      - ./data:/data/db
+      - mongo_data:/data/db
     networks:
       - express-mongo
     expose:
@@ -42,3 +42,6 @@ services:
 networks:
   react-express:
   express-mongo:
+
+volumes:
+  mongo_data:
