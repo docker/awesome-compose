@@ -1,55 +1,47 @@
-import React from "react";
-import axios from "axios";
+import React, { useState, useEffect } from "react";
 import "./App.scss";
 import AddTodo from "./components/AddTodo";
 import TodoList from "./components/TodoList";
 
-export default class App extends React.Component {
-  constructor(props) {
-    super(props);
+const MainApp = () => {
+  const [todos, setTodos] = useState([]);
 
-    this.state = {
-      todos: [],
-    };
+  async function getTodos() {
+    try {
+      const todoListResponse = await fetch("/api", {
+        method: "GET",
+      });
+
+      if (!todoListResponse.ok) {
+        console.log("Fetch failed");
+      } else {
+        const updatedTodos = await todoListResponse.json();
+        setTodos([...updatedTodos.data]);
+      }
+    } catch (error) {
+      console.log("Error :", error);
+    }
   }
 
-  componentDidMount() {
-    axios
-      .get("/api")
-      .then((response) => {
-        this.setState({
-          todos: response.data.data,
-        });
-      })
-      .catch((e) => console.log("Error : ", e));
-  }
+  useEffect(() => {
+    getTodos();
+  }, []);
 
-  handleAddTodo = (value) => {
-    axios
-      .post("/api/todos", { text: value })
-      .then(() => {
-        this.setState({
-          todos: [...this.state.todos, { text: value }],
-        });
-      })
-      .catch((e) => console.log("Error : ", e));
-  };
-
-  render() {
-    return (
-      <div className="App container">
-        <div className="container-fluid">
-          <div className="row">
-            <div className="col-xs-12 col-sm-8 col-md-8 offset-md-2">
-              <h1>Todos</h1>
-              <div className="todo-app">
-                <AddTodo handleAddTodo={this.handleAddTodo} />
-                <TodoList todos={this.state.todos} />
-              </div>
+  return (
+    <div className="App container">
+      <div className="container-fluid">
+        <div className="row">
+          <div className="col-xs-12 col-sm-8 col-md-8 offset-md-2">
+            <h1>Todos</h1>
+            <div className="todo-app">
+              <AddTodo todos={todos} setTodos={setTodos} />
+              <TodoList todos={todos} />
             </div>
           </div>
         </div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
+
+export default MainApp;
