@@ -1,0 +1,19 @@
+version: '3'
+services:
+  db:
+    build:
+      context: ./postgres
+    ports:
+      - "5432:5432"
+  app:
+    build:
+      context: ./nodejs
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    networks:
+      - backend
+
+networks:
+  backend:
