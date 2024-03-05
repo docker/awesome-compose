@@ -11,12 +11,10 @@ Project structure:
 │   ├── app.py
 │   ├── Dockerfile
 │   ├── requirements.txt
-│   └── wsgi.py
 └── nginx
     ├── default.conf
     ├── Dockerfile
     ├── nginx.conf
-    └── start.sh
 ```
 
 [_compose.yaml_](compose.yaml)
@@ -56,15 +54,15 @@ Listing containers must show two containers running and the port mapping as belo
 
 ```bash
 $ docker ps
-CONTAINER ID   IMAGE            COMMAND                  CREATED              STATUS                        PORTS                              NAMES
-bde3f29cf571   ...nginx-proxy   "/docker-entrypoint.…"   About a minute ago   Up About a minute (healthy)   0.0.0.0:80->80/tcp                 ...nginx-proxy_1
-86c44470b547   ...flask-app     "gunicorn -w 3 -t 60…"   About a minute ago   Up About a minute (healthy)   5000/tcp, 0.0.0.0:8000->8000/tcp   ...flask-app_1
+CONTAINER ID   IMAGE            COMMAND                  CREATED              STATUS                          PORTS                   NAMES
+bde3f29cf571   ...nginx-proxy   "/docker-entrypoint.…"   About a minute ago   Up 4 seconds (health: starting) 0.0.0.0:80->80/tcp      ...nginx-proxy_1
+86c44470b547   ...flask-app     "gunicorn -w 3 -t 60…"   About a minute ago   Up 5 seconds (health: starting) 0.0.0.0:53323->8000/tcp ...flask-app_1
 ```
 
-After the application starts, navigate to `http://localhost:80` in your web browser or run:
+After the application starts, run the command in a terminal:
 
 ```bash
-$ curl localhost:80
+$ curl localhost
 Hello World!
 ```
 
@@ -77,6 +75,35 @@ Stopping nginx-wsgi-flask_flask-app_1   ... done
 Removing nginx-wsgi-flask_nginx-proxy_1 ... done
 Removing nginx-wsgi-flask_flask-app_1   ... done
 Removing network nginx-wsgi-flask_default
+```
+
+Deploy and scale the application. Create three different instances.
+
+```bash
+$ docker compose up -d --scale flask-app=3
+✔ Network nginx-wsgi-flask_default          Created 0.0s
+✔ Container nginx-wsgi-flask-flask-app-1    Started 0.4s
+✔ Container nginx-wsgi-flask-flask-app-3    Started 0.9s
+✔ Container nginx-wsgi-flask-flask-app-2    Started 0.6s
+✔ Container nginx-wsgi-flask-nginx-proxy-1  Started 1.1s
+```
+
+See the three different instances.
+
+```bash
+$ docker ps
+CONTAINER ID   IMAGE                          COMMAND                  CREATED         STATUS                            PORTS                     NAMES
+604ad97b224b   nginx-wsgi-flask-nginx-proxy   "/docker-entrypoint.…"   5 seconds ago   Up 4 seconds (health: starting)   0.0.0.0:80->80/tcp        nginx-wsgi-flask-nginx-proxy-1
+317e4d706858   nginx-wsgi-flask-flask-app     "gunicorn -w 3 -t 60…"   5 seconds ago   Up 5 seconds (health: starting)   0.0.0.0:53323->8000/tcp   nginx-wsgi-flask-flask-app-1
+39905ed2b5a0   nginx-wsgi-flask-flask-app     "gunicorn -w 3 -t 60…"   5 seconds ago   Up 4 seconds (health: starting)   0.0.0.0:53324->8000/tcp   nginx-wsgi-flask-flask-app-2
+f98baa201cb6   nginx-wsgi-flask-flask-app     "gunicorn -w 3 -t 60…"   5 seconds ago   Up 4 seconds (health: starting)   0.0.0.0:53325->8000/tcp   nginx-wsgi-flask-flask-app-3
+```
+
+Each time the url is called, nginx fowards the message to one of three instances. See container id value in the result string.
+
+``` bash
+$ curl localhost/info
+{"connecting_ip":"172.30.0.1","containe_id":"f98baa201cb6","host":"localhost","proxy_ip":"172.30.0.1","user-agent":"curl/7.79.1"}
 ```
 
 ## About
