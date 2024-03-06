@@ -1,0 +1,27 @@
+version: "3"
+services:
+  pypiserver:
+    image: pypiserver/pypiserver:latest
+    command: 'run -p 8083 -a . -P .'
+    ports:
+      - "8083:8083"
+    volumes:
+      - type: bind
+        source: ./packages
+        target: /data/packages
+  proxy:
+    depends_on:
+      - pypiserver
+    image: nginx:1.19
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./nginx-basic-auth.conf:/etc/nginx/conf.d/nginx-basic-auth.conf
+    command: >
+      /bin/sh -c " echo 'password' >> /etc/nginx/my_test_passwords.txt
+      && echo -n 'bob:' >> /etc/nginx/.htpasswd
+      && openssl passwd -apr1 -in /etc/nginx/my_test_passwords.txt >> /etc/nginx/.htpasswd
+      && echo -n 'alice:' >> /etc/nginx/.adminpasswd
+      && openssl passwd -apr1 -in /etc/nginx/my_test_passwords.txt >> /etc/nginx/.adminpasswd
+      && nginx -g 'daemon off;'"
+    
