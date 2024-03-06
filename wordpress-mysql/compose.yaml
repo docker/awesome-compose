@@ -9,10 +9,10 @@ services:
       - db_data:/var/lib/mysql
     restart: always
     environment:
-      - MYSQL_ROOT_PASSWORD=somewordpress
-      - MYSQL_DATABASE=wordpress
-      - MYSQL_USER=wordpress
-      - MYSQL_PASSWORD=wordpress
+      - MYSQL_ROOT_PASSWORD=Arunsri@123
+      - MYSQL_DATABASE=wordpress_db
+      - MYSQL_USER=docker
+      - MYSQL_PASSWORD=docker@123
     expose:
       - 3306
       - 33060
@@ -22,10 +22,10 @@ services:
       - 80:80
     restart: always
     environment:
-      - WORDPRESS_DB_HOST=db
-      - WORDPRESS_DB_USER=wordpress
-      - WORDPRESS_DB_PASSWORD=wordpress
-      - WORDPRESS_DB_NAME=wordpress
+      - WORDPRESS_DB_HOST=127.0.1.1:3306
+      - WORDPRESS_DB_USER=docker
+      - WORDPRESS_DB_PASSWORD=docker@123
+      - WORDPRESS_DB_NAME=wordpress_db
 volumes:
   db_data:
 
