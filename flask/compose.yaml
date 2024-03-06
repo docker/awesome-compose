@@ -8,3 +8,6 @@ services:
     stop_signal: SIGINT
     ports:
       - '8000:8000'
+    #Shared volume to enable hot reload
+    volumes:
+      - ./app:/app
