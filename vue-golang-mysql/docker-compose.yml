@@ -1,0 +1,35 @@
+version: '3'
+services:
+  mydb:
+    restart: always
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: '114514'
+      MYSQL_DATABASE: code_paste
+    container_name: mydb
+    ports:
+      - "3306:3306"
+    tty: true
+  server:
+    build:
+      context: ./server
+    restart: on-failure:10
+    container_name: server
+    ports:
+      - "8080:8080"
+    environment:
+       GIN_MODE: release
+    tty: true
+    depends_on:
+      - mydb
+  web:
+    build:
+      context: ./web
+      args:
+        VITE_API_BASE_URL: http://127.0.0.1:8080/api
+    container_name: web
+    ports:
+      - "80:3000"
+    tty: true
+    depends_on:
+      - server

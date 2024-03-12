@@ -1,0 +1,46 @@
+{
+  "private": true,
+  "packageManager": "pnpm@7.4.0",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite --port 3333 --open",
+    "lint": "eslint",
+    "typecheck": "vue-tsc --noEmit",
+    "preview": "vite preview",
+    "test": "vitest"
+  },
+  "dependencies": {
+    "@codemirror/lang-cpp": "^6.0.1",
+    "@codemirror/lang-html": "^6.1.0",
+    "@codemirror/lang-java": "^6.0.0",
+    "@codemirror/lang-javascript": "^6.0.2",
+    "@codemirror/lang-json": "^6.0.0",
+    "@codemirror/lang-markdown": "^6.0.1",
+    "@codemirror/lang-python": "^6.0.1",
+    "@codemirror/lang-rust": "^6.0.0",
+    "@codemirror/theme-one-dark": "^6.0.0",
+    "@vueuse/core": "^9.1.1",
+    "codemirror": "^6.0.1",
+    "vue": "^3.2.38",
+    "vue-codemirror": "^6.1.1",
+    "vue-router": "^4.1.5"
+  },
+  "devDependencies": {
+    "@iconify-json/carbon": "^1.1.7",
+    "@types/node": "^18.7.14",
+    "@unocss/reset": "^0.45.13",
+    "@vitejs/plugin-vue": "^2.3.4",
+    "@vue/test-utils": "^2.0.2",
+    "eslint": "^8.23.0",
+    "jsdom": "^20.0.0",
+    "pnpm": "^7.9.5",
+    "typescript": "^4.8.2",
+    "unocss": "^0.45.13",
+    "unplugin-auto-import": "^0.11.2",
+    "unplugin-vue-components": "^0.21.2",
+    "vite": "^2.9.15",
+    "vite-plugin-pages": "^0.25.0",
+    "vitest": "^0.21.1",
+    "vue-tsc": "^0.39.5"
+  }
+}

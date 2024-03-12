@@ -51,6 +51,7 @@ application with a Rust backend and a Postgres database.&nbsp;<a href="react-rus
 - [`React / Nginx`](react-nginx) - Sample React application with Nginx.&nbsp;<a href="react-nginx"><img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/></a>
 - [`Spring / PostgreSQL`](spring-postgres) - Sample Java application
 with Spring framework and a Postgres database.&nbsp;<a href="spring-postgres"><img src="icon_devenvs.svg" alt="Use with Docker Dev Environments" height="30" align="top"/></a>
+- [`Vue / Golang / MySQL`](vue-golang-mysql/) - Vue3 application with Go backend and mysql database
 - [`WasmEdge / MySQL / Nginx`](wasmedge-mysql-nginx) - Sample Wasm-based web application with a static HTML frontend, using a MySQL (MariaDB) database. The frontend connects to a Wasm microservice written in Rust, that runs using the WasmEdge runtime.&nbsp;<a href="wasmedge-mysql-nginx"><img src="icon_wasm.svg" alt="Compatible with Docker+wasm" height="30" align="top"/></a>
 - [`WasmEdge / Kafka / MySQL`](wasmedge-kafka-mysql) - Sample Wasm-based microservice that subscribes to a Kafka (Redpanda) queue topic, and transforms and saves any incoming message into a MySQL (MariaDB) database.&nbsp;<a href="wasmedge-kafka-mysql"><img src="icon_wasm.svg" alt="Compatible with Docker+wasm" height="30" align="top"/></a>
 
