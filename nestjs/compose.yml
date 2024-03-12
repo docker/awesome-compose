@@ -1,0 +1,7 @@
+services:
+  api:
+    build:
+      context: app
+      target: production
+    ports: # You should add the port you need to expose applicaiton if you change the default port
+      - '3000:3000'
