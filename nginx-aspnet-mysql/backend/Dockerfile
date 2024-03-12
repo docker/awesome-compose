@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1.4
 
-FROM --platform=$BUILDPLATFORM mcr.microsoft.com/dotnet/sdk:6.0 AS base
+FROM --platform=$BUILDPLATFORM mcr.microsoft.com/dotnet/sdk:6.0@sha256:2fdad630a59fbdecbfcc6aaf3ccae96eea0e8d24cd4607669fde0de107a94c53 AS base
 
 WORKDIR /src
 
@@ -34,7 +34,7 @@ FROM builder AS publisher
 
 RUN ["dotnet", "publish", "-c", "Release", "-o", "/build"]
 
-FROM --platform=$BUILDPLATFORM mcr.microsoft.com/dotnet/aspnet:6.0
+FROM --platform=$BUILDPLATFORM mcr.microsoft.com/dotnet/aspnet:6.0@sha256:3edfb4ea7067e24b3aa5c6ab585e85a26c7daabfec26829b8efabeb122de4364
 
 WORKDIR /app
 COPY --from=publisher /build .
