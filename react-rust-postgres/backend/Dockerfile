@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1.4
-FROM rust:buster AS base
+FROM rust:buster@sha256:f5da153862af6a25fcf49dde3cb19b5b513f78bc00e317eb64e898a66af2881d AS base
 
 ENV USER=root
 ENV ROCKET_ADDRESS=0.0.0.0
@@ -38,7 +38,7 @@ FROM base AS builder
 
 RUN cargo build --release --offline
 
-FROM debian:buster-slim
+FROM debian:buster-slim@sha256:557ee531b81ce380d012d83b7bb56211572e5d6088d3e21a3caef7d7ed7f718b
 
 ENV ROCKET_ENV=production
 
