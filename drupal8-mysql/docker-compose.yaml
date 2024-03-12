@@ -1,0 +1,30 @@
+version: '3.7'
+services:
+  db:
+    image: mysql:8.0.19
+    command: '--default-authentication-plugin=mysql_native_password'
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=drupal8
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=root
+  drupal8-cms:
+    image: drupal:8-apache
+    ports:
+      - 80:80
+    volumes:
+      - /var/www/html/modules
+      - /var/www/html/profiles
+      - /var/www/html/themes
+      - /var/www/html/sites
+    restart: always
+    environment:
+      - DRUPAL_DB_HOST=db
+      - DRUPAL_DB_USER=drupal8
+      - DRUPAL_DB_PASSWORD=drupal8
+      - DRUPAL_DB_NAME=drupal8
+volumes:
+  db_data:    
