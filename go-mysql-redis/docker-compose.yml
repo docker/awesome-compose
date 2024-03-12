@@ -1,0 +1,52 @@
+version: '3.7'
+services:
+  app:
+    container_name: goapp
+    build: .
+    ports: 
+      - 8080:8080
+    restart: on-failure
+    volumes:
+      - goapp:/usr/src/app/
+    depends_on:
+      - mysql 
+      - redis
+    networks:
+      - goapp
+    environment:
+      REDIS_URL: redis:6379
+      MYSQL_URL: mysql
+  mysql:
+    container_name: goapp_mysql
+    image: mysql/mysql-server:5.7
+    ports: 
+      - 3307:3306
+    environment:
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - DATABASE_HOST=${MYSQL_HOST}
+    volumes:
+      - mysql_volume:/var/lib/mysql
+    networks:
+      - goapp
+  redis:
+    container_name: goapp_redis
+    image: redis:latest
+    ports:
+      - 6378:6379
+    volumes:
+      - redis_volume:/redis.conf
+    networks:
+      - goapp
+
+volumes:
+  goapp:
+  mysql_volume:
+  redis_volume:
+      
+# Networks to be created to facilitate communication between containers
+networks:
+  goapp:
+    driver: bridge
