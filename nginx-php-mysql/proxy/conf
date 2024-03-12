@@ -1,0 +1,32 @@
+server {
+  location ~ /.well-known {
+    allow all;
+  }
+
+  location ~ /\.ht {
+    deny all;
+  }
+
+  root /var/www/html;
+
+  index index.php index.html;
+
+  location / {
+    try_files $uri $uri/ /index.php?$args;
+  }
+
+  location ~ [^/]\.php(/|$) {
+    fastcgi_split_path_info ^(.+?\.php)(/.*)$;
+    if (!-f $document_root$fastcgi_script_name) {
+      return 404;
+    }
+
+    include fastcgi_params;
+    fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+    fastcgi_param PATH_INFO       $fastcgi_path_info;
+    fastcgi_param PATH_TRANSLATED $document_root$fastcgi_path_info;
+
+    fastcgi_pass   backend:9000;
+    fastcgi_index  index.php;
+  }
+}
