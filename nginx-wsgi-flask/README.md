@@ -40,7 +40,7 @@ Make sure port 80 on the host is not being used by another container, otherwise 
 ## Deploy with docker compose
 
 ```bash
-$ docker compose up -d
+$ docker-compose up -d
 Creating network "nginx-wsgi-flask_default" with the default driver
 Building flask-app
 ...
@@ -71,7 +71,7 @@ Hello World!
 Stop and remove the containers
 
 ```bash
-$ docker compose down
+$ docker-compose down
 Stopping nginx-wsgi-flask_nginx-proxy_1 ... done
 Stopping nginx-wsgi-flask_flask-app_1   ... done
 Removing nginx-wsgi-flask_nginx-proxy_1 ... done
