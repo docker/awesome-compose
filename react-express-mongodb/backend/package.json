@@ -19,7 +19,7 @@
     "express": "^4.17.1",
     "lodash": "^4.17.13",
     "mongodb": "^3.0.7",
-    "mongoose": "^6.0.9",
+    "mongoose": "^6.11.3",
     "simple-node-logger": "^18.12.23",
     "validator": "^13.7.0"
   },
