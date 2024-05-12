@@ -15,5 +15,5 @@ apk add git &&
 addgroup -S docker &&
 adduser -S --shell /bin/bash --ingroup docker vscode
 # install Docker tools (cli, buildx, compose)
-COPY --from=gloursdocker/docker / /
+COPY --from=gloursdocker/docker /app /app
 CMD ["manage.py", "runserver", "0.0.0.0:8000"]
