@@ -4,13 +4,6 @@
 
 This sample demonstrates a web application with a WebAssembly (Wasm) microservice, written in Rust. The Wasm microservice is an HTTP API connected to a MySQL (MariaDB) database. The API is invoked via from JavaScript in a web interface serving static HTML. The microservice is compiled into WebAssembly (Wasm) and runs in the WasmEdge Runtime, a secure and lightweight alternative to natively compiled Rust apps in Linux containers. Checkout [this article](https://blog.logrocket.com/rust-microservices-server-side-webassembly/) or [this video](https://www.youtube.com/watch?v=VSqMPFr7SEs) to learn how the Rust code in this microservice works.
 
-## Use with Docker Development Environments
-
-You will need a version of Docker Desktop or Docker CLI with Wasm support.
-
-* [Install Docker Desktop + Wasm (Beta)](https://docs.docker.com/desktop/wasm/)
-* [Install Docker CLI + Wasm](https://github.com/chris-crone/wasm-day-na-22/tree/main/server)
-
 ## WasmEdge server with Nginx proxy and MySQL database
 
 Project structure:

@@ -1,12 +1,5 @@
 ## Compose sample application
-
-### Use with Docker Development Environments
-
-You can open this sample in the Dev Environments feature of Docker Desktop version 4.12 or later.
-
-[Open in Docker Dev Environments <img src="../open_in_new.svg" alt="Open in Docker Dev Environments" align="top"/>](https://open.docker.com/dashboard/dev-envs?url=https://github.com/docker/awesome-compose/tree/master/nginx-aspnet-mysql)
-
-### ASP.NET server with an Nginx proxy and a MySQL database
+### ASP.NET server with a Nginx proxy and a MySQL database
 
 Project structure:
 ```
