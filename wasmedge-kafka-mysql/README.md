@@ -4,13 +4,6 @@
 
 This sample demonstrates a WebAssembly (Wasm) microservice written in Rust. It subscribes to a Kafka queue topic on a Redpanda server, and then transforms and saves each message into a MySQL (MariaDB) database table. The microservice is compiled into Wasm and runs in the WasmEdge runtime, which is a secure and lightweight alternative to natively compiled Rust apps in Linux containers.
 
-## Use with Docker Development Environments
-
-You will need a version of Docker Desktop or Docker CLI with Wasm support.
-
-* [Install Docker Desktop + Wasm (Beta)](https://docs.docker.com/desktop/wasm/)
-* [Install Docker CLI + Wasm](https://github.com/chris-crone/wasm-day-na-22/tree/main/server)
-
 ## WasmEdge server with Redpanda and MySQL database
 
 Project structure:
