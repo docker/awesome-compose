@@ -1,7 +1,9 @@
 # Quickstart: Compose and Rails
 
 This Quickstart guide shows you how to use Docker Compose to set up and run
-a Rails/PostgreSQL app. Before starting, [install Compose](https://docs.docker.com/compose/install/).
+a Rails/PostgreSQL app in your local development environment. Before starting, [install Compose](https://docs.docker.com/compose/install/).
+
+Note: This guide does not cover running Docker/Docker Compose in production.
 
 ## Define the project
 
@@ -97,7 +99,11 @@ With those files in place, you can now generate the Rails skeleton app
 using [docker compose run](https://docs.docker.com/engine/reference/commandline/compose_run/):
 
 ```console
+# rails 6
 $ docker compose run --no-deps web rails new . --force --database=postgresql
+
+# rails 7 - without skip flag, generates a production dockerfile that isn't suitable for local development
+$ docker compose run --no-deps web rails new . --force --database=postgresql --skip-docker
 ```
 
 First, Compose builds the image for the `web` service using the `Dockerfile`.
