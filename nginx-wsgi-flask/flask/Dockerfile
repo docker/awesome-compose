@@ -4,13 +4,13 @@ FROM python:3.9.2-alpine
 RUN pip install --upgrade pip
 
 # get curl for healthchecks
-RUN apk add curl
+RUN apt add curl
 
 # permissions and nonroot user for tightened security
-RUN adduser -D nonroot
-RUN mkdir /home/app/ && chown -R nonroot:nonroot /home/app
-RUN mkdir -p /var/log/flask-app && touch /var/log/flask-app/flask-app.err.log && touch /var/log/flask-app/flask-app.out.log
-RUN chown -R nonroot:nonroot /var/log/flask-app
+RUN adduser -D nonroot && \
+    mkdir /home/app/ && chown -R nonroot:nonroot /home/app && \
+    mkdir -p /var/log/flask-app && touch /var/log/flask-app/flask-app.err.log && touch /var/log/flask-app/flask-app.out.log && \
+    chown -R nonroot:nonroot /var/log/flask-app
 WORKDIR /home/app
 USER nonroot
 
