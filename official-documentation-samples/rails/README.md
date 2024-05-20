@@ -11,7 +11,7 @@ a file called `Dockerfile`. To begin with, the  Dockerfile consists of:
 
 ```dockerfile
 # syntax=docker/dockerfile:1
-FROM ruby:2.5
+FROM ruby:3.1
 RUN apt-get update -qq && apt-get install -y nodejs postgresql-client
 WORKDIR /myapp
 COPY Gemfile /myapp/Gemfile
@@ -37,7 +37,7 @@ Next, open an editor and create a bootstrap `Gemfile` which just loads Rails. Th
 
 ```ruby
 source 'https://rubygems.org'
-gem 'rails', '~>5'
+gem 'rails', '~>7'
 ```
 
 Create an empty `Gemfile.lock` file to build our `Dockerfile`.
