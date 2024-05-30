@@ -17,7 +17,7 @@
     "express": "^4.17.1",
     "knex": "^0.95.11",
     "morgan": "^1.10.0",
-    "mysql2": "^2.1.0"
+    "mysql2": "^3.9.8"
   },
   "devDependencies": {
     "chai": "^4.2.0",
