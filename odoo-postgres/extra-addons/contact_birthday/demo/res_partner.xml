@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="base.res_partner_address_28" model="res.partner">
+        <field name="birthday_date" eval="DateTime.now()"/>
+    </record>
+</odoo>

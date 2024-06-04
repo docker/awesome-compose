@@ -51,6 +51,7 @@ application with a Rust backend and a Postgres database.
 with Spring framework and a Postgres database.
 - [`WasmEdge / MySQL / Nginx`](wasmedge-mysql-nginx) - Sample Wasm-based web application with a static HTML frontend, using a MySQL (MariaDB) database. The frontend connects to a Wasm microservice written in Rust, that runs using the WasmEdge runtime.&nbsp;<a href="wasmedge-mysql-nginx"><img src="icon_wasm.svg" alt="Compatible with Docker+wasm" height="30" align="top"/></a>
 - [`WasmEdge / Kafka / MySQL`](wasmedge-kafka-mysql) - Sample Wasm-based microservice that subscribes to a Kafka (Redpanda) queue topic, and transforms and saves any incoming message into a MySQL (MariaDB) database.&nbsp;<a href="wasmedge-kafka-mysql"><img src="icon_wasm.svg" alt="Compatible with Docker+wasm" height="30" align="top"/></a>
+- [`Odoo / PostgreSQL`](odoo-postgres) - This sample provides a basic setup to start developing applications for Odoo, it also includes a simple demo module.
 
 ## Single service samples
 
