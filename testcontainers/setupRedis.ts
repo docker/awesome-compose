@@ -17,10 +17,6 @@ export async function setupRedis(): Promise<RedisClient> {
   const redisConnectionString = `redis://localhost:${redisPort}`
   const client = await connectToRedis(redisConnectionString)
 
-  //   const testContainersRedis = await import("@testcontainers/redis")
-  //   const container = await new testContainersRedis.RedisContainer().withReuse().start()
-  //   const client = await connectToRedis(container.getConnectionUrl())
-
   process.on("SIGINT", async () => {
     await client.quit()
     process.exit()
