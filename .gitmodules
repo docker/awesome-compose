@@ -1,0 +1,3 @@
+[submodule "fastapi-postgres-redis-cloudformation"]
+	path = fastapi-postgres-redis-cloudformation
+	url = https://github.com/meysam81/dockercon2022-talk
