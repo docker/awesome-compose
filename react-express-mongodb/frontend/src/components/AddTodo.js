@@ -1,33 +1,52 @@
 import React from "react";
 
-export default class AddTodo extends React.Component {
-  handleSubmit = (e) => {
+const AddTodo = (props) => {
+  const { todos, setTodos } = props;
+
+  async function handleSubmit(e) {
     e.preventDefault();
     const { value } = e.target.elements.value;
     if (value.length > 0) {
-      this.props.handleAddTodo(value);
-      e.target.reset();
-    }
-  };
+      try {
+        const newTodoResponse = await fetch("/api/todos", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ text: value }),
+        });
 
-  render() {
-    return (
-      <form
-        noValidate
-        onSubmit={this.handleSubmit}
-        className="new-todo form-group"
-      >
-        <input
-          type="text"
-          name="value"
-          required
-          minLength={1}
-          className="form-control"
-        />
-        <button className="btn btn-primary" type="submit">
-          Add Todo
-        </button>
-      </form>
-    );
+        if (!newTodoResponse.ok) {
+          console.log("Fetch failed");
+        } else {
+          const newTodo = await newTodoResponse.json();
+          setTodos([...todos, newTodo.data]);
+          e.target.reset();
+        }
+      } catch (error) {
+        console.log("Error :", error);
+      }
+    }
   }
-}
+
+  return (
+    <form
+      noValidate
+      onSubmit={(e) => handleSubmit(e)}
+      className="new-todo form-group"
+    >
+      <input
+        type="text"
+        name="value"
+        required
+        minLength={1}
+        className="form-control"
+      />
+      <button className="btn btn-primary" type="submit">
+        Add Todo
+      </button>
+    </form>
+  );
+};
+
+export default AddTodo;
