@@ -1,3 +1,7 @@
+/**
+ * Represents a server block in the NGINX configuration.
+ * This block defines the configuration for a specific server.
+ */
 server {
     listen       80;
     server_name  localhost;
