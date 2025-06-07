@@ -1,4 +1,4 @@
-## Compose sample application
+### Compose sample application
 ### An project deploy React Application with Nginx
 
 Project structure:
