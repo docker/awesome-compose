@@ -26,8 +26,21 @@ services:
       - WORDPRESS_DB_USER=wordpress
       - WORDPRESS_DB_PASSWORD=wordpress
       - WORDPRESS_DB_NAME=wordpress
+  phpmyadmin:
+    image: wordpress:latest
+    depends_on:
+      - db
+    environment:
+      - PMA_HOST=db
+      - PMA_USER=wordpress
+      - PMA_PASSWORD=wordpress
+    ports:
+      - 8080:80
+    restart: always
+
 volumes:
   db_data:
+  wp_data:
 
   
     
