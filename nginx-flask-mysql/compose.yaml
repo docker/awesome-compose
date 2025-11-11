@@ -5,11 +5,12 @@ services:
     # If you really want to use MySQL, uncomment the following line
     #image: mysql:8
     command: '--default-authentication-plugin=mysql_native_password'
-    restart: always
+    restart: unless-stopped
     healthcheck:
       test: ['CMD-SHELL', 'mysqladmin ping -h 127.0.0.1 --password="$$(cat /run/secrets/db-password)" --silent']
-      interval: 3s
-      retries: 5
+      interval: 10s
+      timeout: 5s
+      retries: 3
       start_period: 30s
     secrets:
       - db-password
@@ -23,12 +24,18 @@ services:
     expose:
       - 3306
       - 33060
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+        labels: "service=db"
 
   backend:
     build:
       context: backend
       target: builder
-    restart: always
+    restart: unless-stopped
     secrets:
       - db-password
     ports:
@@ -39,16 +46,41 @@ services:
     depends_on:
       db:
         condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+        labels: "service=backend"
 
   proxy:
     build: proxy
-    restart: always
+    restart: unless-stopped
     ports:
       - 80:80
-    depends_on: 
-      - backend
+    depends_on:
+      backend:
+        condition: service_healthy
     networks:
       - frontnet
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:80/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+        labels: "service=proxy"
 
 volumes:
   db-data:

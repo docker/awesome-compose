@@ -6,6 +6,9 @@ COPY requirements.txt /code
 RUN --mount=type=cache,target=/root/.cache/pip \
     pip3 install -r requirements.txt
 
+# Install wget for healthchecks
+RUN apk add --no-cache wget
+
 COPY . .
 
 ENV FLASK_APP hello.py
