@@ -10,6 +10,7 @@ These samples provide a starting point for how to integrate different services u
 > The following samples are intended for use in local development environments such as project setups, tinkering with software stacks, etc. These samples must not be deployed in production environments.
 
 <!--lint disable awesome-toc-->
+- [guardian-agent-prompts](https://github.com/milkomida77/guardian-agent-prompts) - 49 production-tested AI agent system prompts for Docker Compose multi-service orchestration, automated deployment coordination, and multi-agent infrastructure management. MIT licensed.
 ## Contents
 
 - [Samples of Docker Compose applications with multiple integrated services](#samples-of-docker-compose-applications-with-multiple-integrated-services).
