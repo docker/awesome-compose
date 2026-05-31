@@ -1,7 +1,13 @@
 services:
-  web: 
+  web:
     build:
       context: app
       target: builder
-    ports: 
+    ports:
       - '8000:8000'
+    healthcheck:
+      test: ["CMD", "python3", "manage.py", "check", "--deploy"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 20s
