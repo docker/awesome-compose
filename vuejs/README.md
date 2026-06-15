@@ -23,7 +23,7 @@ services:
     - /project/node_modules
 ```
 The compose file defines an application with one service `vuejs`.
-When deploying the application, docker compose maps port 8080 of the web service container to port 8080 of the host as specified in the file.
+When deploying the application, docker compose maps port 8080 of the web service container to port 80 of the host as specified in the file.
 Make sure port 8080 on the host is not already being in use.
 
 ## Deploy with docker compose
