@@ -5,15 +5,14 @@ import mysql.connector
 
 class DBManager:
     def __init__(self, database='example', host="db", user="root", password_file=None):
-        pf = open(password_file, 'r')
-        self.connection = mysql.connector.connect(
-            user=user, 
-            password=pf.read(),
-            host=host, # name of the mysql service as set in the docker compose file
-            database=database,
-            auth_plugin='mysql_native_password'
-        )
-        pf.close()
+        with open(password_file, 'r') as pf:
+            self.connection = mysql.connector.connect(
+                user=user, 
+                password=pf.read(),
+                host=host, # name of the mysql service as set in the docker compose file
+                database=database,
+                auth_plugin='mysql_native_password'
+            )
         self.cursor = self.connection.cursor()
     
     def populate_db(self):
@@ -24,10 +23,7 @@ class DBManager:
     
     def query_titles(self):
         self.cursor.execute('SELECT title FROM blog')
-        rec = []
-        for c in self.cursor:
-            rec.append(c[0])
-        return rec
+        return [c[0] for c in self.cursor]
 
 
 server = Flask(__name__)
@@ -43,7 +39,7 @@ def listBlog():
 
     response = ''
     for c in rec:
-        response = response  + '<div>   Hello  ' + c + '</div>'
+        response = f'{response}<div>   Hello  {c}</div>'
     return response
 
 
