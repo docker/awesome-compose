@@ -1,0 +1,32 @@
+services:
+  genieacs:
+    image: drumsergio/genieacs:1.2.16.0
+    environment:
+      # Replace this sample secret before any real use.
+      - GENIEACS_UI_JWT_SECRET=changeme
+      - GENIEACS_MONGODB_CONNECTION_URL=mongodb://mongo/genieacs
+      - GENIEACS_EXT_DIR=/opt/genieacs/ext
+    ports:
+      - 7547:7547
+      - 7557:7557
+      - 7567:7567
+      - 3000:3000
+    restart: unless-stopped
+    depends_on:
+      mongo:
+        condition: service_healthy
+  mongo:
+    image: mongo:8.0
+    volumes:
+      - mongo_data:/data/db
+    expose:
+      - 27017
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 40s
+volumes:
+  mongo_data:
