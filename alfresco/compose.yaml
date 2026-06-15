@@ -1,0 +1,167 @@
+services:
+
+  postgres:
+    image: postgres:15.7
+    environment:
+      POSTGRES_PASSWORD: alfresco
+      POSTGRES_USER: alfresco
+      POSTGRES_DB: alfresco
+      PGUSER: alfresco
+    command: postgres -c max_connections=300 -c log_min_messages=LOG
+    healthcheck:
+      test: ["CMD", "pg_isready"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+  activemq:
+    image: docker.io/alfresco/alfresco-activemq:5.18-jre17-rockylinux8
+    environment:
+      ACTIVEMQ_ADMIN_LOGIN: admin
+      ACTIVEMQ_ADMIN_PASSWORD: admin
+    healthcheck:
+      test: ["CMD", "curl", "-f", "--user", "admin:admin", "http://localhost:8161/admin"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - activemq-data:/opt/activemq/data
+
+  transform-core-aio:
+    image: docker.io/alfresco/alfresco-transform-core-aio:5.1.2
+    environment:
+      ACTIVEMQ_URL: nio://activemq:61616
+      ACTIVEMQ_USER: admin
+      ACTIVEMQ_PASSWORD: admin
+      JAVA_OPTS: >-
+        -Dserver.tomcat.threads.min=4        
+        -Dserver.tomcat.threads.max=12
+        -XX:MinRAMPercentage=50
+        -XX:MaxRAMPercentage=80
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8090/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    depends_on: 
+      activemq:
+        condition: service_healthy
+
+  alfresco:
+    image: docker.io/alfresco/alfresco-content-repository-community:23.2.1
+    environment:
+      JAVA_TOOL_OPTIONS: >-
+        -Dencryption.keystore.type=JCEKS
+        -Dencryption.cipherAlgorithm=DESede/CBC/PKCS5Padding
+        -Dencryption.keyAlgorithm=DESede
+        -Dencryption.keystore.location=/usr/local/tomcat/shared/classes/alfresco/extension/keystore/keystore
+        -Dmetadata-keystore.password=mp6yc0UD9e
+        -Dmetadata-keystore.aliases=metadata
+        -Dmetadata-keystore.metadata.password=oKIWzVdEdA
+        -Dmetadata-keystore.metadata.algorithm=DESede
+      JAVA_OPTS: >-
+        -Ddb.driver=org.postgresql.Driver
+        -Ddb.url=jdbc:postgresql://postgres:5432/alfresco
+        -Dsolr.host=solr6
+        -Dsolr.secureComms=secret
+        -Dsolr.sharedSecret=secret
+        -Dindex.subsystem.name=solr6
+        -Dcsrf.filter.enabled=false
+        -Dmessaging.broker.url="failover:(nio://activemq:61616)?timeout=3000&jms.useCompression=true"
+        -DlocalTransform.core-aio.url=http://transform-core-aio:8090/
+        -Ddeployment.method=DOCKER_COMPOSE
+        -XX:MinRAMPercentage=50
+        -XX:MaxRAMPercentage=80
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/alfresco/api/-default-/public/alfresco/versions/1/probes/-ready-"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 1m
+    depends_on: 
+      postgres:
+        condition: service_healthy
+      activemq:
+        condition: service_healthy
+      transform-core-aio:
+        condition: service_healthy
+    volumes:
+      - alf-repo-data:/usr/local/tomcat/alf_data
+
+  solr6:
+    image: docker.io/alfresco/alfresco-search-services:2.0.10
+    environment:
+      SOLR_ALFRESCO_HOST: "alfresco"
+      SOLR_ALFRESCO_PORT: "8080"
+      SOLR_SOLR_HOST: "solr6"
+      SOLR_SOLR_PORT: "8983"
+      SOLR_CREATE_ALFRESCO_DEFAULTS: "alfresco"
+      ALFRESCO_SECURE_COMMS: "secret"
+      JAVA_TOOL_OPTIONS: >-
+        -Dalfresco.secureComms.secret=secret
+    depends_on:
+      alfresco:
+        condition: service_healthy
+    volumes:
+      - solr-data:/opt/alfresco-search-services/data
+
+  share:
+    image: docker.io/alfresco/alfresco-share:23.2.1
+    environment:
+      REPO_HOST: "alfresco"
+      REPO_PORT: "8080"
+      JAVA_OPTS: >-
+        -XX:MinRAMPercentage=50
+        -XX:MaxRAMPercentage=80
+        -Dalfresco.host=localhost
+        -Dalfresco.port=8080
+        -Dalfresco.context=alfresco
+        -Dalfresco.protocol=http
+    depends_on: 
+      alfresco:
+        condition: service_healthy
+
+  content-app:
+    image: docker.io/alfresco/alfresco-content-app:4.4.1
+    environment:
+      APP_BASE_SHARE_URL: "http://localhost:8080/aca/#/preview/s"
+    depends_on: 
+      alfresco:
+        condition: service_healthy
+
+  control-center:
+    image: quay.io/alfresco/alfresco-control-center:8.4.1
+    environment:
+      APP_CONFIG_PROVIDER: "ECM"
+      APP_CONFIG_AUTH_TYPE: "BASIC"
+      BASE_PATH: ./
+    depends_on: 
+      alfresco:
+        condition: service_healthy
+
+  proxy:
+    image: docker.io/alfresco/alfresco-acs-nginx:3.4.2
+    environment:
+      DISABLE_PROMETHEUS: "true"
+      DISABLE_SYNCSERVICE: "true"
+      DISABLE_ADW: "true"
+      ENABLE_CONTENT_APP: "true"
+    depends_on:
+      share:
+        condition: service_started
+      content-app:
+        condition: service_started
+      control-center:
+        condition: service_started
+      alfresco:
+        condition: service_started
+    ports:
+      - "8080:8080"
+
+volumes:
+  activemq-data:
+  postgres-data:
+  alf-repo-data:
+  solr-data:
