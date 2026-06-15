@@ -65,6 +65,7 @@ with Spring framework and a Postgres database.
 - [`Plex`](https://github.com/docker/awesome-compose/tree/master/plex)
 - [`Portainer`](https://github.com/docker/awesome-compose/tree/master/portainer)
 - [`Wireguard`](https://github.com/docker/awesome-compose/tree/master/wireguard)
+- [`Pentest Stack`](n01d-pentest-stack) - Security testing environment with Kali, Metasploit, Burp Suite, and Nuclei.
 - [`FastAPI`](fastapi)
 
 ## Basic setups for different platforms (not production ready - useful for personal use)
