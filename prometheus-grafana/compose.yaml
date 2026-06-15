@@ -7,8 +7,10 @@ services:
     ports:
       - 9090:9090
     restart: unless-stopped
+    configs:
+      - source: prometheus
+        target: /etc/prometheus/prometheus.yml
     volumes:
-      - ./prometheus:/etc/prometheus
       - prom_data:/prometheus
   grafana:
     image: grafana/grafana
@@ -19,7 +21,13 @@ services:
     environment:
       - GF_SECURITY_ADMIN_USER=admin
       - GF_SECURITY_ADMIN_PASSWORD=grafana
-    volumes:
-      - ./grafana:/etc/grafana/provisioning/datasources
+    configs:
+      - source: grafana
+        target: /etc/grafana/provisioning/datasources/datasource.yml
+configs:
+  prometheus:
+    file: ./prometheus/prometheus.yml
+  grafana:
+    file: ./grafana/datasource.yml
 volumes:
   prom_data:
