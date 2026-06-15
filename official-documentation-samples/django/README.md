@@ -94,7 +94,7 @@ and a `docker-compose.yml` file. (You can use either a `.yml` or `.yaml` extensi
    >
    > This uses the build in development server to run your application
    > on port 8000. Do not use this in a production environment. For more
-   > information, see [Django documentation](https://docs.djangoproject.com/en/3.1/intro/tutorial01/#the-development-server){: target="_blank" rel="noopener" class="_”}.
+   > information, see [Django documentation](https://docs.djangoproject.com/en/3.1/intro/tutorial01/#the-development-server).
 
 10. Save and close the `docker-compose.yml` file.
 
@@ -234,7 +234,7 @@ In this section, you set up the database connection for Django.
    > ```
    >
    > This value is **not** safe for production usage.  Refer to the
-   > [Django documentation](https://docs.djangoproject.com/en/1.11/ref/settings/#allowed-hosts)  for more information.
+   > [Django documentation](https://docs.djangoproject.com/en/1.11/ref/settings/#allowed-hosts) for more information.
 
 5. List running containers.
 
