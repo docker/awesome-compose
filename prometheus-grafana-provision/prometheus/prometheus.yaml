@@ -1,0 +1,17 @@
+global:
+  scrape_interval:     15s
+  evaluation_interval: 15s
+scrape_configs:
+  - job_name: 'envoy'
+    metrics_path: /stats/prometheus
+    static_configs:
+      - targets: ['envoy:19000']
+        labels:
+          group: 'envoy'
+  - job_name: postgresql
+    static_configs:
+      - targets: ['postgresql-exporter:9187']
+
+  - job_name: redis_exporter
+    static_configs:
+      - targets: ['redis-exporter:9121']

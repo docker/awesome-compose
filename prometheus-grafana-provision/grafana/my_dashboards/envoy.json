@@ -1,0 +1,907 @@
+{
+    "annotations": {
+      "list": [
+        {
+          "builtIn": 1,
+          "datasource": "-- Grafana --",
+          "enable": true,
+          "hide": true,
+          "iconColor": "rgba(0, 211, 255, 1)",
+          "name": "Annotations & Alerts",
+          "target": {
+            "limit": 100,
+            "matchAny": false,
+            "tags": [],
+            "type": "dashboard"
+          },
+          "type": "dashboard"
+        }
+      ]
+    },
+    "editable": true,
+    "fiscalYearStartMonth": 0,
+    "graphTooltip": 0,
+    "id": 1,
+    "iteration": 1647986935789,
+    "links": [],
+    "liveNow": false,
+    "panels": [
+      {
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "lineInterpolation": "linear",
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 0
+        },
+        "id": 123125,
+        "options": {
+          "legend": {
+            "calcs": [],
+            "displayMode": "list",
+            "placement": "bottom"
+          },
+          "tooltip": {
+            "mode": "single",
+            "sort": "none"
+          }
+        },
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "name": "prometheus"
+            },
+            "exemplar": true,
+            "expr": "envoy_cluster_upstream_cx_connect_timeout{envoy_cluster_name=\"upstream\"}",
+            "interval": "",
+            "legendFormat": "",
+            "refId": "A"
+          }
+        ],
+        "title": "Connection Timeout",
+        "type": "timeseries"
+      },
+      {
+        "aliasColors": {},
+        "bars": false,
+        "dashLength": 10,
+        "dashes": false,
+        "fill": 1,
+        "fillGradient": 0,
+        "gridPos": {
+          "h": 7,
+          "w": 6,
+          "x": 12,
+          "y": 0
+        },
+        "hiddenSeries": false,
+        "id": 3,
+        "legend": {
+          "avg": false,
+          "current": false,
+          "max": false,
+          "min": false,
+          "show": true,
+          "total": false,
+          "values": false
+        },
+        "lines": true,
+        "linewidth": 1,
+        "links": [],
+        "nullPointMode": "null",
+        "options": {
+          "alertThreshold": true
+        },
+        "percentage": false,
+        "pluginVersion": "8.4.4",
+        "pointradius": 5,
+        "points": false,
+        "renderer": "flot",
+        "seriesOverrides": [],
+        "spaceLength": 10,
+        "stack": false,
+        "steppedLine": false,
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "name": "prometheus"
+            },
+            "expr": "sum(delta(envoy_cluster_membership_change{envoy_cluster_name=~\"$envoy_cluster_name\"}[1m]))",
+            "format": "time_series",
+            "intervalFactor": 2,
+            "legendFormat": "membership changes [1m]",
+            "refId": "A"
+          },
+          {
+            "datasource": {
+              "type": "prometheus",
+              "name": "prometheus"
+            },
+            "expr": "sum(envoy_cluster_membership_total{envoy_cluster_name=~\"$envoy_cluster_name\"})",
+            "format": "time_series",
+            "intervalFactor": 2,
+            "legendFormat": "total membershiip",
+            "refId": "B"
+          },
+          {
+            "datasource": {
+              "type": "prometheus",
+              "name": "prometheus"
+            },
+            "expr": "sum(envoy_cluster_outlier_detection_ejections_active{envoy_cluster_name=~\"$envoy_cluster_name\"})",
+            "format": "time_series",
+            "intervalFactor": 2,
+            "legendFormat": "outlier ejections active",
+            "refId": "C"
+          },
+          {
+            "datasource": {
+              "type": "prometheus",
+              "name": "prometheus"
+            },
+            "expr": "sum(envoy_cluster_membership_healthy{envoy_cluster_name=~\"$envoy_cluster_name\"})",
+            "format": "time_series",
+            "intervalFactor": 2,
+            "legendFormat": "healthy members (active HC and outlier)",
+            "refId": "D"
+          },
+          {
+            "datasource": {
+              "type": "prometheus",
+              "name": "prometheus"
+            },
+            "expr": "sum(envoy_cluster_health_check_healthy{envoy_cluster_name=~\"$envoy_cluster_name\"})",
+            "format": "time_series",
+            "intervalFactor": 2,
+            "legendFormat": "healthy members (active HC only)",
+            "refId": "E"
+          }
+        ],
+        "thresholds": [],
+        "timeRegions": [],
+        "title": "Cluster Membership",
+        "tooltip": {
+          "shared": true,
+          "sort": 0,
+          "value_type": "individual"
+        },
+        "type": "graph",
+        "xaxis": {
+          "mode": "time",
+          "show": true,
+          "values": []
+        },
+        "yaxes": [
+          {
+            "format": "short",
+            "logBase": 1,
+            "min": 0,
+            "show": true
+          },
+          {
+            "format": "short",
+            "logBase": 1,
+            "min": 0,
+            "show": true
+          }
+        ],
+        "yaxis": {
+          "align": false
+        }
+      },
+      {
+        "aliasColors": {},
+        "bars": false,
+        "dashLength": 10,
+        "dashes": false,
+        "fill": 1,
+        "fillGradient": 0,
+        "gridPos": {
+          "h": 7,
+          "w": 6,
+          "x": 18,
+          "y": 0
+        },
+        "hiddenSeries": false,
+        "id": 4,
+        "legend": {
+          "avg": false,
+          "current": false,
+          "max": false,
+          "min": false,
+          "show": true,
+          "total": false,
+          "values": false
+        },
+        "lines": true,
+        "linewidth": 1,
+        "links": [],
+        "nullPointMode": "null as zero",
+        "options": {
+          "alertThreshold": true
+        },
+        "percentage": false,
+        "pluginVersion": "8.4.4",
+        "pointradius": 5,
+        "points": false,
+        "renderer": "flot",
+        "seriesOverrides": [],
+        "spaceLength": 10,
+        "stack": false,
+        "steppedLine": false,
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "name": "prometheus"
+            },
+            "expr": "sum(rate(envoy_cluster_upstream_rq_xx{envoy_response_code_class!=\"5\",envoy_cluster_name=~\"$envoy_cluster_name\"}[1m])) / sum(rate(envoy_cluster_upstream_rq_xx{envoy_cluster_name=~\"$envoy_cluster_name\"}[1m]))",
+            "format": "time_series",
+            "intervalFactor": 2,
+            "legendFormat": "Success Rate %",
+            "refId": "A"
+          }
+        ],
+        "thresholds": [],
+        "timeRegions": [],
+        "title": "Success Rate (non-5xx responses)",
+        "tooltip": {
+          "shared": true,
+          "sort": 0,
+          "value_type": "individual"
+        },
+        "type": "graph",
+        "xaxis": {
+          "mode": "time",
+          "show": true,
+          "values": []
+        },
+        "yaxes": [
+          {
+            "format": "percentunit",
+            "label": "",
+            "logBase": 1,
+            "max": "1",
+            "min": "0",
+            "show": true
+          },
+          {
+            "format": "short",
+            "logBase": 1,
+            "min": 0,
+            "show": true
+          }
+        ],
+        "yaxis": {
+          "align": false
+        }
+      },
+      {
+        "aliasColors": {},
+        "bars": false,
+        "dashLength": 10,
+        "dashes": false,
+        "fill": 1,
+        "fillGradient": 0,
+        "gridPos": {
+          "h": 7,
+          "w": 24,
+          "x": 0,
+          "y": 8
+        },
+        "hiddenSeries": false,
+        "id": 16,
+        "legend": {
+          "avg": false,
+          "current": false,
+          "max": false,
+          "min": false,
+          "show": true,
+          "total": false,
+          "values": false
+        },
+        "lines": true,
+        "linewidth": 1,
+        "links": [],
+        "nullPointMode": "null",
+        "options": {
+          "alertThreshold": true
+        },
+        "percentage": false,
+        "pluginVersion": "8.4.4",
+        "pointradius": 5,
+        "points": false,
+        "renderer": "flot",
+        "seriesOverrides": [],
+        "spaceLength": 10,
+        "stack": false,
+        "steppedLine": false,
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "name": "prometheus"
+            },
+            "exemplar": true,
+            "expr": "envoy_http_ext_authz_denied {envoy_http_conn_manager_prefix=\"ingress_http\"}",
+            "format": "time_series",
+            "interval": "",
+            "intervalFactor": 2,
+            "legendFormat": "",
+            "refId": "A"
+          }
+        ],
+        "thresholds": [],
+        "timeRegions": [],
+        "title": "Auth Denied",
+        "tooltip": {
+          "shared": true,
+          "sort": 0,
+          "value_type": "individual"
+        },
+        "type": "graph",
+        "xaxis": {
+          "mode": "time",
+          "show": true,
+          "values": []
+        },
+        "yaxes": [
+          {
+            "format": "short",
+            "logBase": 1,
+            "min": 0,
+            "show": true
+          },
+          {
+            "format": "short",
+            "logBase": 1,
+            "min": 0,
+            "show": true
+          }
+        ],
+        "yaxis": {
+          "align": false
+        }
+      },
+      {
+        "aliasColors": {},
+        "bars": false,
+        "dashLength": 10,
+        "dashes": false,
+        "fill": 1,
+        "fillGradient": 0,
+        "gridPos": {
+          "h": 7,
+          "w": 24,
+          "x": 0,
+          "y": 15
+        },
+        "hiddenSeries": false,
+        "id": 5,
+        "legend": {
+          "avg": false,
+          "current": false,
+          "max": false,
+          "min": false,
+          "show": true,
+          "total": false,
+          "values": false
+        },
+        "lines": true,
+        "linewidth": 1,
+        "links": [],
+        "nullPointMode": "null as zero",
+        "options": {
+          "alertThreshold": true
+        },
+        "percentage": false,
+        "pluginVersion": "8.4.4",
+        "pointradius": 5,
+        "points": false,
+        "renderer": "flot",
+        "seriesOverrides": [],
+        "spaceLength": 10,
+        "stack": false,
+        "steppedLine": false,
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "name": "prometheus"
+            },
+            "expr": "sum(rate(envoy_cluster_upstream_rq_xx{envoy_response_code_class=\"4\",envoy_cluster_name=~\"$envoy_cluster_name\"}[1m])) / sum(rate(envoy_cluster_upstream_rq_xx{envoy_cluster_name=~\"$envoy_cluster_name\"}[1m]))",
+            "format": "time_series",
+            "intervalFactor": 2,
+            "legendFormat": "%",
+            "refId": "A"
+          }
+        ],
+        "thresholds": [],
+        "timeRegions": [],
+        "title": "4xx %",
+        "tooltip": {
+          "shared": true,
+          "sort": 0,
+          "value_type": "individual"
+        },
+        "type": "graph",
+        "xaxis": {
+          "mode": "time",
+          "show": true,
+          "values": []
+        },
+        "yaxes": [
+          {
+            "format": "percentunit",
+            "logBase": 1,
+            "max": "1",
+            "min": "0",
+            "show": true
+          },
+          {
+            "format": "short",
+            "logBase": 1,
+            "min": 0,
+            "show": true
+          }
+        ],
+        "yaxis": {
+          "align": false
+        }
+      },
+      {
+        "aliasColors": {},
+        "bars": false,
+        "dashLength": 10,
+        "dashes": false,
+        "fill": 1,
+        "fillGradient": 0,
+        "gridPos": {
+          "h": 7,
+          "w": 24,
+          "x": 0,
+          "y": 22
+        },
+        "hiddenSeries": false,
+        "id": 7,
+        "legend": {
+          "avg": false,
+          "current": false,
+          "max": false,
+          "min": false,
+          "show": true,
+          "total": false,
+          "values": false
+        },
+        "lines": true,
+        "linewidth": 1,
+        "links": [],
+        "nullPointMode": "null",
+        "options": {
+          "alertThreshold": true
+        },
+        "percentage": false,
+        "pluginVersion": "8.4.4",
+        "pointradius": 5,
+        "points": false,
+        "renderer": "flot",
+        "seriesOverrides": [],
+        "spaceLength": 10,
+        "stack": false,
+        "steppedLine": false,
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "name": "prometheus"
+            },
+            "expr": "sum(rate(envoy_cluster_upstream_rq_retry{envoy_cluster_name=~\"$envoy_cluster_name\"}[1m]))",
+            "format": "time_series",
+            "interval": "",
+            "intervalFactor": 2,
+            "legendFormat": "request retry",
+            "refId": "A"
+          },
+          {
+            "datasource": {
+              "type": "prometheus",
+              "name": "prometheus"
+            },
+            "expr": "sum(rate(envoy_cluster_upstream_rq_retry_success{envoy_cluster_name=~\"$envoy_cluster_name\"}[1m]))",
+            "format": "time_series",
+            "intervalFactor": 2,
+            "legendFormat": "request retry success",
+            "refId": "B"
+          },
+          {
+            "datasource": {
+              "type": "prometheus",
+              "name": "prometheus"
+            },
+            "expr": "sum(rate(envoy_cluster_upstream_rq_retry_overflow{envoy_cluster_name=~\"$envoy_cluster_name\"}[1m]))",
+            "format": "time_series",
+            "intervalFactor": 2,
+            "legendFormat": "request retry overflow",
+            "refId": "C"
+          }
+        ],
+        "thresholds": [],
+        "timeRegions": [],
+        "title": "Upstream Request Retry Rate",
+        "tooltip": {
+          "shared": true,
+          "sort": 0,
+          "value_type": "individual"
+        },
+        "type": "graph",
+        "xaxis": {
+          "mode": "time",
+          "show": true,
+          "values": []
+        },
+        "yaxes": [
+          {
+            "format": "short",
+            "logBase": 1,
+            "min": 0,
+            "show": true
+          },
+          {
+            "format": "short",
+            "logBase": 1,
+            "min": 0,
+            "show": true
+          }
+        ],
+        "yaxis": {
+          "align": false
+        }
+      },
+      {
+        "aliasColors": {},
+        "bars": false,
+        "dashLength": 10,
+        "dashes": false,
+        "fill": 1,
+        "fillGradient": 0,
+        "gridPos": {
+          "h": 7,
+          "w": 6,
+          "x": 0,
+          "y": 29
+        },
+        "hiddenSeries": false,
+        "id": 1,
+        "legend": {
+          "avg": false,
+          "current": false,
+          "max": false,
+          "min": false,
+          "show": true,
+          "total": false,
+          "values": false
+        },
+        "lines": true,
+        "linewidth": 1,
+        "links": [],
+        "nullPointMode": "null",
+        "options": {
+          "alertThreshold": true
+        },
+        "percentage": false,
+        "pluginVersion": "8.4.4",
+        "pointradius": 5,
+        "points": false,
+        "renderer": "flot",
+        "seriesOverrides": [],
+        "spaceLength": 10,
+        "stack": false,
+        "steppedLine": false,
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "name": "prometheus"
+            },
+            "expr": "sum(rate(envoy_cluster_upstream_cx_total{envoy_cluster_name=\"$envoy_cluster_name\"}[1m]))",
+            "format": "time_series",
+            "intervalFactor": 2,
+            "legendFormat": "egress CPS",
+            "refId": "A"
+          },
+          {
+            "datasource": {
+              "type": "prometheus",
+              "name": "prometheus"
+            },
+            "expr": "sum(rate(envoy_cluster_upstream_rq_total{envoy_cluster_name=~\"$envoy_cluster_name\"}[1m]))",
+            "format": "time_series",
+            "intervalFactor": 2,
+            "legendFormat": "egress RPS",
+            "refId": "B"
+          },
+          {
+            "datasource": {
+              "type": "prometheus",
+              "name": "prometheus"
+            },
+            "expr": "sum(rate(envoy_cluster_upstream_rq_pending_total{envoy_cluster_name=~\"$envoy_cluster_name\"}[1m]))",
+            "format": "time_series",
+            "intervalFactor": 2,
+            "legendFormat": "pending req to",
+            "refId": "C"
+          },
+          {
+            "datasource": {
+              "type": "prometheus",
+              "name": "prometheus"
+            },
+            "expr": "sum(rate(envoy_cluster_lb_healthy_panic{envoy_cluster_name=~\"$envoy_cluster_name\"}[1m]))",
+            "format": "time_series",
+            "intervalFactor": 2,
+            "legendFormat": "lb healthy panic RPS",
+            "refId": "D"
+          }
+        ],
+        "thresholds": [],
+        "timeRegions": [],
+        "title": "Egress CPS / RPS",
+        "tooltip": {
+          "shared": true,
+          "sort": 0,
+          "value_type": "individual"
+        },
+        "type": "graph",
+        "xaxis": {
+          "mode": "time",
+          "show": true,
+          "values": []
+        },
+        "yaxes": [
+          {
+            "format": "short",
+            "logBase": 1,
+            "min": 0,
+            "show": true
+          },
+          {
+            "format": "short",
+            "logBase": 1,
+            "min": 0,
+            "show": true
+          }
+        ],
+        "yaxis": {
+          "align": false
+        }
+      },
+      {
+        "aliasColors": {},
+        "bars": false,
+        "dashLength": 10,
+        "dashes": false,
+        "fill": 1,
+        "fillGradient": 0,
+        "gridPos": {
+          "h": 7,
+          "w": 6,
+          "x": 6,
+          "y": 29
+        },
+        "hiddenSeries": false,
+        "id": 2,
+        "legend": {
+          "avg": false,
+          "current": false,
+          "max": false,
+          "min": false,
+          "show": true,
+          "total": false,
+          "values": false
+        },
+        "lines": true,
+        "linewidth": 1,
+        "links": [],
+        "nullPointMode": "null",
+        "options": {
+          "alertThreshold": true
+        },
+        "percentage": false,
+        "pluginVersion": "8.4.4",
+        "pointradius": 5,
+        "points": false,
+        "renderer": "flot",
+        "seriesOverrides": [],
+        "spaceLength": 10,
+        "stack": false,
+        "steppedLine": false,
+        "targets": [
+          {
+            "datasource": {
+              "type": "prometheus",
+              "name": "prometheus"
+            },
+            "expr": "sum(envoy_cluster_upstream_cx_active{envoy_cluster_name=\"$envoy_cluster_name\"})",
+            "format": "time_series",
+            "intervalFactor": 2,
+            "legendFormat": "connections",
+            "refId": "A"
+          },
+          {
+            "datasource": {
+              "type": "prometheus",
+              "name": "prometheus"
+            },
+            "expr": "sum(envoy_cluster_upstream_rq_active{envoy_cluster_name=\"$envoy_cluster_name\"})",
+            "format": "time_series",
+            "intervalFactor": 2,
+            "legendFormat": "requests",
+            "refId": "B"
+          },
+          {
+            "datasource": {
+              "type": "prometheus",
+              "name": "prometheus"
+            },
+            "expr": "sum(envoy_cluster_upstream_rq_pending_active{envoy_cluster_name=\"$envoy_cluster_name\"})",
+            "format": "time_series",
+            "intervalFactor": 2,
+            "legendFormat": "pending",
+            "refId": "C"
+          }
+        ],
+        "thresholds": [],
+        "timeRegions": [],
+        "title": "Total Connections / Requests",
+        "tooltip": {
+          "shared": true,
+          "sort": 0,
+          "value_type": "individual"
+        },
+        "type": "graph",
+        "xaxis": {
+          "mode": "time",
+          "show": true,
+          "values": []
+        },
+        "yaxes": [
+          {
+            "format": "short",
+            "logBase": 1,
+            "min": 0,
+            "show": true
+          },
+          {
+            "format": "short",
+            "logBase": 1,
+            "min": 0,
+            "show": true
+          }
+        ],
+        "yaxis": {
+          "align": false
+        }
+      }
+    ],
+    "refresh": false,
+    "schemaVersion": 35,
+    "style": "dark",
+    "tags": [],
+    "templating": {
+      "list": [
+        {
+          "allValue": ".+",
+          "current": {
+            "selected": false,
+            "text": "upstream",
+            "value": "upstream"
+          },
+          "datasource": {
+            "type": "prometheus",
+            "name": "prometheus"
+          },
+          "definition": "label_values(envoy_cluster_version, envoy_cluster_name)",
+          "hide": 0,
+          "includeAll": false,
+          "label": "Destination Service",
+          "multi": false,
+          "name": "envoy_cluster_name",
+          "options": [],
+          "query": "label_values(envoy_cluster_version, envoy_cluster_name)",
+          "refresh": 2,
+          "regex": "",
+          "skipUrlSync": false,
+          "sort": 1,
+          "tagValuesQuery": "",
+          "tagsQuery": "",
+          "type": "query",
+          "useTags": false
+        }
+      ]
+    },
+    "time": {
+      "from": "2022-03-22T21:54:09.098Z",
+      "to": "2022-03-22T21:56:54.439Z"
+    },
+    "timepicker": {
+      "refresh_intervals": [
+        "5s",
+        "10s",
+        "30s",
+        "1m",
+        "5m",
+        "15m",
+        "30m",
+        "1h",
+        "2h",
+        "1d"
+      ],
+      "time_options": [
+        "5m",
+        "15m",
+        "1h",
+        "6h",
+        "12h",
+        "24h",
+        "2d",
+        "7d",
+        "30d"
+      ]
+    },
+    "timezone": "utc",
+    "title": "Envoy Metrics",
+    "uid": "E3LaT9Enz",
+    "version": 1,
+    "weekStart": ""
+  }
