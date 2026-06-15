@@ -17,7 +17,7 @@ services:
   web:
     build: vuejs
     ports:
-    - 80:8080
+    - 8080:8080
     volumes:
     - ./vuejs:/project
     - /project/node_modules
