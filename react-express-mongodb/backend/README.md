@@ -4,7 +4,7 @@ You will find this `DockerFile` file in the root directory of the project.
 
 ```bash
 FROM node:13.13.0-stretch-slim
-#Argument that is passed from docer-compose.yaml file
+#Argument that is passed from docker-compose.yaml file
 ARG NODE_PORT
 #Echo the argument to check passed argument loaded here correctly
 RUN echo "Argument port is : $NODE_PORT"
