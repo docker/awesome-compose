@@ -9,7 +9,7 @@ COPY . .
 RUN yarn global add @vue/cli
 COPY .npmrc .
 COPY .yarnrc.yml .
-RUN yarn install
+RUN yarn install --immutable
 ENV HOST=0.0.0.0
 CMD ["yarn", "run", "serve"]
 
