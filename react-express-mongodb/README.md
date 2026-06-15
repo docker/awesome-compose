@@ -131,4 +131,4 @@ __Explanation of service mongo__
 
 :key: `If you wish to check your DB changes on your local machine as well. You should have installed MongoDB locally, otherwise you can't access your mongodb service of container from host machine.` 
 
-:white_check_mark: You should check your __mongo__ version is same as used in image. You can see the version of __mongo__ image in `docker-compose `file, I used __image: mongo:4.2.0__. If your mongo db version on your machine is not same then furst you have to updated your  local __mongo__ version in order to works correctly.
+: white_check_mark: You should check that your __Mongo__ version is the same as the one used in the image. You can see the version of the __Mongo__ image in the `docker-compose` file. I used __image: mongo:4.2.0__. If your Mongo DB version on your machine is not the same, then you have to update your local __Mongo__ version in order for it to work correctly.
