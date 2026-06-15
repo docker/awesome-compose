@@ -1,0 +1,31 @@
+services:
+
+  localstack:
+    image: localstack/localstack:latest
+    environment:
+      - SERVICES=s3,dynamodb,lambda
+      - DEBUG=1
+    ports:
+      - "4566:4566" # LocalStack service endpoint
+      - "4571:4571" # Optional additional port
+    volumes:
+      - ./localstack:/docker-entrypoint-initaws.d
+      - /var/run/docker.sock:/var/run/docker.sock # Docker socket for Lambda runtime execution
+    container_name: localstack
+
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - localstack
+    environment:
+      - S3_REGION=us-east-1
+      - S3_ENDPOINT=http://localstack:4566
+      - S3_ACCESS_KEY_ID=test
+      - S3_ACCESS_KEY=test
+      - S3_BUCKET=test-bucket
+    ports:
+      - "8080:8080"
+    container_name: golang_app
