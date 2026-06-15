@@ -14,7 +14,7 @@
     "test-wait-debuger": "cross-env NODE_ENV=test PORT=8081 mocha --no-timeouts --exit --inspect-brk=0.0.0.0:9230"
   },
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.20.0",
     "knex": "^0.95.11",
     "morgan": "^1.10.0",
     "mysql2": "^2.1.0"
