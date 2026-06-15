@@ -27,7 +27,8 @@ services:
       - 3000:3000
 ```
 The compose file defines a stack with two services `prometheus` and `grafana`.
-When deploying the stack, docker compose maps port the default ports for each service to the equivalent ports on the host in order to inspect easier the web interface of each service.
+When deploying the stack, docker compose maps the default ports for each service to the equivalent ports on the host for easier access to the web interface of each service.
+
 Make sure the ports 9090 and 3000 on the host are not already in use.
 
 ## Deploy with docker compose
