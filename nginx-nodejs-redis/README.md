@@ -21,7 +21,8 @@ Project structure:
 ```
 [_compose.yaml_](compose.yaml)
 ```
-redis:
+services:
+  redis:
     image: 'redislabs/redismod'
     ports:
       - '6379:6379'
@@ -40,10 +41,10 @@ redis:
   nginx:
     build: ./nginx
     ports:
-    - '80:80'
+      - '80:80'
     depends_on:
-    - web1
-    - web2
+      - web1
+      - web2
 ```
 The compose file defines an application with four services `redis`, `nginx`, `web1` and `web2`.
 When deploying the application, docker compose maps port 80 of the nginx service container to port 80 of the host as specified in the file.
