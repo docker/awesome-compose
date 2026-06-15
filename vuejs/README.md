@@ -17,14 +17,14 @@ services:
   web:
     build: vuejs
     ports:
-    - 80:8080
+    - 8080:8080
     volumes:
     - ./vuejs:/project
     - /project/node_modules
 ```
 The compose file defines an application with one service `vuejs`.
 When deploying the application, docker compose maps port 8080 of the web service container to port 8080 of the host as specified in the file.
-Make sure port 8080 on the host is not already being in use.
+Make sure port 8080 on the host is not already in use.
 
 ## Deploy with docker compose
 
@@ -45,10 +45,10 @@ Listing containers must show one container running and the port mapping as below
 ```
 $ docker ps
 CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                  NAMES
-701c02bb97b1        vuejs_web           "docker-entrypoint.s…"   49 seconds ago      Up 46 seconds       0.0.0.0:80->8080/tcp   vuejs_web_1
+701c02bb97b1        vuejs_web           "docker-entrypoint.s…"   49 seconds ago      Up 46 seconds       0.0.0.0:8080->8080/tcp   vuejs_web_1
 ```
 
-After the application starts, navigate to `http://localhost:80` in your web browser.
+After the application starts, navigate to `http://localhost:8080` in your web browser.
 
 ![page](output.jpg)
 
