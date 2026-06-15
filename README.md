@@ -12,6 +12,18 @@ These samples provide a starting point for how to integrate different services u
 <!--lint disable awesome-toc-->
 ## Contents
 
+## OpenClaw Monitor
+
+| | |
+|---|---|
+| **Project** | [flik2002/openclaw-monitor](https://github.com/flik2002/openclaw-monitor) |
+| **Description** | Real-time AI agent monitoring dashboard — tracks Gateway status, sessions, token usage & trends |
+| **Stars** | ⭐ 1.3k+ |
+
+![Dashboard](https://raw.githubusercontent.com/flik2002/openclaw-monitor/main/Openclaw%20Monitor.jpg)
+
+
+
 - [Samples of Docker Compose applications with multiple integrated services](#samples-of-docker-compose-applications-with-multiple-integrated-services).
 - [Single service samples](#single-service-samples).
 - [Basic setups for different platforms (not production ready - useful for personal use)](#basic-setups-for-different-platforms-not-production-ready---useful-for-personal-use).
