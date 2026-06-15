@@ -1,0 +1,15 @@
+include:
+  - path: redis.yaml
+
+services:
+  server:
+    build:
+      context: .
+    init: true
+    environment:
+      NODE_ENV: production
+      REDIS_URL: ${REDIS_URL}
+    ports:
+      - 3000:3000
+    depends_on:
+      - redis
