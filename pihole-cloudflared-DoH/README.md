@@ -104,5 +104,5 @@ $ docker compose down -v
 ### - Installing on Ubuntu may conflict with `systemd-resolved` - see [Installing on Ubuntu](https://github.com/pi-hole/docker-pi-hole#installing-on-ubuntu-or-fedora) for help.
 
 ### - Environment variables are version-dependent
-  Environment variables like "CONDIIONAL_FORWARDING*" and "DNS1" are deprecated and replaced by e.g. "REV_SERVER*" and "PIHOLE_DNS" in version 5.8+.
+  Environment variables like "CONDITIONAL_FORWARDING*" and "DNS1" are deprecated and replaced by e.g. "REV_SERVER*" and "PIHOLE_DNS" in version 5.8+.
   Current information about environment variables can be found here: https://github.com/pi-hole/docker-pi-hole
