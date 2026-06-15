@@ -19,7 +19,7 @@ FROM development AS builder
 
 RUN npm run build
 
-FROM development as dev-envs
+FROM development AS dev-envs
 RUN <<EOF
 apt-get update
 apt-get install -y --no-install-recommends git
