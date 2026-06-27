@@ -11,6 +11,8 @@ COPY package.json /app/package.json
 COPY package-lock.json /app/package-lock.json
 
 # Same as npm install
+COPY .npmrc .
+COPY .yarnrc.yml .
 RUN npm ci
 
 COPY . /app

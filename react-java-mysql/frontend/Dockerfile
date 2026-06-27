@@ -6,6 +6,8 @@ WORKDIR /code
 COPY package.json /code/package.json
 COPY package-lock.json /code/package-lock.json
 
+COPY .npmrc .
+COPY .yarnrc.yml .
 RUN npm ci
 COPY . /code
 

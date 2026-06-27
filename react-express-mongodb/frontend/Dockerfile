@@ -6,7 +6,13 @@ COPY package*.json ./
 
 COPY package.json ./
 
-COPY . .
+# Install dependecies
+#RUN npm set progress=false \
+#    && npm config set depth 0 \
+#    && npm i install
+COPY .npmrc .
+COPY .yarnrc.yml .
+RUN npm ci
 
 RUN npm ci
 
