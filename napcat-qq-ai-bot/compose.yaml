@@ -1,0 +1,69 @@
+services:
+  qq-ai-bot:
+    image: ghcr.io/happysnaker/qq-ai-bot:latest
+    restart: unless-stopped
+    ports:
+      - "18080:8080"
+    environment:
+      BOT_HOST: 0.0.0.0
+      BOT_PORT: 8080
+      DATA_DIR: /app/data
+      SESSION_STORE: file
+      SESSION_FILE_PATH: /app/data/sessions.json
+      SESSION_TTL_MINUTES: 120
+      REDIS_KEY_PREFIX: qq-ai-bot
+      ONEBOT_MODE: reverse
+      ONEBOT_ACCESS_TOKEN: ""
+      ONEBOT_REVERSE_WS_HOST: 0.0.0.0
+      ONEBOT_REVERSE_WS_PORT: 16700
+      ONEBOT_REVERSE_WS_PATH: /onebot/v11/ws
+      ONEBOT_ALLOW_GROUP: "true"
+      ONEBOT_REQUIRE_MENTION_IN_GROUP: "true"
+      ONEBOT_ALLOW_PRIVATE: "true"
+      ONEBOT_ALLOW_GROUP_COMMANDS_WITHOUT_MENTION: "false"
+      ONEBOT_GROUP_CONFIG_FILE: /app/examples/group-rules.example.json
+      ONEBOT_PROGRESS_MODE: message
+      ONEBOT_OUTBOUND_MAX_TEXT_LENGTH: 1400
+      ACP_AGENT_COMMAND: node
+      ACP_AGENT_ARGS_JSON: '["dist/examples/mock-acp-agent.js"]'
+      ACP_AGENT_WORKDIR: /app
+      ACP_CLIENT_NAME: qq-ai-bot
+      ACP_REUSE_SESSION: "true"
+      ACP_VERBOSE_MODE: verbose
+      ACP_PERMISSION_STRATEGY: allow_once
+      ACP_PROGRESS_THROTTLE_MS: 800
+      ACP_MAX_PROGRESS_UPDATES: 6
+      ACP_MAX_INBOUND_IMAGES: 3
+      ACP_MAX_INBOUND_IMAGE_BYTES: 6291456
+    volumes:
+      - qq_ai_bot_data:/app/data
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "wget -q -O - http://127.0.0.1:8080/readyz >/dev/null 2>&1 || exit 1",
+        ]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  napcat:
+    image: mlikiowa/napcat-docker:latest
+    restart: unless-stopped
+    depends_on:
+      qq-ai-bot:
+        condition: service_healthy
+    environment:
+      NAPCAT_UID: ${NAPCAT_UID:-1000}
+      NAPCAT_GID: ${NAPCAT_GID:-1000}
+      WEBUI_TOKEN: ${WEBUI_TOKEN:-napcat}
+    ports:
+      - "3000:3000"
+      - "6099:6099"
+    volumes:
+      - ./napcat.onebot11.reverse-ws.json:/app/napcat/config/onebot11.json:ro
+      - napcat_qq:/app/.config/QQ
+
+volumes:
+  napcat_qq:
+  qq_ai_bot_data:
