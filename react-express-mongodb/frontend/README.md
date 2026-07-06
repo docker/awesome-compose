@@ -13,7 +13,7 @@ WORKDIR /usr/src/app
 RUN echo "Argument port is : $FRONT_END_PORT"
 # Copy dependency definitions
 COPY package.json /usr/src/app
-# Install dependecies
+# Install dependencies
 RUN npm install
 # Get all the code needed to run the app
 COPY . /usr/src/app
