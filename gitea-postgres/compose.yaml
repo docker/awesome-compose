@@ -7,18 +7,18 @@ services:
       - DB_NAME=gitea
       - DB_USER=gitea
       - DB_PASSWD=gitea
-    restart: always
+    restart: unless-stopped
     volumes:
       - git_data:/data
     ports:
       - 3000:3000
   db:
-    image: postgres:alpine
+    image: postgres:17-alpine
     environment:
       - POSTGRES_USER=gitea
       - POSTGRES_PASSWORD=gitea
       - POSTGRES_DB=gitea
-    restart: always
+    restart: unless-stopped
     volumes:
       - db_data:/var/lib/postgresql/data
     expose:
