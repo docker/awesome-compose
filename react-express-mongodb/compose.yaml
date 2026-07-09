@@ -1,47 +1,48 @@
 services:
-  frontend:
-    build:
+    frontend:
+      build:
       context: frontend
-      target: development
-    ports:
-      - 3000:3000
-    stdin_open: true
-    volumes:
-      - ./frontend:/usr/src/app
-      - /usr/src/app/node_modules
-    restart: always
-    networks:
-      - react-express
-    depends_on:
-      - backend
-
-  backend:
-    restart: always
-    build:
-      context: backend
-      target: development
-    volumes:
-      - ./backend:/usr/src/app
-      - /usr/src/app/node_modules
-    depends_on:
-      - mongo
-    networks:
-      - express-mongo
-      - react-express
-    expose: 
-      - 3000
-  mongo:
-    restart: always
-    image: mongo:4.2.0
-    volumes:
-      - mongo_data:/data/db
-    networks:
-      - express-mongo
-    expose:
-      - 27017
+      container_name: frontend
+      ports:
+        - 3000:3000
+      restart: unless-stopped
+      networks:
+        - app-network
+      depends_on:
+        - backend
+      volumes:
+        - ./frontend:/app
+        - /app/node_modules
+    backend:
+      build:
+        context: backend
+        container_name: backend
+        expose::
+          - 3000
+        restart: unless-stopped
+        networks:
+         - app-network
+         - db
+        volumes:
+          - ./backend:/app
+          - /app/node_modules
+        depends_on:
+          - db
+    db:
+      image: mongo:8.0
+      container_name: db
+      restart: always
+      networks:
+        - db
+      ports:
+          - 27017:27017
+      volumes:
+          - ./data:/data/db
 networks:
-  react-express:
-  express-mongo:
-
+  app-network:
+    driver: bridge
+  db:
+    driver: bridge
 volumes:
-  mongo_data:
+  mongo_data: 
+          
