@@ -1,0 +1,13 @@
+{
+  "name": "express-mongodb-backend",
+  "version": "1.0.0",
+  "description": "Sample Express REST API backed by MongoDB",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "mongoose": "^8.4.1"
+  }
+}
