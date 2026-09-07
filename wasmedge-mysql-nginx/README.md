@@ -2,7 +2,7 @@
 
 ![Compatible with Docker+Wasm](../icon_wasm.svg)
 
-This sample demonstrates a web application with a WebAssembly (Wasm) microservice, written in Rust. The Wasm microservice is an HTTP API connected to a MySQL (MariaDB) database. The API is invoked via from JavaScript in a web interface serving static HTML. The microservice is compiled into WebAssembly (Wasm) and runs in the WasmEdge Runtime, a secure and lightweight alternative to natively compiled Rust apps in Linux containers. Checkout [this article](https://blog.logrocket.com/rust-microservices-server-side-webassembly/) or [this video](https://www.youtube.com/watch?v=VSqMPFr7SEs) to learn how the Rust code in this microservice works.
+This sample demonstrates a web application with a WebAssembly (Wasm) microservice, written in Rust. The Wasm microservice is an HTTP API connected to a MySQL (MariaDB) database. The API is invoked from JavaScript in a web interface serving static HTML. The microservice is compiled into WebAssembly (Wasm) and runs in the WasmEdge Runtime, a secure and lightweight alternative to natively compiled Rust apps in Linux containers. Checkout [this article](https://blog.logrocket.com/rust-microservices-server-side-webassembly/) or [this video](https://www.youtube.com/watch?v=VSqMPFr7SEs) to learn how the Rust code in this microservice works.
 
 ## WasmEdge server with Nginx proxy and MySQL database
 
@@ -98,13 +98,13 @@ To insert multiple records, use the `/create_orders` endpoint and POST a JSON ar
 curl http://localhost:8080/create_orders -X POST -d @db/orders.json
 ```
 
-When the WasmEdge web service receives a GET request to the `/orders` endpoint, it gets all rows from the `orders` table and return the result set in a JSON array in the HTTP response.
+When the WasmEdge web service receives a GET request to the `/orders` endpoint, it gets all rows from the `orders` table and returns the result set in a JSON array in the HTTP response.
 
 ```bash
 curl http://localhost:8080/orders
 ```
 
-When the WasmEdge web service receives a POST request to the `/update_order` endpoint, it extracts the JSON data from the POST body and update the `Order` record in the database table that matches the `order_id` in the input data.
+When the WasmEdge web service receives a POST request to the `/update_order` endpoint, it extracts the JSON data from the POST body and updates the `Order` record in the database table that matches the `order_id` in the input data.
 
 ```bash
 curl http://localhost:8080/update_order -X POST -d @db/update_order.json
