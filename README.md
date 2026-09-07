@@ -29,7 +29,7 @@ with an Nginx proxy and a MySQL database.
 application with an Nginx proxy and a PostgreSQL database.
 - [`Java Spark / MySQL`](sparkjava-mysql) - Sample Java application and
 a MySQL database.
-- [`NGINX / ASP.NET / MySQL`](nginx-aspnet-mysql) - Sample Nginx reverse proxy with an C# backend using ASP.NET.
+- [`NGINX / ASP.NET / MySQL`](nginx-aspnet-mysql) - Sample Nginx reverse proxy with a C# backend using ASP.NET.
 - [`NGINX / Flask / MongoDB`](nginx-flask-mongo) - Sample Python/Flask
 application with Nginx proxy and a Mongo database.
 - [`NGINX / Flask / MySQL`](nginx-flask-mysql) - Sample Python/Flask application with an Nginx proxy and a MySQL database.

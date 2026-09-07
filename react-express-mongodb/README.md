@@ -43,7 +43,7 @@ services:
 ```
 The compose file defines an application with three services `frontend`, `backend` and `db`.
 When deploying the application, docker compose maps port 3000 of the frontend service container to port 3000 of the host as specified in the file.
-Make sure port 3000 on the host is not already being in use.
+Make sure port 3000 on the host is not already in use.
 
 ## Deploy with docker compose
 
@@ -97,7 +97,7 @@ The first line defines the version of a file. It sounds confusing :confused:. Wh
 
 __Services__
 
-Our main goal to create a containers, it starts from here. As you can see there are three services(Docker images): 
+Our main goal is to create containers, it starts from here. As you can see there are three services(Docker images): 
 - First is __frontend__ 
 - Second is __server__ which is __backend - Express(NodeJS)__. I used a name server here, it's totally on you to name it __backend__.
 - Third is __mongo__ which is db __MongoDB__.
@@ -110,7 +110,7 @@ __Explanation of service server__
 
 - Defining a **nodejs** service as __server__.
 - We named our **node server** container service as **server**. Assigning a name to the containers makes it easier to read when there are lot of containers on a machine, it can also avoid randomly generated container names. (Although in this case, __container_name__ is also __server__, this is merely personal preference, the name of the service and container do not have to be the same.) 
-- Docker container starts automatically if its fails.
+- Docker container starts automatically if it fails.
 - Building the __server__ image using the Dockerfile from the current directory and passing an argument to the
 backend(server) `DockerFile`.
 - Mapping the host port to the container port.
@@ -122,7 +122,7 @@ We add another service called **mongo** but this time instead of building it fro
 __Explanation of service mongo__
 
 - Defining a **mongodb** service as __mongo__.
-- Pulling the mongo 4.2.0 image image again from [DockerHub](https://hub.docker.com/).
+- Pulling the mongo 4.2.0 image again from [DockerHub](https://hub.docker.com/).
 - Mount our current db directory to container. 
 - For persistent storage, we mount the host directory ( just like I did it in **Node** image inside `DockerFile` to reflect the changes) `/data` ( you need to create a directory in root of your project in order to save changes to locally as well) to the container directory `/data/db`, which was identified as a potential mount point in the `mongo Dockerfile` we saw earlier.
 - Mounting volumes gives us persistent storage so when starting a new container, Docker Compose will use the volume of any previous containers and copy it to the new container, ensuring that no data is lost.
@@ -131,4 +131,4 @@ __Explanation of service mongo__
 
 :key: `If you wish to check your DB changes on your local machine as well. You should have installed MongoDB locally, otherwise you can't access your mongodb service of container from host machine.` 
 
-:white_check_mark: You should check your __mongo__ version is same as used in image. You can see the version of __mongo__ image in `docker-compose `file, I used __image: mongo:4.2.0__. If your mongo db version on your machine is not same then furst you have to updated your  local __mongo__ version in order to works correctly.
+:white_check_mark: You should check your __mongo__ version is same as used in image. You can see the version of __mongo__ image in `docker-compose `file, I used __image: mongo:4.2.0__. If your mongo db version on your machine is not same then first you have to update your  local __mongo__ version in order to work correctly.
