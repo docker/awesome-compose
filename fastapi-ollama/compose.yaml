@@ -1,0 +1,24 @@
+﻿services:
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    restart: unless-stopped
+
+  web:
+    build: .
+    container_name: fastapi-ollama
+    environment:
+      - OLLAMA_HOST=http://ollama:11434
+      - DEFAULT_MODEL=llama3.2:1b
+    ports:
+      - "8000:8000"
+    depends_on:
+      - ollama
+    restart: unless-stopped
+
+volumes:
+  ollama_data:

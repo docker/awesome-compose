@@ -23,6 +23,7 @@ These samples provide a starting point for how to integrate different services u
 - [`ASP.NET / MS-SQL`](aspnet-mssql) - Sample ASP.NET core application
 with MS SQL server database.
 - [`Elasticsearch / Logstash / Kibana`](elasticsearch-logstash-kibana) - Sample Elasticsearch, Logstash, and Kibana stack.
+- [`FastAPI / Ollama`](fastapi-ollama) - Sample Python/FastAPI application with Ollama for local LLM inference.
 - [`Go / NGINX / MySQL`](nginx-golang-mysql) - Sample Go application
 with an Nginx proxy and a MySQL database.
 - [`Go / NGINX / PostgreSQL`](nginx-golang-postgres) - Sample Go
