@@ -1,6 +1,6 @@
 services:
   genieacs:
-    image: drumsergio/genieacs:1.2.16.0
+    image: drumsergio/genieacs:1.2.16.6
     environment:
       # Replace this sample secret before any real use.
       - GENIEACS_UI_JWT_SECRET=changeme

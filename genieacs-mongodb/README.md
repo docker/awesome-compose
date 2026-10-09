@@ -21,7 +21,7 @@ Project structure:
 ```yaml
 services:
   genieacs:
-    image: drumsergio/genieacs:1.2.16.0
+    image: drumsergio/genieacs:1.2.16.6
     environment:
       - GENIEACS_UI_JWT_SECRET=changeme
       - GENIEACS_MONGODB_CONNECTION_URL=mongodb://mongo/genieacs
@@ -66,7 +66,7 @@ Check the containers are running and the port mapping:
 ```
 $ docker compose ps
 NAME                          IMAGE                       COMMAND                  SERVICE    STATUS              PORTS
-genieacs-mongodb-genieacs-1   drumsergio/genieacs:1.2.16.0   "..."                 genieacs   Up                  0.0.0.0:3000->3000/tcp, 0.0.0.0:7547->7547/tcp, 0.0.0.0:7557->7557/tcp, 0.0.0.0:7567->7567/tcp
+genieacs-mongodb-genieacs-1   drumsergio/genieacs:1.2.16.6   "..."                 genieacs   Up                  0.0.0.0:3000->3000/tcp, 0.0.0.0:7547->7547/tcp, 0.0.0.0:7557->7557/tcp, 0.0.0.0:7567->7567/tcp
 genieacs-mongodb-mongo-1      mongo:8.0                   "docker-entrypoint.s…"   mongo      Up (healthy)        27017/tcp
 ```
 
