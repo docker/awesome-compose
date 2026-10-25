@@ -21,13 +21,39 @@ const routes = (app) => {
       });
   });
 
-  router.get("/", (req, res) => {
+   router.get("/", (req, res) => {
     Todo.find({}, { __v: 0 })
       .then((todos) => {
         serverResponses.sendSuccess(res, messages.SUCCESSFUL, todos);
       })
       .catch((e) => {
         serverResponses.sendError(res, messages.BAD_REQUEST, e);
+      });
+  });
+
+  router.delete("/todos/:id", (req, res) => {
+    Todo.findByIdAndDelete(req.params.id)
+      .then((todo) => {
+        if (!todo) {
+          return res.status(404).json({
+            code: 404,
+            success: false,
+            message: "Todo not found",
+          });
+        }
+
+        return serverResponses.sendSuccess(
+          res,
+          messages.SUCCESSFUL,
+          todo
+        );
+      })
+      .catch((e) => {
+        return res.status(400).json({
+          code: 400,
+          success: false,
+          message: "Invalid Todo ID",
+        });
       });
   });
 
