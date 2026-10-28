@@ -1,3 +1,4 @@
+
 import React from "react";
 import axios from "axios";
 import "./App.scss";
@@ -14,6 +15,10 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
+    this.loadTodos();
+  }
+
+  loadTodos = () => {
     axios
       .get("/api")
       .then((response) => {
@@ -21,18 +26,29 @@ export default class App extends React.Component {
           todos: response.data.data,
         });
       })
-      .catch((e) => console.log("Error : ", e));
-  }
+      .catch((e) => console.log("Error loading Todos:", e));
+  };
 
   handleAddTodo = (value) => {
     axios
       .post("/api/todos", { text: value })
-      .then(() => {
-        this.setState({
-          todos: [...this.state.todos, { text: value }],
-        });
+      .then((response) => {
+        this.setState((prevState) => ({
+          todos: [...prevState.todos, response.data.data],
+        }));
       })
-      .catch((e) => console.log("Error : ", e));
+      .catch((e) => console.log("Error adding Todo:", e));
+  };
+
+  handleDeleteTodo = (id) => {
+    axios
+      .delete(`/api/todos/${id}`)
+      .then(() => {
+        this.setState((prevState) => ({
+          todos: prevState.todos.filter((todo) => todo._id !== id),
+        }));
+      })
+      .catch((e) => console.log("Error deleting Todo:", e));
   };
 
   render() {
@@ -44,7 +60,10 @@ export default class App extends React.Component {
               <h1>Todos</h1>
               <div className="todo-app">
                 <AddTodo handleAddTodo={this.handleAddTodo} />
-                <TodoList todos={this.state.todos} />
+                <TodoList
+                  todos={this.state.todos}
+                  handleDeleteTodo={this.handleDeleteTodo}
+                />
               </div>
             </div>
           </div>

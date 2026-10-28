@@ -1,3 +1,4 @@
+
 import React from "react";
 
 export default class TodoList extends React.Component {
@@ -21,15 +22,25 @@ export default class TodoList extends React.Component {
         {todos.map((todo, i) => (
           <li
             className={
-              "list-group-item cursor-pointer " +
+              "list-group-item d-flex justify-content-between align-items-center " +
               (i === this.state.activeIndex ? "active" : "")
             }
-            key={i}
-            onClick={() => {
-              this.handleActive(i);
-            }}
+            key={todo._id || i}
+            onClick={() => this.handleActive(i)}
           >
-            {todo.text}
+            <span>{todo.text}</span>
+
+            <button
+              type="button"
+              className="btn btn-danger btn-sm"
+              onClick={(event) => {
+                event.stopPropagation();
+                this.props.handleDeleteTodo(todo._id);
+              }}
+              disabled={!todo._id}
+            >
+              Delete
+            </button>
           </li>
         ))}
       </ul>
@@ -37,7 +48,8 @@ export default class TodoList extends React.Component {
   }
 
   render() {
-    let { todos } = this.props;
+    const { todos } = this.props;
+
     return todos.length > 0 ? (
       this.renderTodos(todos)
     ) : (
@@ -47,3 +59,4 @@ export default class TodoList extends React.Component {
     );
   }
 }
+
