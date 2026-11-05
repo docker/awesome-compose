@@ -1,0 +1,16 @@
+services:
+  maily:
+    image: ghcr.io/stormsia/maily:0.8.0
+    container_name: maily
+    restart: unless-stopped
+    ports:
+      - "8477:8477"
+    volumes:
+      - maily_data:/data
+    environment:
+      - MAILY_HOST=0.0.0.0
+      - MAILY_PORT=8477
+      - MAILY_DATA_DIR=/data
+
+volumes:
+  maily_data:
