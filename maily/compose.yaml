@@ -1,6 +1,6 @@
 services:
   maily:
-    image: ghcr.io/stormsia/maily:0.8.0
+    image: ghcr.io/stormsia/maily:latest
     container_name: maily
     restart: unless-stopped
     ports:
@@ -10,6 +10,7 @@ services:
     environment:
       - MAILY_HOST=0.0.0.0
       - MAILY_PORT=8477
+      - MAILY_API_KEY=${MAILY_API_KEY:-your_secret_api_key}
       - MAILY_DATA_DIR=/data
 
 volumes:
