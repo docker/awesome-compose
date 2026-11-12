@@ -1,0 +1,32 @@
+
+services:
+  redis:
+    # image: 'redislabs/redismod'
+    image: 'arm64v8/redis'
+    ports:
+      - '6379:6379'
+  web1:
+    restart: on-failure
+    build: ./web
+    hostname: web1
+    ports:
+      - '81:5000'
+    depends_on:
+      - redis
+  web2:
+    restart: on-failure
+    build: ./web
+    hostname: web2
+    ports:
+      - '82:5000'
+    depends_on:
+      - redis
+  nginx:
+    build: ./nginx
+    ports:
+    - '80:80'
+    depends_on:
+    - web1
+    - web2
+
+
