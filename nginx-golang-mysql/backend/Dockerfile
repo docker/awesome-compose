@@ -19,23 +19,6 @@ RUN --mount=type=cache,target=/go/pkg/mod/cache \
 
 CMD ["/code/bin/backend"]
 
-FROM builder AS dev-envs
-
-RUN <<EOF
-apk update
-apk add git
-EOF
-
-RUN <<EOF
-addgroup -S docker
-adduser -S --shell /bin/bash --ingroup docker vscode
-EOF
-
-# install Docker tools (cli, buildx, compose)
-COPY --from=gloursdocker/docker / /
-
-CMD ["go", "run", "main.go"]
-
 FROM scratch
 COPY --from=builder /code/bin/backend /usr/local/bin/backend
 CMD ["/usr/local/bin/backend"]
