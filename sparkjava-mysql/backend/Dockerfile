@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1.4
 
-FROM --platform=$BUILDPLATFORM maven:3.8.5-eclipse-temurin-17 AS build
+FROM --platform=$BUILDPLATFORM maven:3.9-eclipse-temurin-25 AS build
 WORKDIR /workdir/server
 COPY pom.xml /workdir/server/pom.xml
 RUN mvn dependency:go-offline
@@ -24,7 +24,7 @@ EOF
 COPY --from=gloursdocker/docker / /
 CMD ["java", "-jar", "target/app.jar" ]
 
-FROM eclipse-temurin:17-jre-focal
+FROM eclipse-temurin:25-jre
 ARG DEPENDENCY=/workdir/server/target
 EXPOSE 8080
 COPY --from=build ${DEPENDENCY}/app.jar /app.jar

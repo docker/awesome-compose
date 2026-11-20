@@ -8,12 +8,12 @@ services:
     networks:
       - spring-postgres
   db:
-    image: postgres
+    image: postgres:alpine
     restart: always
     secrets:
       - db-password
     volumes:
-      - db-data:/var/lib/postgresql/data
+      - db-data:/var/lib/postgresql
     networks:
       - spring-postgres
     environment:

@@ -20,6 +20,6 @@ services:
     runtime: io.containerd.wasmedge.v1
 
   db:
-    image: mariadb:10.9
+    image: mariadb:11.8
     environment:
       MYSQL_ROOT_PASSWORD: whalehello

@@ -1,9 +1,11 @@
 services:
   elasticsearch:
-    image: elasticsearch:7.16.1
+    image: elasticsearch:9.5.5
     container_name: es
     environment:
       discovery.type: single-node
+      # security (TLS + auth) is enabled by default since 8.x, keep this sample plain HTTP
+      xpack.security.enabled: "false"
       ES_JAVA_OPTS: "-Xms512m -Xmx512m"
     ports:
       - "9200:9200"
@@ -16,7 +18,7 @@ services:
     networks:
       - elastic
   logstash:
-    image: logstash:7.16.1
+    image: logstash:9.5.5
     container_name: log
     environment:
       discovery.seed_hosts: logstash
@@ -35,7 +37,7 @@ services:
       - elastic
     command: logstash -f /usr/share/logstash/pipeline/logstash-nginx.config
   kibana:
-    image: kibana:7.16.1
+    image: kibana:9.5.5
     container_name: kib
     ports:
       - "5601:5601"

@@ -34,7 +34,7 @@ Make sure port 4200 is not being used by another container, otherwise the port s
 $ docker compose up -d
 Creating network "angular_default" with the default driver
 Building angular
-Step 1/7 : FROM node:10
+Step 1/7 : FROM node:26-slim
 10: Pulling from library/node
 c0c53f743a40: Pull complete
 ...

@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1.4
-FROM rust:buster AS base
+FROM rust:1.100-slim-trixie AS base
 
 ENV USER=root
 ENV ROCKET_ADDRESS=0.0.0.0
@@ -7,7 +7,7 @@ ENV ROCKET_ENV=development
 
 WORKDIR /code
 RUN cargo init
-COPY Cargo.toml /code/Cargo.toml
+COPY Cargo.toml Cargo.lock /code/
 RUN cargo fetch
 COPY . /code
 
@@ -38,7 +38,7 @@ FROM base AS builder
 
 RUN cargo build --release --offline
 
-FROM debian:buster-slim
+FROM debian:trixie-slim
 
 ENV ROCKET_ENV=production
 

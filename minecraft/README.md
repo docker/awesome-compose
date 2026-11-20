@@ -12,7 +12,7 @@ Project structure:
 ```
 services:
  minecraft:
-   image: itzg/minecraft-server
+   image: itzg/minecraft-server:java25-alpine
    ports:
      - "25565:25565"
     ...

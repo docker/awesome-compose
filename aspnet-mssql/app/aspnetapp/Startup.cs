@@ -29,7 +29,7 @@ namespace aspnetapp
             });
 
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+            services.AddMvc();
             services.AddControllers();
         }
 

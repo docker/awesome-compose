@@ -2,18 +2,19 @@ services:
   web:
     build: app/aspnetapp
     ports:
-      - 80:80
+      # aspnet images listen on 8080 by default since .NET 8
+      - 80:8080
   db:
     environment:
       ACCEPT_EULA: "Y"
-      SA_PASSWORD: example_123
-    # mssql server image isn't available for arm64 architecture, so we use azure-sql instead
-    image: mcr.microsoft.com/azure-sql-edge:1.0.4
-    # If you really want to use MS SQL Server, uncomment the following line
-    #image: mcr.microsoft.com/mssql/server
+      MSSQL_SA_PASSWORD: example_123
+    # SQL Server images are amd64 only, on Apple silicon they run through
+    # Docker Desktop's Rosetta emulation
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    platform: linux/amd64
     restart: always
     healthcheck:
-        test: ["CMD-SHELL", "/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P example_123 -Q 'SELECT 1' || exit 1"]
+        test: ["CMD-SHELL", "/opt/mssql-tools18/bin/sqlcmd -C -S localhost -U sa -P example_123 -Q 'SELECT 1' || exit 1"]
         interval: 10s
         retries: 10
         start_period: 10s

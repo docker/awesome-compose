@@ -12,14 +12,14 @@ services:
     volumes:
       - nc_data:/var/www/html
   db:
-    image: postgres:alpine
+    image: postgres:18-alpine
     environment:
       - POSTGRES_PASSWORD=nextcloud
       - POSTGRES_DB=nextcloud
       - POSTGRES_USER=nextcloud
     restart: always
     volumes:
-      - db_data:/var/lib/postgresql/data
+      - db_data:/var/lib/postgresql
     expose:
       - 5432
 volumes:

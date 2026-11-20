@@ -15,7 +15,7 @@ Project structure:
 ```
 services:
   frontend:
-    image: traefik:2.6
+    image: traefik:v3.7
     command: --providers.docker --entrypoints.web.address=:80 --providers.docker.exposedbydefault=false
     ports:
       # The HTTP port
@@ -49,14 +49,14 @@ Step 1/7 : FROM golang:1.13 AS build
 Successfully built 22397f6cd4bc
 Successfully tagged traefik-golang_backend:latest
 WARNING: Image for service backend was built because it did not already exist. To rebuild this image you must use `docker-compose build` or `docker-compose up --build`.
-Pulling frontend (traefik:2.6)...
+Pulling frontend (traefik:v3.7)...
 2.6: Pulling from library/traefik
 8663204ce13b: Pull complete
 1a6b5dadc224: Pull complete
 c7891231da41: Pull complete
 9e3c91eff4e8: Pull complete
 Digest: sha256:9dc508fe4f1516b81ec97ed37dd4f3b406f02eda72c7c0dcd9f74d23fbc82239
-Status: Downloaded newer image for traefik:2.6
+Status: Downloaded newer image for traefik:v3.7
 Creating traefik-golang_backend_1 ... done
 Creating traefik-golang_frontend_1 ... done
 ```
@@ -67,7 +67,7 @@ Listing containers must show two containers running and the port mapping as belo
 ```
 $ docker ps
 CONTAINER ID   IMAGE                    COMMAND                  CREATED          STATUS          PORTS                               NAMES
-e0a0f3191042   traefik:2.6              "/entrypoint.sh --pr…"   42 seconds ago   Up 42 seconds   0.0.0.0:80->80/tcp, :::80->80/tcp   traefik-golang-frontend-1
+e0a0f3191042   traefik:v3.7              "/entrypoint.sh --pr…"   42 seconds ago   Up 42 seconds   0.0.0.0:80->80/tcp, :::80->80/tcp   traefik-golang-frontend-1
 662d1506f1fd   traefik-golang_backend   "/usr/local/bin/back…"   42 seconds ago   Up 42 seconds                                       traefik-golang-backend-1
 ```
 

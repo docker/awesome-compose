@@ -22,7 +22,7 @@ services:
     ports:
     - 8080:8080
   db:
-    image: postgres
+    image: postgres:alpine
     ...
 ```
 The compose file defines an application with two services `backend` and `db`.
@@ -35,7 +35,7 @@ Make sure port 8080 on the host is not already being in use.
 $ docker compose up -d
 Creating network "spring-postgres_default" with the default driver
 Building backend
-Step 1/11 : FROM maven:3.5-jdk-9 AS build
+Step 1/11 : FROM maven:3.9-eclipse-temurin-25 AS build
 3.5-jdk-9: Pulling from library/maven
 ...
 Successfully tagged spring-postgres_backend:latest

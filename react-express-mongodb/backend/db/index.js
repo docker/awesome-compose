@@ -5,7 +5,6 @@ const mongoose = require("mongoose");
 
 exports.connect = (app) => {
   const options = {
-    useNewUrlParser: true,
     autoIndex: false, // Don't build indexes
       maxPoolSize: 10, // Maintain up to 10 socket connections
   };

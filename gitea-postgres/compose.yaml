@@ -20,7 +20,7 @@ services:
       - POSTGRES_DB=gitea
     restart: always
     volumes:
-      - db_data:/var/lib/postgresql/data
+      - db_data:/var/lib/postgresql
     expose:
       - 5432
 volumes:

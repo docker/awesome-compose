@@ -10,13 +10,13 @@ services:
         condition: service_healthy
 
   db:
-    image: postgres
+    image: postgres:alpine
     restart: always
     user: postgres
     secrets:
       - db-password
     volumes:
-      - db-data:/var/lib/postgresql/data
+      - db-data:/var/lib/postgresql
     environment:
       - POSTGRES_DB=example
       - POSTGRES_PASSWORD_FILE=/run/secrets/db-password
@@ -29,7 +29,7 @@ services:
       retries: 5
 
   proxy:
-    image: nginx
+    image: nginx:alpine
     volumes:
       - type: bind
         source: ./proxy/nginx.conf

@@ -26,10 +26,10 @@ services:
       target: builder
     ...
   db:
-    image: postgres
+    image: postgres:alpine
     ...
   proxy:
-    image: nginx
+    image: nginx:alpine
     volumes:
       - type: bind
         source: ./proxy/nginx.conf

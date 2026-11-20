@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1.4
 
-FROM --platform=$BUILDPLATFORM node:lts AS development
+FROM --platform=$BUILDPLATFORM node:lts-slim AS development
 
 WORKDIR /code
 COPY package.json /code/package.json
@@ -35,6 +35,6 @@ FROM development AS build
 
 RUN ["npm", "run", "build"]
 
-FROM nginx:1.13-alpine
+FROM nginx:1.30-alpine
 
 COPY --from=build /code/build /usr/share/nginx/html

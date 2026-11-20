@@ -1,48 +1,30 @@
 {
   "name": "vuejs",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "dev": "vite",
+    "build": "run-p type-check \"build-only {@}\" --",
+    "preview": "vite preview",
+    "build-only": "vite build",
+    "type-check": "vue-tsc --build"
   },
   "dependencies": {
-    "ci": "^2.2.0",
-    "core-js": "^3.14.0",
-    "vue": "^2.6.14"
+    "vue": "^3.5.42"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.15.8",
-    "@vue/cli-plugin-babel": "^5.0.1",
-    "@vue/cli-plugin-eslint": "^5.0.1",
-    "@vue/cli-service": "^5.0.1",
-    "eslint": "^7.32.0",
-    "eslint-plugin-vue": "^7.19.1",
-    "vue-template-compiler": "^2.6.14"
+    "@tsconfig/node24": "^24.0.5",
+    "@types/node": "^24.13.4",
+    "@vitejs/plugin-vue": "^6.0.8",
+    "@vue/tsconfig": "^0.9.1",
+    "npm-run-all2": "^9.0.3",
+    "typescript": "~6.0.0",
+    "vite": "^8.2.2",
+    "vite-plugin-vue-devtools": "^8.2.1",
+    "vue-tsc": "^3.3.11"
   },
-  "resolutions": {
-    "glob-parent": "5.1.2",
-    "set-value": "4.0.1",
-    "nth-check": "2.0.1",
-    "ansi-regex": "5.0.1"
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/essential",
-      "eslint:recommended"
-    ],
-    "parserOptions": {
-      "parser": "@babel/eslint-parser"
-    },
-    "rules": {}
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions"
-  ]
+  "engines": {
+    "node": "^22.18.0 || >=24.12.0"
+  }
 }

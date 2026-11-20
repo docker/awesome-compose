@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1.4
-FROM node:lts AS development
+FROM node:lts-slim AS development
 
 ENV CI=true
 ENV PORT=3000
@@ -33,6 +33,6 @@ FROM development AS builder
 
 RUN npm run build
 
-FROM nginx:1.13-alpine
+FROM nginx:1.30-alpine
 
 COPY --from=builder /code/build /usr/share/nginx/html

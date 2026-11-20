@@ -14,7 +14,7 @@ Project structure:
 ``` yaml
 services:
   postgres:
-    image: postgres:latest
+    image: postgres:alpine
     ...
   pgadmin:
     image: dpage/pgadmin4:latest
