@@ -11,13 +11,13 @@ Project structure:
 ```
 services:
   elasticsearch:
-    image: elasticsearch:7.8.0
+    image: elasticsearch:9.5.5
     ...
   logstash:
-    image: logstash:7.8.0
+    image: logstash:9.5.5
     ...
   kibana:
-    image: kibana:7.8.0
+    image: kibana:9.5.5
     ...
 ```
 
@@ -37,9 +37,9 @@ Listing containers must show three containers running and the port mapping as be
 ```
 $ docker ps
 CONTAINER ID        IMAGE                 COMMAND                  CREATED             STATUS                    PORTS                                                                                            NAMES
-173f0634ed33        logstash:7.8.0        "/usr/local/bin/dock…"   43 seconds ago      Up 41 seconds             0.0.0.0:5000->5000/tcp, 0.0.0.0:5044->5044/tcp, 0.0.0.0:9600->9600/tcp, 0.0.0.0:5000->5000/udp   log
-b448fd3e9b30        kibana:7.8.0          "/usr/local/bin/dumb…"   43 seconds ago      Up 42 seconds             0.0.0.0:5601->5601/tcp                                                                           kib
-366d358fb03d        elasticsearch:7.8.0   "/tini -- /usr/local…"   43 seconds ago      Up 42 seconds (healthy)   0.0.0.0:9200->9200/tcp, 0.0.0.0:9300->9300/tcp                                                   es
+173f0634ed33        logstash:9.5.5        "/usr/local/bin/dock…"   43 seconds ago      Up 41 seconds             0.0.0.0:5000->5000/tcp, 0.0.0.0:5044->5044/tcp, 0.0.0.0:9600->9600/tcp, 0.0.0.0:5000->5000/udp   log
+b448fd3e9b30        kibana:9.5.5          "/usr/local/bin/dumb…"   43 seconds ago      Up 42 seconds             0.0.0.0:5601->5601/tcp                                                                           kib
+366d358fb03d        elasticsearch:9.5.5   "/tini -- /usr/local…"   43 seconds ago      Up 42 seconds (healthy)   0.0.0.0:9200->9200/tcp, 0.0.0.0:9300->9300/tcp                                                   es
 ```
 
 After the application starts, navigate to below links in your web browser:
