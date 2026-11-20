@@ -27,7 +27,7 @@ services:
     ...
   db:
     # We use a mariadb image which supports both amd64 & arm64 architecture
-    image: mariadb:10-focal
+    image: mariadb:11.8
     # If you really want to use MySQL, uncomment the following line
     #image: mysql:8
     ...
