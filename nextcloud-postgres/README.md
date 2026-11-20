@@ -20,7 +20,7 @@ services:
       - 80:80
     ...
   db:
-    image: postgres:alpine
+    image: postgres:18-alpine
     ...
 ```
 

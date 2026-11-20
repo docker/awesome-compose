@@ -23,7 +23,7 @@ services:
     expose:
       - 6379
   db:
-    image: mariadb:10.5
+    image: mariadb:11.8
     command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW
     restart: always
     volumes:
@@ -31,6 +31,7 @@ services:
     networks:
       - dbnet
     environment:
+      - MARIADB_AUTO_UPGRADE=1
       - MYSQL_DATABASE=nextcloud
       - MYSQL_USER=nextcloud
       - MYSQL_ROOT_PASSWORD=nextcloud

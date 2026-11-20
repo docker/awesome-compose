@@ -28,7 +28,7 @@ services:
 $ docker compose up -d
 Creating network "php-docker_web" with the default driver
 Building web
-Step 1/6 : FROM php:7.2-apache
+Step 1/6 : FROM php:8.5-apache
 ...
 ...
 Creating php-docker_web_1 ... done

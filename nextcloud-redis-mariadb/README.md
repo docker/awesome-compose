@@ -25,7 +25,7 @@ services:
     networks:
       - redisnet
   db:
-    image: mariadb
+    image: mariadb:11.8
     ...
 ```
 
