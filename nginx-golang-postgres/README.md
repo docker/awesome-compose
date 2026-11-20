@@ -26,7 +26,7 @@ services:
       target: builder
     ...
   db:
-    image: postgres
+    image: postgres:alpine
     ...
   proxy:
     image: nginx:alpine

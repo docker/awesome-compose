@@ -22,7 +22,7 @@ services:
     ports:
     - 8080:8080
   db:
-    image: postgres
+    image: postgres:alpine
     ...
 ```
 The compose file defines an application with two services `backend` and `db`.
