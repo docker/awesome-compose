@@ -34,6 +34,6 @@ EOF
 COPY --from=gloursdocker/docker / /
 CMD [ "npm", "start" ]
 
-FROM nginx:1.13-alpine
+FROM nginx:1.30-alpine
 
 COPY --from=builder /code/build /usr/share/nginx/html

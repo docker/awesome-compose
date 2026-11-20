@@ -33,6 +33,6 @@ FROM development AS builder
 
 RUN npm run build
 
-FROM nginx:1.13-alpine
+FROM nginx:1.30-alpine
 
 COPY --from=builder /code/build /usr/share/nginx/html

@@ -29,7 +29,7 @@ services:
     image: postgres
     ...
   proxy:
-    image: nginx
+    image: nginx:alpine
     volumes:
       - type: bind
         source: ./proxy/nginx.conf

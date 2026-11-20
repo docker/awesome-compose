@@ -32,7 +32,7 @@ services:
     #image: mysql:8
     ...
   proxy:
-    image: nginx
+    image: nginx:alpine
     volumes:
       - type: bind
         source: ./proxy/nginx.conf

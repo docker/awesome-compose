@@ -24,7 +24,7 @@ services:
     ...
   db:
     # We use a mariadb image which supports both amd64 & arm64 architecture
-    image: mariadb:10.6.4-focal
+    image: mariadb:11.8
     # If you really want to use MySQL, uncomment the following line
     #image: mysql:8.0.27
     ...
@@ -49,7 +49,7 @@ Make sure port 3000 on the host is not already being in use.
 $ docker compose up -d
 Creating network "react-java-mysql-default" with the default driver
 Building backend
-Step 1/17 : FROM maven:3.6.3-jdk-11 AS builder
+Step 1/17 : FROM maven:3.9-eclipse-temurin-25 AS builder
 ...
 Successfully tagged react-java-mysql_frontend:latest
 WARNING: Image for service frontend was built because it did not already exist. To rebuild this image you must use `docker-compose build` or `docker-compose up --build`.

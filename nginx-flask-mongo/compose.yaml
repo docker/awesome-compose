@@ -1,11 +1,11 @@
 services:
   web:
-    image: nginx
+    image: nginx:alpine
     volumes:
       - ./nginx/nginx.conf:/tmp/nginx.conf
     environment: 
       - FLASK_SERVER_ADDR=backend:9091  
-    command: /bin/bash -c "envsubst < /tmp/nginx.conf > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'" 
+    command: /bin/sh -c "envsubst < /tmp/nginx.conf > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'" 
     ports:
       - 80:80
     depends_on:
