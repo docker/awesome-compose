@@ -22,8 +22,10 @@ services:
       discovery.seed_hosts: logstash
       LS_JAVA_OPTS: "-Xms512m -Xmx512m"
     volumes:
-      - ./logstash/pipeline/logstash-nginx.config:/usr/share/logstash/pipeline/logstash-nginx.config
-      - ./logstash/nginx.log:/home/nginx.log
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+      - /srv/docker-composes/db/elasticsearch/logstash/pipeline:/usr/share/logstash/pipeline:ro
+      - /srv/docker-composes/db/elasticsearch/logs/nginx.log:/home/nginx.log:ro
     ports:
       - "5000:5000/tcp"
       - "5000:5000/udp"
@@ -34,15 +36,7 @@ services:
     networks:
       - elastic
     command: logstash -f /usr/share/logstash/pipeline/logstash-nginx.config
-  kibana:
-    image: kibana:7.16.1
-    container_name: kib
-    ports:
-      - "5601:5601"
-    depends_on:
-      - elasticsearch
-    networks:
-      - elastic
+  
 networks:
   elastic:
     driver: bridge
