@@ -14,16 +14,16 @@
     "test-wait-debuger": "cross-env NODE_ENV=test PORT=8081 mocha --no-timeouts --exit --inspect-brk=0.0.0.0:9230"
   },
   "dependencies": {
-    "express": "^4.17.1",
-    "knex": "^0.95.11",
+    "express": "^4.22.3",
+    "knex": "^3.3.0",
     "morgan": "^1.10.0",
-    "mysql2": "^2.1.0"
+    "mysql2": "^3.24.6"
   },
   "devDependencies": {
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
     "cross-env": "^7.0.2",
     "mocha": "^9.2.2",
-    "nodemon": "^2.0.4"
+    "nodemon": "^3.1.14"
   }
 }

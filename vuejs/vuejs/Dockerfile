@@ -1,17 +1,16 @@
 # syntax=docker/dockerfile:1.4
-FROM --platform=$BUILDPLATFORM node:14.4.0-alpine AS development
+FROM --platform=$BUILDPLATFORM node:26-alpine AS development
 
 RUN mkdir /project
 WORKDIR /project
 
-COPY . .
-
-RUN yarn global add @vue/cli
 COPY .npmrc .
 COPY .yarnrc.yml .
-RUN yarn install --immutable
-ENV HOST=0.0.0.0
-CMD ["yarn", "run", "serve"]
+COPY package.json package-lock.json ./
+RUN npm ci
+
+COPY . .
+CMD ["npm", "run", "dev"]
 
 FROM development as dev-envs
 RUN <<EOF
@@ -25,5 +24,5 @@ adduser -S --shell /bin/bash --ingroup docker vscode
 EOF
 # install Docker tools (cli, buildx, compose)
 COPY --from=gloursdocker/docker / /
-CMD ["yarn", "run", "serve"]
+CMD ["npm", "run", "dev"]
 

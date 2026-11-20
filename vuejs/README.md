@@ -17,7 +17,7 @@ services:
   web:
     build: vuejs
     ports:
-    - 80:8080
+    - 8080:8080
     volumes:
     - ./vuejs:/project
     - /project/node_modules
@@ -32,7 +32,7 @@ Make sure port 8080 on the host is not already being in use.
 $ docker compose up -d
 Creating network "vuejs_default" with the default driver
 Building web
-Step 1/8 : FROM node:13.10.1-alpine
+Step 1/8 : FROM node:26-alpine
 ...
 Successfully tagged vuejs_web:latest
 WARNING: Image for service web was built because it did not already exist. To rebuild this image you must use `docker-compose build` or `docker-compose up --build`.
@@ -48,9 +48,9 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 701c02bb97b1        vuejs_web           "docker-entrypoint.s…"   49 seconds ago      Up 46 seconds       0.0.0.0:80->8080/tcp   vuejs_web_1
 ```
 
-After the application starts, navigate to `http://localhost:80` in your web browser.
+After the application starts, navigate to `http://localhost:8080` in your web browser.
 
-![page](output.jpg)
+![page](output.png)
 
 Stop and remove the containers
 ```

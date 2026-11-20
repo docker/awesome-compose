@@ -32,7 +32,7 @@ services:
       - 3000
   mongo:
     restart: always
-    image: mongo:4.2.0
+    image: mongo:8.0
     volumes:
       - mongo_data:/data/db
     networks:

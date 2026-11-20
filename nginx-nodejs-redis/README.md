@@ -22,7 +22,7 @@ Project structure:
 [_compose.yaml_](compose.yaml)
 ```
 redis:
-    image: 'redislabs/redismod'
+    image: redis:alpine
     ports:
       - '6379:6379'
   web1:

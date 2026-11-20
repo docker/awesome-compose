@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1.4
-FROM node:lts AS development
+FROM node:lts-slim AS development
 
 ENV CI=true
 ENV PORT=3000
