@@ -17,7 +17,7 @@ Project structure:
 ```
 services:
    redis: 
-     image: redislabs/redismod
+     image: redis:alpine
      ports:
        - '6379:6379' 
    web:
