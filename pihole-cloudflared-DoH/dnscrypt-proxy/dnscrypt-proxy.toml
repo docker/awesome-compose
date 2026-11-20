@@ -1,0 +1,22 @@
+# DNS-over-HTTPS forwarder used as Pi-hole upstream
+listen_addresses = ['0.0.0.0:5054']
+
+# only use the Cloudflare DoH resolver declared below
+server_names = ['cloudflare']
+doh_servers = true
+dnscrypt_servers = false
+require_dnssec = true
+require_nolog = true
+require_nofilter = true
+
+# plain DNS is only used to resolve dns.cloudflare.com at startup
+bootstrap_resolvers = ['1.1.1.1:53', '1.0.0.1:53']
+ignore_system_dns = true
+netprobe_address = '1.1.1.1:53'
+
+cache = true
+
+[static]
+  [static.'cloudflare']
+  # https://dns.cloudflare.com/dns-query (1.0.0.1)
+  stamp = 'sdns://AgcAAAAAAAAABzEuMC4wLjEAEmRucy5jbG91ZGZsYXJlLmNvbQovZG5zLXF1ZXJ5'

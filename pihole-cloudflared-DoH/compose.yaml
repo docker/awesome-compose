@@ -1,20 +1,18 @@
-version: '3.7'
 services:
-  cloudflared:
-    image: visibilityspots/cloudflared
-    container_name: cloudflared
+  dnscrypt-proxy:
+    # cloudflared dropped its DNS-over-HTTPS proxy mode in 2026.2.0,
+    # dnscrypt-proxy forwards queries to Cloudflare over DoH instead
+    image: klutchell/dnscrypt-proxy:latest
+    container_name: dnscrypt-proxy
     ports:
       - "5054:5054/tcp"
       - "5054:5054/udp"
-    environment:
-      - TZ=${TIMEZONE}
-      - PORT=5054
-      - ADDRESS=0.0.0.0
+    volumes:
+      - ./dnscrypt-proxy/dnscrypt-proxy.toml:/config/dnscrypt-proxy.toml:ro
     restart: always
     networks:
       dns-net:
         ipv4_address: 172.20.0.2
-
   pihole:
     container_name: pihole
     image: pihole/pihole:latest
@@ -26,24 +24,20 @@ services:
       - "8443:443/tcp"
     environment:
       - TZ=${TIMEZONE}
-      - PIHOLE_DNS_=172.20.0.2#5054;1.1.1.1 # referencing by name results in "Invalid IP detected in PIHOLE_DNS_: cloudflared#5054"
-      - WEBPASSWORD=${PIHOLE_PW}
-      - REV_SERVER=true
-      - REV_SERVER_TARGET=${PIHOLE_ROUTER_IP}
-      - REV_SERVER_DOMAIN=${PIHOLE_NETWORK_DOMAIN}
-      - REV_SERVER_CIDR=${PIHOLE_REVERSE_DNS}
-      - ServerIP=${PIHOLE_HOST_IP}
-      - ServerIPv6=${PIHOLE_HOST_IPV6}
-    #dns:
-      #- 127.0.0.1 # "Sets your container's resolve settings to localhost so it can resolve DHCP hostnames [...]" - github.com/pi-hole/docker-pi-hole
-      #- 1.1.1.1 # Backup server
+      # Pi-hole v6 settings, see https://docs.pi-hole.net/docker/configuration/
+      - FTLCONF_webserver_api_password=${PIHOLE_PW}
+      - FTLCONF_dns_upstreams=172.20.0.2#5054
+      - FTLCONF_dns_listeningMode=all
+      # conditional forwarding: enabled,network CIDR,router IP,local domain
+      - FTLCONF_dns_revServers=true,${PIHOLE_REVERSE_DNS},${PIHOLE_ROUTER_IP},${PIHOLE_NETWORK_DOMAIN}
     volumes: # store your data between container upgrades
       - "/etc/pihole/:/etc/pihole/"
-      - "/etc/dnsmasq.d/:/etc/dnsmasq.d/"
     cap_add:
       - NET_ADMIN # Recommended but not required (DHCP needs NET_ADMIN) https://github.com/pi-hole/docker-pi-hole#note-on-capabilities
+      - SYS_TIME # Required by the Pi-hole NTP client
+      - SYS_NICE # Optional, lets Pi-hole raise its process priority
     depends_on:
-      - "cloudflared"
+      - "dnscrypt-proxy"
     restart: always
     networks:
       - dns-net
