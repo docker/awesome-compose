@@ -27,9 +27,10 @@ The [compose.yml](compose.yml) is as follows.
 ```yaml
 services:
   redpanda:
-    image: docker.redpanda.com/vectorized/redpanda:v22.2.2
+    image: redpandadata/redpanda:v26.2.7
     command:
       - redpanda start
+      - --mode dev-container
       - --smp 1
       - --overprovisioned
       - --node-id 0
@@ -95,7 +96,7 @@ log into the Redpanda container and send a message to the queue topic `order` as
 ```bash
 $ docker compose exec redpanda /bin/bash
 redpanda@1add2615774b:/$ cd /app
-redpanda@1add2615774b:/app$ cat order.json | rpk topic produce order
+redpanda@1add2615774b:/app$ cat order.json | rpk topic produce order --allow-auto-topic-creation
 Produced to partition 0 at offset 0 with timestamp 1667922788523.
 ```
 

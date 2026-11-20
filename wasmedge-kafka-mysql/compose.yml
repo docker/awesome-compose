@@ -1,8 +1,9 @@
 services:
   redpanda:
-    image: docker.redpanda.com/vectorized/redpanda:v22.2.2
+    image: redpandadata/redpanda:v26.2.7
     command:
       - redpanda start
+      - --mode dev-container
       - --smp 1
       - --overprovisioned
       - --node-id 0

@@ -9,5 +9,8 @@ serde_json = "1.0"
 serde = { version = "1.0", features = ["derive"] }
 url = "2.3"
 mysql_async_wasi = "0.30"
+# mysql_async_wasi depends on flate2 without a compression backend, newer flate2
+# releases require one to be selected explicitly
+flate2 = { version = "1", default-features = false, features = ["rust_backend"] }
 hyper_wasi = { version = "0.15", features = ["full"] }
 tokio_wasi = { version = "1", features = ["io-util", "fs", "net", "time", "rt", "macros"] }

@@ -21,7 +21,7 @@ services:
     build: backend
     ...
   db:
-    image: postgres:12-alpine
+    image: postgres:18-alpine
     ...
   frontend:
     build: frontend

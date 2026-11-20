@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-FROM --platform=$BUILDPLATFORM rust:1.64 AS buildbase
+FROM --platform=$BUILDPLATFORM rust:1.100-trixie AS buildbase
 WORKDIR /src
 RUN <<EOT bash
     set -ex
@@ -8,7 +8,7 @@ RUN <<EOT bash
     apt-get install -y \
         git \
         clang
-    rustup target add wasm32-wasi
+    rustup target add wasm32-wasip1
 EOT
 # This line installs WasmEdge including the AOT compiler
 RUN curl -sSf https://raw.githubusercontent.com/WasmEdge/WasmEdge/master/utils/install.sh | bash
@@ -20,9 +20,9 @@ COPY src ./src
 RUN --mount=type=cache,target=/usr/local/cargo/git/db \
     --mount=type=cache,target=/usr/local/cargo/registry/cache \
     --mount=type=cache,target=/usr/local/cargo/registry/index \
-    cargo build --target wasm32-wasi --release
+    cargo build --target wasm32-wasip1 --release
 # This line builds the AOT Wasm binary
-RUN /root/.wasmedge/bin/wasmedgec target/wasm32-wasi/release/order_demo_service.wasm order_demo_service.wasm
+RUN /root/.wasmedge/bin/wasmedge compile target/wasm32-wasip1/release/order_demo_service.wasm order_demo_service.wasm
 
 FROM scratch
 ENTRYPOINT [ "order_demo_service.wasm" ]
