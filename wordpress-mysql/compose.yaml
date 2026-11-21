@@ -20,6 +20,8 @@ services:
     image: wordpress:latest
     ports:
       - 80:80
+    volumes:
+      - ./wordpress_data:/var/www/html
     restart: always
     environment:
       - WORDPRESS_DB_HOST=db
