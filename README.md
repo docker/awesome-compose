@@ -70,6 +70,7 @@ with Spring framework and a Postgres database.
 ## Basic setups for different platforms (not production ready - useful for personal use)
 
 - [`Gitea / PostgreSQL`](gitea-postgres)
+- [`NapCat / qq-ai-bot`](napcat-qq-ai-bot) - Sample messaging-native AI bot stack using NapCat as the OneBot transport and qq-ai-bot as an ACP bridge.
 - [`Nextcloud / PostgreSQL`](nextcloud-postgres)
 - [`Nextcloud / Redis / MariaDB`](nextcloud-redis-mariadb)
 - [`Pi-hole / cloudflared`](pihole-cloudflared-DoH) - Sample Pi-hole setup with use of DoH cloudflared service
