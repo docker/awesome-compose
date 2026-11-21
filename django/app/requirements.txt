@@ -1,2 +1,2 @@
-Django==3.2.13
-environs==7.3.1
+Django==5.2.1
+environs[django]>=9.5
