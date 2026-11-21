@@ -1,0 +1,17 @@
+services:
+  app:
+    build: ./app
+    ports:
+      - "8080:8080"
+    environment:
+      REDIS_ADDR: redis:6379
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:7-alpine
+    volumes:
+      - redis-data:/data
+
+volumes:
+  redis-data:
