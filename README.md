@@ -44,6 +44,7 @@ application with a Spring backend and a MySQL database.
 application with a Node.js backend and a MySQL database.
 - [`React / Express / MongoDB`](react-express-mongodb) - Sample React
 application with a Node.js backend and a Mongo database.
+- [`React / Laravel / MySQL`](react-laravel-mysql) - Sample React(Vite) application with a Laravel backend and a MySQL database.
 - [`React / Rust / PostgreSQL`](react-rust-postgres) - Sample React
 application with a Rust backend and a Postgres database.
 - [`React / Nginx`](react-nginx) - Sample React application with Nginx.
