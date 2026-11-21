@@ -66,6 +66,7 @@ with Spring framework and a Postgres database.
 - [`Portainer`](https://github.com/docker/awesome-compose/tree/master/portainer)
 - [`Wireguard`](https://github.com/docker/awesome-compose/tree/master/wireguard)
 - [`FastAPI`](fastapi)
+- [`Websoft9 Docker Comopose Library`](https://github.com/Websoft9/docker-library): 200+ Docker Compose examples of selfhosted FOSS based on official image
 
 ## Basic setups for different platforms (not production ready - useful for personal use)
 
