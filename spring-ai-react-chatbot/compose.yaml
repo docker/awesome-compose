@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  springboot-app:
+    build: 
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_AI_OPENAI_API_KEY="<OPENAI_API_KEY>"
+    networks:
+      - app-network
+
+  react-ui:
+    build: 
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:80" # Serving on port 3000 (Nginx default port 80)
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

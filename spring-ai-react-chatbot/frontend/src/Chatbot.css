@@ -1,0 +1,118 @@
+.chatbot-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f5f5f5;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.chat-header {
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.chat-logo {
+    height: 100px;
+    margin-right: 10px;
+}
+
+.breadcrumb {
+    color: #888;
+    font-size: 14px;
+}
+
+.chatbox {
+    background-color: white;
+    width: 100%;
+    max-width: 600px;
+    height: 70vh;
+    border-radius: 10px;
+    overflow-y: scroll;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.message-container {
+    display: flex;
+    align-items: flex-start;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.message {
+    max-width: 80%;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 16px;
+    line-height: 1.5;
+    word-wrap: break-word;
+    margin: 5px 0;
+}
+
+.message.user {
+    align-self: flex-end;
+    background-color: #6c63ff;
+    color: white;
+    order: 2;
+}
+
+.message.ai {
+    align-self: flex-start;
+    background-color: #e6e6e6;
+    color: black;
+}
+
+.input-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+    margin-top: 20px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+    margin-right: 10px;
+}
+
+button {
+    background-color: #6c63ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button:hover {
+    background-color: #5548c8;
+}
+
+button:active {
+    background-color: #41359d;
+}
