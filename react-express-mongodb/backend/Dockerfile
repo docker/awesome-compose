@@ -1,33 +1,16 @@
-# syntax=docker/dockerfile:1.4
+FROM node:22-alpine
 
-FROM node:lts-buster-slim AS development
+WORKDIR /app
 
-# Create app directory
-WORKDIR /usr/src/app
+COPY package-lock.json ./
 
-COPY package.json /usr/src/app/package.json
-COPY package-lock.json /usr/src/app/package-lock.json
-COPY .npmrc .
-COPY .yarnrc.yml .
+COPY package.json ./
+
+COPY . .
+
 RUN npm ci
-
-COPY . /usr/src/app
 
 EXPOSE 3000
 
-CMD [ "npm", "run", "dev" ]
+CMD ["npm","start" ]
 
-FROM development as dev-envs
-RUN <<EOF
-apt-get update
-apt-get install -y --no-install-recommends git
-EOF
-
-RUN <<EOF
-useradd -s /bin/bash -m vscode
-groupadd docker
-usermod -aG docker vscode
-EOF
-# install Docker tools (cli, buildx, compose)
-COPY --from=gloursdocker/docker / /
-CMD [ "npm", "run", "dev" ]
