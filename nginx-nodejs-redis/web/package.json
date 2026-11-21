@@ -7,7 +7,7 @@
     "start": "node server.js"
   },
   "dependencies": {
-    "express": "^4.17.2",
+    "express": "^4.21.2",
     "redis": "3.1.2"
   },
   "author": "",
