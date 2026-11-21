@@ -18,13 +18,13 @@
     "cors": "^2.8.4",
     "express": "^4.17.1",
     "lodash": "^4.17.13",
-    "mongodb": "^3.0.7",
+    "mongodb": "^3.7.4",
     "mongoose": "^6.0.9",
     "simple-node-logger": "^18.12.23",
     "validator": "^13.7.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.3",
+    "nodemon": "^3.1.14",
     "prettier": "^2.0.5"
   }
 }
