@@ -101,7 +101,7 @@ a local environment by going into the root directory of each one and executing:
 ```console
 docker compose up -d
 ```
-
+Run `docker compose ps` to verify services are up.
 Check the `README.md` of each sample to get more details on the structure and
 what is the expected output.
 To stop and remove all containers of the sample application run:
