@@ -69,6 +69,7 @@ with Spring framework and a Postgres database.
 
 ## Basic setups for different platforms (not production ready - useful for personal use)
 
+- [`GenieACS / MongoDB`](genieacs-mongodb) - Sample TR-069 (CWMP) auto configuration server for managing CPE devices, with a MongoDB database.
 - [`Gitea / PostgreSQL`](gitea-postgres)
 - [`Nextcloud / PostgreSQL`](nextcloud-postgres)
 - [`Nextcloud / Redis / MariaDB`](nextcloud-redis-mariadb)
