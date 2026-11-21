@@ -1,0 +1,13 @@
+version: '3'
+services:
+  web:
+    image: nginx
+  db:
+    image: mysql
+    ports:
+    - "3310:3306"
+    environment:
+    - MYSQL_ROOT_PASSWORD=password
+    - MYSQL_USER=user
+    - MYSQL_PASSWORD=password
+    - MYSQL_DATABASE=demodb
