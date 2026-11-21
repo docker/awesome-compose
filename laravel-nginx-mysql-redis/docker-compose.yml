@@ -1,0 +1,78 @@
+services:
+  php:
+    container_name: setup-php
+    build:
+      context: ./docker/php
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    tty: true
+    volumes:
+      - ./demo:/var/www
+      - ./docker/php/local.ini:/usr/local/etc/php/conf.d/local.ini
+    networks:
+      - setup-network
+
+  nginx:
+    container_name: setup-nginx
+    build:
+      context: ./docker/nginx
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    tty: true
+    ports:
+      - '8080:80'
+      - '443:443'
+    volumes:
+      - ./demo:/var/www
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    networks:
+      - setup-network
+
+  mysql:
+    container_name: setup-mysql
+    image: mysql:8.0
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    tty: true
+    volumes:
+      - setup-data:/var/lib/mysql/
+      - ./docker/mysql/my.cnf:/etc/mysql/my.cnf
+    networks:
+      - setup-network
+    ports:
+      - '3307:3306'
+    environment:
+      MYSQL_DATABASE: laravel
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+
+  phpmyadmin:
+    container_name: setup-phpmyadmin
+    image: phpmyadmin:5.2
+    restart: always
+    ports:
+      - '8888:80'
+    networks:
+      - setup-network
+    environment:
+      PMA_HOST: setup-mysql
+    depends_on:
+      - mysql
+
+  redis:
+    container_name: setup-redis
+    build:
+      context: ./docker/redis
+      dockerfile: Dockerfile
+    ports:
+      - '6379:6379'
+
+networks:
+  setup-network:
+    driver: bridge
+
+
+volumes:
+  setup-data:
+    driver: local
