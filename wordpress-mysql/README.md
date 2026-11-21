@@ -40,9 +40,11 @@ port 80 of the host as specified in the compose file.
 $ docker compose up -d
 Creating network "wordpress-mysql_default" with the default driver
 Creating volume "wordpress-mysql_db_data" with default driver
+
 ...
 Creating wordpress-mysql_db_1        ... done
 Creating wordpress-mysql_wordpress_1 ... done
+Creating wordpress-mysql-phpmyadmin-1w ... done
 ```
 
 
@@ -54,9 +56,12 @@ $ docker ps
 CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                 NAMES
 5fbb4181a069        wordpress:latest    "docker-entrypoint.s…"   35 seconds ago      Up 34 seconds       0.0.0.0:80->80/tcp    wordpress-mysql_wordpress_1
 e0884a8d444d        mysql:8.0.19        "docker-entrypoint.s…"   35 seconds ago      Up 34 seconds       3306/tcp, 33060/tcp   wordpress-mysql_db_1
+6dfd49ab5b62   wordpress:latest       "docker-entrypoint.s…"   Less than a second ago   Up 2 seconds   0.0.0.0:8080->80/tcp, [::]:8080->80/tcp   wordpress-mysql-phpmyadmin-1
+
 ```
 
 Navigate to `http://localhost:80` in your web browser to access WordPress.
+Navigate to `http://localhost:8080` in your web browser to access phpMyAdmin.
 
 ![page](output.jpg)
 
