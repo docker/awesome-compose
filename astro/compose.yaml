@@ -1,0 +1,13 @@
+services:
+  app:
+    build: 
+      context: app
+      dockerfile: Dockerfile
+    volumes:
+      - ./app:/app
+      - /app/node_modules
+    ports:
+      - 4321:4321
+    environment:
+      - HOST=0.0.0.0
+      - PORT=4321

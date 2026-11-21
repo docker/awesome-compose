@@ -1,0 +1,63 @@
+## Compose sample 
+### Astro service
+
+Project structure:
+```
+.
+├── app
+│   ├── Dockerfile
+│   ├── ...
+│   ├── ...
+│   ....
+└── compose.yaml
+```
+
+[_compose.yaml_](compose.yaml)
+```
+services:
+  app:
+    build: 
+      context: app
+      dockerfile: Dockerfile
+    volumes:
+      - ./app:/app
+      - /app/node_modules
+    ports:
+      - 4321:4321
+    ...
+
+```
+The compose file defines an application with one service `app`. The image for the Astro service is built with the Dockerfile inside the `app` directory (build parameter).
+
+When deploying the application, docker compose maps the container port 4321 to the same port on the host as specified in the file and runs the service listening for connections on that port.
+
+
+## Deploy with docker compose
+
+```
+$ docker compose up -d
+[+] Building 32.7s (11/11) FINISHED
+ => [app internal] load build definition from Dockerfile
+ => => transferring dockerfile: 229B
+ => [app internal] load metadata for docker.io/library/node:bookworm-slim
+ => [app internal] load .dockerignore
+ => => transferring context: 104B
+ => [app 1/5] FROM docker.io/library/node:bookworm-slim@sha256:0419dfdd085a0e6e52921b8ba952ea8c3317d7e0382a16c63b
+...
+...
+[+] Running 2/2
+ ✔ Network astro_default  Created
+ ✔ Container astro-app-1  Started
+```
+
+## Expected result
+
+Listing containers must show a container running and the port mapping as below:
+```
+$ docker compose ps
+NAME          IMAGE       COMMAND                  SERVICE   CREATED          STATUS          PORTS
+astro-app-1   astro-app   "docker-entrypoint.s…"   app       47 seconds ago   Up 46 seconds   0.0.0.0:4321->4321/tcp
+
+```
+
+After the application starts, navigate to `http://localhost:4321` in your web browser.
