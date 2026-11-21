@@ -1,0 +1,22 @@
+version: '3.7'
+services:
+  api:
+    image: mcr.microsoft.com/dotnet/sdk
+    container_name: "api"
+    ports:
+      - 5000:5000
+    working_dir: /api
+    volumes:
+      - ./api:/api
+    command: ["dotnet", "watch", "run", "--urls=http://0.0.0.0:5000/"]
+    depends_on:
+      - "log"
+  log:
+    image: datalust/seq:latest
+    environment:
+      - ACCEPT_EULA=Y
+    volumes:
+    - /path/to/seq/data:/data
+    ports:
+    - 5341:5341
+    - 80:80
