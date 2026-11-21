@@ -3,3 +3,4 @@ backend/node_modules/
 .idea/
 data
 *.log
+.vscode
