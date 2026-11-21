@@ -32,7 +32,7 @@ and a `docker-compose.yml` file. (You can use either a `.yml` or `.yaml` extensi
    COPY . /code/
    ```
 
-   This `Dockerfile` starts with a [Python 3 parent image](https://hub.docker.com/r/library/python/tags/3/).
+   This `Dockerfile` starts with a [Python 3 parent image](https://hub.docker.com/_/python/tags).
    The parent image is modified by adding a new `code` directory. The parent image is further modified
    by installing the Python requirements defined in the `requirements.txt` file.
 
