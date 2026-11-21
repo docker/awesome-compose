@@ -129,6 +129,6 @@ __Explanation of service mongo__
 - Finally, we link/depends_on the app container to the mongo container so that the mongo service is reachable from the app service.
 - In last mapping the host port to the container port.
 
-:key: `If you wish to check your DB changes on your local machine as well. You should have installed MongoDB locally, otherwise you can't access your mongodb service of container from host machine.` 
+:key: `If you wish to check your DB changes on your local machine as well, you should have installed MongoDB locally, otherwise you can't access your mongodb service of container from host machine.` 
 
 :white_check_mark: You should check your __mongo__ version is same as used in image. You can see the version of __mongo__ image in `docker-compose `file, I used __image: mongo:4.2.0__. If your mongo db version on your machine is not same then furst you have to updated your  local __mongo__ version in order to works correctly.
