@@ -1,0 +1,33 @@
+services:
+  frontend:
+    build:
+      context: ./frontend_react
+      dockerfile: Dockerfile
+    container_name: react_frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    depends_on:
+      - backend
+
+  backend:
+    build:
+      context: ./backend_flask
+      dockerfile: Dockerfile
+    container_name: flask_backend
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_ENV=development
+
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    container_name: nginx_proxy
+    ports:
+      - "80:80"
+    depends_on:
+      - frontend
+      - backend
