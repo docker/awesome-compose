@@ -1,0 +1,126 @@
+networks:
+  network1:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 200.0.0.0/16
+          gateway: 200.0.0.1
+volumes:
+    postgresql:
+    prometheus:
+    grafana:
+services:
+#---------- >> POSTGRES << ----------
+  postgresql:
+      image: postgres:15.4
+      hostname: postgresql
+      container_name: postgresql
+      privileged: true
+      environment:
+          POSTGRES_USER: ${DB_USERNAME}
+          POSTGRES_PASSWORD: ${DB_PASSWORD}
+          POSTGRES_DB: ${DB_NAME}
+          PGDATA: /data/postgres
+      healthcheck:
+          test: ["CMD-SHELL", "pg_isready -d ${DB_NAME} -U ${DB_USERNAME}"]
+          interval: 5s
+          timeout: 5s
+          retries: 5
+      volumes:
+          - postgresql:/data/postgres
+      ports:
+          - "5432:5432"
+      restart: unless-stopped
+      networks:
+        network1:
+          ipv4_address: 200.0.0.4
+# ---------- >> REDIS << ----------      
+  redis:
+    image: redis:latest
+    privileged: true
+    healthcheck:
+      test: ["CMD-SHELL", "redis-cli ping | grep PONG"]
+      interval: 1s
+      timeout: 3s
+      retries: 5
+    command: ["redis-server"]
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./redis/redis.conf:/usr/local/etc/redis.conf
+    networks:
+      network1:
+        ipv4_address: 200.0.0.5
+# ---------- >> PROMETHEUS << ----------
+  prometheus:
+      image: prom/prometheus
+      hostname: prom
+      container_name: prometheus
+      privileged: true
+      volumes:
+          - ./prometheus/:/etc/prometheus/
+          - prometheus:/prometheus
+      command:
+          - '--config.file=/etc/prometheus/prometheus.yml'
+          - '--storage.tsdb.path=/prometheus'
+          - '--web.console.libraries=/usr/share/prometheus/console_libraries'
+          - '--web.console.templates=/usr/share/prometheus/consoles'
+      ports:
+          - "${PROMETHEUS_PORT:-9090}:9090"
+      restart: unless-stopped
+      networks:
+        network1:
+          ipv4_address: 200.0.0.10
+# ---------- >> GRAFANA << ----------
+  grafana:
+      image: grafana/grafana
+      container_name: grafana
+      volumes:
+        - grafana:/var/lib/grafana
+        - ./grafana/my_dashboards:/home/grafana/dashboards
+        - ./grafana/defaults.ini:/etc/grafana/grafana.ini
+        - ./grafana/provisioning/dashboards/default.yml:/etc/grafana/provisioning/dashboards/default.yml
+        - ./grafana/provisioning/datasources/default.yml:/etc/grafana/provisioning/datasources/default.yml
+        - ./grafana/provisioning/alerting/default.yml:/etc/grafana/provisioning/alerting/default.yml
+      privileged: true
+      environment:
+          GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_PASSWORD}
+          GF_DASHBOARDS_DEFAULT_HOME_DASHBOARD_PATH: /home/grafana/dashboards/postgres.json
+          GF_USERS_ALLOW_SIGN_UP: false
+          GF_PATHS_CONFIG: /etc/grafana/grafana.ini
+      ports:
+          - "${GRAFANA_PORT:-3000}:3000"
+      restart: unless-stopped
+      networks:
+        network1:
+          ipv4_address: 200.0.0.11
+# ---------- >> EXPORTERS << ----------
+  postgresql-exporter:
+      image: prometheuscommunity/postgres-exporter
+      container_name: postgresql-exporter
+      privileged: true
+      ports:
+          - "9187:9187"
+      environment:
+          DATA_SOURCE_NAME: "postgres://${DB_USERNAME}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}?sslmode=disable"
+      depends_on:
+          prometheus:
+              condition: service_started
+          postgresql:
+              condition: service_healthy
+      restart: unless-stopped
+      networks:
+          - network1
+
+  redis-exporter:
+      image: oliver006/redis_exporter
+      container_name: redis-exporter
+      ports:
+        - "9121:9121"
+      environment:
+        REDIS_ADDR: "redis:6379"
+      networks:
+        - network1
+      depends_on:
+        - redis
+  

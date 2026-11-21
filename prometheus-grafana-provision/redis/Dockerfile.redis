@@ -1,0 +1,5 @@
+FROM redis:alpine
+
+ENV REDIS_PASSWORD your_password
+
+COPY redis.conf /etc/redis.conf
