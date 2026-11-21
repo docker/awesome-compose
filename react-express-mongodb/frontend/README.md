@@ -5,7 +5,7 @@ You will find this `DockerFile` inside **frontend** directory.
 ```bash
 # Create image based on the official Node image from dockerhub
 FROM node:10
-#Argument that is passed from docer-compose.yaml file
+#Argument that is passed from docker-compose.yaml file
 ARG FRONT_END_PORT
 # Create app directory
 WORKDIR /usr/src/app
