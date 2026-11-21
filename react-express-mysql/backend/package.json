@@ -7,7 +7,7 @@
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
-    "start-watch": "nodemon src/index.js --inspect=0.0.0.0:9229",
+    "start-watch": "nodemon --inspect=0.0.0.0:9229 src/index.js",
     "start-wait-debuger": "nodemon src/index.js --inspect-brk=0.0.0.0:9229",
     "test": "cross-env NODE_ENV=test PORT=8081 mocha --timeout 10000 --exit --inspect=0.0.0.0:9230",
     "test-watch": "nodemon --exec \"npm test\"",
