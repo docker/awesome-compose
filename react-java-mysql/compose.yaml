@@ -32,6 +32,9 @@ services:
       - db-data:/var/lib/mysql
     networks:
       - spring-mysql
+    expose:
+      - 3306
+      - 33060
   frontend:
     build:
       context: frontend
@@ -45,9 +48,6 @@ services:
       - react-spring
     depends_on:
       - backend
-    expose:
-      - 3306
-      - 33060
 volumes:
   db-data: {}
 secrets:
