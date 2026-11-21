@@ -14,10 +14,10 @@ Project structure:
 
 [_compose.yaml_](compose.yaml)
 ```
-services: 
-  web: 
-    build: app 
-    ports: 
+services:
+  web:
+    build: app
+    ports:
       - '8000:8000'
 ```
 
