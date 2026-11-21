@@ -13,7 +13,7 @@ services:
     secrets:
       - db-password
     volumes:
-      - db-data:/var/lib/postgresql/data
+      - db-data:/var/lib/postgresql
     networks:
       - spring-postgres
     environment:
