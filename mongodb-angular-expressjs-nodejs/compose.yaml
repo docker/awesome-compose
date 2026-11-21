@@ -1,0 +1,41 @@
+services:
+  backend:
+    restart: on-failure
+    build: ./backend
+    volumes:
+      - ./backend:/usr/src/app
+    hostname: backend
+    container_name: backend
+  mongo:
+    restart: on-failure
+    image: mongo
+    ports:
+      - '27017:27017'
+    volumes:
+      - /data/db
+    hostname: mongo
+    container_name: mongo
+  nginx:
+    build: ./nginx
+    ports:
+    - '80:80'
+    depends_on:
+    - backend
+    - mongo
+    hostname: nginx
+    container_name: nginx
+
+  frontend:
+    build:
+      context: frontend
+      target: builder
+    ports:
+      - 4200:4200
+    volumes:
+      - ./frontend:/project
+      - /project/node_modules
+    hostname: frontend
+    container_name: frontend
+
+
+
